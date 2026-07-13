@@ -1,0 +1,83 @@
+/* Person detail page: portrait left / biography right on desktop, stacked on
+   mobile (360px floor). Reuses the breadcrumb, prev/next pager (.object-pager),
+   and card grid (.collection-*) styles from object.css; only the portrait,
+   biography, and related-row wrappers are person-specific. */
+
+/* --- Two-column layout -------------------------------------------------- */
+.person__layout {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 60rem) {
+  .person__layout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* Portrait stays in view while the biography scrolls. */
+  .person__portrait-col {
+    position: sticky;
+    top: var(--space-2xl);
+  }
+}
+
+/* --- Portrait ----------------------------------------------------------- */
+.person-portrait {
+  margin: 0;
+  background: color-mix(in srgb, var(--black-cow) 12%, transparent);
+}
+
+.person-portrait__img {
+  width: 100%;
+  aspect-ratio: 3 / 4; /* interim: no image dimensions until pipeline (08) */
+  object-fit: cover;
+}
+
+.person-portrait__credit {
+  margin-top: var(--space-xs);
+  font-size: var(--step--1);
+  color: var(--black-cow);
+}
+
+/* --- Name / role / lifespan --------------------------------------------- */
+.person__name {
+  margin-bottom: var(--space-2xs);
+  color: var(--heading-on-light);
+}
+
+.person__role {
+  font-size: var(--step-1);
+  color: var(--black-cow);
+  margin-bottom: var(--space-2xs);
+}
+
+.person__lifespan {
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-on-light);
+  margin-bottom: var(--space-l);
+}
+
+.person__bio {
+  max-width: var(--measure);
+  display: grid;
+  gap: var(--space-m);
+}
+
+/* --- Related rows (objects, people) ------------------------------------- */
+.related-row {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-l);
+  border-top: 1px solid color-mix(in srgb, var(--black-cow) 20%, transparent);
+}
+
+.related-row__heading {
+  color: var(--accent-on-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: var(--section-title);
+  margin-bottom: var(--space-l);
+}

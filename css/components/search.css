@@ -1,0 +1,189 @@
+/* Search (feature 11): the nav search control, the /search/ page bands, and the
+   Pagefind UI restyled to the design tokens. Colours/type/spacing from tokens.css;
+   the gold accent (--squash) only ever appears on the dark header. */
+
+/* --- Nav search control --------------------------------------------------- */
+/* A real link to /search/ (works with JS off). Sits in the header bar on every
+   breakpoint — beside the hamburger on mobile, after the list on desktop. */
+.site-nav {
+  gap: var(--space-m);
+}
+
+.site-nav__search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs);
+  color: inherit;
+  border-radius: 999px;
+}
+
+.site-nav__search .nav-icon-wrap {
+  display: inline-flex;
+}
+
+.site-nav__search:hover,
+.site-nav__search:focus-visible,
+.site-nav__search[aria-current="page"],
+.site-nav__search[aria-expanded="true"] {
+  color: var(--accent-on-dark); /* squash gold — dark header only */
+}
+
+/* --- Search panel (the dropdown "modal") ---------------------------------- */
+/* Anchored to the full-width sticky .site-header band (the wrapper is left
+   unpositioned on purpose), so it drops from the header's bottom edge and
+   `inset-inline-end: 0` is flush with the window's right edge at every width —
+   no per-screen nudge. The mobile menu anchors to the same band, unaffected. */
+.site-search-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-search {
+  position: absolute;
+  top: 100%;
+  inset-inline-end: 0;
+  z-index: 10;
+  width: min(90vw, 26rem);
+  max-height: min(80vh, 34rem);
+  overflow-y: auto;
+  padding: var(--space-m) var(--space-l) var(--space-l);
+  background: var(--bg-light);
+  color: var(--text-on-light);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 38%);
+}
+
+.site-search[hidden] {
+  display: none;
+}
+
+.site-search__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  margin-block-end: var(--space-s);
+}
+
+.site-search__title {
+  margin: 0;
+  font-size: var(--step-1);
+  color: var(--heading-on-light);
+}
+
+.site-search__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs);
+  background: none;
+  border: 0;
+  color: var(--text-on-light);
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.site-search__close:hover,
+.site-search__close:focus-visible {
+  color: var(--accent-on-light); /* falu-red — light surface */
+}
+
+/* Entrance: a short drop-in, motion-gated (spec: all motion behind the query). */
+@media (prefers-reduced-motion: no-preference) {
+  .site-search:not([hidden]) {
+    animation: search-drop var(--duration-quick) var(--ease);
+  }
+  @keyframes search-drop {
+    from {
+      opacity: 0;
+      transform: translateY(-0.5rem);
+    }
+  }
+}
+
+/* --- Search page: hero band ----------------------------------------------- */
+/* Reuse .page-hero but drop the tall foot-set framing: the search field wants to
+   be near the top, so this band is compact and top-aligned. */
+.search-hero {
+  min-height: auto;
+  align-items: flex-start;
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+/* --- Search page: results band -------------------------------------------- */
+.search-body {
+  min-height: 60vh; /* keep the footer down the page before any results load */
+}
+
+.search-noscript {
+  font-size: var(--step-0);
+  max-width: var(--measure);
+}
+
+.search-noscript__links {
+  list-style: none;
+  margin: var(--space-l) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-l);
+}
+
+.search-noscript__links a {
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-on-light); /* falu-red — light band */
+}
+
+/* --- Pagefind UI: token restyle ------------------------------------------- */
+/* Pagefind UI is driven by CSS custom properties; map them to our tokens so the
+   widget reads as part of the site. Scoped to the mount so nothing leaks. */
+.search-ui {
+  --pagefind-ui-scale: 1;
+  --pagefind-ui-primary: var(--deep-cove);
+  --pagefind-ui-text: var(--text-on-light);
+  --pagefind-ui-background: #ffffff;
+  --pagefind-ui-border: color-mix(
+    in srgb,
+    var(--chinese-black) 16%,
+    transparent
+  );
+  --pagefind-ui-tag: var(--ghost-white);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 10px;
+  --pagefind-ui-font: var(--font-body);
+}
+
+/* Focus ring: Pagefind's reset reverts the field to the browser's (blue) UA
+   outline; give it our own ring instead. Squash gold fails contrast on this light
+   surface (dark-only in our tokens), so the ring is black per the palette. */
+.search-ui .pagefind-ui__search-input:focus {
+  outline: 2px solid var(--chinese-black);
+  outline-offset: 2px;
+  border-color: var(--chinese-black);
+}
+
+/* Keyboard focus for the panel's other controls (clear button, result links). */
+.search-ui
+  :is(.pagefind-ui__search-clear, .pagefind-ui__result-link):focus-visible {
+  outline: 2px solid var(--chinese-black);
+  outline-offset: 2px;
+}
+
+/* Result titles in Alice, in the heading colour, to match the rest of the site. */
+.search-ui .pagefind-ui__result-title,
+.search-ui .pagefind-ui__result-title .pagefind-ui__result-link {
+  font-family: var(--font-heading);
+  color: var(--heading-on-light);
+}
+
+.search-ui .pagefind-ui__result-link:hover {
+  color: var(--accent-on-light);
+}
+
+/* Slightly roomier hit target on the message/summary text. */
+.search-ui .pagefind-ui__result {
+  padding-block: var(--space-m);
+}

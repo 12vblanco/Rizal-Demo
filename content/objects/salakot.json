@@ -1,0 +1,40 @@
+{
+  "id": "salakot",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 16,
+  "title": {
+    "en": "Hat",
+    "tl": "Salakot",
+    "es": "Salakot de plata y asta"
+  },
+  "objectType": "Headgear",
+  "materials": "Carabao horn, silver, rattan, nito, and cotton",
+  "dimensions": "H 13.5 x W 23.0 x C 84.0 cm",
+  "accession": "I C 18681",
+  "description": "This dome-shaped, oval-rimmed hat (salakot) is made from thin sheets of carabao horn. Silver flower studs embellish the overlapped edges, which are woven with thin metal strips. A sun-shaped dome crown, featuring embossed leaf and floral designs and a finial, tops the hat. A silver star-like stud, functioning as a nut, affixes the crown underneath. The inner headband uses open-weave rattan, and a chinstrap made of twilled cotton strings attaches to the headband. The brim consists of silver in a scalloped design and rattan. Lourdes Montinola (1991, p. 71) describes the salakot as a fashionable native hat among the middle class in the late 18th century. Jean Mallat (2021, p. 316) records that salacot hats are prized possessions that can pass on as gifts or function like currency.",
+  "condition": "Fair and stable condition. Has observable cracks on the carabao horn and brim; missing metal threads; a bend on the finial; discoloration and loose threads on the chinstrap.",
+  "images": [
+    {
+      "src": "salakot/crown-detail.webp",
+      "alt": "Close-up of the salakot crown, its horn panels joined by silver seams and star- and flower-shaped studs"
+    },
+    {
+      "src": "salakot/side.webp",
+      "alt": "The salakot seen from the side, showing its broad oval brim and hanging cotton chin cords"
+    },
+    {
+      "src": "salakot/front.webp",
+      "alt": "Domed salakot of translucent carabao horn studded with silver flowers, displayed on a stand, front view",
+      "deepZoom": true
+    }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "model3d": {
+    "src": "salakot.glb",
+    "poster": "salakot/model-poster.webp",
+    "altText": "Interactive 3D model of the silver-and-horn salakot, free to rotate and zoom"
+  },
+  "related": ["tangkulu"],
+  "featured": true
+}

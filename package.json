@@ -1,0 +1,29 @@
+{
+  "name": "rizal-digital-exhibition",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static rebuild of the NMP Rizal Digital Exhibition (rizal.nationalmuseum.gov.ph)",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "build": "node build.js",
+    "test:content": "node scripts/test-content.js",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run build && npm run test:content && html-validate \"dist/**/*.html\" && linkinator ./dist --recurse --skip \"^https://\" --silent && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^22.20.1",
+    "chokidar": "^4.0.0",
+    "html-validate": "^9.0.0",
+    "linkinator": "^6.1.0",
+    "pagefind": "^1.5.2",
+    "sharp": "^0.35.3",
+    "typescript": "^5.9.3"
+  }
+}

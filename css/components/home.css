@@ -1,0 +1,320 @@
+/* Landing page: hero CTAs + entrance, signature motif, persona section cards
+   (live horizontal + upcoming grid), Rizal-in-Germany / About teasers, and the
+   Rizal pull-quote. Hero band, video, and scrim live in layout.css; the footer
+   in footer.css. All colours/type/spacing come from tokens.css. */
+
+/* --- Hero CTAs + entrance ---------------------------------------------- */
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  margin-block-start: var(--space-xl);
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-s) var(--space-l);
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: var(--step--1);
+  text-decoration: none;
+  transition:
+    background var(--duration-quick) var(--ease),
+    color var(--duration-quick) var(--ease),
+    border-color var(--duration-quick) var(--ease);
+}
+
+.hero-btn--primary {
+  background: var(--accent-on-dark);
+  color: var(--chinese-black);
+}
+
+.hero-btn--primary:hover {
+  background: color-mix(in srgb, var(--accent-on-dark) 82%, white);
+}
+
+.hero-btn--ghost {
+  border: 1px solid color-mix(in srgb, var(--text-on-dark) 55%, transparent);
+  color: var(--text-on-dark);
+}
+
+.hero-btn--ghost:hover {
+  background: color-mix(in srgb, var(--text-on-dark) 12%, transparent);
+  border-color: var(--text-on-dark);
+}
+
+/* One restrained, staggered entrance — only when motion is welcome. Outside the
+   media query the elements keep their natural visible state, so reduced-motion
+   and JS-off users never see the pre-animation opacity. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__title {
+    animation: hero-rise 700ms var(--ease) both;
+  }
+  .hero__intro {
+    animation: hero-rise 700ms var(--ease) 120ms both;
+  }
+  .hero__actions {
+    animation: hero-rise 700ms var(--ease) 240ms both;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Persona section cards --------------------------------------------- */
+/* All four personas render identically as ready, linkable cards. The band is
+   white; each card is the client grey (black cow) lifted with a soft shadow —
+   the "highlight" — portrait cards on white, laid out 2×2. Card fill is the
+   footer black (chinese-black) with light copy over it. The CTA is white, not
+   gold: gold on a dark card is fine but we keep it plain white here. */
+.home-personas {
+  background: var(--bg-light);
+  color: var(--text-on-light);
+  padding-block: var(--space-xl);
+}
+
+.persona-section__heading {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-size: var(--section-title);
+}
+
+.persona-list {
+  list-style: none;
+  margin-inline: auto;
+  padding: 0;
+  max-width: 66rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+/* 2 rows of 2 from ~40rem up; kept compact so the grid fits the viewport. */
+@media (min-width: 40rem) {
+  .persona-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.persona-card {
+  background: var(--chinese-black);
+  color: var(--text-on-dark);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgb(0 0 0 / 14%);
+}
+
+.persona-card__link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: var(--text-on-dark);
+}
+
+.persona-card__media {
+  display: block;
+  overflow: hidden;
+  background: var(--black-cow);
+}
+
+.persona-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease);
+}
+
+.persona-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-m) var(--space-l);
+}
+
+.persona-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--step-1);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.persona-card__intro {
+  margin: 0;
+  font-size: var(--step--1);
+  color: color-mix(in srgb, var(--text-on-dark) 82%, transparent);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.persona-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-block-start: var(--space-2xs);
+  color: var(--text-on-dark);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Hover/focus: the whole card link goes gold (legal on the dark card) and the
+   CTA underlines. The intro sets its own colour, so re-tint it explicitly. */
+.persona-card__link:hover,
+.persona-card__link:focus-visible,
+.persona-card__link:hover,
+.persona-card__link:focus-visible,
+.persona-card__link:hover .persona-card__cta {
+  color: var(--accent-on-dark);
+}
+
+.persona-card__link:hover .persona-card__cta,
+.persona-card__link:focus-visible .persona-card__cta {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.persona-card__link:hover .persona-card__img {
+  transform: scale(1.03);
+}
+
+/* --- Teasers ----------------------------------------------------------- */
+.home-teasers {
+  padding-block: var(--space-3xl);
+}
+
+.teaser-grid {
+  display: grid;
+  gap: var(--space-l);
+}
+
+@media (min-width: 48rem) {
+  .teaser-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Colored card: padded text over a solid accent surface, photo flush across the
+   rounded bottom. Cards stretch to equal height (grid); the content fills the
+   space above so the image stays pinned to the card bottom. Accent = data-driven
+   (cove navy / falu red) — both are dark, so white copy + gold link clear AA. */
+.teaser {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 16px;
+  color: var(--text-on-dark);
+  background: var(--surface-secondary);
+  box-shadow: 0 12px 26px rgb(0 0 0 / 14%);
+}
+
+.teaser--cove {
+  background: var(--deep-cove);
+}
+
+.teaser--falu {
+  background: var(--falu-red);
+}
+
+.teaser__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-xl) var(--space-xl) var(--space-l);
+}
+
+/* Override the .band--light h2 colour — the card is a dark surface. */
+.teaser .teaser__heading {
+  color: var(--text-on-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.teaser__text {
+  margin: 0;
+  color: color-mix(in srgb, var(--text-on-dark) 92%, transparent);
+}
+
+.teaser__more {
+  align-self: start;
+  margin-block-start: var(--space-xs);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: var(--accent-on-dark);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.teaser__more:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.teaser__media {
+  display: block;
+  overflow: hidden;
+}
+
+.teaser__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* --- Pull-quote -------------------------------------------------------- */
+/* Grey (black cow) band between the personas and the teasers, gold quote text.
+   The large quote clears AA on black cow; the smaller attribution is kept light
+   (gold would be ~4.4:1, under the 4.5 needed for its size). */
+.home-quote {
+  background: var(--black-cow);
+  color: var(--text-on-dark);
+  padding-block: var(--space-3xl);
+}
+
+.pullquote {
+  margin: 0;
+  margin-inline: auto;
+  max-width: 42ch;
+  text-align: center;
+}
+
+.pullquote__text {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--step-3);
+  line-height: 1.3;
+  color: var(--accent-on-dark);
+}
+
+.pullquote__cite {
+  margin-block-start: var(--space-l);
+  font-family: var(--font-heading);
+  font-size: var(--step-1);
+  color: color-mix(in srgb, var(--text-on-dark) 88%, transparent);
+}
+
+.pullquote__signature svg {
+  width: 240px;
+  color: var(--accent-on-dark);
+}

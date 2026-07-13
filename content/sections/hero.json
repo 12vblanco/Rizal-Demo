@@ -1,0 +1,11 @@
+{
+  "id": "hero",
+  "title": "Rizal as Hero",
+  "intro": "José Rizal proved that the pen can cut deeper than any sword. Through his writings, he sparked the flames of revolution and inspired generations to stand against injustice, marking the rise of a hero whose words continue to resonate through the nation's history.",
+  "heroImage": {
+    "src": "sections/hero.webp",
+    "alt": "Bronze statues in a park depicting José Rizal amid figures from Philippine history"
+  },
+  "categories": [],
+  "status": "upcoming"
+}

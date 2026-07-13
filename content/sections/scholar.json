@@ -1,0 +1,11 @@
+{
+  "id": "scholar",
+  "title": "Rizal as Scholar",
+  "intro": "Throughout his life as a scholar, José Rizal not only travelled the world, but also encountered, befriended, and learned from exchanges with some of history's notable figures. This not only made him an expert in different fields; it also revealed Rizal's character outside his love for country, always seeking and craving knowledge.",
+  "heroImage": {
+    "src": "sections/scholar.png",
+    "alt": "Gold-toned stylized portrait of the young José Rizal against painterly brushstrokes"
+  },
+  "categories": [],
+  "status": "live"
+}

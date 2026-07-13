@@ -1,0 +1,496 @@
+/* Object detail page: breadcrumb, gallery, metadata, prev/next pager, and the
+   "Explore Other Collection" card grid. Gallery left / metadata right on
+   desktop, stacked on mobile (360px floor). */
+
+/* Cross-document View Transitions — grid card ⇄ object hero morph. Progressive
+   enhancement: unsupported browsers just navigate; the UA disables this under
+   prefers-reduced-motion. Per-object view-transition-name is set inline. */
+@view-transition {
+  navigation: auto;
+}
+
+/* --- Breadcrumb --------------------------------------------------------- */
+.breadcrumb {
+  margin-bottom: var(--space-l);
+}
+
+.breadcrumb__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-s);
+  font-size: var(--step--1);
+}
+
+.breadcrumb__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-s);
+}
+
+.breadcrumb__list li + li::before {
+  content: "/";
+  color: var(--black-cow);
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--black-cow);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-on-light);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--text-on-light);
+}
+
+/* --- Two-column layout -------------------------------------------------- */
+.object__layout {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 60rem) {
+  .object__layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  /* Metadata column follows the gallery on scroll for tall galleries. */
+  .object__info-col {
+    position: sticky;
+    top: calc(var(--space-2xl));
+  }
+}
+
+/* --- Gallery ------------------------------------------------------------ */
+.object-gallery__main {
+  margin: 0;
+  background: color-mix(in srgb, var(--black-cow) 12%, transparent);
+}
+
+.object-gallery__img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* interim: no image dimensions until pipeline (08) */
+  object-fit: cover;
+}
+
+.object-gallery__credit {
+  margin-top: var(--space-xs);
+  font-size: var(--step--1);
+  color: var(--black-cow);
+}
+
+.object-gallery__thumbs {
+  list-style: none;
+  margin: var(--space-s) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4.5rem, 1fr));
+  gap: var(--space-xs);
+}
+
+.object-gallery__thumb {
+  display: block;
+  border: 2px solid transparent;
+}
+
+.object-gallery__thumb[aria-current="true"] {
+  border-color: var(--accent-on-light);
+}
+
+.object-gallery__thumb-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* --- 3D model view (feature 10) ---------------------------------------- */
+/* Slide 0 is a render (poster) of the model. The launch button covers it until
+   the visitor opens the model; js/main.js then loads <model-viewer> in place.
+   The magnifying-glass zoom button takes that model fullscreen in the dialog. */
+.object-gallery__model {
+  position: relative;
+}
+
+/* The launch affordance covers the poster; clicking it loads the inline model. */
+.object-gallery__model-launch {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  background: color-mix(in srgb, var(--chinese-black) 12%, transparent);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.object-gallery__model-launch[hidden] {
+  display: none;
+}
+
+.object-gallery__model-launch:hover,
+.object-gallery__model-launch:focus-visible {
+  background: color-mix(in srgb, var(--chinese-black) 28%, transparent);
+}
+
+/* "3D" chip, top-left: signals this slide is the model. */
+.object-gallery__badge {
+  position: absolute;
+  top: var(--space-s);
+  left: var(--space-s);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs) var(--space-xs);
+  border-radius: 999px;
+  background: var(--chinese-black);
+  color: var(--text-on-dark);
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.object-gallery__badge svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* Centered "View in 3D" call to action, the cue to load the inline model. */
+.object-gallery__model-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-xs) var(--space-l);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--chinese-black) 88%, transparent);
+  color: var(--text-on-dark);
+  font-size: var(--step-0);
+  transition: color 0.2s ease;
+}
+
+.object-gallery__model-launch:hover .object-gallery__model-cta,
+.object-gallery__model-launch:focus-visible .object-gallery__model-cta {
+  color: var(--squash);
+}
+
+/* GLB streaming loader: a label + a 0→100 fill bar, over the box while it loads. */
+.object-gallery__model-loader {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-xs) var(--space-m);
+  color: var(--text-on-dark);
+  background: color-mix(in srgb, var(--chinese-black) 68%, transparent);
+  font-size: var(--step--1);
+}
+
+.object-gallery__model-loader[hidden] {
+  display: none;
+}
+
+.object-gallery__model-loader-track {
+  height: 4px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ghost-white) 28%, transparent);
+  overflow: hidden;
+}
+
+.object-gallery__model-loader-bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--squash);
+  transition: width 0.2s ease;
+}
+
+/* "Drag to rotate" hint, flashed for ~2s once the model has loaded. */
+.object-gallery__model-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-m);
+  transform: translateX(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-l);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--chinese-black) 82%, transparent);
+  color: var(--text-on-dark);
+  font-size: var(--step--1);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.object-gallery__model-prompt[hidden] {
+  display: none;
+}
+
+.object-gallery__model-prompt.is-visible {
+  opacity: 1;
+}
+
+/* Two sequential hints share the pill; only the active phase shows. */
+.object-gallery__model-prompt-item {
+  display: none;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.object-gallery__model-prompt-item.is-active {
+  display: inline-flex;
+}
+
+/* The mouse glyph moves to signal the gesture (motion-gated): drag = sideways,
+   scroll = up/down. Each phase runs for ~1.5s. */
+@media (prefers-reduced-motion: no-preference) {
+  .object-gallery__model-prompt-item.is-active .nav-icon--drag {
+    animation: model-drag-hint 0.75s ease-in-out 2;
+  }
+  .object-gallery__model-prompt-item.is-active .nav-icon--scroll {
+    animation: model-scroll-hint 0.75s ease-in-out 2;
+  }
+}
+
+@keyframes model-drag-hint {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes model-scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-4px);
+  }
+  70% {
+    transform: translateY(4px);
+  }
+}
+
+/* Once the model loads it replaces the poster, so hide the still. (Needs an
+   author rule: `picture { display: contents }` otherwise beats UA `[hidden]`.) */
+.object-gallery__model picture[hidden] {
+  display: none;
+}
+
+/* The live inline model fills the gallery box, same footprint as a photo slide
+   (.object-gallery__img). `height: auto` is required: model-viewer's own :host
+   rule sets height:150px, which would otherwise win and defeat the aspect-ratio. */
+.object-gallery__model-viewer {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  background: var(--chinese-black);
+}
+
+/* The 3D thumbnail carries a small corner label so it reads as the model. */
+.object-gallery__thumb--model {
+  position: relative;
+}
+
+.object-gallery__thumb-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 0 var(--space-2xs);
+  background: var(--chinese-black);
+  color: var(--text-on-dark);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* --- Metadata ----------------------------------------------------------- */
+.object__title {
+  margin-bottom: var(--space-xs);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-s);
+}
+
+.object__title-native {
+  color: var(--heading-on-light);
+}
+
+.object__title-en {
+  font-family: var(--font-body);
+  font-size: var(--step-1);
+  color: var(--black-cow);
+}
+
+.object__title-es {
+  font-size: var(--step-0);
+  color: var(--black-cow);
+  margin-bottom: var(--space-l);
+}
+
+.object-meta {
+  margin: 0 0 var(--space-l);
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.object-meta > div {
+  display: grid;
+  grid-template-columns: minmax(7rem, 10rem) 1fr;
+  gap: var(--space-s);
+  padding-block: var(--space-2xs);
+  border-top: 1px solid color-mix(in srgb, var(--black-cow) 20%, transparent);
+}
+
+.object-meta dt {
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black-cow);
+}
+
+.object-meta dd {
+  margin: 0;
+}
+
+.object__description {
+  max-width: var(--measure);
+}
+
+.object__rights {
+  margin-top: var(--space-l);
+  font-size: var(--step--1);
+  color: var(--black-cow);
+}
+
+/* --- Prev/next pager (object-to-object; distinct from viewer image nav) -- */
+.object-pager {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-l);
+  border-top: 1px solid color-mix(in srgb, var(--black-cow) 20%, transparent);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.object-pager__link {
+  text-decoration: none;
+  display: grid;
+  gap: var(--space-2xs);
+  max-width: 45%;
+}
+
+.object-pager__link--next {
+  text-align: end;
+  margin-inline-start: auto;
+}
+
+.object-pager__dir {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black-cow);
+}
+
+.object-pager__link--prev .object-pager__dir::before {
+  content: "← ";
+}
+
+.object-pager__link--next .object-pager__dir::after {
+  content: " →";
+}
+
+.object-pager__name {
+  font-family: var(--font-heading);
+  font-size: var(--step-1);
+  color: var(--heading-on-light);
+}
+
+.object-pager__link:hover .object-pager__name {
+  color: var(--accent-on-light);
+}
+
+/* --- Explore Other Collection grid -------------------------------------- */
+.collection__heading {
+  text-align: center;
+  color: var(--accent-on-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: var(--section-title);
+  margin-bottom: var(--space-xl);
+}
+
+.collection-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  gap: var(--space-l);
+}
+
+.collection-card__link {
+  text-decoration: none;
+  display: grid;
+  gap: var(--space-s);
+  height: 100%;
+}
+
+.collection-card__media {
+  display: block;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--black-cow) 12%, transparent);
+}
+
+.collection-card__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease);
+}
+
+.collection-card__link:hover .collection-card__img {
+  transform: scale(1.04);
+}
+
+.collection-card__body {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.collection-card__native {
+  font-family: var(--font-heading);
+  font-size: var(--step-1);
+  color: var(--heading-on-light);
+}
+
+.collection-card__en,
+.collection-card__type {
+  font-size: var(--step--1);
+  color: var(--black-cow);
+}

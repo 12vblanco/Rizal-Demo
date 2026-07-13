@@ -1,0 +1,124 @@
+{
+  "siteTitle": "The Hero, Artist, and Ethnographer",
+  "siteSubtitle": "José Rizal in the Philippines and in Germany",
+  "exhibitionTitle": "Connecting and Collecting",
+  "exhibitionSubtitle": "Rizal's Ethnographic Objects in Germany",
+  "homeTitle": "The Hero, Artist, and Ethnographer: José Rizal Digital Exhibition",
+  "baseUrl": "https://rizal.nationalmuseum.gov.ph",
+  "basePath": "/",
+  "language": "en",
+  "description": "This digital exhibition reflects on Rizal's life, offering a glimpse into his many facets beyond the renowned hero. A gifted artist, an ethnographer championing Filipino culture, and an exceptional scholar.",
+  "heroCtas": [
+    { "label": "Watch the video", "href": "/about/" },
+    { "label": "Read more", "href": "/jose-rizal/" }
+  ],
+  "homeQuote": {
+    "text": "Ang paaralan ang aklat kung saan nakasulat ang kinabukasan ng bayan.",
+    "lang": "tl",
+    "attribution": "José Rizal"
+  },
+  "homeTeasers": [
+    {
+      "heading": "Rizal in Germany",
+      "href": "/rizal-in-germany/",
+      "accent": "cove",
+      "text": "José Rizal traveled to Germany to pursue his specialization in ophthalmology. Little did he know that his stay, particularly in Berlin, would soon open his eyes to a broader perspective and worldview. From finishing Noli Me Tángere to engaging with leading scientists, Rizal came to understand his identity more clearly.",
+      "image": {
+        "src": "home/rizal-in-germany.webp",
+        "alt": "Bronze statue of José Rizal, hand to chin and holding a book, on a plaza before forested German hills"
+      }
+    },
+    {
+      "heading": "About the Project",
+      "href": "/about/",
+      "accent": "falu",
+      "text": "This digital exhibition reflects on Rizal's life, offering a glimpse into his many facets beyond the renowned hero: a gifted artist, an ethnographer championing Filipino culture, and an exceptional scholar.",
+      "image": {
+        "src": "home/about-the-project.webp",
+        "alt": "Conservators in white coats examining a beaded artifact on a documentation table in a museum studio"
+      }
+    }
+  ],
+  "nav": [
+    { "label": "Home", "href": "/" },
+    {
+      "label": "Jose Rizal",
+      "href": "/jose-rizal/",
+      "children": [
+        { "label": "As Hero", "href": "/hero/" },
+        { "label": "As Artist", "href": "/artist/" },
+        { "label": "As Ethnographer", "href": "/ethnographer/" },
+        { "label": "As Scholar", "href": "/scholar/" }
+      ]
+    },
+    { "label": "Rizal in Germany", "href": "/rizal-in-germany/" },
+    { "label": "About", "href": "/about/" }
+  ],
+  "footerNav": [
+    { "label": "Overview", "href": "/jose-rizal/" },
+    { "label": "Hero", "href": "/hero/" },
+    { "label": "Artist", "href": "/artist/" },
+    { "label": "Ethnographer", "href": "/ethnographer/" },
+    { "label": "Scholar", "href": "/scholar/" },
+    { "label": "About", "href": "/about/" }
+  ],
+  "copyright": "© All rights reserved · National Museum of the Philippines · 2026",
+  "footerCtas": [
+    { "label": "Explore the exhibition", "href": "/jose-rizal/" },
+    { "label": "Contact us", "href": "mailto:inquiry@nationalmuseum.gov.ph" },
+    {
+      "label": "Visit the museum",
+      "href": "https://www.google.com/maps/search/?api=1&query=National+Museum+of+the+Philippines+Manila"
+    }
+  ],
+  "footer": {
+    "aboutHeading": "About the Project",
+    "aboutText": "The National Museum of the Philippines is an educational, scientific, and cultural institution that acquires, documents, preserves, exhibits, and fosters scholarly studies and public appreciation of works of art, specimens, and cultural and historical artifacts representative of the unique cultural heritage of the Filipino people and natural history of the Philippines.",
+    "contactHeading": "Contact Us"
+  },
+  "contact": {
+    "address": "P. Burgos Drive, Rizal Park, Manila",
+    "email": "inquiry@nationalmuseum.gov.ph",
+    "phone": "(+632) 8298-1100"
+  },
+  "partners": [
+    {
+      "name": "National Museum of the Philippines",
+      "logo": "img/logos/national-museum.webp"
+    },
+    {
+      "name": "Ethnologisches Museum, Staatliche Museen zu Berlin",
+      "logo": "img/logos/ethnologisches-museum.webp"
+    },
+    { "name": "Bagong Pilipinas", "logo": "img/logos/bagong-pilipinas.webp" },
+    {
+      "name": "Office of Senator Loren Legarda",
+      "logo": "img/logos/loren-legarda.webp",
+      "chip": true
+    },
+    {
+      "name": "Embassy of the Republic of the Philippines, Berlin",
+      "logo": "img/logos/embassy-berlin.webp"
+    },
+    {
+      "name": "National Historical Commission of the Philippines",
+      "logo": "img/logos/nhcp.webp"
+    }
+  ],
+  "social": [
+    {
+      "name": "Facebook",
+      "href": "https://www.facebook.com/nationalmuseumofthephilippines/"
+    },
+    { "name": "X", "href": "https://twitter.com/natmuseumph" },
+    { "name": "Instagram", "href": "https://www.instagram.com/natmuseumph" },
+    {
+      "name": "YouTube",
+      "href": "https://www.youtube.com/nationalmuseumofthephilippines"
+    }
+  ],
+  "analytics": {
+    "provider": "",
+    "id": ""
+  }
+}

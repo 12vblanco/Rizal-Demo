@@ -1,0 +1,70 @@
+/* Design tokens — the only place colours, type, and spacing values live.
+   Source: client art direction (spec, UI/UX section). Usage rules:
+   - --squash (gold): accent on DARK backgrounds only — fails contrast on light.
+   - --falu-red: accent on LIGHT backgrounds only; decorative on dark.
+   - --deep-cove: headings/accents on light; alternative dark surface. */
+
+:root {
+  /* Colour — primary */
+  --chinese-black: #151616;
+  --black-cow: #4d4c4c;
+  --ghost-white: #f8f9fb;
+
+  /* Colour — accents */
+  --squash: #f2ac1d;
+  --falu-red: #761113;
+  --deep-cove: #0f103e;
+
+  /* Semantic colour roles */
+  --bg-dark: var(--chinese-black);
+  --bg-light: var(--ghost-white);
+  --text-on-dark: var(--ghost-white);
+  --text-on-light: var(--chinese-black);
+  --accent-on-dark: var(--squash);
+  --accent-on-light: var(--falu-red);
+  --heading-on-light: var(--deep-cove);
+  --surface-secondary: var(--black-cow);
+
+  /* Typography.
+     Alice ships in Regular 400 only — hierarchy comes from size, spacing,
+     case, and colour, never faux-bold (font-synthesis: none in base.css).
+     Body: Figtree stands in for Gotham until the licence is confirmed
+     (open question #1) — swapping is this one line. */
+  --font-heading: "Alice", "Iowan Old Style", "Times New Roman", serif;
+  --font-body: "Figtree", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+
+  /* Fluid type scale (minor third-ish, 360px → 1280px viewport) */
+  --step--1: clamp(0.93rem, 0.9rem + 0.18vw, 1.2rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.13rem);
+  --step-1: clamp(1.2rem, 1.13rem + 0.31vw, 1.42rem);
+  --step-2: clamp(1.44rem, 1.33rem + 0.48vw, 1.77rem);
+  --step-3: clamp(1.73rem, 1.57rem + 0.71vw, 2.22rem);
+  --step-4: clamp(2.07rem, 1.85rem + 1.02vw, 2.77rem);
+  --step-5: clamp(2.49rem, 2.16rem + 1.45vw, 3.46rem);
+
+  /* Section-title heading size — every h2 that titles a content section. */
+  --section-title: 2.625rem; /* 42px */
+
+  /* Spacing scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-s: 0.75rem;
+  --space-m: 1rem;
+  --space-l: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --container-max: 1440px;
+  --measure: 65ch;
+
+  /* Motion (every use gated behind prefers-reduced-motion) */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration-quick: 150ms;
+  --duration-slow: 400ms;
+
+  /* Focus */
+  --focus-ring-on-dark: var(--squash);
+  --focus-ring-on-light: var(--deep-cove);
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ethnographer",
+  "title": "Rizal as Ethnographer",
+  "intro": "During his trip to Europe in 1888, José Rizal sent 21 objects from London to Berlin, pieces of culture representing communities from all across the country. His ethnographic contributions painted a full picture of the Philippine archipelago and its culture.",
+  "heroImage": {
+    "src": "sections/ethnographer.webp",
+    "alt": "A domed salakot of translucent carabao horn studded with silver flowers, displayed on a stand"
+  },
+  "categories": [
+    { "id": "clothing", "label": "Articles of Clothing" },
+    { "id": "daily-life", "label": "Technologies of Daily Life" }
+  ],
+  "status": "live"
+}

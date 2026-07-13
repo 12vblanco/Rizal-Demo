@@ -1,0 +1,24 @@
+{
+  // Type-checking only — never emits (the build is plain ES modules via build.js).
+  // `npm run typecheck` runs this as part of `npm run check`. It type-checks the
+  // render + build layer against the JSDoc typedefs in src/types.js. noImplicitAny
+  // is off on purpose: the content.js validators operate on untrusted JSON (`any`
+  // by design), so requiring them to be fully typed is a separate follow-up (07c).
+  // Every typedef is still load-bearing here — wrong property names, wrong shapes,
+  // and bad call signatures all fail the check.
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "esnext",
+    "lib": ["esnext"],
+    "types": ["node"],
+    "strict": false,
+    "noImplicitAny": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.js", "build.js"]
+}

@@ -1,0 +1,97 @@
+{
+  "intro": "This digital exhibition reflects on Rizal's life, offering a glimpse into his many facets beyond the renowned hero: a gifted artist, an ethnographer championing Filipino culture, and an exceptional scholar.",
+  "blurbs": [
+    {
+      "heading": "About the National Museum of the Philippines",
+      "body": "The National Museum of the Philippines is an educational, scientific, and cultural institution that acquires, documents, preserves, exhibits, and fosters scholarly studies and public appreciation of works of art, specimens, and cultural and historical artifacts representative of the unique cultural heritage of the Filipino people and natural history of the Philippines.\n\nIt manages and develops museums comprising the National Museum Complex in Manila as well as 20 regional museums in key locations across the country."
+    },
+    {
+      "heading": "About the Ethnologisches Museum Berlin",
+      "body": "The Ethnologisches Museum Berlin aims to investigate the legacy and ramifications of colonialism, as well as the role and standpoint of Europe. Having the largest and most significant collections worldwide, the museum partnered with source communities in Africa, Asia, Oceania and America which put into context the interaction of cultures in fostering global understanding that goes beyond the Eurocentric viewpoint."
+    }
+  ],
+  "messagesHeading": "Messages",
+  "messages": [
+    {
+      "name": "Hon. Loren Legarda",
+      "role": "Senator of the Republic of the Philippines and Trustee of the National Museum",
+      "poster": {
+        "src": "about/messages/loren-legarda.webp",
+        "alt": "Hon. Loren Legarda, from her video message for the exhibition"
+      },
+      "video": "assets/video/sll.mp4"
+    },
+    {
+      "name": "Jeremy R. Barns",
+      "role": "National Museum of the Philippines",
+      "poster": {
+        "src": "about/messages/jeremy-barns.webp",
+        "alt": "Jeremy R. Barns, from his video message for the exhibition"
+      },
+      "video": "assets/video/barns.mp4"
+    },
+    {
+      "name": "Gerardo P. Abiog",
+      "role": "Embassy of the Republic of the Philippines, Berlin, Germany",
+      "poster": {
+        "src": "about/messages/gerardo-abiog.webp",
+        "alt": "Gerardo P. Abiog, from his video message for the exhibition"
+      },
+      "video": "assets/video/berlin.mp4"
+    },
+    {
+      "name": "Carminda Arevalo",
+      "role": "National Historical Commission of the Philippines",
+      "poster": {
+        "src": "about/messages/carminda-arevalo.webp",
+        "alt": "Carminda Arevalo, from her video message for the exhibition"
+      },
+      "video": "assets/video/nhcp.mp4"
+    },
+    {
+      "name": "Arvin Manuel D. Villalon",
+      "role": "National Museum of the Philippines",
+      "poster": {
+        "src": "about/messages/arvin-manuel-villalon.webp",
+        "alt": "Arvin Manuel D. Villalon, from his video message for the exhibition"
+      },
+      "video": "assets/video/villalon.mp4"
+    },
+    {
+      "name": "Lucien Spittael",
+      "role": "Knight Grand Officer of Rizal",
+      "poster": {
+        "src": "about/messages/lucien-spittael.webp",
+        "alt": "Lucien Spittael, from his video message for the exhibition"
+      },
+      "video": "assets/video/spittael.mp4"
+    },
+    {
+      "name": "Jorell Legaspi",
+      "role": "Ayala Foundation, Inc. / Former NMP Deputy Director-General for Museums",
+      "poster": {
+        "src": "about/messages/jorell-legaspi.webp",
+        "alt": "Jorell Legaspi, from his video message for the exhibition"
+      },
+      "video": "assets/video/jml.mp4"
+    },
+    {
+      "name": "Maria Cristina Juan",
+      "role": "Co-curator",
+      "poster": {
+        "src": "about/messages/maria-cristina-juan.webp",
+        "alt": "Maria Cristina Juan, from her video message for the exhibition"
+      },
+      "video": "assets/video/juan.mp4"
+    },
+    {
+      "name": "Marrianne Ubalde",
+      "role": "National Museum of the Philippines",
+      "poster": {
+        "src": "about/messages/marrianne-ubalde.webp",
+        "alt": "Marrianne Ubalde, from her video message for the exhibition"
+      },
+      "video": "assets/video/ianne.mp4"
+    }
+  ]
+}

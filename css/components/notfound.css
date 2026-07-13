@@ -1,0 +1,60 @@
+/* Custom 404 — a short dark band with escape routes back into the IA. Gold on
+   chinese-black is high-contrast, so the code + links stay AA. */
+
+.notfound {
+  display: flex;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.notfound__inner {
+  max-width: 46rem;
+}
+
+.notfound__code {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: var(--step-5);
+  line-height: 1;
+  color: var(--accent-on-dark);
+}
+
+.notfound__title {
+  margin-block: var(--space-xs) var(--space-m);
+}
+
+.notfound__text {
+  margin-inline: auto;
+  color: color-mix(in srgb, var(--text-on-dark) 88%, transparent);
+}
+
+.notfound__links {
+  list-style: none;
+  margin: var(--space-xl) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-s) var(--space-l);
+}
+
+.notfound__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  text-decoration: none;
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-on-dark);
+}
+
+.notfound__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.notfound__home {
+  margin-block-start: var(--space-xl);
+}

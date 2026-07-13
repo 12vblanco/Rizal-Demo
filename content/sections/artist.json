@@ -1,0 +1,12 @@
+{
+  "id": "artist",
+  "title": "Rizal as Artist",
+  "intro": "Long before his name was etched in Philippine history, José Rizal was a talented boy who made figures from clay, wax, and wood. His works show not just his craftsmanship, but also the quiet journey of a mind observing the world with wonder.",
+  "heroImage": {
+    "src": "sections/artist.webp",
+    "alt": "Pencil self-portrait of the young José Rizal, signed 'Rizal', on aged paper",
+    "credit": "Self-portrait by José Rizal"
+  },
+  "categories": [],
+  "status": "upcoming"
+}

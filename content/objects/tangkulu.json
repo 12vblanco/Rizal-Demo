@@ -1,0 +1,30 @@
+{
+  "id": "tangkulu",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 17,
+  "title": {
+    "en": "Headscarf for men",
+    "tl": "Tangkulu",
+    "es": "Pañuelo"
+  },
+  "objectType": "Headcloth",
+  "materials": "Cotton, glass beads, and abaca fiber",
+  "accession": "I C 18682",
+  "description": "This red, square-shaped, tie-dyed cotton headcloth features small white beads embellishing all sides and dangling beads on all four corners. The maker used the pelangi dyeing technique, tying the cotton cloth with abaca threads to create patterns of small white circles after dyeing it with red (Quizon 2012, p. 45, 48). This particular headcloth is common among the Mindanao indigenous groups (Blaan, Bagobo, and Manobo) and characterizes a “priestly” and “chiefly” role in the community (Quizon 2012, pp. 46-47).",
+  "condition": "Fair and stable condition. Has a few dark red/brown stains; stitch-repaired tears/holes; remnants of abaca threads (probably used as a tie before dyeing).",
+  "images": [
+    {
+      "src": "tangkulu/front.webp",
+      "alt": "Square red tie-dyed cotton tangkulu with concentric white-circle patterns and beaded edges, front",
+      "deepZoom": true
+    },
+    {
+      "src": "tangkulu/back.webp",
+      "alt": "Reverse of the tangkulu showing the tie-dye patterning and beaded corner tassels"
+    }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["salakot"],
+  "featured": false
+}

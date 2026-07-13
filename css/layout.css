@@ -1,0 +1,308 @@
+/* Layout primitives: container, bands, header, nav, footer, hero. */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--space-l);
+}
+
+/* Narrow container for long-form prose (essays, content pages). */
+.container--narrow {
+  max-width: min(72ch, 100%);
+}
+
+/* Bands — dark hero bands alternating with light content bands */
+.band {
+  padding-block: var(--space-2xl);
+}
+
+.band--dark {
+  background: var(--bg-dark);
+  color: var(--text-on-dark);
+}
+
+.band--dark h1,
+.band--dark h2,
+.band--dark h3 {
+  color: var(--text-on-dark);
+}
+
+.band--light {
+  background: var(--bg-light);
+  color: var(--text-on-light);
+}
+
+.band--light h1,
+.band--light h2,
+.band--light h3 {
+  color: var(--heading-on-light);
+}
+
+/* Header */
+.site-header {
+  padding-block: var(--space-m);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+}
+
+.site-header__brand {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+/* Museum mark, left of the wordmark. Inherits the header's text colour via
+   currentColor (light on the dark band) — set an explicit colour here to
+   override. Aspect ratio ~2.3:1; height drives the size. */
+.site-header__mark {
+  flex: none;
+  height: 2.75rem;
+  width: auto;
+}
+
+.site-header__brand-text {
+  display: grid;
+}
+
+.site-header__brand-title {
+  font-family: var(--font-heading);
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0.4rem 0 -0.1rem 0rem;
+}
+
+.site-header__brand-subtitle {
+  font-size: var(--step--1);
+  color: color-mix(in srgb, var(--text-on-dark) 75%, transparent);
+}
+
+/* Nav — mobile-first: a hamburger toggles a full-width panel dropped below the
+   sticky header; the Jose Rizal submenu is an inline accordion. Desktop (≥52rem)
+   is a horizontal bar with the submenu as an absolute dropdown. Both toggles are
+   real disclosure buttons (aria-expanded, driven by js/main.js), so the menu is
+   keyboard-operable and degrades to the parent links + footer when JS is off. */
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+/* Hamburger toggle — mobile only */
+.site-nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xs);
+  margin: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.site-nav__toggle-icon {
+  display: inline-flex;
+}
+
+.site-nav__toggle .nav-icon--close {
+  display: none;
+}
+
+.site-nav__toggle[aria-expanded="true"] .nav-icon--menu {
+  display: none;
+}
+
+.site-nav__toggle[aria-expanded="true"] .nav-icon--close {
+  display: block;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent-on-dark);
+}
+
+/* Submenu disclosure button (chevron) */
+.nav-dropdown__toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2xs);
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+.nav-dropdown__chevron {
+  display: inline-flex;
+  transition: transform var(--duration-quick) var(--ease);
+}
+
+.nav-dropdown__toggle[aria-expanded="true"] .nav-dropdown__chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-xs) 0;
+  display: none;
+}
+
+.nav-dropdown__toggle[aria-expanded="true"] + .nav-dropdown {
+  display: block;
+}
+
+.nav-dropdown a {
+  display: block;
+  padding: var(--space-xs) var(--space-m);
+  white-space: nowrap; /* keep multi-word items like "As Ethnographer" on one line */
+}
+
+/* Mobile: list is a panel below the header, revealed by the hamburger. */
+@media (max-width: 51.999rem) {
+  .site-nav__list {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    flex-direction: column;
+    background: var(--bg-dark);
+    padding: var(--space-s) var(--space-l) var(--space-l);
+    border-top: 1px solid color-mix(in srgb, var(--text-on-dark) 15%, transparent);
+    box-shadow: 0 12px 24px rgb(0 0 0 / 35%);
+  }
+  .site-nav__toggle[aria-expanded="true"] + .site-nav__list {
+    display: flex;
+  }
+  .nav-item {
+    padding-block: var(--space-2xs);
+  }
+  .nav-item--dropdown {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  .nav-dropdown {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Desktop: horizontal bar; submenu is an absolute dropdown revealed on hover,
+   focus-within, or the disclosure button. */
+@media (min-width: 52rem) {
+  .site-nav__toggle {
+    display: none;
+  }
+  .site-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-l);
+  }
+  .nav-item--dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xs);
+  }
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    inset-inline-start: 0;
+    min-width: 12rem;
+    background: var(--bg-dark);
+    box-shadow: 0 12px 24px rgb(0 0 0 / 35%);
+  }
+  .nav-item--dropdown:hover .nav-dropdown,
+  .nav-item--dropdown:focus-within .nav-dropdown,
+  .nav-dropdown__toggle[aria-expanded="true"] + .nav-dropdown {
+    display: block;
+  }
+}
+
+/* Hero — looping background video (js/main.js plays it only when motion is
+   welcome; otherwise the poster still shows) with the intro over a scrim. */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-3xl);
+  min-height: calc(100vh - 87px);
+  display: flex;
+  align-items: center;
+}
+
+.hero__video,
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Darken toward the lower-left where the copy sits, so text stays AA-legible
+   over the brighter parts of the footage. */
+.hero__scrim {
+  z-index: 1;
+  background: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--bg-dark) 86%, transparent) 0%,
+    color-mix(in srgb, var(--bg-dark) 55%, transparent) 45%,
+    color-mix(in srgb, var(--bg-dark) 48%, transparent) 100%
+  );
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.hero__title {
+  font-size: var(--step-5);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  max-width: 22ch;
+}
+
+.hero__subtitle {
+  display: block;
+  font-size: var(--step-2);
+  color: var(--accent-on-dark);
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.hero__intro {
+  font-size: var(--step-1);
+  max-width: 55ch;
+}
+
+/* Footer lives in css/components/footer.css */

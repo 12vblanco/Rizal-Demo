@@ -1,0 +1,303 @@
+/* Site footer (final, ref ../../footer-design-final.png) — a dark band split
+   into a left panel (NMP logo + partner seals + pinned address) and a body
+   (bold nav row, About + gold CTA pills, gold social icons), with contact and
+   copyright in the bottom bar. Panel shares the footer colour; a hairline rule
+   divides it from the body. Gold accents on dark per the token rules. */
+
+.site-footer {
+  --fpad: clamp(var(--space-l), 5vw, var(--space-3xl));
+  padding: 0;
+}
+
+/* ── Top: panel + body ───────────────────────────────────────────────── */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-2xl) var(--space-2xl) calc(var(--space-xl) / 2)
+    var(--space-2xl);
+}
+
+@media (min-width: 52rem) {
+  .footer-top {
+    grid-template-columns: minmax(14rem, 20rem) 1fr;
+    gap: 0;
+  }
+  .footer-panel {
+    padding-inline-end: var(--space-xl);
+    border-inline-end: 1px solid
+      color-mix(in srgb, var(--text-on-dark) 16%, transparent);
+  }
+  .footer-body {
+    padding-inline-start: var(--space-2xl);
+  }
+}
+
+/* Panel — same colour as the footer; logo top, seals, pinned address bottom */
+.footer-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  color: var(--text-on-dark);
+}
+
+.footer-panel__logo {
+  width: min(100%, 14rem);
+  height: auto;
+}
+
+.footer-panel__seals {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-l) var(--space-m);
+  align-items: center;
+  justify-items: center;
+}
+
+/* The Ethnologisches Museum lockup is wide — its own full-width row. */
+.footer-panel__seals li:first-child {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.footer-panel__seals img {
+  width: auto;
+  max-width: 100%;
+  max-height: 4rem;
+}
+
+/* German (Ethnologisches) lockup rendered as wide as the NMP logo above it. */
+.footer-panel__seals li:first-child img {
+  width: min(100%, 14rem);
+  max-height: none;
+  height: auto;
+}
+
+/* Seals whose own artwork needs a light backing to read on the dark panel. */
+.footer-seal--chip {
+  background: var(--ghost-white);
+  border-radius: var(--space-l);
+  padding: var(--space-s) var(--space-m);
+  border-radius: 8px;
+}
+
+.footer-panel__address {
+  display: flex;
+  align-items: start;
+  gap: var(--space-xs);
+  margin: 2rem 0;
+  margin-block-start: auto;
+  max-width: none;
+  font-family: var(--font-heading);
+  font-size: var(--step-1);
+  line-height: 1.3;
+}
+
+.footer-pin {
+  flex: none;
+  margin-block-start: 0.15em;
+  color: var(--accent-on-dark);
+}
+
+/* ── Body ────────────────────────────────────────────────────────────── */
+.footer-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.footer-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-xl);
+}
+
+.footer-nav a {
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--step--1);
+}
+
+.footer-nav a:hover {
+  color: var(--accent-on-dark);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.footer-rule {
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--text-on-dark) 22%, transparent);
+  width: 100%;
+  margin: 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 48rem) {
+  .footer-grid {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+}
+
+.footer-heading {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--step-0);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-block-end: var(--space-s);
+}
+
+.footer-heading a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  text-decoration: none;
+  color: var(--accent-on-dark);
+}
+
+.footer-heading a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+.footer-exhibition {
+  margin: var(--space-l) 0 0;
+  max-width: none;
+}
+
+.footer-exhibition__title {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--step-2);
+  line-height: 1.15;
+}
+
+.footer-exhibition__sub {
+  display: block;
+  color: color-mix(in srgb, var(--text-on-dark) 75%, transparent);
+  margin-bottom: 3rem;
+}
+
+/* Right column: pills on top, social icons pinned to the bottom-right */
+.footer-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--space-l);
+}
+
+.footer-ctas {
+  display: flex;
+  flex-direction: column;
+  max-width: 282px;
+
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding: var(--space-s) var(--space-l);
+  border-radius: 999px;
+  background: var(--accent-on-dark);
+  color: var(--chinese-black);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background var(--duration-quick) var(--ease);
+}
+
+.footer-pill:hover {
+  background: color-mix(in srgb, var(--accent-on-dark) 82%, white);
+}
+
+.footer-pill .footer-arrow {
+  flex: none;
+}
+
+/* Gold social icons — 15% larger than the base circle */
+.footer-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-s);
+}
+
+.footer-social__link {
+  display: grid;
+  place-items: center;
+  width: 4.15rem;
+  height: 4.15rem;
+  border-radius: 50%;
+  color: var(--accent-on-dark);
+  transition:
+    color var(--duration-quick),
+    background var(--duration-quick),
+    border-color var(--duration-quick);
+}
+
+.footer-social__link:hover {
+  color: var(--chinese-black);
+  background: var(--accent-on-dark);
+  border-color: var(--accent-on-dark);
+}
+
+.footer-social__link svg {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Contact — sits under the social icons in the right column */
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-m);
+}
+
+.footer-contact__label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: var(--step--1);
+  color: var(--accent-on-dark);
+}
+
+/* ── Copyright bar (compact) ─────────────────────────────────────────── */
+.site-footer__bar {
+  padding: 2rem 5rem;
+  border-top: 1px solid color-mix(in srgb, var(--text-on-dark) 15%, transparent);
+}
+
+.site-footer__copyright {
+  margin: 0;
+  max-width: none;
+  font-size: var(--step--1);
+  color: color-mix(in srgb, var(--text-on-dark) 70%, transparent);
+}

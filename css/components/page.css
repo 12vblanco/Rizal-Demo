@@ -1,0 +1,77 @@
+/* Standalone content pages (Jose Rizal overview, Rizal in Germany, About): the
+   dark hero band matches the section (persona) hero. A tall band with the
+   left-aligned title and standfirst set at the foot, an optional background
+   image under a scrim, over a light prose band. Colours/type/spacing from
+   tokens.css. The persona-card grid the overview appends is styled in home.css. */
+
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(60vh, 34rem);
+  text-align: start;
+  padding-block: var(--space-3xl) var(--space-2xl);
+}
+
+.page-hero__bg,
+.page-hero__scrim {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Left-weighted scrim keeps the foot-set title/standfirst AA-legible over any
+   image (same technique as the section hero). */
+.page-hero__scrim {
+  z-index: 1;
+  background: linear-gradient(
+    95deg,
+    color-mix(in srgb, var(--bg-dark) 88%, transparent) 0%,
+    color-mix(in srgb, var(--bg-dark) 62%, transparent) 55%,
+    color-mix(in srgb, var(--bg-dark) 45%, transparent) 100%
+  );
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero__title {
+  font-size: var(--step-5);
+  margin: 0;
+}
+
+.page-hero__intro {
+  font-size: var(--step-1);
+  max-width: 60ch;
+  margin-inline: 0;
+  margin-block-start: var(--space-m);
+  color: color-mix(in srgb, var(--text-on-dark) 90%, transparent);
+}
+
+/* Prose body */
+.page-body__heading {
+  color: var(--heading-on-light);
+  font-size: var(--section-title);
+  margin-block-end: var(--space-xs);
+}
+
+.page-body__byline {
+  margin: 0 0 var(--space-xl);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black-cow);
+}
+
+.page-body__prose > p {
+  font-size: var(--step-0);
+}

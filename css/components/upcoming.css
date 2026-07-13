@@ -1,0 +1,12 @@
+/* Upcoming state badge (dark bands only — gold accent rule). */
+
+.upcoming-badge {
+  display: inline-block;
+  font-size: var(--step--1);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-on-dark);
+  border: 1px solid currentcolor;
+  padding: var(--space-2xs) var(--space-s);
+  margin-block-end: var(--space-m);
+}

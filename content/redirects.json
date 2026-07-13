@@ -1,0 +1,12 @@
+[
+  { "from": "rizal.html", "to": "/" },
+  { "from": "overview.html", "to": "/jose-rizal/" },
+  { "from": "ethnographer.html", "to": "/ethnographer/" },
+  { "from": "scholar.html", "to": "/scholar/" },
+  { "from": "hero.html", "to": "/hero/" },
+  { "from": "artist.html", "to": "/artist/" },
+  { "from": "rizal_germany.html", "to": "/rizal-in-germany/" },
+  { "from": "aboutus.html", "to": "/about/" },
+  { "from": "ethnographer/hat.html", "to": "/ethnographer/salakot/" },
+  { "from": "ethnographer/headscarf_for_men.html", "to": "/ethnographer/tangkulu/" }
+]
