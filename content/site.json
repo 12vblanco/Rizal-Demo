@@ -9,7 +9,7 @@
   "language": "en",
   "description": "This digital exhibition reflects on Rizal's life, offering a glimpse into his many facets beyond the renowned hero. A gifted artist, an ethnographer championing Filipino culture, and an exceptional scholar.",
   "heroCtas": [
-    { "label": "Watch the video", "href": "/about/" },
+    { "label": "Watch the video", "video": "assets/video/rizal_avp2.mp4" },
     { "label": "Read more", "href": "/jose-rizal/" }
   ],
   "homeQuote": {

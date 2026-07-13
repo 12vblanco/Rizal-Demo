@@ -28,6 +28,17 @@ function renderHeroCtas(site) {
   const buttons = site.heroCtas
     .map((cta, i) => {
       const variant = i === 0 ? "hero-btn--primary" : "hero-btn--ghost";
+      if (cta.video) {
+        // Streamed from the museum's phase-1 origin (self-hosted MP4, not
+        // re-hosted here — same pattern as the About "Messages" videos, built
+        // from site.baseUrl so it plays in dev and prod, rule 7). The href is
+        // a real link to that file — the browser plays it natively with JS
+        // off — and doubles as data-video so js/main.js can intercept the
+        // click and open it in the video dialog instead, without leaving the
+        // page.
+        const url = `${site.baseUrl}/${cta.video}`;
+        return `<a class="hero-btn ${variant}" href="${esc(url)}" data-video="${esc(url)}">${esc(cta.label)}</a>`;
+      }
       return `<a class="hero-btn ${variant}" href="${esc(cta.href)}">${esc(cta.label)}</a>`;
     })
     .join("\n      ");

@@ -22,6 +22,11 @@
  * @typedef {object} Link
  * @property {string} label
  * @property {string} href
+ * @property {string} [video] - baseUrl-relative video file (self-hosted at
+ *   the museum origin, like the About "Messages" videos — not committed to
+ *   this repo); when present the CTA's href is derived from it and it opens
+ *   in the video dialog on click (JS), the derived href being its no-JS
+ *   fallback link (plays natively).
  */
 
 /**

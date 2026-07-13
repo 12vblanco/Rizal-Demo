@@ -112,6 +112,81 @@ for (const button of document.querySelectorAll(".message-card__play")) {
   });
 }
 
+// Hero "Watch the video" CTA (site.json heroCtas[].video): a real link to the
+// video file — works with JS off, the browser plays it natively — that JS
+// intercepts and opens in a native <dialog> instead, so visitors stay on the
+// page. Same accessible shape as the zoom viewer (09): built-in focus trap,
+// Esc via the `cancel` event, backdrop click, and a #watch history entry so
+// the back button closes it — but far simpler (no deep zoom), so it lives here
+// rather than as its own lazy-loaded module.
+let videoDialog;
+let videoDialogEl;
+let videoDialogHistoryPushed = false;
+
+function buildVideoDialog() {
+  if (videoDialog) return;
+  videoDialog = document.createElement("dialog");
+  videoDialog.className = "video-dialog";
+  videoDialog.setAttribute("aria-label", "Watch the video");
+  videoDialog.innerHTML = `
+    <button class="video-dialog__close" type="button">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6 18 18M18 6 6 18"/></svg>
+      <span class="visually-hidden">Close video</span>
+    </button>
+    <video class="video-dialog__video" controls playsinline></video>`;
+  document.body.append(videoDialog);
+  videoDialogEl = videoDialog.querySelector(".video-dialog__video");
+
+  videoDialog.addEventListener("click", (event) => {
+    if (event.target.closest(".video-dialog__close")) closeVideoDialog();
+    else if (event.target === videoDialog) closeVideoDialog(); // backdrop click
+  });
+  videoDialog.addEventListener("cancel", (event) => {
+    event.preventDefault(); // keep dialog.close() routed through closeVideoDialog
+    closeVideoDialog();
+  });
+}
+
+function openVideoDialog(src) {
+  if (!src) return;
+  buildVideoDialog();
+  videoDialogEl.src = src;
+  videoDialog.showModal();
+  videoDialogEl.play().catch(() => {
+    /* Autoplay blocked — the visible native controls let the visitor start it. */
+  });
+  history.pushState({ video: true }, "", "#watch");
+  videoDialogHistoryPushed = true;
+}
+
+function closeVideoDialog() {
+  if (videoDialog?.open) videoDialog.close();
+  videoDialogEl?.pause();
+  if (videoDialogEl) {
+    videoDialogEl.removeAttribute("src");
+    videoDialogEl.load(); // stop buffering/playback, free the resource
+  }
+  if (videoDialogHistoryPushed) {
+    videoDialogHistoryPushed = false;
+    history.back(); // pop the #watch entry → URL returns to the page beneath
+  } else if (location.hash === "#watch") {
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+}
+
+window.addEventListener("popstate", () => {
+  if (videoDialog?.open) {
+    videoDialogHistoryPushed = false;
+    closeVideoDialog();
+  }
+});
+
+const heroVideoCta = document.querySelector(".hero-btn[data-video]");
+heroVideoCta?.addEventListener("click", (event) => {
+  event.preventDefault();
+  openVideoDialog(heroVideoCta.getAttribute("data-video"));
+});
+
 // Object gallery + zoom viewer (feature 09). Two behaviours, both enhancement:
 //   - Thumbnails swap which image the main gallery box shows (inline), and mark
 //     the active thumbnail. They stay <a href> links, so a no-JS user still

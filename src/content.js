@@ -314,9 +314,13 @@ function validateSite(errors, file, site, assetsDir) {
   // only when its data is present, so nothing here is invented copy).
   if (site.heroCtas !== undefined && reqArray(errors, file, site, "heroCtas")) {
     site.heroCtas.forEach((item, i) => {
-      checkKeys(errors, file, item, ["label", "href"], `heroCtas[${i}]`);
+      checkKeys(errors, file, item, ["label", "href", "video"], `heroCtas[${i}]`);
       reqString(errors, file, item, "label");
-      reqString(errors, file, item, "href");
+      optString(errors, file, item, "video");
+      // `video` CTAs derive their href from baseUrl + video (see home.js), so
+      // href is only required when there's no video to derive it from.
+      if (item.video === undefined) reqString(errors, file, item, "href");
+      else optString(errors, file, item, "href");
     });
   }
   if (site.homeQuote !== undefined) {

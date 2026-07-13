@@ -1,0 +1,49 @@
+/* Hero "Watch the video" dialog. Built by js/main.js on click (the CTA is a
+   real link to the file until then — no JS needed to watch it, just not in a
+   dialog). A centred, rounded card rather than the full-bleed zoom viewer
+   (viewer.css), so the two stay visually distinct. */
+
+.video-dialog {
+  width: min(92vw, 60rem);
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: var(--chinese-black);
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgb(0 0 0 / 45%);
+}
+
+.video-dialog::backdrop {
+  background: rgb(0 0 0 / 0.75);
+}
+
+.video-dialog__video {
+  display: block;
+  width: 100%;
+  max-height: 85vh;
+}
+
+.video-dialog__close {
+  position: absolute;
+  z-index: 2;
+  top: var(--space-s);
+  right: var(--space-s);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  color: var(--text-on-dark);
+  background: color-mix(in srgb, var(--chinese-black) 78%, transparent);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.video-dialog__close:hover,
+.video-dialog__close:focus-visible {
+  background: var(--chinese-black);
+  color: var(--squash);
+}
