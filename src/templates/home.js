@@ -18,6 +18,7 @@ import { orderedPersonas, personaCard } from "./fragments.js";
  * @typedef {import("../types.js").Site} Site
  * @typedef {import("../types.js").Section} Section
  * @typedef {import("../types.js").HomeTeaser} HomeTeaser
+ * @typedef {import("../types.js").ContentObject} ContentObject
  */
 
 // --- Hero ------------------------------------------------------------------
@@ -60,6 +61,61 @@ function renderHero(site) {
     <p class="hero__intro">${esc(site.description)}</p>${renderHeroCtas(site)}
   </div>
 </section>`;
+}
+
+// --- 3D collection teaser ---------------------------------------------------
+// A centered, wrapping row of cards under the hero, announcing the site's
+// interactive 3D models and linking straight into each object's real page
+// (feature 06b). Built from every object carrying a `model3d` block; renders
+// nothing if none do. Its own card markup (not the shared `objectCard`) —
+// that fragment carries the `obj-<id>` view-transition-name used for the
+// section-grid→object-page morph, and this strip can show one object more
+// than once (below), which would duplicate that name in the same document.
+
+const MIN_3D_CARDS = 4;
+
+/** @param {Site} site @param {ContentObject} obj */
+function model3dCard(site, obj) {
+  const model = /** @type {NonNullable<ContentObject["model3d"]>} */ (obj.model3d);
+  const media = renderImage({
+    site,
+    image: { src: model.poster, alt: model.altText },
+    className: "models3d__img",
+    sizes: "(min-width: 60rem) 20rem, 60vw",
+  });
+  return `<li class="models3d__item">
+  <a class="models3d__link" href="/${obj.section}/${obj.id}/">
+    <span class="models3d__media">${media}
+      <span class="models3d__badge" aria-hidden="true">${icons.cube}3D</span>
+    </span>
+    <span class="models3d__body">
+      <span class="models3d__native" lang="tl">${esc(obj.title.tl)}</span>
+      <span class="models3d__en">${esc(obj.title.en)}</span>
+    </span>
+  </a>
+</li>`;
+}
+
+/** @param {Site} site @param {ContentObject[]} objects */
+function render3dGallery(site, objects) {
+  const models = objects.filter((o) => o.model3d);
+  if (!models.length) return "";
+  // Only one 3D object exists today (content-gaps.md); cycle it to fill a
+  // fuller-looking row until 11c/11d–11g add more model3d objects, at which
+  // point this naturally shows the real distinct set with no changes.
+  const count = Math.max(models.length, MIN_3D_CARDS);
+  const cards = Array.from({ length: count }, (_, i) => models[i % models.length]);
+  return `<div class="band home-3d">
+  <div class="container">
+    <section class="models3d" aria-labelledby="models3d-h">
+      <h2 class="models3d__heading" id="models3d-h">Explore artifacts in 3D</h2>
+      <p class="models3d__intro">Select objects from the collection have interactive 3D models: rotate and zoom them up close from their object page.</p>
+      <ul class="models3d__scroller">
+${cards.map((obj) => model3dCard(site, obj)).join("\n")}
+      </ul>
+    </section>
+  </div>
+</div>`;
 }
 
 // --- Persona section cards -------------------------------------------------
@@ -145,10 +201,11 @@ function renderQuote(site) {
 
 // --- Page ------------------------------------------------------------------
 
-/** @param {{site: Site, sections?: Section[]}} p */
-export function renderHome({ site, sections = [] }) {
+/** @param {{site: Site, sections?: Section[], objects?: ContentObject[]}} p */
+export function renderHome({ site, sections = [], objects = [] }) {
   return [
     renderHero(site),
+    render3dGallery(site, objects),
     renderPersonas(site, sections),
     renderQuote(site),
     renderTeasers(site),

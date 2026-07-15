@@ -110,16 +110,23 @@ function renderFooter(site) {
   } = site;
 
   // partners[0] is the host (NMP) — the panel's brand lockup; the rest are the
-  // collaborator seals in the grid below it (chip: white backing to read on dark).
+  // collaborator seals in the grid below it (chip: white backing to read on
+  // dark; caption: a visible name line under seals whose art alone doesn't
+  // spell out who they are — the image alt is then emptied so the name isn't
+  // announced twice).
   const [brand, ...seals] = partners ?? [];
   const brandImg = brand
     ? `<img class="footer-panel__logo" src="${esc(basePath + brand.logo)}" alt="${esc(brand.name)}" loading="lazy" decoding="async">`
     : "";
   const sealItems = seals
-    .map(
-      (p) =>
-        `<li${p.chip ? ' class="footer-seal--chip"' : ""}><img src="${esc(basePath + p.logo)}" alt="${esc(p.name)}" loading="lazy" decoding="async"></li>`,
-    )
+    .map((p) => {
+      const alt = p.caption ? "" : esc(p.name);
+      const img = `<img src="${esc(basePath + p.logo)}" alt="${alt}" loading="lazy" decoding="async">`;
+      if (p.caption) {
+        return `<li class="footer-seal--captioned">${img}<span class="footer-seal__caption">${esc(p.caption)}</span></li>`;
+      }
+      return `<li${p.chip ? ' class="footer-seal--chip"' : ""}>${img}</li>`;
+    })
     .join("\n");
   const navItems = (footerNav ?? [])
     .map((i) => `<li><a href="${esc(i.href)}">${esc(i.label)}</a></li>`)

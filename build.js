@@ -148,7 +148,7 @@ export async function build() {
         path: "/",
         title: site.homeTitle,
         description: site.description,
-        content: renderHome({ site, sections: content.sections }),
+        content: renderHome({ site, sections: content.sections, objects: content.objects }),
       }),
     },
   ];

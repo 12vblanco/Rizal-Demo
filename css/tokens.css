@@ -67,4 +67,17 @@
   /* Focus */
   --focus-ring-on-dark: var(--squash);
   --focus-ring-on-light: var(--deep-cove);
+
+  /* 3D model stage — warm neutral gradient behind interactive 3D objects,
+     shared by the home 3D teaser, the object page's inline gallery, and the
+     fullscreen dialog viewer. Darker at the top-right/bottom-left corners,
+     lighter through the centre. */
+  --model-stage-start: #39362f;
+  --model-stage-end: #5e5b52;
+  --model-stage-gradient: linear-gradient(
+    45deg,
+    var(--model-stage-start),
+    var(--model-stage-end),
+    var(--model-stage-start)
+  );
 }

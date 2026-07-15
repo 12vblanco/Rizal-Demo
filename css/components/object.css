@@ -306,7 +306,21 @@
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 3;
-  background: var(--chinese-black);
+  background: var(--model-stage-gradient);
+}
+
+/* The poster render's own background is fully transparent (it's a cutout, not
+   a photo), so the auto dominant-colour LQIP placeholder (images.js) samples
+   near-black from it and paints that behind the poster until/unless something
+   else shows through. Layer the same 3D stage gradient on top as a
+   background-image (not the `background` shorthand, which would wipe the LQIP
+   background-color the image-pipeline tests assert on) on every element that
+   paints this poster: the inline gallery slide and its "3D" thumbnail.
+   (Specificity: two classes beats the single-class `.lqip-*` rule regardless
+   of it being appended later in the bundle.) */
+.object-gallery__model .object-gallery__img,
+.object-gallery__thumb--model .object-gallery__thumb-img {
+  background-image: var(--model-stage-gradient);
 }
 
 /* The 3D thumbnail carries a small corner label so it reads as the model. */

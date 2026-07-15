@@ -399,12 +399,13 @@ function validateSite(errors, file, site, assetsDir) {
 
   if (reqArray(errors, file, site, "partners")) {
     site.partners.forEach((p, i) => {
-      checkKeys(errors, file, p, ["name", "logo", "chip"], `partners[${i}]`);
+      checkKeys(errors, file, p, ["name", "logo", "chip", "caption"], `partners[${i}]`);
       reqString(errors, file, p, "name");
       reqString(errors, file, p, "logo");
       if ("chip" in p && typeof p.chip !== "boolean") {
         errors.add(file, `partners[${i}].chip`, "must be a boolean");
       }
+      optString(errors, file, p, "caption");
     });
   }
   if (reqArray(errors, file, site, "social")) {

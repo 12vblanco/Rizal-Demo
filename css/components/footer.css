@@ -37,51 +37,74 @@
 .footer-panel {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: 1.2rem;
   color: var(--text-on-dark);
 }
 
 .footer-panel__logo {
-  width: min(100%, 14rem);
+  width: 100%;
   height: auto;
+  padding: 0 0.6rem;
 }
 
 .footer-panel__seals {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-l) var(--space-m);
+  display: flex;
+  gap: 0.8rem;
   align-items: center;
-  justify-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 /* The Ethnologisches Museum lockup is wide — its own full-width row. */
 .footer-panel__seals li:first-child {
-  grid-column: 1 / -1;
-  justify-self: start;
+  width: 100%;
+  height: 6rem;
 }
 
 .footer-panel__seals img {
-  width: auto;
-  max-width: 100%;
-  max-height: 4rem;
+  width: 100%;
+  max-height: 7rem;
 }
 
 /* German (Ethnologisches) lockup rendered as wide as the NMP logo above it. */
 .footer-panel__seals li:first-child img {
-  width: min(100%, 14rem);
-  max-height: none;
-  height: auto;
+  width: 100%;
 }
 
 /* Seals whose own artwork needs a light backing to read on the dark panel. */
 .footer-seal--chip {
   background: var(--ghost-white);
-  border-radius: var(--space-l);
-  padding: var(--space-s) var(--space-m);
+  padding: 3px;
   border-radius: 8px;
+}
+
+/* A seal with a visible name line underneath (its art alone doesn't spell out
+   who it is). The seal itself renders 10% smaller than its plain siblings
+   (max-height 7rem) to leave room for the caption at a similar overall
+   footprint. */
+.footer-seal--captioned {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-align: center;
+}
+
+.footer-seal--captioned img {
+  max-height: 6rem;
+  max-width: 6rem;
+  margin-bottom: -0.3rem;
+}
+
+.footer-seal__caption {
+  max-width: 7rem;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--text-on-dark);
 }
 
 .footer-panel__address {

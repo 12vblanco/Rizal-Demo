@@ -72,11 +72,14 @@
  */
 
 /**
- * A partner/collaborator logo lockup. `chip` gives a white backing on dark.
+ * A partner/collaborator logo lockup. `chip` gives a white backing on dark;
+ * `caption` sets a short line of text under the logo (e.g. an office name that
+ * isn't legible from the seal art alone).
  * @typedef {object} Partner
  * @property {string} name
  * @property {string} logo
  * @property {boolean} [chip]
+ * @property {string} [caption]
  */
 
 /**
