@@ -1,0 +1,19 @@
+{
+  "id": "saya-husi",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 5,
+  "title": { "en": "Silk Skirt", "tl": "Saya", "es": "Saya de Husi de Mujer" },
+  "objectType": "Skirt",
+  "materials": "Cotton, jusi (silk), and abaca",
+  "accession": "I C 18670",
+  "description": "This female lower garment, a long skirt with a train, is made of cotton, jusi (silk), and abaca. The skirt is mainly cotton, woven with jusi in thick horizontal and vertical stripes, creating a plaid effect. The hem, including the train, has an abaca (sinamay) inner lining of around one foot at the front to two feet at the train, to stiffen the bottom of the skirt, creating a slightly darker, yellowish shade of pink. The waistband is made of white cotton cloth with a cotton twill tape garter inside to adjust it to the wearer's size.",
+  "condition": "Fair condition, with noticeable yellowing on the waistband and a dirt stain on the train. There is also a hole at the back with a patchwork repair, and a few frayed and loose threads.",
+  "images": [
+    { "src": "saya-husi/front.webp", "alt": "Silk-and-cotton saya (long skirt) in a pink plaid weave with a deep hem border, shown paired with its striped camisa blouse on a mannequin, front view", "deepZoom": true },
+    { "src": "saya-husi/side.webp", "alt": "Three-quarter view of the pink plaid saya's full gathered skirt and train, worn with the matching striped blouse" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["camisa-husi"],
+  "featured": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "trousers",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 14,
+  "title": { "en": "Trousers", "tl": "Calzón", "es": "Calzón" },
+  "objectType": "Trousers",
+  "materials": "Cotton, abaca cord, glass beads, and sequins",
+  "accession": "I C 18679",
+  "description": "This red, tie-dyed cotton pair of trousers features a wide crotch and wide leg openings. The pelangi or plangi technique, similar to IC 18678, forms a series of repeating triangles and horizontal lines across the thighs and near the leg hems, both front and back. A brown and natural-colored, braided abaca cord functions as a belt at the waist. Each leg hem has a black cloth panel sewn on, carrying an appliqué of three white cloth strips, creating alternating horizontal lines of black and white. Red cotton twines, some holding white beads, are sewn on top of these strips. A series of gray sequins and small white beads surrounds the black cloth panel.",
+  "condition": "Fair and stable condition. Small black stains on the front, stitch-repaired holes, and fading in the crotch area; a few loose threads; improperly tied circles resulted in some being dyed light red.",
+  "images": [
+    { "src": "trousers/front.webp", "alt": "Red pelangi-dyed cotton trousers with a wide crotch, cream tie-dyed star patterns on the thighs and a braided abaca cord tied at the waist", "deepZoom": true },
+    { "src": "trousers/back.webp", "alt": "Reverse of the trousers, showing beaded black-and-white cuffs banding each wide leg hem below more tie-dyed star motifs" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["tangkulu", "unfinished-upper-garment"],
+  "featured": false
+}

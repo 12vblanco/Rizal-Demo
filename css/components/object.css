@@ -464,14 +464,14 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
   gap: var(--space-l);
 }
 
 .collection-card__link {
   text-decoration: none;
   display: grid;
-  gap: var(--space-s);
+  gap: 0;
   height: 100%;
 }
 
@@ -483,7 +483,7 @@
 
 .collection-card__img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   transition: transform var(--duration-slow) var(--ease);
 }
@@ -492,8 +492,21 @@
   transform: scale(1.04);
 }
 
+/* Old-paper label: a warm cream panel (squash gold tinting ghost-white) under
+   the flush-edge photo, distinct from the plain light band behind the grid. */
 .collection-card__body {
   display: grid;
+  gap: var(--space-2xs);
+  padding: var(--space-m);
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.collection-card__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--space-2xs);
 }
 
@@ -503,8 +516,20 @@
   color: var(--heading-on-light);
 }
 
-.collection-card__en,
-.collection-card__type {
+.collection-card__badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-on-light);
+  background: var(--bg-light);
+  border: 1px solid var(--black-cow);
+  border-radius: 999px;
+  padding: 0.05em 0.55em;
+}
+
+.collection-card__en {
   font-size: var(--step--1);
   color: var(--black-cow);
 }

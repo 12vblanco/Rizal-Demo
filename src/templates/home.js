@@ -9,10 +9,10 @@
 // the hero is data-driven off site.json + the sections — each block renders only
 // when its data is present, so nothing here is invented copy.
 
-import { esc } from "./layout.js";
-import { renderImage } from "./media.js";
 import { icons } from "../icons.js";
 import { orderedPersonas, personaCard } from "./fragments.js";
+import { esc } from "./layout.js";
+import { renderImage } from "./media.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -76,7 +76,9 @@ const MIN_3D_CARDS = 4;
 
 /** @param {Site} site @param {ContentObject} obj */
 function model3dCard(site, obj) {
-  const model = /** @type {NonNullable<ContentObject["model3d"]>} */ (obj.model3d);
+  const model = /** @type {NonNullable<ContentObject["model3d"]>} */ (
+    obj.model3d
+  );
   const media = renderImage({
     site,
     image: { src: model.poster, alt: model.altText },
@@ -104,12 +106,15 @@ function render3dGallery(site, objects) {
   // fuller-looking row until 11c/11d–11g add more model3d objects, at which
   // point this naturally shows the real distinct set with no changes.
   const count = Math.max(models.length, MIN_3D_CARDS);
-  const cards = Array.from({ length: count }, (_, i) => models[i % models.length]);
+  const cards = Array.from(
+    { length: count },
+    (_, i) => models[i % models.length],
+  );
   return `<div class="band home-3d">
   <div class="container">
     <section class="models3d" aria-labelledby="models3d-h">
       <h2 class="models3d__heading" id="models3d-h">Explore artifacts in 3D</h2>
-      <p class="models3d__intro">Select objects from the collection have interactive 3D models: rotate and zoom them up close from their object page.</p>
+      <p class="models3d__intro">Highlighted objects from the collection with interactive 3D view.</p>
       <ul class="models3d__scroller">
 ${cards.map((obj) => model3dCard(site, obj)).join("\n")}
       </ul>
@@ -148,7 +153,9 @@ function renderTeaser(site, teaser) {
   // accent surface, with the photo flush across the rounded bottom. `accent` is a
   // data-driven modifier (cove / falu); text + image render when present.
   const accent = teaser.accent ? ` teaser--${esc(teaser.accent)}` : "";
-  const text = teaser.text ? `\n      <p class="teaser__text">${esc(teaser.text)}</p>` : "";
+  const text = teaser.text
+    ? `\n      <p class="teaser__text">${esc(teaser.text)}</p>`
+    : "";
   const media = teaser.image
     ? `\n    <span class="teaser__media">${renderImage({ site, image: teaser.image, className: "teaser__img", sizes: "(min-width: 48rem) 34rem, 100vw" })}</span>`
     : "";
@@ -183,10 +190,20 @@ function renderQuote(site) {
   if (!q) return "";
   const langAttr = q.lang ? ` lang="${esc(q.lang)}"` : "";
   // Rizal's real autograph (vector-traced from the live site, currentColor) is
-  // the attribution flourish — gold on the black-cow band, as in the mockup.
-  // The SVG is aria-hidden, so a visually-hidden name gives AT the attribution.
+  // the attribution flourish — gold on the dark band, as in the mockup. The SVG
+  // is the permanent version (JS-off / reduced-motion). js/main.js progressively
+  // swaps in rizal-signature.webp — the live site's own hand-drawn autograph
+  // animation, re-authored with real alpha so it sits on the band like the SVG —
+  // once the quote scrolls into view and motion is welcome; the file is trimmed
+  // + authored to loop once, so it simply holds on the finished signature
+  // afterwards (spec: all motion behind prefers-reduced-motion). Both are
+  // aria-hidden; the visually-hidden name gives AT the attribution either way.
+  // The <img> needs a valid src to be well-formed markup even though js/main.js
+  // doesn't assign the real file until it should start (a 1x1 transparent GIF —
+  // not "" as a placeholder, which some browsers resolve to the document's own
+  // URL); data-anim-src carries the real path.
   const signature = icons["rizal-signature"]
-    ? `<span class="pullquote__signature">${icons["rizal-signature"]}</span>
+    ? `<span class="pullquote__signature">${icons["rizal-signature"]}<img class="pullquote__signature-anim" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-anim-src="${esc(site.basePath)}img/rizal-signature.webp" alt="" aria-hidden="true" width="480" height="208" hidden></span>
       <span class="visually-hidden">${esc(q.attribution)}</span>`
     : esc(q.attribution);
   return `<div class="band home-quote">

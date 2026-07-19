@@ -35,6 +35,6 @@
     "poster": "salakot/model-poster.webp",
     "altText": "Interactive 3D model of the silver-and-horn salakot, free to rotate and zoom"
   },
-  "related": ["tangkulu"],
+  "related": ["tangkulu", "lambong"],
   "featured": true
 }

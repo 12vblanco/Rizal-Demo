@@ -1,0 +1,19 @@
+{
+  "id": "bakus",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 12,
+  "title": { "en": "Sash", "tl": "Bakus", "es": "Cordón de Mujer" },
+  "objectType": "Sash",
+  "materials": "Glass beads, cotton, brass, and silver",
+  "accession": "I C 18677",
+  "description": "This sash is made of small glass beads arranged in hexagonal patterns of white, red, orange, and yellow beads, alternating with stripes of black beads on the white bands. Each set of this pattern is bordered with red beads and connected to strings of white beads. The sash's ends are tied together through the fringes of dyed red, blue, and white cotton strings, with brass chains attached to ten dangling silver bells. This bakus is similar to the sinalapid of the Bagobo, a broad bead band worn by women over one shoulder and under the opposite arm.",
+  "condition": "Good and stable condition, with two broken bells and a few loose threads.",
+  "images": [
+    { "src": "bakus/front.webp", "alt": "Beaded sash (bakus) mounted in an oval loop, white beadwork bands patterned with red and black diamonds, joined at the top by a tasseled cluster of dyed cords and small bells", "deepZoom": true },
+    { "src": "bakus/worn.webp", "alt": "The bakus worn diagonally across a mannequin's torso like a sash, its beaded diamond bands ending in a tassel of cords and silver bells at the hip" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["cinturon"],
+  "featured": false
+}

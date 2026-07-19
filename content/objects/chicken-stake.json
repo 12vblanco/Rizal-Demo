@@ -1,0 +1,19 @@
+{
+  "id": "chicken-stake",
+  "section": "ethnographer",
+  "category": "daily-life",
+  "order": 18,
+  "title": { "en": "Chicken Stake", "tl": "Cuerda", "es": "Cuerda para Atar el Gallo" },
+  "objectType": "Cockfighting Implement",
+  "materials": "Abaca rope, bone, cotton cord, and tortoise shell",
+  "accession": "I C 18683",
+  "description": "This stake cord, used for tying up a fighting cock, consists of braided abaca rope. An elongated, triangle-shaped white animal bone is knotted onto one end to lock it. On the other end, a braided blue and yellow cotton cord is tied and looped, serving as an adjustable lock. At the center, a two-holed, oval carved cord organizer made of tortoise shell connects the two separate braided abaca cords.",
+  "condition": "Fair and stable condition, with a few abrasions on the bone and a few loose threads.",
+  "images": [
+    { "src": "chicken-stake/front.webp", "alt": "Cockfighting tether of braided abaca rope coiled into a loop, a carved bone lock at one end and a knotted blue-and-yellow cord organizer at the other", "deepZoom": true },
+    { "src": "chicken-stake/detail.webp", "alt": "The chicken stake's bone toggle and abaca cord seen from another angle, showing the tortoiseshell cord organizer where the two braided lengths meet" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["tooth-cleaner"],
+  "featured": true
+}

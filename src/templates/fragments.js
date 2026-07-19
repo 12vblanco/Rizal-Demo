@@ -88,13 +88,23 @@ function inlineMd(escaped) {
     .replace(/(^|[^*])\*(?!\s)([^*]+?)\*/g, "$1<em>$2</em>");
 }
 
-/** @param {string} raw */
+/**
+ * Paragraphs + `**bold**`/`*italic*`/links, plus `## Heading` blocks as real,
+ * visible `<h2>`s — long essays (feature 11d) have genuine subsections, and
+ * rule 10 requires a real heading over a bolded pseudo-heading.
+ * @param {string} raw
+ */
 export function renderMarkdown(raw) {
   return raw
     .split(/\r?\n\r?\n+/)
     .map((block) => block.trim())
     .filter(Boolean)
-    .map((block) => `<p>${inlineMd(esc(block.replace(/\s*\r?\n\s*/g, " ")))}</p>`)
+    .map((block) => {
+      const heading = block.match(/^##\s+(.+)$/);
+      return heading
+        ? `<h2>${inlineMd(esc(heading[1].trim()))}</h2>`
+        : `<p>${inlineMd(esc(block.replace(/\s*\r?\n\s*/g, " ")))}</p>`;
+    })
     .join("\n");
 }
 
@@ -164,17 +174,19 @@ export function renderPager({ prev, next, hrefFor, nameFor, nameLang, ariaLabel 
  * @param {string} p.title
  * @param {string} [p.titleLang]
  * @param {string} [p.subtitle]
- * @param {string} [p.meta]
+ * @param {boolean} [p.has3d] - shows a "3D" pill beside the title
  */
-export function renderCollectionCard({ href, media, title, titleLang, subtitle, meta }) {
+export function renderCollectionCard({ href, media, title, titleLang, subtitle, has3d }) {
   const langAttr = titleLang ? ` lang="${esc(titleLang)}"` : "";
   const subtitleEl = subtitle ? `\n      <span class="collection-card__en">${esc(subtitle)}</span>` : "";
-  const metaEl = meta ? `\n      <span class="collection-card__type">${esc(meta)}</span>` : "";
+  const badge = has3d ? `\n      <span class="collection-card__badge">3D</span>` : "";
   return `<li class="collection-card">
   <a class="collection-card__link" href="${esc(href)}">
     <span class="collection-card__media">${media}</span>
     <span class="collection-card__body">
-      <span class="collection-card__native"${langAttr}>${esc(title)}</span>${subtitleEl}${metaEl}
+      <span class="collection-card__title-row">
+        <span class="collection-card__native"${langAttr}>${esc(title)}</span>${badge}
+      </span>${subtitleEl}
     </span>
   </a>
 </li>`;
@@ -216,7 +228,7 @@ export function objectCard(site, obj) {
     title: obj.title.tl,
     titleLang: "tl",
     subtitle: obj.title.en,
-    meta: obj.objectType,
+    has3d: Boolean(obj.model3d),
   });
 }
 

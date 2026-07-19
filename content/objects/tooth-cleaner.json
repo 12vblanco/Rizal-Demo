@@ -1,0 +1,19 @@
+{
+  "id": "tooth-cleaner",
+  "section": "ethnographer",
+  "category": "daily-life",
+  "order": 20,
+  "title": { "en": "Tooth Cleaner", "tl": "Cepillo de Dientes", "es": "Cepillos de Dientes Hechos de Corteza" },
+  "objectType": "Personal Implement",
+  "materials": "Areca nut shell and abaca cord",
+  "accession": "I C 18685",
+  "description": "This tooth cleaner consists of the dried shell of the areca nut, cut into four crescent-shaped pieces. A thin, braided abaca cord connects the pieces, inserted through a single punctured tip on each shell cut. The inner layers have black and orange materials, possibly stains collected from teeth after cleaning. Dental modification is practiced among the Bagobo and Western Bukidnon Manobo, involving the horizontal cutting and blackening of teeth for aesthetic reasons. Collecting institutions more commonly hold tooth cleaners made of animal hair, usually from a boar, which resemble a toothbrush.",
+  "condition": "Fair and stable condition, with a few broken strings, loose fibers, and stains.",
+  "images": [
+    { "src": "tooth-cleaner/front.webp", "alt": "Four crescent-shaped areca nut shell pieces threaded on a cord, the traditional tooth cleaner's dark stained inner surfaces visible", "deepZoom": true },
+    { "src": "tooth-cleaner/detail.webp", "alt": "The areca-shell tooth cleaner's pieces seen curled together, connected by a thin braided abaca cord" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["chicken-stake"],
+  "featured": false
+}

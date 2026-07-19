@@ -14,6 +14,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 const PORT = Number(process.env.PORT) || 4173;
 
+/** @type {Record<string, string>} */
 const MIME = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css",

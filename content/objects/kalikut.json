@@ -1,0 +1,19 @@
+{
+  "id": "kalikut",
+  "section": "ethnographer",
+  "category": "daily-life",
+  "order": 6,
+  "title": { "en": "Betel Mortar", "tl": "Kalikut", "es": "Kalikut" },
+  "objectType": "Betel Mortar",
+  "materials": "Wood, brass, and steel",
+  "accession": "I C 18671",
+  "description": "This cylindrical, wooden betel mortar is hollow inside, like a tube, and plated with brass at the base, with an oval-shaped wooden handle/cover that has a pestle inside made of a steel rod, flattened on one end like a flathead screwdriver. The pestle is connected to the handle through a screw mechanism made of brass, serving as a lock and hook when worn as part of the owner's clothing or belt. The oval handle is designed with a ring embossed with repeated dots near the brass lock. Betel mortars such as this were used by those who could not chew betel nut because of old age or mutilated teeth, as practiced by the Bagobo and Western Bukidnon Manobo.",
+  "condition": "Fair and stable condition, with a few abrasions, signs of wear, cracks on the body, and a slightly jagged flathead pestle.",
+  "images": [
+    { "src": "kalikut/front.webp", "alt": "Cylindrical wooden betel mortar (kalikut) with a pear-shaped carved handle and brass fittings, standing upright", "deepZoom": true },
+    { "src": "kalikut/detail.webp", "alt": "Detail of the kalikut's brass screw mechanism and hook, with a beaded wooden ring where the pestle handle meets the tube" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["sulpakan", "pang-ani"],
+  "featured": true
+}

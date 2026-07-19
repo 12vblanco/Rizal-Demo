@@ -1,0 +1,19 @@
+{
+  "id": "pang-ani",
+  "section": "ethnographer",
+  "category": "daily-life",
+  "order": 7,
+  "title": { "en": "Harvesting Knife", "tl": "Pang-ani", "es": "Pang-ani" },
+  "objectType": "Harvesting Knife",
+  "materials": "Wood and iron",
+  "accession": "I C 18672",
+  "description": "The handle of this harvesting knife is made of wood, with a handlebar-shaped iron blade inserted at the middle of the handle to cut rice stalks. The ends of the iron blade have different designs: one is jagged at the tip, and the other is grooved and pointed.",
+  "condition": "Fair and stable condition, with abrasions on the handle and inactive corrosion on the blade.",
+  "images": [
+    { "src": "pang-ani/front.webp", "alt": "Harvesting knife (pang-ani) with a mustache-shaped iron blade set through a wooden dowel handle, its two jagged and grooved tips curving outward", "deepZoom": true },
+    { "src": "pang-ani/detail.webp", "alt": "The pang-ani's wooden handle end, inked with its accession number, angled to show the iron blade's curve and pointed tip" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["kalikut"],
+  "featured": true
+}

@@ -39,6 +39,10 @@
   font-size: var(--step-0);
 }
 
+.essay__body > h2 {
+  margin-block: var(--space-xl) var(--space-s);
+}
+
 .essay__back {
   margin-block-start: var(--space-2xl);
   padding-block-start: var(--space-l);

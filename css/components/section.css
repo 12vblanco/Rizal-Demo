@@ -94,7 +94,8 @@
 }
 
 .section-tabs__link:hover,
-.section-tabs__link:focus-visible {
+.section-tabs__link:focus-visible,
+.section-tabs__link[aria-current="true"] {
   color: var(--accent-on-light);
   border-bottom-color: var(--accent-on-light);
 }
@@ -103,6 +104,30 @@
 .section-panel {
   margin-block-end: var(--space-3xl);
   scroll-margin-top: var(--space-2xl);
+}
+
+/* Category tab content: a narrow essay column beside a wide object grid.
+   main.js progressively enhances the tabs to show only the active panel
+   (native <a href="#id"> + hashchange, no ARIA tablist — see main.js); with
+   JS off every panel stays visible and stacked, so this is a pure desktop
+   layout upgrade, not a visibility mechanism. */
+.category-panel__columns {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 60rem) {
+  .category-panel__columns {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .category-panel__essays {
+    border-inline-end: 1px solid
+      color-mix(in srgb, var(--black-cow) 20%, transparent);
+    padding-inline-end: var(--space-xl);
+  }
 }
 
 .section-panel:last-child {
@@ -114,6 +139,12 @@
   color: var(--heading-on-light);
   font-size: var(--section-title);
   margin-block-end: var(--space-xl);
+}
+
+.section-panel__subheading {
+  color: var(--heading-on-light);
+  font-size: var(--step-2);
+  margin-block-end: var(--space-m);
 }
 
 .section-panel__empty {
@@ -137,25 +168,11 @@
 
 .essay-card {
   display: grid;
-  gap: var(--space-m);
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.essay-card__media {
-  display: block;
-  overflow: hidden;
-  background: color-mix(in srgb, var(--black-cow) 12%, transparent);
-}
-
-.essay-card__img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.essay-card__body {
-  display: grid;
   gap: var(--space-2xs);
+  padding: var(--space-m);
+  border: 1px solid color-mix(in srgb, var(--chinese-black) 15%, transparent);
+  border-radius: 10px;
+  background: white;
 }
 
 .essay-card__title {

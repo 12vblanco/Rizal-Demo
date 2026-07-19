@@ -25,6 +25,11 @@
     }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["salakot"],
+  "model3d": {
+    "src": "placeholder-3d.glb",
+    "poster": "placeholder-3d/model-poster.webp",
+    "altText": "3D model coming soon: placeholder pyramid standing in for the tangkulu"
+  },
+  "related": ["salakot", "trousers", "unfinished-upper-garment"],
   "featured": false
 }

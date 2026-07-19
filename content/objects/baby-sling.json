@@ -1,0 +1,19 @@
+{
+  "id": "baby-sling",
+  "section": "ethnographer",
+  "category": "daily-life",
+  "order": 11,
+  "title": { "en": "Baby Sling", "tl": "Banda", "es": "Banda para Llevar al Niño" },
+  "objectType": "Baby Carrier",
+  "materials": "Abaca",
+  "accession": "I C 18676",
+  "description": "This red, tubular, abaca baby sling has dyed geometric designs all over the cloth. The cloth is sewn on the two short sides, making it tubular. The design is made up of five different kinds of wavy lines, forming a concentric diamond repeated on the whole cloth, while three vertical bands of zigzag lines serve as a break in the repeating design. Tritik is the dyeing technique used, similar to the camisa (upper garment, IC 18666). The cloth was probably folded lengthwise before dyeing, creating a seemingly negative and positive design, with thin geometric lines on one side and thick lines on the other.",
+  "condition": "Fair and stable condition, with a few loose threads and patches in several parts due to holes, creases, and folds.",
+  "images": [
+    { "src": "baby-sling/front.webp", "alt": "Red abaca baby sling laid flat, densely patterned with cream tie-dyed diamonds in a repeating concentric design", "deepZoom": true },
+    { "src": "baby-sling/detail.webp", "alt": "Extreme close-up of the sling's tritik-dyed cloth, showing the fine geometric diamond and zigzag patterning up close" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["tritik", "cinturon"],
+  "featured": false
+}

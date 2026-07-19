@@ -15,6 +15,41 @@ if (heroVideo instanceof HTMLVideoElement &&
   });
 }
 
+// Pull-quote signature (home page): swap the static SVG for the live site's
+// hand-drawn autograph animation once the quote scrolls into view — but only
+// when motion is welcome, so reduced-motion and JS-off visitors keep the SVG
+// permanently (spec: all motion behind prefers-reduced-motion). The WebP is
+// authored to loop once, so after it draws itself it simply holds on the
+// finished signature — no JS-driven stop/freeze needed. Deferred via
+// data-anim-src (rather than a plain src) so reduced-motion visitors never
+// even fetch it.
+const signatureWrap = document.querySelector(".pullquote__signature");
+const signatureAnim = signatureWrap?.querySelector(".pullquote__signature-anim");
+if (
+  signatureWrap &&
+  signatureAnim instanceof HTMLImageElement &&
+  "IntersectionObserver" in window &&
+  window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+) {
+  const animSrc = signatureAnim.getAttribute("data-anim-src");
+  const signatureSvg = signatureWrap.querySelector("svg");
+  if (animSrc) {
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          signatureAnim.src = animSrc;
+          signatureAnim.hidden = false;
+          signatureSvg?.setAttribute("hidden", "");
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    observer.observe(signatureWrap);
+  }
+}
+
 // Navigation: mobile hamburger menu + accessible Jose-Rizal submenu disclosure
 // (feature 06). This is functional (not decorative) enhancement, so it runs
 // regardless of motion preference. Without JS the parent links and footer still
@@ -84,6 +119,31 @@ if (
     { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
   );
   for (const el of revealTargets) observer.observe(el);
+}
+
+// Category tabs (Ethnographer): progressive-enhancement panel switching. Tab
+// links stay plain <a href="#id"> anchors, so with JS off every panel stays
+// visible/stacked (spec: fully readable without JS). With JS, only the panel
+// matching location.hash is shown; clicking a tab lets the browser update the
+// hash natively (no preventDefault), and a hashchange listener does the swap
+// — so back/forward and direct #category-... links work for free.
+const tabBar = document.querySelector(".section-tabs");
+const sectionPanels = document.querySelectorAll(".section-panel");
+if (tabBar && sectionPanels.length) {
+  const tabLinks = [...tabBar.querySelectorAll(".section-tabs__link")];
+  const panelIds = [...sectionPanels].map((p) => p.id);
+
+  const activatePanel = (id) => {
+    const target = panelIds.includes(id) ? id : panelIds[0];
+    for (const panel of sectionPanels) panel.hidden = panel.id !== target;
+    for (const link of tabLinks) {
+      if (link.getAttribute("href") === `#${target}`) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    }
+  };
+
+  activatePanel(location.hash.slice(1));
+  window.addEventListener("hashchange", () => activatePanel(location.hash.slice(1)));
 }
 
 // About page — "Messages" video grid (feature 07): load the player only on

@@ -1,0 +1,20 @@
+{
+  "id": "tritik",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 1,
+  "title": { "en": "Upper Garment", "tl": "Tritik", "es": "Tritik" },
+  "objectType": "Upper Garment",
+  "materials": "Abaca cloth and cotton trim",
+  "accession": "I C 18666",
+  "description": "This v-neck, long-sleeved, red abaca upper garment has dyed geometric designs on all parts except on both shoulders. The neckline, cuffs, and hem are piped with a blue cotton cloth and sewn in using abaca threads. Tritik was the dyeing technique employed in this garment, an after-weave stitched design through wax-covered threads, commonly done by the Manobo-Kulaman and the Bagobo communities in Mindanao. The root of the noni or apatot plant (Morinda citrifolia) is traditionally used to achieve the red dye. The vertical line in the middle and the difference in thickness of the after-weave stitches show that the bodice was probably dyed folded. The sleeves were dyed separately and stitched afterward, and the armholes are open with around two inches of space. A piece of cloth is sewn in on one side to probably make the bodice wider.",
+  "condition": "Good and stable condition. Turned inside-out, showing friable threads along the stitched edges, which is normal; a few folds and creases on the sleeves; a few repairs/mended spots done before the museum acquired the collection, according to the EMB staff.",
+  "images": [
+    { "src": "tritik/front.webp", "alt": "Red abaca upper garment (tritik) laid flat, its cream tie-dyed bands forming diamond and zigzag patterns across the yoke and sleeves, blue-trimmed V-neck at center", "deepZoom": true },
+    { "src": "tritik/neckline-detail.webp", "alt": "Close-up of the tritik garment's V-neck, its blue cotton piping framing bands of cream tie-dyed diamonds and chevrons on the maroon yoke" },
+    { "src": "tritik/back.webp", "alt": "Reverse of the tritik upper garment, its solid maroon back panel bordered by the same tie-dyed cream sleeve bands as the front" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["unfinished-upper-garment", "baby-sling"],
+  "featured": false
+}

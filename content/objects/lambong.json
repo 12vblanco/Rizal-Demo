@@ -1,0 +1,19 @@
+{
+  "id": "lambong",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 8,
+  "title": { "en": "Veil", "tl": "Lambong", "es": "Velo de Mujer" },
+  "objectType": "Veil",
+  "materials": "Silk and cotton",
+  "accession": "I C 18673",
+  "description": "This deep-violet, half-oval-shaped silk veil has a blue rectangular cloth sewn on one long side near the straight edge as lining, and two flaps with jagged edges extending at the center of the straight edge. Several silk cloths were sewn together to form the veil's shape. The warp is spun silk, and the weft is twisted cotton in one to three strands, making the veil very soft, smooth, and light. Native Filipina churchgoers adapted this black cobija-style veil from the Spanish women's mantilla, which could cover the wearer down to her feet.",
+  "condition": "Fair and stable condition. Several holes and tears on both the blue and deep-violet cloths; frayed outer edges; fading and discoloration on the blue cloth; the entire veil is creased and folded.",
+  "images": [
+    { "src": "lambong/front.webp", "alt": "Deep violet silk veil (lambong), half-oval in shape, with a lighter blue lining panel sewn near its straight top edge and two jagged flaps flanking the center", "deepZoom": true },
+    { "src": "lambong/detail.webp", "alt": "Close-up of the lambong's blue lining panel, showing its frayed edge, dark stains, and a line of pink repair stitching along the hem" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["salakot", "sulpakan"],
+  "featured": true
+}

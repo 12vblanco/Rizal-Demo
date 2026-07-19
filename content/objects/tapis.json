@@ -1,0 +1,19 @@
+{
+  "id": "tapis",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 19,
+  "title": { "en": "Overskirt", "tl": "Tapis", "es": "Tapis de Seda de los Tagalos" },
+  "objectType": "Overskirt",
+  "materials": "Silk",
+  "accession": "I C 18684",
+  "description": "This plain, blue-black, three-paneled rectangular silk overskirt (tapis) features horizontal running stitches using light blue threads. Blue threads sew the overskirt's edges. Jean Mallat described silk tapis of this kind as faultless, noting that the colors used are fast and add to the cloth's quality and durability, as Indios make a certain preparation to make the dyes resistant to the elements. He adds that the silk comes from China, and that while some tapis are made there, they lack the solid colors of those made in the Philippines. Factories in Tondo, Bulacan, and Camarines Norte produced tapis and sayas made of cotton and silk.",
+  "condition": "Fair and stable condition, with a few loose threads, fraying at the edges, and a few tiny holes.",
+  "images": [
+    { "src": "tapis/front.webp", "alt": "Plain blue-black silk overskirt (tapis) in three stitched panels, laid flat, front view", "deepZoom": true },
+    { "src": "tapis/back.webp", "alt": "Reverse of the silk tapis, its three panels and fine horizontal running stitches visible" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["barong", "panuelo"],
+  "featured": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "cinturon",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 9,
+  "title": { "en": "Belt", "tl": "Cinturón", "es": "Cinturón" },
+  "objectType": "Belt",
+  "materials": "Abaca, cotton, and horsehair",
+  "accession": "I C 18674",
+  "description": "This narrow, red-dyed and natural-colored abaca belt has alternating braids and tassels on both ends, composed of twined abaca, red, blue, and white cotton pompoms, and horsehair. Narrow braided abaca belts like this are common to the Kulaman Manobo, who call it kinawit, and kiarvit to the Blaan. It was used to hold up the lower garment or to carry knives around the waist.",
+  "condition": "Good and stable condition, with a few loose fibers.",
+  "images": [
+    { "src": "cinturon/front.webp", "alt": "The full length of the narrow braided abaca belt, coiled to show both tasseled ends", "deepZoom": true },
+    { "src": "cinturon/detail.webp", "alt": "Detail of the cinturón's tasseled ends, red-and-tan braided abaca giving way to bundles of red, blue, and white cotton pompoms and horsehair" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["bakus", "baby-sling"],
+  "featured": false
+}

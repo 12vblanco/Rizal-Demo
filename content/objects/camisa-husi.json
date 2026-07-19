@@ -1,0 +1,19 @@
+{
+  "id": "camisa-husi",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 4,
+  "title": { "en": "Silk Upper Garment", "tl": "Camisa", "es": "Camisa de Husi de Mujer" },
+  "objectType": "Upper Garment",
+  "materials": "Jusi (silk) and piña, with velvet trim",
+  "accession": "I C 18669",
+  "description": "This female upper garment is made of jusi and piña with butterfly sleeves and a round neckline. It has plain, vertical, flesh-colored silk stripes outlined with thin white silk threads, employing the suksuk or supplementary-weft technique. The neckline is piped with a black velvet, open-weave strip of cloth that looks manufactured rather than hand-made. Jean Mallat probably listed this as an example of piñang may sutla at sinamay (pineapple with silk or sinamay de piña) in his 1846 'Summary of Clothes Manufactured in the Philippines,' wherein the silk used is produced in China.",
+  "condition": "Poor condition, with creases; a few stains, loose warp and weft threads, and frayed silk threads; tears with patchwork repairs specifically on the neckline, sleeves, and bodice. Fading is also noticeable on the flesh-colored silk stripes.",
+  "images": [
+    { "src": "camisa-husi/front.webp", "alt": "Cropped blouse of sheer striped jusi and piña cloth in peach and cream, a black beaded velvet trim edging the round neckline, on a mannequin", "deepZoom": true },
+    { "src": "camisa-husi/back.webp", "alt": "Reverse of the striped camisa, its satin stripe pattern and beaded neckline trim continuing across the back panel" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["saya-husi", "panuelo"],
+  "featured": false
+}

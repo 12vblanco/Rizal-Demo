@@ -1,0 +1,19 @@
+{
+  "id": "unfinished-upper-garment",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 13,
+  "title": { "en": "Unfinished Upper Garment", "tl": "Camisa", "es": "Camisa de Hombre" },
+  "objectType": "Upper Garment",
+  "materials": "Cotton and abaca thread",
+  "accession": "I C 18678",
+  "description": "This red, tie-dyed cotton cloth is probably an unfinished male upper garment. The maker has not yet cut the neck hole, but has sewn the short sleeves onto the larger fabric using red-dyed abaca threads. Small, white circles, made by tying the cloth with wax-covered threads, form larger geometric patterns arranged in diagonal, diamond, and zigzag lines. Bagobos commonly use this technique, called pelangi or plangi, another form of tritik (see IC 18666 and IC 18676), and common among the Bagobo.",
+  "condition": "Fair and stable condition, with eight patchworks, possibly covering holes or intentional, and a few circles dyed light red due to improper tying.",
+  "images": [
+    { "src": "unfinished-upper-garment/front.webp", "alt": "The unfinished garment laid flat with both sleeves extended, cream circular tie-dye patterns radiating in diamond and zigzag lines across the red cloth", "deepZoom": true },
+    { "src": "unfinished-upper-garment/back.webp", "alt": "Red pelangi-dyed cotton cloth for an unfinished men's upper garment, its sleeves stitched on but no neck opening cut yet, white tie-dyed circles forming a large X across the panel" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["tangkulu", "tritik", "trousers"],
+  "featured": false
+}

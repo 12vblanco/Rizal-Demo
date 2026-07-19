@@ -537,9 +537,15 @@ function validateRedirects(errors, file, redirects) {
 // ---------------------------------------------------------------------------
 // Placeholder scan: no lorem/TODO/[OPEN QUESTION]/… anywhere in content.
 
+// `model3d.*` is the one legitimate place the word "placeholder" belongs: the
+// reusable stand-in GLB (feature 11c) is real, permanent, committed content
+// named `placeholder-3d.glb` — not lazy filler text — so it's exempt from the
+// "placeholder" word check specifically (lorem/TODO/TBD/etc. still apply).
 function scanPlaceholders(errors, file, value, fieldPath) {
+  const inModel3d = /(^|\.)model3d(\.|$)/.test(fieldPath || "");
   if (typeof value === "string") {
     for (const { re, label } of PLACEHOLDER_PATTERNS) {
+      if (inModel3d && label === "placeholder") continue;
       if (re.test(value)) {
         errors.add(file, fieldPath || "(root)", `contains placeholder text ("${label}") — committed content must be real`);
       }

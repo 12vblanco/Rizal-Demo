@@ -1,0 +1,19 @@
+{
+  "id": "sulpakan",
+  "section": "ethnographer",
+  "category": "daily-life",
+  "order": 21,
+  "title": { "en": "Fire Piston", "tl": "Sulpakan", "es": "Sulpakan" },
+  "objectType": "Fire Piston",
+  "materials": "Carabao horn and brass",
+  "accession": "I C 18686",
+  "description": "This cylindrical fire piston, made of carabao horn, is carved like a pear with grooves near the base. It features a flat, round base that allows it to stand and has a tiny hole at the center. The plunger's tip is shallow and dome-shaped, and it also has grooves on the neck. A thread is inserted between the piston and the plunger. Pushing the plunger compresses air to ignite the tinder placed inside the piston. Among the 21 objects Rizal sent to the Ethnological Museum of Berlin in 1888, the sulpakan was the only item he accompanied with a detailed description, in German, of how the tool functioned.",
+  "condition": "Poor but stable condition. Significant cracks and abrasions on the body; the base is chipped, almost a quarter of the whole; it cannot be opened, probably due to the visible cracks.",
+  "images": [
+    { "src": "sulpakan/front.webp", "alt": "Cylindrical carabao-horn fire piston (sulpakan) standing upright, its pear-shaped plunger knob topping a dark grooved barrel on a brass-rimmed base", "deepZoom": true },
+    { "src": "sulpakan/detail.webp", "alt": "The sulpakan lying on its side, showing the brass collar fittings and the base's small central ignition hole" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["kalikut", "lambong"],
+  "featured": true
+}

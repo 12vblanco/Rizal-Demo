@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .cache/
+/scripts/migrate/staging/
 .DS_Store
 /test-results/
 /playwright-report/

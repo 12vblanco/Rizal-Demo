@@ -1,0 +1,19 @@
+{
+  "id": "camisa-mujer",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 10,
+  "title": { "en": "Upper Garment for Women", "tl": "Camisa", "es": "Camisa de Mujer" },
+  "objectType": "Upper Garment",
+  "materials": "Abaca with cotton trim",
+  "accession": "I C 18675",
+  "description": "This v-neck, long-sleeved, abaca female upper garment is embroidered on the hem, shoulders, cuffs, and all edges. The bodice is dominantly dyed red, while both sleeves are dyed blue-black, similar to the Blaan saol or saul upper garment. The neckline and hem are piped with a blue strip of cotton, while the cuffs are piped with a red strip of cotton, all sewn with abaca threads in a zigzag pattern. The embroidery is of geometric designs: double X's, triangles, horizontal upright zigzag patterns, and fern-like patterns on the shoulders and cuffs.",
+  "condition": "Fair and stable condition. Small discoloration on the right chest; fading on the upper neck area; loose at the armpits; a few creases and folds.",
+  "images": [
+    { "src": "camisa-mujer/front.webp", "alt": "Red-bodiced abaca upper garment with black dyed sleeves banded in gold and red geometric embroidery, front view with V-neck", "deepZoom": true },
+    { "src": "camisa-mujer/back.webp", "alt": "Reverse of the garment, its red back panel and black sleeves trimmed with the same embroidered zigzag bands" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["patadion"],
+  "featured": false
+}

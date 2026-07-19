@@ -4,6 +4,7 @@ slug: jose-rizal
 bodyHeading: Introduction to the Exhibition
 author: Marites Tauro
 personaCards: true
+heroImage: baby-sling/front.webp
 ---
 
 The Hero, Artist, and Ethnographer: José Rizal in the Philippines and in Germany is a digital exhibition that seeks to expand and deepen our understanding of Dr. José Rizal by situating him within the social and scientific currents of his time, currents that shaped his evolving visions of reform and revolution in the Philippines. The exhibition is organized around three major themes: (1) Rizal as a Hero, (2) Rizal as an Artist, and (3) Rizal as an Ethnographer.

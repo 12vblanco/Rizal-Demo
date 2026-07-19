@@ -397,12 +397,15 @@
    The large quote clears AA on black cow; the smaller attribution is kept light
    (gold would be ~4.4:1, under the 4.5 needed for its size). */
 .home-quote {
-  background: var(--black-cow);
+  background: var(--model-stage-gradient);
   color: var(--text-on-dark);
   padding-block: var(--space-3xl);
 }
 
 .pullquote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0;
   margin-inline: auto;
   max-width: 42ch;
@@ -418,6 +421,7 @@
 }
 
 .pullquote__cite {
+  max-width: fit-content;
   margin-block-start: var(--space-l);
   font-family: var(--font-heading);
   font-size: var(--step-1);
@@ -427,4 +431,24 @@
 .pullquote__signature svg {
   width: 240px;
   color: var(--accent-on-dark);
+}
+
+.pullquote__signature svg[hidden] {
+  display: none;
+}
+
+/* js/main.js swaps this in for the static SVG once the quote is visible and
+   motion is welcome; the SVG stays the permanent version otherwise (JS-off /
+   reduced-motion). Same displayed width as the SVG so the swap doesn't jump. */
+.pullquote__signature-anim {
+  width: 240px;
+  height: auto;
+}
+
+/* base.css's `img, video { display: block }` reset is an author rule, so it
+   beats the user-agent's default `[hidden] { display: none }` (author always
+   wins over user-agent, regardless of specificity) — without this, the
+   [hidden] attribute would silently do nothing on an <img>/<video>. */
+.pullquote__signature-anim[hidden] {
+  display: none;
 }

@@ -1,0 +1,19 @@
+{
+  "id": "barong",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 15,
+  "title": { "en": "Upper Garment for Men", "tl": "Barong", "es": "Camisa de Piña para Hombre" },
+  "objectType": "Upper Garment",
+  "materials": "Piña and cotton",
+  "accession": "I C 18680",
+  "description": "This long-sleeved, half-button-down upper garment (barong) is embroidered, made from piña (pineapple) and cotton fabric. The cotton collar and cuffs feature embroidery including flowers, leaves, rope-like curvilinear lines forming geometric designs, and scallops along the edges. Similar embroidery decorates the chest area around the buttons. The body, mainly piña fabric, features cotton-thread embroidery that creates diamond shapes with a floral design at the center of each. The cotton threads, called Spanish trensillas, are attached to the piña fabric using a couching stitch. Two slits at the front hem provide ease for the abdomen.",
+  "condition": "Poor but stable condition. All chest and cuff buttons are missing; a large hole at the nape has been restored with fine net cloth; a few tiny holes, stains, and loose threads; apparent discoloration on the collar and cuffs.",
+  "images": [
+    { "src": "barong/front.webp", "alt": "Cream piña barong with long sleeves, a diamond lattice of fine embroidered sprigs, and an embroidered floral placket down the button front", "deepZoom": true },
+    { "src": "barong/detail.webp", "alt": "Close-up of the barong's collar and embroidered placket, its openwork floral and geometric stitching visible through the sheer piña fabric" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["tapis"],
+  "featured": false
+}

@@ -1,0 +1,19 @@
+{
+  "id": "panuelo",
+  "section": "ethnographer",
+  "category": "clothing",
+  "order": 2,
+  "title": { "en": "Shawl", "tl": "Pañuelo", "es": "Pañuelo de Nipis de Mujer" },
+  "objectType": "Shawl",
+  "materials": "Piña cloth",
+  "accession": "I C 18667",
+  "description": "This white, square-shaped piña shawl for women has scalloped and embroidered edges. The embroidery employed is suksuk or sinuksuk, a brocading technique common in pineapple fabrics that uses additional or supplementary weft threads to create elaborate patterns. Each edge has six round and scalloped patterns, and inside each round pattern has a five-stemmed rice stalk-like design and seven floral-like designs underneath it. The shawl has 31 small dots in the middle as a design, equally distanced from each other.",
+  "condition": "Several holes and old repairs, more obvious on two of the four quadrants; some areas show yellowish-brown jagged stains, possibly due to water damage; minimal creases and folds. A white cloth was stitched underneath the shawl as backing support to stabilize it, an intervention decided upon by the EMB staff.",
+  "images": [
+    { "src": "panuelo/front.webp", "alt": "Square white piña shawl with a scalloped, floral-embroidered border and a grid of small raised dots across the center", "deepZoom": true },
+    { "src": "panuelo/detail.webp", "alt": "Close-up of the panuelo's scalloped edge, its suksuk brocaded leaves and flowers worked in fine white supplementary-weft thread" }
+  ],
+  "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
+  "related": ["tapis", "camisa-husi"],
+  "featured": false
+}

@@ -50,6 +50,47 @@ Do this once per object, offline; commit only the finished GLB.
    object's `model3d.src`. Add a real **poster** render of the model under
    `assets-src/images/<id>/` and point `model3d.poster` at it.
 
+## Stand-in 3D: `placeholder-3d.glb` (feature 11c)
+
+Any object that should eventually have a 3D view can wire a **real `model3d`
+block now**, before the museum's scan arrives, by pointing it at the shared
+placeholder:
+
+```json
+"model3d": {
+  "src": "placeholder-3d.glb",
+  "poster": "placeholder-3d/model-poster.webp",
+  "altText": "3D model coming soon — placeholder pyramid"
+}
+```
+
+This keeps the 3D-first gallery slide, inline "View in 3D" load, and
+fullscreen dialog viewer all wired end-to-end with **zero template changes** —
+same plumbing as `salakot.glb`. When the object's official scan is ready,
+swap `src`/`poster`/`altText` (and add a `credit` if the source requires
+attribution) for the real files; nothing else about the object's content or
+the templates needs to change.
+
+`placeholder-3d.glb` (a tetrahedron carrying a baked "3D placeholder" label,
+~9 KB) and its poster are generated, not hand-dropped — re-run either any
+time with:
+
+```sh
+node scripts/models/make-placeholder.mjs
+node scripts/models/render-poster.mjs placeholder-3d.glb assets-src/images/placeholder-3d/model-poster.webp
+```
+
+`make-placeholder.mjs` builds the tetrahedron with `@gltf-transform/core`,
+bakes the label texture with `sharp` (SVG text), and applies the same
+meshopt + WebP optimisation as the offline pipeline above (via
+`@gltf-transform/functions`' `meshopt`/`textureCompress` and the
+`meshoptimizer` WASM encoder). Each face gets its own UV basis derived from
+its outward normal (not a fixed per-vertex-slot UV triangle) — a tetrahedron
+has no consistent way to keep "vertex 0 of every face" facing the same
+rotational direction on screen, so a fixed UV mapping mirrors the label on
+alternating faces; deriving it from the normal keeps it non-mirrored (if
+rotated) on every face.
+
 ## Attribution
 
 Respect the source licence. The shipped salakot GLB is **CC BY 4.0** by *Mapping
