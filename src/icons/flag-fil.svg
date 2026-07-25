@@ -1,0 +1,8 @@
+<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
+  <defs><clipPath id="flag-fil-round"><rect width="24" height="16" rx="2"/></clipPath></defs>
+  <g clip-path="url(#flag-fil-round)">
+    <rect width="24" height="8" fill="#0038A8"/>
+    <rect y="8" width="24" height="8" fill="#CE1126"/>
+    <path d="M0 0 0 16 10 8Z" fill="#fff"/>
+  </g>
+</svg>

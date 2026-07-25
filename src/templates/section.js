@@ -13,6 +13,7 @@ import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
 import { icons } from "../icons.js";
 import { objectCard, personCard, renderVtStyle, vtName } from "./fragments.js";
+import { localizeHref, pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -26,13 +27,14 @@ import { objectCard, personCard, renderVtStyle, vtName } from "./fragments.js";
 
 /** @param {Section} section @param {Site} site */
 export function sectionTitle(section, site) {
-  const full = `${section.title} | ${site.siteTitle}`;
-  return full.length <= 70 ? full : section.title;
+  const title = pick(section.title);
+  const full = `${title} | ${pick(site.siteTitle)}`;
+  return full.length <= 70 ? full : title;
 }
 
 /** @param {Section} section */
 export function sectionDescription(section) {
-  const plain = section.intro.replace(/\s+/g, " ").trim();
+  const plain = pick(section.intro).replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }
@@ -52,15 +54,15 @@ function renderHero(site, section) {
     fetchpriority: "high",
   });
   const badge = section.status === "upcoming"
-    ? `<p class="upcoming-badge">Upcoming</p>\n    `
+    ? `<p class="upcoming-badge">${esc(t("upcoming"))}</p>\n    `
     : "";
   return `<section class="section-hero band band--dark">
   ${bg}
   <div class="section-hero__scrim"></div>
   <div class="container section-hero__inner">
-    ${badge}<a class="section-hero__eyebrow" href="/jose-rizal/">Jose Rizal</a>
-    <h1 class="section-hero__title">${esc(section.title)}</h1>
-    <p class="section-hero__intro">${esc(section.intro)}</p>
+    ${badge}<a class="section-hero__eyebrow" href="${esc(localizeHref("/jose-rizal/"))}">${esc(t("joseRizal"))}</a>
+    <h1 class="section-hero__title">${esc(pick(section.title))}</h1>
+    <p class="section-hero__intro">${esc(pick(section.intro))}</p>
   </div>
 </section>`;
 }
@@ -74,9 +76,9 @@ function renderHero(site, section) {
 function renderEssayTeaser(essay) {
   return `<li class="essay-card">
   <h3 class="essay-card__title">${esc(essay.title)}</h3>
-  <p class="essay-card__byline">By ${esc(essay.author)}</p>
+  <p class="essay-card__byline">${esc(t("by", { author: essay.author }))}</p>
   <p class="essay-card__summary">${esc(essay.summary)}</p>
-  <a class="essay-card__more" href="/essays/${esc(essay.slug)}/" aria-label="Read more: ${esc(essay.title)}">Read more ${icons.arrow}</a>
+  <a class="essay-card__more" href="${esc(localizeHref(`/essays/${essay.slug}/`))}" aria-label="${esc(t("readMoreAria", { title: essay.title }))}">${esc(t("readMore"))} ${icons.arrow}</a>
 </li>`;
 }
 
@@ -123,17 +125,17 @@ function renderPanel(id, heading, inner) {
  * @param {Essay[]} essays @param {ContentObject[]} objects */
 function renderCategoryPanel(site, id, heading, essays, objects) {
   const essaysCol = `<div class="category-panel__essays">
-        <h3 class="section-panel__subheading">Essays</h3>
-        ${essays.length ? renderEssayList(essays) : panelEmpty("Essays for this category are being prepared.")}
+        <h3 class="section-panel__subheading">${esc(t("essays"))}</h3>
+        ${essays.length ? renderEssayList(essays) : panelEmpty(t("essaysComingSoon"))}
       </div>`;
   const objectsCol = `<div class="category-panel__objects">
-        <h3 class="section-panel__subheading">Explore the objects</h3>
+        <h3 class="section-panel__subheading">${esc(t("exploreObjects"))}</h3>
         ${
           objects.length
             ? `<ul class="collection-grid">
 ${objects3dFirst(objects).map((o) => objectCard(site, o)).join("\n")}
         </ul>`
-            : panelEmpty("Objects in this category are being added.")
+            : panelEmpty(t("objectsComingSoon"))
         }
       </div>`;
   return renderPanel(
@@ -151,24 +153,24 @@ function renderCategoryView(site, section, objects, essays) {
   const uncategorised = essays.filter((e) => !e.category);
 
   const tabs = [
-    { id: "section-intro", label: "Introduction" },
-    ...section.categories.map((c) => ({ id: `category-${c.id}`, label: c.label })),
+    { id: "section-intro", label: t("introduction") },
+    ...section.categories.map((c) => ({ id: `category-${c.id}`, label: pick(c.label) })),
   ];
-  const tabBar = `<nav class="section-tabs" aria-label="Category navigation">
+  const tabBar = `<nav class="section-tabs" aria-label="${esc(t("categoryNav"))}">
       <ul class="section-tabs__list">
-${tabs.map((t) => `        <li><a class="section-tabs__link" href="#${t.id}">${esc(t.label)}</a></li>`).join("\n")}
+${tabs.map((tab) => `        <li><a class="section-tabs__link" href="#${tab.id}">${esc(tab.label)}</a></li>`).join("\n")}
       </ul>
     </nav>`;
 
   // Introduction pairs the overview essay with every object, unfiltered —
   // matching the live site's behavior — rather than an empty grid.
-  const introPanel = renderCategoryPanel(site, "section-intro", "Introduction", uncategorised, objects);
+  const introPanel = renderCategoryPanel(site, "section-intro", t("introduction"), uncategorised, objects);
 
   const categoryPanels = section.categories
     .map((c) => {
       const catEssays = essays.filter((e) => e.category === c.id);
       const catObjects = objects.filter((o) => o.category === c.id);
-      return renderCategoryPanel(site, `category-${c.id}`, c.label, catEssays, catObjects);
+      return renderCategoryPanel(site, `category-${c.id}`, pick(c.label), catEssays, catObjects);
     })
     .join("\n");
 
@@ -186,13 +188,13 @@ ${categoryPanels}
 /** @param {Site} site @param {Section} section @param {Essay[]} essays @param {string[]} cards */
 function renderGridView(site, section, essays, cards) {
   const essayBlock = essays.length
-    ? `<div class="section-body__editorial"><h2 class="section-grid__heading">Essays</h2>\n    ${renderEssayList(essays)}</div>\n    `
+    ? `<div class="section-body__editorial"><h2 class="section-grid__heading">${esc(t("essays"))}</h2>\n    ${renderEssayList(essays)}</div>\n    `
     : "";
   // A section can be live with editorial but no artifacts of its own yet
   // (e.g. Hero — the live site names no per-object collection for it). Omit
   // the "Explore the collection" heading + grid rather than render it empty.
   const collectionBlock = cards.length
-    ? `<h2 class="section-grid__heading">Explore the collection</h2>
+    ? `<h2 class="section-grid__heading">${esc(t("exploreCollection"))}</h2>
     <ul class="collection-grid">
 ${cards.join("\n")}
     </ul>`
@@ -218,10 +220,10 @@ function renderUpcomingView(site, section, essays) {
     : "";
   return `${editorial}<div class="band band--light section-upcoming">
   <div class="container">
-    <p class="upcoming-badge upcoming-badge--on-light">Upcoming</p>
-    <h2 class="section-upcoming__heading">The collection is being prepared</h2>
-    <p class="section-upcoming__text">This part of the exhibition is coming soon. Explore the other sections in the meantime.</p>
-    <p><a href="${esc(site.basePath)}">Return to the exhibition home</a></p>
+    <p class="upcoming-badge upcoming-badge--on-light">${esc(t("upcoming"))}</p>
+    <h2 class="section-upcoming__heading">${esc(t("collectionBeingPrepared"))}</h2>
+    <p class="section-upcoming__text">${esc(t("collectionComingSoonText"))}</p>
+    <p><a href="${esc(localizeHref(site.basePath))}">${esc(t("returnHome"))}</a></p>
   </div>
 </div>`;
 }

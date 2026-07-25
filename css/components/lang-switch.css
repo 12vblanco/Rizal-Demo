@@ -1,0 +1,63 @@
+/* Language switcher (feature 16): flag-only, inline, to the right of the search
+   icon at every breakpoint. It offers the *other* locales (the active one is
+   hidden), each a real link to the same page in that locale — pure HTML/CSS, no
+   JS. The flag SVG is decorative; each link's accessible name comes from a
+   .visually-hidden language name, so a flag is never the only cue (rule 10). */
+
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-switch__list {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-xs);
+  list-style: none; /* no bullets */
+  margin: 0;
+  padding: 0;
+}
+
+.lang-switch__item {
+  display: inline-flex;
+  margin: 0;
+}
+
+.lang-switch__link {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2xs);
+  border-radius: 4px;
+  text-decoration: none; /* no underline */
+  color: inherit;
+  opacity: 0.85;
+  transition: opacity var(--duration-quick) var(--ease),
+    transform var(--duration-quick) var(--ease);
+}
+
+.lang-switch__link:hover,
+.lang-switch__link:focus-visible {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.lang-switch__link:focus-visible {
+  outline: 2px solid var(--focus-ring-on-dark);
+  outline-offset: 2px;
+}
+
+/* The flag swatch. The SVG carries its own colours (not currentColor), so it
+   reads the same on the dark header in either theme. */
+.lang-switch__flag {
+  display: inline-flex;
+  flex: none;
+}
+
+.lang-switch__flag svg {
+  width: 1.35rem;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--text-on-dark) 20%, transparent);
+}

@@ -8,6 +8,10 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 const KEBAB = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+// Locale-variant Markdown: `<slug>.fil.md` / `<slug>.de.md` translate a long-form
+// essay/page. Excluded from the base .md scan (they'd fail the kebab filename
+// check); the English base file always defines the record and its route.
+const LOCALE_VARIANT_MD = /\.(?:fil|de)\.md$/;
 const IMAGE_FILE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:avif|jpe?g|png|webp)$/;
 const MODEL_FILE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.glb$/;
 // Per-model download budget (feature 10): a GLB streams to every visitor who
@@ -64,6 +68,34 @@ function optString(errors, file, obj, field) {
     return false;
   }
   return true;
+}
+
+// A translatable field: either a plain non-empty string (English, or content not
+// yet translated — pick() falls back to en at render) or a locale map
+// { en, fil?, de? } with `en` required and fil/de optional non-empty strings.
+// This keeps content i18n-ready without forcing every field to be translated at
+// once (spec: "locale-keyed strings in data; fallback, never a broken build").
+function reqLocalized(errors, file, obj, field) {
+  const v = obj[field];
+  if (isNonEmptyString(v)) return true;
+  if (typeof v === "object" && v !== null && !Array.isArray(v)) {
+    checkKeys(errors, file, v, ["en", "fil", "de"], field);
+    let ok = reqString(errors, file, v, "en");
+    for (const loc of ["fil", "de"]) {
+      if (v[loc] !== undefined && !isNonEmptyString(v[loc])) {
+        errors.add(file, `${field}.${loc}`, "present but empty — omit the locale or fill it in");
+        ok = false;
+      }
+    }
+    return ok;
+  }
+  errors.add(file, field, "missing — expected a non-empty string or a locale map { en, fil?, de? }");
+  return false;
+}
+
+function optLocalized(errors, file, obj, field) {
+  if (obj[field] === undefined) return true;
+  return reqLocalized(errors, file, obj, field);
 }
 
 function reqNumber(errors, file, obj, field) {
@@ -169,12 +201,12 @@ function validateObject(errors, file, obj, assetsDir) {
     errors.add(file, "title", "missing or not a locale-keyed object { en, tl, es }");
   }
 
-  reqString(errors, file, obj, "objectType");
-  optString(errors, file, obj, "materials");
-  optString(errors, file, obj, "dimensions");
+  reqLocalized(errors, file, obj, "objectType");
+  optLocalized(errors, file, obj, "materials");
+  optLocalized(errors, file, obj, "dimensions");
   optString(errors, file, obj, "accession");
-  reqString(errors, file, obj, "description");
-  optString(errors, file, obj, "condition");
+  reqLocalized(errors, file, obj, "description");
+  optLocalized(errors, file, obj, "condition");
   reqString(errors, file, obj, "rights");
   reqBool(errors, file, obj, "featured");
 
@@ -246,9 +278,9 @@ function validatePerson(errors, file, person, assetsDir) {
   reqString(errors, file, person, "section");
   reqNumber(errors, file, person, "order");
   reqString(errors, file, person, "name");
-  reqString(errors, file, person, "role");
-  reqString(errors, file, person, "lifespan");
-  reqString(errors, file, person, "bio");
+  reqLocalized(errors, file, person, "role");
+  reqLocalized(errors, file, person, "lifespan");
+  reqLocalized(errors, file, person, "bio");
   validateImage(errors, file, "portrait", person.portrait, assetsDir);
   for (const field of ["relatedObjects", "relatedPeople"]) {
     if (reqArray(errors, file, person, field)) {
@@ -264,8 +296,8 @@ const SECTION_KEYS = ["id", "title", "intro", "heroImage", "categories", "status
 function validateSection(errors, file, section, assetsDir) {
   checkKeys(errors, file, section, SECTION_KEYS);
   reqString(errors, file, section, "id") && checkKebab(errors, file, "id", section.id);
-  reqString(errors, file, section, "title");
-  reqString(errors, file, section, "intro");
+  reqLocalized(errors, file, section, "title");
+  reqLocalized(errors, file, section, "intro");
   validateImage(errors, file, "heroImage", section.heroImage, assetsDir);
   if (section.status !== "live" && section.status !== "upcoming") {
     errors.add(file, "status", `must be "live" or "upcoming", got ${JSON.stringify(section.status)}`);
@@ -278,7 +310,7 @@ function validateSection(errors, file, section, assetsDir) {
       }
       checkKeys(errors, file, c, ["id", "label"], `categories[${i}]`);
       reqString(errors, file, c, "id") && checkKebab(errors, file, `categories[${i}].id`, c.id);
-      reqString(errors, file, c, "label");
+      reqLocalized(errors, file, c, "label");
     });
   }
 }
@@ -292,11 +324,12 @@ const SITE_KEYS = [
 
 function validateSite(errors, file, site, assetsDir) {
   checkKeys(errors, file, site, SITE_KEYS);
+  reqString(errors, file, site, "language");
   for (const field of [
     "siteTitle", "siteSubtitle", "exhibitionTitle", "exhibitionSubtitle",
-    "homeTitle", "language", "description", "copyright",
+    "homeTitle", "description", "copyright",
   ]) {
-    reqString(errors, file, site, field);
+    reqLocalized(errors, file, site, field);
   }
 
   if (reqString(errors, file, site, "baseUrl")) {
@@ -315,7 +348,7 @@ function validateSite(errors, file, site, assetsDir) {
   if (site.heroCtas !== undefined && reqArray(errors, file, site, "heroCtas")) {
     site.heroCtas.forEach((item, i) => {
       checkKeys(errors, file, item, ["label", "href", "video"], `heroCtas[${i}]`);
-      reqString(errors, file, item, "label");
+      reqLocalized(errors, file, item, "label");
       optString(errors, file, item, "video");
       // `video` CTAs derive their href from baseUrl + video (see home.js), so
       // href is only required when there's no video to derive it from.
@@ -341,9 +374,9 @@ function validateSite(errors, file, site, assetsDir) {
         return;
       }
       checkKeys(errors, file, t, ["heading", "href", "text", "image", "accent"], `homeTeasers[${i}]`);
-      reqString(errors, file, t, "heading");
+      reqLocalized(errors, file, t, "heading");
       reqString(errors, file, t, "href");
-      optString(errors, file, t, "text");
+      optLocalized(errors, file, t, "text");
       optString(errors, file, t, "accent");
       if (t.image !== undefined) validateImage(errors, file, `homeTeasers[${i}].image`, t.image, assetsDir);
     });
@@ -352,13 +385,13 @@ function validateSite(errors, file, site, assetsDir) {
   if (reqArray(errors, file, site, "nav")) {
     site.nav.forEach((item, i) => {
       checkKeys(errors, file, item, ["label", "href", "children"], `nav[${i}]`);
-      reqString(errors, file, item, "label");
+      reqLocalized(errors, file, item, "label");
       if (reqString(errors, file, item, "href") && !/^\/([a-z0-9-]+\/)*$/.test(item.href)) {
         errors.add(file, `nav[${i}].href`, `internal routes are kebab-case with trailing slash, got "${item.href}"`);
       }
       (item.children ?? []).forEach((c, j) => {
         checkKeys(errors, file, c, ["label", "href"], `nav[${i}].children[${j}]`);
-        reqString(errors, file, c, "label");
+        reqLocalized(errors, file, c, "label");
         reqString(errors, file, c, "href");
       });
     });
@@ -367,7 +400,7 @@ function validateSite(errors, file, site, assetsDir) {
   if (reqArray(errors, file, site, "footerNav")) {
     site.footerNav.forEach((item, i) => {
       checkKeys(errors, file, item, ["label", "href"], `footerNav[${i}]`);
-      reqString(errors, file, item, "label");
+      reqLocalized(errors, file, item, "label");
       if (reqString(errors, file, item, "href") && !/^\/([a-z0-9-]+\/)*$/.test(item.href)) {
         errors.add(file, `footerNav[${i}].href`, `internal routes are kebab-case with trailing slash, got "${item.href}"`);
       }
@@ -378,14 +411,14 @@ function validateSite(errors, file, site, assetsDir) {
   if (reqArray(errors, file, site, "footerCtas")) {
     site.footerCtas.forEach((item, i) => {
       checkKeys(errors, file, item, ["label", "href"], `footerCtas[${i}]`);
-      reqString(errors, file, item, "label");
+      reqLocalized(errors, file, item, "label");
       reqString(errors, file, item, "href");
     });
   }
 
   if (typeof site.footer === "object" && site.footer !== null) {
     checkKeys(errors, file, site.footer, ["aboutHeading", "aboutText", "contactHeading"], "footer");
-    for (const f of ["aboutHeading", "aboutText", "contactHeading"]) reqString(errors, file, site.footer, f);
+    for (const f of ["aboutHeading", "aboutText", "contactHeading"]) reqLocalized(errors, file, site.footer, f);
   } else {
     errors.add(file, "footer", "missing or not an object");
   }
@@ -481,8 +514,8 @@ function validateAbout(errors, file, about, assetsDir) {
     return;
   }
   checkKeys(errors, file, about, ABOUT_KEYS);
-  reqString(errors, file, about, "intro");
-  reqString(errors, file, about, "messagesHeading");
+  reqLocalized(errors, file, about, "intro");
+  reqLocalized(errors, file, about, "messagesHeading");
   if (reqArray(errors, file, about, "blurbs")) {
     about.blurbs.forEach((b, i) => {
       if (typeof b !== "object" || b === null || Array.isArray(b)) {
@@ -490,8 +523,8 @@ function validateAbout(errors, file, about, assetsDir) {
         return;
       }
       checkKeys(errors, file, b, ["heading", "body"], `blurbs[${i}]`);
-      reqString(errors, file, b, "heading");
-      reqString(errors, file, b, "body");
+      reqLocalized(errors, file, b, "heading");
+      reqLocalized(errors, file, b, "body");
     });
   }
   if (reqArray(errors, file, about, "messages")) {
@@ -502,7 +535,7 @@ function validateAbout(errors, file, about, assetsDir) {
       }
       checkKeys(errors, file, m, ["name", "role", "poster", "video"], `messages[${i}]`);
       reqString(errors, file, m, "name");
-      reqString(errors, file, m, "role");
+      reqLocalized(errors, file, m, "role");
       validateImage(errors, file, `messages[${i}].poster`, m.poster, assetsDir);
       if (m.video !== undefined && !isNonEmptyString(m.video)) {
         errors.add(file, `messages[${i}].video`, "present but empty — omit the field or give the origin-relative path to the hosted MP4 (e.g. assets/video/sll.mp4)");
@@ -602,6 +635,7 @@ function readDir(errors, contentDir, sub, ext) {
   const entries = [];
   for (const fileName of readdirSync(dir).sort()) {
     if (!fileName.endsWith(ext)) continue;
+    if (ext === ".md" && LOCALE_VARIANT_MD.test(fileName)) continue;
     const file = `content/${sub}/${fileName}`;
     const base = fileName.slice(0, -ext.length);
     if (!KEBAB.test(base)) {
@@ -781,10 +815,48 @@ export function loadContent({ contentDir, assetsDir }) {
     }
   }
 
+  // UI message catalogs (content/i18n/<locale>.json): flat { key: string } maps
+  // for template micro-copy (feature 16). English (en.json) is the reference and
+  // must exist; fil/de fall back to it per-key at render (i18n.t). A missing
+  // catalog fails the build so a locale never renders with empty chrome.
+  /** @type {Record<string, Record<string, string>>} */
+  const i18n = { en: {}, fil: {}, de: {} };
+  for (const loc of ["en", "fil", "de"]) {
+    const rel = `content/i18n/${loc}.json`;
+    const abs = path.join(contentDir, "i18n", `${loc}.json`);
+    if (!existsSync(abs)) {
+      errors.add(rel, "(file)", "missing UI message catalog");
+      continue;
+    }
+    const parsed = parseJson(errors, rel, readFileSync(abs, "utf8"));
+    if (parsed === null) continue;
+    if (typeof parsed !== "object" || Array.isArray(parsed)) {
+      errors.add(rel, "(root)", "must be a flat object of { key: string }");
+      continue;
+    }
+    for (const [k, v] of Object.entries(parsed)) {
+      if (!isNonEmptyString(v)) {
+        errors.add(rel, k, "each catalog value must be a non-empty string");
+      }
+    }
+    scanPlaceholders(errors, rel, parsed, "");
+    i18n[loc] = parsed;
+  }
+  // Keys in fil/de but not en are typos (en is the reference); untranslated en
+  // keys are fine — they fall back at render.
+  for (const loc of ["fil", "de"]) {
+    for (const k of Object.keys(i18n[loc])) {
+      if (!(k in i18n.en)) {
+        errors.add(`content/i18n/${loc}.json`, k, "key not present in en.json (typo? en is the reference)");
+      }
+    }
+  }
+
   errors.throwIfAny();
 
   return {
     site,
+    i18n,
     sections: sections.map((s) => s.data),
     objects: objects.map((o) => o.data),
     people: people.map((p) => p.data),

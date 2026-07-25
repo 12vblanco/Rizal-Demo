@@ -9,6 +9,7 @@
 import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
 import { orderedPersonas, personaCard, renderMarkdown } from "./fragments.js";
+import { pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -20,7 +21,7 @@ import { orderedPersonas, personaCard, renderMarkdown } from "./fragments.js";
 
 /** @param {ContentPage} page @param {Site} site */
 export function pageTitle(page, site) {
-  const full = `${page.title} | ${site.siteTitle}`;
+  const full = `${page.title} | ${pick(site.siteTitle)}`;
   return full.length <= 70 ? full : page.title;
 }
 
@@ -67,7 +68,7 @@ function renderPersonaSection(site, sections) {
 <div class="band home-personas">
   <div class="container">
     <section class="persona-section" aria-labelledby="overview-personas-h">
-      <h2 class="persona-section__heading" id="overview-personas-h">Explore the exhibition</h2>
+      <h2 class="persona-section__heading" id="overview-personas-h">${esc(t("exploreExhibition"))}</h2>
       <ul class="persona-list">
 ${personas.map((s) => personaCard(site, s)).join("\n")}
       </ul>
@@ -89,7 +90,7 @@ export function renderContentPage({ site, page, sections = [] }) {
     ? `<h2 class="page-body__heading">${esc(page.bodyHeading)}</h2>\n    `
     : "";
   const byline = page.author
-    ? `<p class="page-body__byline">By ${esc(page.author)}</p>\n    `
+    ? `<p class="page-body__byline">${esc(t("by", { author: page.author }))}</p>\n    `
     : "";
   const personas = page.personaCards ? renderPersonaSection(site, sections) : "";
   return `${renderHero(site, page)}

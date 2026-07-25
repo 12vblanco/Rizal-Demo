@@ -13,6 +13,7 @@ import { icons } from "../icons.js";
 import { orderedPersonas, personaCard } from "./fragments.js";
 import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
+import { localizeHref, pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -38,9 +39,9 @@ function renderHeroCtas(site) {
         // click and open it in the video dialog instead, without leaving the
         // page.
         const url = `${site.baseUrl}/${cta.video}`;
-        return `<a class="hero-btn ${variant}" href="${esc(url)}" data-video="${esc(url)}">${esc(cta.label)}</a>`;
+        return `<a class="hero-btn ${variant}" href="${esc(url)}" data-video="${esc(url)}">${esc(pick(cta.label))}</a>`;
       }
-      return `<a class="hero-btn ${variant}" href="${esc(cta.href)}">${esc(cta.label)}</a>`;
+      return `<a class="hero-btn ${variant}" href="${esc(localizeHref(cta.href))}">${esc(pick(cta.label))}</a>`;
     })
     .join("\n      ");
   return `\n    <div class="hero__actions">
@@ -56,9 +57,9 @@ function renderHero(site) {
   </video>
   <div class="hero__scrim"></div>
   <div class="container hero__inner">
-    <h1 class="hero__title">${esc(site.exhibitionTitle)}:<br>
-      <span class="hero__subtitle">${esc(site.exhibitionSubtitle)}</span></h1>
-    <p class="hero__intro">${esc(site.description)}</p>${renderHeroCtas(site)}
+    <h1 class="hero__title">${esc(pick(site.exhibitionTitle))}:<br>
+      <span class="hero__subtitle">${esc(pick(site.exhibitionSubtitle))}</span></h1>
+    <p class="hero__intro">${esc(pick(site.description))}</p>${renderHeroCtas(site)}
   </div>
 </section>`;
 }
@@ -86,7 +87,7 @@ function model3dCard(site, obj) {
     sizes: "(min-width: 60rem) 20rem, 60vw",
   });
   return `<li class="models3d__item">
-  <a class="models3d__link" href="/${obj.section}/${obj.id}/">
+  <a class="models3d__link" href="${esc(localizeHref(`/${obj.section}/${obj.id}/`))}">
     <span class="models3d__media">${media}
       <span class="models3d__badge" aria-hidden="true">${icons.cube}3D</span>
     </span>
@@ -113,8 +114,8 @@ function render3dGallery(site, objects) {
   return `<div class="band home-3d">
   <div class="container">
     <section class="models3d" aria-labelledby="models3d-h">
-      <h2 class="models3d__heading" id="models3d-h">Explore artifacts in 3D</h2>
-      <p class="models3d__intro">Highlighted objects from the collection with interactive 3D view.</p>
+      <h2 class="models3d__heading" id="models3d-h">${esc(t("home3dHeading"))}</h2>
+      <p class="models3d__intro">${esc(t("home3dIntro"))}</p>
       <ul class="models3d__scroller">
 ${cards.map((obj) => model3dCard(site, obj)).join("\n")}
       </ul>
@@ -136,7 +137,7 @@ function renderPersonas(site, sections) {
   return `<div class="band home-personas">
   <div class="container">
     <section class="persona-section" aria-labelledby="personas-h">
-      <h2 class="persona-section__heading" id="personas-h">Explore the exhibition</h2>
+      <h2 class="persona-section__heading" id="personas-h">${esc(t("exploreExhibition"))}</h2>
       <ul class="persona-list">
 ${personas.map((s) => personaCard(site, s)).join("\n")}
       </ul>
@@ -154,15 +155,15 @@ function renderTeaser(site, teaser) {
   // data-driven modifier (cove / falu); text + image render when present.
   const accent = teaser.accent ? ` teaser--${esc(teaser.accent)}` : "";
   const text = teaser.text
-    ? `\n      <p class="teaser__text">${esc(teaser.text)}</p>`
+    ? `\n      <p class="teaser__text">${esc(pick(teaser.text))}</p>`
     : "";
   const media = teaser.image
     ? `\n    <span class="teaser__media">${renderImage({ site, image: teaser.image, className: "teaser__img", sizes: "(min-width: 48rem) 34rem, 100vw" })}</span>`
     : "";
   return `<article class="teaser${accent}">
     <div class="teaser__content">
-      <h2 class="teaser__heading">${esc(teaser.heading)}</h2>${text}
-      <a class="teaser__more" href="${esc(teaser.href)}">Read more ${icons.arrow}</a>
+      <h2 class="teaser__heading">${esc(pick(teaser.heading))}</h2>${text}
+      <a class="teaser__more" href="${esc(localizeHref(teaser.href))}">${esc(t("readMore"))} ${icons.arrow}</a>
     </div>${media}
   </article>`;
 }

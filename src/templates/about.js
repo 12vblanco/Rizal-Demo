@@ -11,6 +11,7 @@ import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
 import { renderMarkdown } from "./fragments.js";
 import { icons } from "../icons.js";
+import { pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -19,19 +20,18 @@ import { icons } from "../icons.js";
  * @typedef {import("../types.js").AboutMessage} AboutMessage
  */
 
-const ABOUT_TITLE = "About the Project";
-
 // --- SEO slots (full package in feature 12) --------------------------------
 
 /** @param {Site} site */
 export function aboutTitle(site) {
-  const full = `${ABOUT_TITLE} | ${site.siteTitle}`;
-  return full.length <= 70 ? full : ABOUT_TITLE;
+  const title = t("aboutProject");
+  const full = `${title} | ${pick(site.siteTitle)}`;
+  return full.length <= 70 ? full : title;
 }
 
 /** @param {About} about */
 export function aboutDescription(about) {
-  const plain = about.intro.replace(/\s+/g, " ").trim();
+  const plain = pick(about.intro).replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }
@@ -41,9 +41,9 @@ export function aboutDescription(about) {
 /** @param {AboutBlurb} blurb */
 function renderBlurb(blurb) {
   return `<section class="about-blurb">
-      <h2 class="about-blurb__heading">${esc(blurb.heading)}</h2>
+      <h2 class="about-blurb__heading">${esc(pick(blurb.heading))}</h2>
       <div class="about-blurb__body">
-${renderMarkdown(blurb.body)}
+${renderMarkdown(pick(blurb.body))}
       </div>
     </section>`;
 }
@@ -72,13 +72,13 @@ function renderMessage(site, message, index) {
   return `<li class="message-card">
   <div class="message-card__media">
     ${poster}
-    <button class="message-card__play" type="button"${dataVideo} aria-label="Play the video message from ${esc(message.name)}">
+    <button class="message-card__play" type="button"${dataVideo} aria-label="${esc(t("playMessage", { name: message.name }))}">
       <span class="message-card__play-icon" aria-hidden="true">${icons.play}</span>
     </button>
   </div>
   <div class="message-card__caption">
     <h3 class="message-card__name">${esc(message.name)}</h3>
-    <p class="message-card__role">${esc(message.role)}</p>
+    <p class="message-card__role">${esc(pick(message.role))}</p>
   </div>
 </li>`;
 }
@@ -106,8 +106,8 @@ export function renderAbout({ site, about }) {
   ${heroBg}
   <div class="page-hero__scrim"></div>
   <div class="container page-hero__inner">
-    <h1 class="page-hero__title">${esc(ABOUT_TITLE)}</h1>
-    <p class="page-hero__intro">${esc(about.intro)}</p>
+    <h1 class="page-hero__title">${esc(t("aboutProject"))}</h1>
+    <p class="page-hero__intro">${esc(pick(about.intro))}</p>
   </div>
 </section>
 <div class="band band--light about-blurbs">
@@ -117,7 +117,7 @@ export function renderAbout({ site, about }) {
 </div>
 <section class="band band--light about-messages" aria-labelledby="messages-h">
   <div class="container">
-    <h2 class="about-messages__heading" id="messages-h">${esc(about.messagesHeading)}</h2>
+    <h2 class="about-messages__heading" id="messages-h">${esc(pick(about.messagesHeading))}</h2>
     <ul class="message-grid">
 ${messages}
     </ul>

@@ -18,9 +18,23 @@
  */
 
 /**
+ * A UI locale id. English is the default (root, no path prefix); Filipino and
+ * German render under /fil/ and /de/. See src/i18n.js LOCALES.
+ * @typedef {"en"|"fil"|"de"} Locale
+ */
+
+/**
+ * A translatable string. Either a plain string (English, or content not yet
+ * translated — it falls back at render via pick()) or a locale-keyed map with
+ * `en` required and `fil`/`de` optional. Read through i18n.pick() so a missing
+ * translation degrades to English rather than breaking the build.
+ * @typedef {string | { en: string, fil?: string, de?: string }} LocalizedString
+ */
+
+/**
  * A label + href pair — nav children, footer links, hero/footer CTAs.
  * @typedef {object} Link
- * @property {string} label
+ * @property {LocalizedString} label
  * @property {string} href
  * @property {string} [video] - baseUrl-relative video file (self-hosted at
  *   the museum origin, like the About "Messages" videos — not committed to
@@ -32,7 +46,7 @@
 /**
  * A top-level nav entry; `children` makes it the Jose Rizal disclosure dropdown.
  * @typedef {object} NavItem
- * @property {string} label
+ * @property {LocalizedString} label
  * @property {string} href
  * @property {Link[]} [children]
  */
@@ -48,9 +62,9 @@
 /**
  * One landing-page teaser card (optional site.json slot).
  * @typedef {object} HomeTeaser
- * @property {string} heading
+ * @property {LocalizedString} heading
  * @property {string} href
- * @property {string} [text]
+ * @property {LocalizedString} [text]
  * @property {Image} [image]
  * @property {string} [accent]
  */
@@ -58,9 +72,9 @@
 /**
  * The footer's About/contact headings block (site.json `footer`).
  * @typedef {object} SiteFooter
- * @property {string} aboutHeading
- * @property {string} aboutText
- * @property {string} contactHeading
+ * @property {LocalizedString} aboutHeading
+ * @property {LocalizedString} aboutText
+ * @property {LocalizedString} contactHeading
  */
 
 /**
@@ -100,16 +114,16 @@
  * Global site config (content/site.json). URLs/canonicals derive from
  * baseUrl/basePath; every optional slot is gated so nothing is invented.
  * @typedef {object} Site
- * @property {string} siteTitle
- * @property {string} siteSubtitle
- * @property {string} exhibitionTitle
- * @property {string} exhibitionSubtitle
- * @property {string} homeTitle
+ * @property {LocalizedString} siteTitle
+ * @property {LocalizedString} siteSubtitle
+ * @property {LocalizedString} exhibitionTitle
+ * @property {LocalizedString} exhibitionSubtitle
+ * @property {LocalizedString} homeTitle
  * @property {string} baseUrl
  * @property {string} basePath
  * @property {string} language
- * @property {string} description
- * @property {string} copyright
+ * @property {LocalizedString} description
+ * @property {LocalizedString} copyright
  * @property {Link[]} [heroCtas]
  * @property {HomeQuote} [homeQuote]
  * @property {HomeTeaser[]} [homeTeasers]
@@ -154,12 +168,12 @@
  * @property {string} [category]
  * @property {number} order
  * @property {LocalizedTitle} title
- * @property {string} objectType
- * @property {string} [materials]
- * @property {string} [dimensions]
+ * @property {LocalizedString} objectType
+ * @property {LocalizedString} [materials]
+ * @property {LocalizedString} [dimensions]
  * @property {string} [accession]
- * @property {string} description
- * @property {string} [condition]
+ * @property {LocalizedString} description
+ * @property {LocalizedString} [condition]
  * @property {Image[]} images
  * @property {string} rights
  * @property {Model3d} [model3d]
@@ -175,10 +189,10 @@
  * @property {string} section
  * @property {number} order
  * @property {string} name
- * @property {string} role
- * @property {string} lifespan
+ * @property {LocalizedString} role
+ * @property {LocalizedString} lifespan
  * @property {Image} portrait
- * @property {string} bio
+ * @property {LocalizedString} bio
  * @property {string[]} relatedObjects
  * @property {string[]} relatedPeople
  */
@@ -187,7 +201,7 @@
  * A category tab within a section.
  * @typedef {object} SectionCategory
  * @property {string} id
- * @property {string} label
+ * @property {LocalizedString} label
  */
 
 /**
@@ -195,8 +209,8 @@
  * area between the live and upcoming states.
  * @typedef {object} Section
  * @property {string} id
- * @property {string} title
- * @property {string} intro
+ * @property {LocalizedString} title
+ * @property {LocalizedString} intro
  * @property {Image} heroImage
  * @property {SectionCategory[]} categories
  * @property {"live"|"upcoming"} status
@@ -235,8 +249,8 @@
 /**
  * One institution blurb on the About page.
  * @typedef {object} AboutBlurb
- * @property {string} heading
- * @property {string} body
+ * @property {LocalizedString} heading
+ * @property {LocalizedString} body
  */
 
 /**
@@ -244,7 +258,7 @@
  * from `video` (path under static/video/), so hosting can change without markup.
  * @typedef {object} AboutMessage
  * @property {string} name
- * @property {string} role
+ * @property {LocalizedString} role
  * @property {Image} poster
  * @property {string} [video]
  */
@@ -252,9 +266,9 @@
 /**
  * About-page content (content/about.json).
  * @typedef {object} About
- * @property {string} intro
+ * @property {LocalizedString} intro
  * @property {AboutBlurb[]} blurbs
- * @property {string} messagesHeading
+ * @property {LocalizedString} messagesHeading
  * @property {AboutMessage[]} messages
  */
 
@@ -276,6 +290,7 @@
  * @property {ContentPage[]} pages
  * @property {About} about
  * @property {Redirect[]} redirects
+ * @property {Record<string, Record<string, string>>} i18n - UI message catalogs keyed by locale id
  */
 
 export {};

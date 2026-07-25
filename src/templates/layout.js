@@ -3,6 +3,15 @@
 // main content slot, and footer. Every generated page goes through this.
 
 import { icons } from "../icons.js";
+import {
+  LOCALES,
+  alternates,
+  getLocale,
+  hrefForLocale,
+  localizeHref,
+  pick,
+  t,
+} from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -21,11 +30,37 @@ export function esc(text) {
     .replaceAll('"', "&quot;");
 }
 
+/**
+ * Language switcher — flag-only, right of the search icon. Shows the *other*
+ * locales (the active one is omitted): from English it offers Filipino + German,
+ * and so on. Each is a real <a> to the same page in that locale — pure HTML/CSS,
+ * so it works with JS disabled and is crawlable (spec rule 5). The flag SVG is
+ * decorative (aria-hidden); the language name in a .visually-hidden span is the
+ * link's accessible name, so a flag is never the only cue for assistive tech
+ * (rule 10). hreflang/lang mark each link's target language.
+ * @param {string} currentPath - locale-independent page path
+ */
+function renderLangSwitch(currentPath) {
+  const active = getLocale();
+  const items = LOCALES.filter((l) => l.id !== active)
+    .map((l) => {
+      const flag = `<span class="lang-switch__flag" aria-hidden="true">${icons[l.flag] ?? ""}</span>`;
+      return `      <li class="lang-switch__item"><a class="lang-switch__link" href="${esc(hrefForLocale(currentPath, l.id))}" hreflang="${esc(l.hreflang)}" lang="${esc(l.hreflang)}">${flag}<span class="visually-hidden">${esc(l.label)}</span></a></li>`;
+    })
+    .join("\n");
+  return `<nav class="lang-switch" aria-label="${esc(t("language"))}">
+    <ul class="lang-switch__list">
+${items}
+    </ul>
+  </nav>`;
+}
+
 /** @param {Site} site @param {string} currentPath */
 function renderNav(site, currentPath) {
   const items = site.nav
     .map((item) => {
       const current = item.href === currentPath ? ' aria-current="page"' : "";
+      const label = pick(item.label);
       if (item.children?.length) {
         // A real disclosure button (not hover-only): keyboard-operable and
         // announced with aria-expanded. The parent stays a link to its overview
@@ -35,13 +70,13 @@ function renderNav(site, currentPath) {
         const children = item.children
           .map((c) => {
             const cCurrent = c.href === currentPath ? ' aria-current="page"' : "";
-            return `<li><a href="${esc(c.href)}"${cCurrent}>${esc(c.label)}</a></li>`;
+            return `<li><a href="${esc(localizeHref(c.href))}"${cCurrent}>${esc(pick(c.label))}</a></li>`;
           })
           .join("\n");
         return `<li class="nav-item nav-item--dropdown">
-  <a href="${esc(item.href)}"${current}>${esc(item.label)}</a>
+  <a href="${esc(localizeHref(item.href))}"${current}>${esc(label)}</a>
   <button class="nav-dropdown__toggle" type="button" aria-expanded="false" aria-controls="${submenuId}">
-    <span class="visually-hidden">Show ${esc(item.label)} sections</span>
+    <span class="visually-hidden">${esc(t("navShowSections", { label }))}</span>
     <span class="nav-dropdown__chevron" aria-hidden="true">${icons["chevron-down"]}</span>
   </button>
   <ul class="nav-dropdown" id="${submenuId}">
@@ -49,7 +84,7 @@ ${children}
   </ul>
 </li>`;
       }
-      return `<li class="nav-item"><a href="${esc(item.href)}"${current}>${esc(item.label)}</a></li>`;
+      return `<li class="nav-item"><a href="${esc(localizeHref(item.href))}"${current}>${esc(label)}</a></li>`;
     })
     .join("\n");
 
@@ -60,12 +95,13 @@ ${children}
   // sanctioned use (rule 10). The panel (a labelled region with a close button
   // and the Pagefind mount) sits in a relatively-positioned wrapper so it drops
   // straight down from the icon without touching the mobile menu's positioning.
-  const searchHref = `${site.basePath}search/`;
-  const searchCurrent = searchHref === currentPath ? ' aria-current="page"' : "";
+  const searchRoute = `${site.basePath}search/`;
+  const searchHref = localizeHref(searchRoute);
+  const searchCurrent = searchRoute === currentPath ? ' aria-current="page"' : "";
 
-  return `<nav class="site-nav" aria-label="Main">
+  return `<nav class="site-nav" aria-label="${esc(t("mainNav"))}">
   <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="site-nav-list">
-    <span class="visually-hidden">Menu</span>
+    <span class="visually-hidden">${esc(t("menu"))}</span>
     <span class="site-nav__toggle-icon" aria-hidden="true">${icons.menu}${icons.close}</span>
   </button>
   <ul class="site-nav__list" id="site-nav-list">
@@ -74,19 +110,20 @@ ${items}
   <div class="site-search-wrap">
     <a class="site-nav__search" href="${esc(searchHref)}"${searchCurrent}>
       <span class="nav-icon-wrap" aria-hidden="true">${icons.search}</span>
-      <span class="visually-hidden">Search</span>
+      <span class="visually-hidden">${esc(t("search"))}</span>
     </a>
     <section class="site-search" id="site-search" aria-labelledby="site-search-title" hidden>
       <div class="site-search__head">
-        <h2 class="site-search__title" id="site-search-title">Search</h2>
+        <h2 class="site-search__title" id="site-search-title">${esc(t("search"))}</h2>
         <button class="site-search__close" type="button">
           <span class="nav-icon-wrap" aria-hidden="true">${icons.close}</span>
-          <span class="visually-hidden">Close search</span>
+          <span class="visually-hidden">${esc(t("closeSearch"))}</span>
         </button>
       </div>
       <div id="site-search-ui" class="search-ui"></div>
     </section>
   </div>
+  ${renderLangSwitch(currentPath)}
 </nav>`;
 }
 
@@ -129,12 +166,12 @@ function renderFooter(site) {
     })
     .join("\n");
   const navItems = (footerNav ?? [])
-    .map((i) => `<li><a href="${esc(i.href)}">${esc(i.label)}</a></li>`)
+    .map((i) => `<li><a href="${esc(localizeHref(i.href))}">${esc(pick(i.label))}</a></li>`)
     .join("\n");
   const ctaItems = (footerCtas ?? [])
     .map(
       (c) =>
-        `<li><a class="footer-pill" href="${esc(c.href)}">${esc(c.label)} ${icons.arrow}</a></li>`,
+        `<li><a class="footer-pill" href="${esc(localizeHref(c.href))}">${esc(pick(c.label))} ${icons.arrow}</a></li>`,
     )
     .join("\n");
   const socialItems = (social ?? []).map(socialLink).join("\n");
@@ -153,7 +190,7 @@ ${sealItems}
       </ul>
     </aside>
     <div class="footer-body">
-      <nav class="footer-nav" aria-label="Exhibition sections">
+      <nav class="footer-nav" aria-label="${esc(t("exhibitionSections"))}">
         <ul class="footer-nav__list">
 ${navItems}
         </ul>
@@ -161,11 +198,11 @@ ${navItems}
       <hr class="footer-rule">
       <div class="footer-grid">
         <section class="footer-about" aria-labelledby="footer-about">
-          <h2 class="footer-heading" id="footer-about"><a href="/about/">${esc(footer.aboutHeading)} </a></h2>
-          <p>${esc(footer.aboutText)}</p>
+          <h2 class="footer-heading" id="footer-about"><a href="${esc(localizeHref("/about/"))}">${esc(pick(footer.aboutHeading))} </a></h2>
+          <p>${esc(pick(footer.aboutText))}</p>
           <p class="footer-exhibition">
-            <span class="footer-exhibition__title">${esc(site.exhibitionTitle)}</span>
-            <span class="footer-exhibition__sub">${esc(site.exhibitionSubtitle)}</span>
+            <span class="footer-exhibition__title">${esc(pick(site.exhibitionTitle))}</span>
+            <span class="footer-exhibition__sub">${esc(pick(site.exhibitionSubtitle))}</span>
             
           </p>
                 <p class="footer-panel__address">${icons.pin}<span>${esc(contact.address)}</span></p>
@@ -179,7 +216,7 @@ ${ctaItems}
 ${socialItems}
           </ul>
           <div class="footer-contact">
-            <span class="footer-contact__label">${esc(footer.contactHeading)}</span>
+            <span class="footer-contact__label">${esc(pick(footer.contactHeading))}</span>
             <a href="mailto:${esc(contact.email)}">${esc(contact.email)}</a>
             <a href="tel:${esc(telHref)}">${esc(phoneDisplay)}</a>
           </div>
@@ -188,7 +225,7 @@ ${socialItems}
     </div>
   </div>
   <div class="site-footer__bar">
-    <p class="site-footer__copyright">${esc(copyright)}</p>
+    <p class="site-footer__copyright">${esc(pick(copyright))}</p>
   </div>
 </footer>`;
 }
@@ -213,31 +250,40 @@ export function renderPage({
   content,
   isDev = false,
 }) {
-  const canonical = site.baseUrl.replace(/\/$/, "") + path;
+  const locale = getLocale();
+  const origin = site.baseUrl.replace(/\/$/, "");
+  // Canonical is this page in *this* locale; the alternates advertise the same
+  // page in every locale (plus x-default → English) so search engines pair them
+  // (spec SEO package). `path` is locale-independent — the prefix is applied here.
+  const canonical = origin + hrefForLocale(path, locale);
+  const altLinks = alternates(site.baseUrl, path)
+    .map((a) => `  <link rel="alternate" hreflang="${esc(a.hreflang)}" href="${esc(a.href)}">`)
+    .join("\n");
   const reload = isDev
     ? `\n<script>new EventSource("/__reload").onmessage = () => location.reload();</script>`
     : "";
 
   return `<!DOCTYPE html>
-<html lang="${esc(site.language)}">
+<html lang="${esc(locale)}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${esc(canonical)}">
+${altLinks}
   <link rel="stylesheet" href="${esc(assets.css)}">
   <script type="module" src="${esc(assets.js)}" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">${esc(t("skipToContent"))}</a>
   <header class="site-header band band--dark" data-pagefind-ignore>
     <div class="container site-header__inner">
-      <a class="site-header__brand" href="${esc(site.basePath)}">
+      <a class="site-header__brand" href="${esc(localizeHref(site.basePath))}">
         ${icons["museum-mark"]}
         <span class="site-header__brand-text">
-          <span class="site-header__brand-title">${esc(site.exhibitionTitle)}</span>
-          <span class="site-header__brand-subtitle">${esc(site.exhibitionSubtitle)}</span>
+          <span class="site-header__brand-title">${esc(pick(site.exhibitionTitle))}</span>
+          <span class="site-header__brand-subtitle">${esc(pick(site.exhibitionSubtitle))}</span>
         </span>
       </a>
       ${renderNav(site, path)}

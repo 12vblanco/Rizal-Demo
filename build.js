@@ -11,6 +11,15 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { loadContent } from "./src/content.js";
+import {
+  LOCALES,
+  localePrefix,
+  pick,
+  setCatalogs,
+  setLocale,
+  setSiteConfig,
+  t,
+} from "./src/i18n.js";
 import { lintDistImages, lqipCss, processDeepZoom, processImages } from "./src/images.js";
 import { setDeepZoomManifest, setImageManifest } from "./src/templates/media.js";
 import { renderPage } from "./src/templates/layout.js";
@@ -67,6 +76,12 @@ export async function build() {
     loadContent({ contentDir: path.join(root, "content"), assetsDir })
   );
   const site = content.site;
+
+  // i18n (feature 16): anchor href localisation to basePath and install the UI
+  // message catalogs before any rendering. The per-locale render loop below sets
+  // the ambient locale each pass.
+  setSiteConfig(site);
+  setCatalogs(content.i18n);
 
   rmSync(dist, { recursive: true, force: true });
   mkdirSync(path.join(dist, "assets"), { recursive: true });
@@ -137,6 +152,16 @@ export async function build() {
 
   const assets = { css: site.basePath + cssFile, js: site.basePath + jsFile };
 
+  // Every page is rendered once per locale (feature 16): English at the root,
+  // Filipino under /fil/, German under /de/. setLocale drives the ambient locale
+  // that t()/pick()/localizeHref() read inside the templates; the data prep below
+  // is locale-independent, so recomputing it each pass is cheap and keeps the
+  // loop self-contained. Asset/media/CSS/JS above are emitted once (shared).
+  let written = 0;
+  for (const { id: locale } of LOCALES) {
+    setLocale(locale);
+    const prefix = localePrefix(locale);
+
   // Pages. Every page goes through renderPage (head/meta, nav, footer).
   const pages = [
     {
@@ -146,8 +171,8 @@ export async function build() {
         assets,
         isDev,
         path: "/",
-        title: site.homeTitle,
-        description: site.description,
+        title: pick(site.homeTitle),
+        description: pick(site.description),
         content: renderHome({ site, sections: content.sections, objects: content.objects }),
       }),
     },
@@ -171,9 +196,9 @@ export async function build() {
         assets,
         isDev,
         path: route.href,
-        title: `${route.label} — ${site.siteTitle}`,
-        description: site.description,
-        content: renderUpcoming({ title: route.label, site }),
+        title: `${pick(route.label)} — ${pick(site.siteTitle)}`,
+        description: pick(site.description),
+        content: renderUpcoming({ title: pick(route.label), site }),
       }),
     });
   }
@@ -419,17 +444,20 @@ export async function build() {
       assets,
       isDev,
       path: "/404.html",
-      title: `Page not found — ${site.siteTitle}`,
+      title: `${t("pageNotFound")} — ${pick(site.siteTitle)}`,
       description: "The page you were looking for could not be found on the José Rizal Digital Exhibition.",
       content: render404({ site }),
     }),
   });
 
   for (const page of pages) {
-    const outPath = path.join(dist, page.out);
+    // English writes to dist/<path>; fil/de to dist/fil/<path>, dist/de/<path>.
+    const outPath = path.join(dist, prefix, page.out);
     mkdirSync(path.dirname(outPath), { recursive: true });
     writeFileSync(outPath, page.html);
+    written += 1;
   }
+  } // end per-locale render loop
 
   // Fail the build if any output references a raw original scan or a missing
   // image (spec rule 4 / feature 08) — no <img>/<source> may point outside the
@@ -446,7 +474,7 @@ export async function build() {
   const pagefindBin = path.join(root, "node_modules", ".bin", "pagefind");
   execFileSync(pagefindBin, ["--site", dist, "--quiet"], { stdio: "inherit" });
 
-  console.log(`Built ${pages.length} page(s) in ${Date.now() - started} ms → dist/`);
+  console.log(`Built ${written} page(s) across ${LOCALES.length} locale(s) in ${Date.now() - started} ms → dist/`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

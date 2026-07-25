@@ -1,7 +1,15 @@
 {
   "id": "artist",
-  "title": "Rizal as Artist",
-  "intro": "Long before his name was etched in Philippine history, José Rizal was a talented boy who made figures from clay, wax, and wood. His works show not just his craftsmanship, but also the quiet journey of a mind observing the world with wonder.",
+  "title": {
+    "en": "Rizal as Artist",
+    "fil": "Si Rizal bilang Artista",
+    "de": "Rizal als Künstler"
+  },
+  "intro": {
+    "en": "Long before his name was etched in Philippine history, José Rizal was a talented boy who made figures from clay, wax, and wood. His works show not just his craftsmanship, but also the quiet journey of a mind observing the world with wonder.",
+    "fil": "Bago pa man mabaon ang kanyang pangalan sa kasaysayan ng Pilipinas, si José Rizal ay isang batang may talino na gumagawa ng mga hugis mula sa luwad, kandila, at kahoy. Ipinapakita ng kanyang mga likha hindi lamang ang kanyang kahusayan, kundi pati na rin ang tahimik na paglalakbay ng isang isip na nagmamasid sa mundo nang may pagkamangha.",
+    "de": "Lange bevor sein Name in die philippinische Geschichte eingeschrieben wurde, war José Rizal ein begabter Junge, der Figuren aus Ton, Wachs und Holz formte. Seine Werke zeigen nicht nur sein Können, sondern auch den stillen Weg eines Geistes, der die Welt mit Staunen betrachtet."
+  },
   "heroImage": {
     "src": "sections/artist.webp",
     "alt": "Pencil self-portrait of the young José Rizal, signed 'Rizal', on aged paper",

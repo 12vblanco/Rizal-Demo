@@ -1,7 +1,15 @@
 {
   "id": "hero",
-  "title": "Rizal as Hero",
-  "intro": "José Rizal proved that the pen can cut deeper than any sword. Through his writings, he sparked the flames of revolution and inspired generations to stand against injustice, marking the rise of a hero whose words continue to resonate through the nation's history.",
+  "title": {
+    "en": "Rizal as Hero",
+    "fil": "Si Rizal bilang Bayani",
+    "de": "Rizal als Held"
+  },
+  "intro": {
+    "en": "José Rizal proved that the pen can cut deeper than any sword. Through his writings, he sparked the flames of revolution and inspired generations to stand against injustice, marking the rise of a hero whose words continue to resonate through the nation's history.",
+    "fil": "Pinatunayan ni José Rizal na ang panulat ay maaaring tumagos nang mas malalim kaysa sa anumang espada. Sa pamamagitan ng kanyang mga akda, pinagningas niya ang apoy ng rebolusyon at nag-udyok sa mga henerasyon na tumindig laban sa kawalang-katarungan, tanda ng pagsulpot ng isang bayani na ang mga salita ay patuloy na dumadagundong sa kasaysayan ng bansa.",
+    "de": "José Rizal bewies, dass die Feder tiefer schneiden kann als jedes Schwert. Mit seinen Schriften entfachte er die Flammen der Revolution und inspirierte Generationen, sich gegen Ungerechtigkeit zu erheben – der Aufstieg eines Helden, dessen Worte bis heute in der Geschichte der Nation nachhallen."
+  },
   "heroImage": {
     "src": "sections/hero.webp",
     "alt": "Bronze statues in a park depicting José Rizal amid figures from Philippine history"

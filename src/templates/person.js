@@ -17,6 +17,7 @@ import {
   renderVtStyle,
   vtName,
 } from "./fragments.js";
+import { pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -29,14 +30,15 @@ import {
 
 /** @param {Person} person @param {Site} site */
 export function personTitle(person, site) {
-  const rich = `${person.name} · ${person.role} | ${site.siteTitle}`;
-  const base = `${person.name} | ${site.siteTitle}`;
+  const siteTitle = pick(site.siteTitle);
+  const rich = `${person.name} · ${pick(person.role)} | ${siteTitle}`;
+  const base = `${person.name} | ${siteTitle}`;
   return rich.length <= 70 ? rich : base;
 }
 
 /** @param {Person} person */
 export function personDescription(person) {
-  const plain = person.bio.replace(/\s+/g, " ").trim();
+  const plain = pick(person.bio).replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }
@@ -90,21 +92,21 @@ export function renderPerson({ site, person, section, prev, next, relatedObjects
       </div>
       <div class="person__info-col">
         <h1 class="person__name" data-pagefind-weight="10">${esc(person.name)}</h1>
-        <p class="person__role" data-pagefind-weight="4">${esc(person.role)}</p>
-        <p class="person__lifespan">${esc(person.lifespan)}</p>
+        <p class="person__role" data-pagefind-weight="4">${esc(pick(person.role))}</p>
+        <p class="person__lifespan">${esc(pick(person.lifespan))}</p>
         <div class="person__bio">
-${renderMarkdown(person.bio)}
+${renderMarkdown(pick(person.bio))}
         </div>
       </div>
     </div>
-    ${renderRelatedRow({ heading: "Related objects", headingId: "related-objects", cards: objectCards })}
-    ${renderRelatedRow({ heading: "Related people", headingId: "related-people", cards: peopleCards })}
+    ${renderRelatedRow({ heading: t("relatedObjects"), headingId: "related-objects", cards: objectCards })}
+    ${renderRelatedRow({ heading: t("relatedPeople"), headingId: "related-people", cards: peopleCards })}
     ${renderPager({
       prev,
       next,
       hrefFor: (person) => `/${person.section}/${person.id}/`,
       nameFor: (person) => person.name,
-      ariaLabel: "Browse people in this section",
+      ariaLabel: t("browsePeople"),
     })}
   </div>
 </article>`;

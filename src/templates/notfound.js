@@ -6,6 +6,7 @@
 
 import { esc } from "./layout.js";
 import { icons } from "../icons.js";
+import { localizeHref, pick, t } from "../i18n.js";
 
 /** @typedef {import("../types.js").Site} Site */
 
@@ -27,17 +28,17 @@ function escapeRoutes(site) {
 /** @param {{ site: Site }} p */
 export function render404({ site }) {
   const links = escapeRoutes(site)
-    .map((r) => `      <li><a class="notfound__link" href="${esc(r.href)}">${esc(r.label)} ${icons.arrow}</a></li>`)
+    .map((r) => `      <li><a class="notfound__link" href="${esc(localizeHref(r.href))}">${esc(pick(r.label))} ${icons.arrow}</a></li>`)
     .join("\n");
   return `<section class="notfound band band--dark" data-pagefind-ignore>
   <div class="container notfound__inner">
     <p class="notfound__code">404</p>
-    <h1 class="notfound__title">This page could not be found</h1>
-    <p class="notfound__text">The page you were looking for may have moved, or the link may be out of date. Try one of these instead:</p>
+    <h1 class="notfound__title">${esc(t("notFoundTitle"))}</h1>
+    <p class="notfound__text">${esc(t("notFoundText"))}</p>
     <ul class="notfound__links">
 ${links}
     </ul>
-    <p class="notfound__home"><a href="${esc(site.basePath)}">Return to the exhibition home</a></p>
+    <p class="notfound__home"><a href="${esc(localizeHref(site.basePath))}">${esc(t("returnHome"))}</a></p>
   </div>
 </section>`;
 }

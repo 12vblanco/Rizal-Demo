@@ -1,7 +1,15 @@
 {
   "id": "ethnographer",
-  "title": "Rizal as Ethnographer",
-  "intro": "During his trip to Europe in 1888, José Rizal sent 21 objects from London to Berlin, pieces of culture representing communities from all across the country. His ethnographic contributions painted a full picture of the Philippine archipelago and its culture.",
+  "title": {
+    "en": "Rizal as Ethnographer",
+    "fil": "Si Rizal bilang Etnograpo",
+    "de": "Rizal als Ethnograph"
+  },
+  "intro": {
+    "en": "During his trip to Europe in 1888, José Rizal sent 21 objects from London to Berlin, pieces of culture representing communities from all across the country. His ethnographic contributions painted a full picture of the Philippine archipelago and its culture.",
+    "fil": "Sa kanyang paglalakbay sa Europa noong 1888, nagpadala si José Rizal ng 21 bagay mula London patungong Berlin, mga bahagi ng kultura na kumakatawan sa mga pamayanan mula sa iba't ibang panig ng bansa. Ang kanyang mga ambag sa etnograpiya ay lumikha ng isang buong larawan ng kapuluang Pilipino at ng kultura nito.",
+    "de": "Auf seiner Europareise im Jahr 1888 sandte José Rizal 21 Objekte von London nach Berlin – Kulturzeugnisse, die Gemeinschaften aus dem ganzen Land repräsentieren. Seine ethnografischen Beiträge zeichneten ein umfassendes Bild des philippinischen Archipels und seiner Kultur."
+  },
   "heroImage": {
     "src": "sections/ethnographer.webp",
     "alt": "A domed salakot of translucent carabao horn studded with silver flowers, displayed on a stand"

@@ -4,6 +4,7 @@
 // placeholder text). Section/content page features (03–07) replace these.
 
 import { esc } from "./layout.js";
+import { localizeHref, t } from "../i18n.js";
 
 /** @typedef {import("../types.js").Site} Site */
 
@@ -11,10 +12,10 @@ import { esc } from "./layout.js";
 export function renderUpcoming({ title, site }) {
   return `<section class="band band--dark hero">
   <div class="container">
-    <p class="upcoming-badge">Upcoming</p>
+    <p class="upcoming-badge">${esc(t("upcoming"))}</p>
     <h1>${esc(title)}</h1>
-    <p class="hero__intro">This part of the exhibition is in preparation.</p>
-    <p><a href="${esc(site.basePath)}">Return to the exhibition home</a></p>
+    <p class="hero__intro">${esc(t("upcomingInPreparation"))}</p>
+    <p><a href="${esc(localizeHref(site.basePath))}">${esc(t("returnHome"))}</a></p>
   </div>
 </section>`;
 }

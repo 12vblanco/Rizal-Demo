@@ -9,6 +9,7 @@
 import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
 import { renderBreadcrumb, renderMarkdown, renderPager } from "./fragments.js";
+import { localizeHref, pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -20,7 +21,7 @@ import { renderBreadcrumb, renderMarkdown, renderPager } from "./fragments.js";
 
 /** @param {Essay} essay @param {Site} site */
 export function essayTitle(essay, site) {
-  const full = `${essay.title} | ${site.siteTitle}`;
+  const full = `${essay.title} | ${pick(site.siteTitle)}`;
   return full.length <= 70 ? full : essay.title;
 }
 
@@ -59,20 +60,20 @@ export function renderEssay({ site, essay, section, prev, next }) {
     next,
     hrefFor: (e) => `/essays/${e.slug}/`,
     nameFor: (e) => e.title,
-    ariaLabel: "More essays in this section",
+    ariaLabel: t("moreEssays"),
   });
   return `<article class="essay band band--light">
   <div class="container container--narrow">
     ${renderBreadcrumb({ site, section, leaf: essay.title })}
     <header class="essay__header">
       <h1 class="essay__title" data-pagefind-weight="10">${esc(essay.title)}</h1>
-      <p class="essay__byline" data-pagefind-weight="4">By ${esc(essay.author)}</p>
+      <p class="essay__byline" data-pagefind-weight="4">${esc(t("by", { author: essay.author }))}</p>
     </header>
     ${hero}<div class="essay__body">
 ${renderMarkdown(essay.body)}
     </div>
     ${pager}
-    <p class="essay__back"><a href="/${esc(section.id)}/">← Back to ${esc(section.title)}</a></p>
+    <p class="essay__back"><a href="${esc(localizeHref(`/${section.id}/`))}">← ${esc(t("backToSection", { title: pick(section.title) }))}</a></p>
   </div>
 </article>`;
 }

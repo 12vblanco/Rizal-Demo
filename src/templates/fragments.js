@@ -7,6 +7,7 @@
 import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
 import { icons } from "../icons.js";
+import { localizeHref, pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -43,12 +44,12 @@ export function personaCard(site, section) {
     sizes: "(min-width: 40rem) 33rem, 100vw",
   });
   return `<li class="persona-card">
-  <a class="persona-card__link" href="/${esc(section.id)}/">
+  <a class="persona-card__link" href="${esc(localizeHref(`/${section.id}/`))}">
     <span class="persona-card__media">${media}</span>
     <div class="persona-card__body">
-      <h3 class="persona-card__title">${esc(section.title)}</h3>
-      <p class="persona-card__intro">${esc(section.intro)}</p>
-      <span class="persona-card__cta">Go to page ${icons.arrow}</span>
+      <h3 class="persona-card__title">${esc(pick(section.title))}</h3>
+      <p class="persona-card__intro">${esc(pick(section.intro))}</p>
+      <span class="persona-card__cta">${esc(t("personaCta"))} ${icons.arrow}</span>
     </div>
   </a>
 </li>`;
@@ -121,12 +122,12 @@ export function renderMarkdown(raw) {
 export function renderBreadcrumb({ site, section, leaf, leafLang }) {
   const langAttr = leafLang ? ` lang="${esc(leafLang)}"` : "";
   const crumbs = [
-    `<li><a href="${esc(site.basePath)}">Home</a></li>`,
-    `<li><a href="/jose-rizal/">Jose Rizal</a></li>`,
-    `<li><a href="/${esc(section.id)}/">${esc(section.title)}</a></li>`,
+    `<li><a href="${esc(localizeHref(site.basePath))}">${esc(t("home"))}</a></li>`,
+    `<li><a href="${esc(localizeHref("/jose-rizal/"))}">${esc(t("joseRizal"))}</a></li>`,
+    `<li><a href="${esc(localizeHref(`/${section.id}/`))}">${esc(pick(section.title))}</a></li>`,
     `<li><span aria-current="page"${langAttr}>${esc(leaf)}</span></li>`,
   ].join("\n");
-  return `<nav class="breadcrumb" aria-label="Breadcrumb">
+  return `<nav class="breadcrumb" aria-label="${esc(t("breadcrumb"))}">
   <ol class="breadcrumb__list">
 ${crumbs}
   </ol>
@@ -153,14 +154,14 @@ export function renderPager({ prev, next, hrefFor, nameFor, nameLang, ariaLabel 
   /** @param {T | undefined} item @param {string} dir @param {string} label */
   const link = (item, dir, label) =>
     item
-      ? `<a class="object-pager__link object-pager__link--${dir}" href="${esc(hrefFor(item))}" rel="${dir}">
-    <span class="object-pager__dir">${label}</span>
+      ? `<a class="object-pager__link object-pager__link--${dir}" href="${esc(localizeHref(hrefFor(item)))}" rel="${dir}">
+    <span class="object-pager__dir">${esc(label)}</span>
     <span class="object-pager__name"${langAttr}>${esc(nameFor(item))}</span>
   </a>`
       : "";
   return `<nav class="object-pager" aria-label="${esc(ariaLabel)}">
-  ${link(prev, "prev", "Previous")}
-  ${link(next, "next", "Next")}
+  ${link(prev, "prev", t("previous"))}
+  ${link(next, "next", t("next"))}
 </nav>`;
 }
 
@@ -223,8 +224,10 @@ export function objectCard(site, obj) {
     dataVt: vtName("obj", obj.id),
   });
   return renderCollectionCard({
-    href: `/${obj.section}/${obj.id}/`,
+    href: localizeHref(`/${obj.section}/${obj.id}/`),
     media,
+    // Object names stay in their original form on every locale (curatorial
+    // metadata) — never routed through pick().
     title: obj.title.tl,
     titleLang: "tl",
     subtitle: obj.title.en,
@@ -244,9 +247,9 @@ export function personCard(site, person) {
     dataVt: vtName("person", person.id),
   });
   return renderCollectionCard({
-    href: `/${person.section}/${person.id}/`,
+    href: localizeHref(`/${person.section}/${person.id}/`),
     media,
     title: person.name,
-    subtitle: person.role,
+    subtitle: pick(person.role),
   });
 }

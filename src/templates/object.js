@@ -20,6 +20,7 @@ import {
 import { esc } from "./layout.js";
 import { imageUrl, modelUrl, renderImage, viewerImage, viewerModel } from "./media.js";
 import { icons } from "../icons.js";
+import { pick, t } from "../i18n.js";
 
 /**
  * @typedef {import("../types.js").Site} Site
@@ -32,14 +33,15 @@ import { icons } from "../icons.js";
 
 /** @param {ContentObject} object @param {Site} site */
 export function objectTitle(object, site) {
-  const rich = `${object.title.tl} · ${object.title.en} | ${site.siteTitle}`;
-  const base = `${object.title.tl} | ${site.siteTitle}`;
+  const siteTitle = pick(site.siteTitle);
+  const rich = `${object.title.tl} · ${object.title.en} | ${siteTitle}`;
+  const base = `${object.title.tl} | ${siteTitle}`;
   return rich.length <= 70 ? rich : base;
 }
 
 /** @param {ContentObject} object */
 export function objectDescription(object) {
-  const plain = object.description.replace(/\s+/g, " ").trim();
+  const plain = pick(object.description).replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }
@@ -98,15 +100,15 @@ function renderGallery(site, object) {
           ${posterPic}
           <button class="object-gallery__model-launch" type="button">
             <span class="object-gallery__badge" aria-hidden="true">${icons.cube}3D</span>
-            <span class="object-gallery__model-cta">View in 3D</span>
+            <span class="object-gallery__model-cta">${esc(t("viewIn3d"))}</span>
           </button>
           <div class="object-gallery__model-loader" data-model-progress hidden role="status" aria-live="polite">
-            <span class="object-gallery__model-loader-label">Loading 3D model… <span data-model-percent>0%</span></span>
+            <span class="object-gallery__model-loader-label">${esc(t("loading3d"))} <span data-model-percent>0%</span></span>
             <span class="object-gallery__model-loader-track"><span class="object-gallery__model-loader-bar" data-model-bar></span></span>
           </div>
           <div class="object-gallery__model-prompt" data-model-prompt hidden aria-hidden="true">
-            <span class="object-gallery__model-prompt-item" data-prompt="rotate">${icons.drag}<span>Drag to rotate</span></span>
-            <span class="object-gallery__model-prompt-item" data-prompt="zoom">${icons.scroll}<span>Scroll to zoom</span></span>
+            <span class="object-gallery__model-prompt-item" data-prompt="rotate">${icons.drag}<span>${esc(t("dragToRotate"))}</span></span>
+            <span class="object-gallery__model-prompt-item" data-prompt="zoom">${icons.scroll}<span>${esc(t("scrollToZoom"))}</span></span>
           </div>
         </div>
       </div>`);
@@ -119,7 +121,7 @@ function renderGallery(site, object) {
     // No-JS fallback links to the model's poster render (viewable), not the raw
     // GLB; with JS the click selects slide 0 and the viewer shows the live model.
     thumbItems.push(
-      `<li><a class="object-gallery__thumb object-gallery__thumb--model" href="${esc(imageUrl(site, model.poster))}" aria-current="true" data-slide="0"><span class="object-gallery__thumb-badge" aria-hidden="true">3D</span>${posterThumb}<span class="visually-hidden">3D model</span></a></li>`,
+      `<li><a class="object-gallery__thumb object-gallery__thumb--model" href="${esc(imageUrl(site, model.poster))}" aria-current="true" data-slide="0"><span class="object-gallery__thumb-badge" aria-hidden="true">3D</span>${posterThumb}<span class="visually-hidden">${esc(t("model3dLabel"))}</span></a></li>`,
     );
   }
 
@@ -165,7 +167,7 @@ function renderGallery(site, object) {
   // button (keyboard-operable); without JS it does nothing and the thumbnails
   // below still link each image to its full-resolution file.
   const zoomBtn = `<button class="object-gallery__zoom" type="button" data-viewer-zoom>
-      ${icons.zoom}<span class="visually-hidden">Zoom into ${esc(object.title.en)}</span>
+      ${icons.zoom}<span class="visually-hidden">${esc(t("zoomInto", { name: object.title.en }))}</span>
     </button>`;
 
   // Thumbnail strip shows whenever there is more than one medium (a lone photo
@@ -199,20 +201,21 @@ ${thumbItems.join("\n")}
 
 /** @param {ContentObject} object */
 function renderMeta(object) {
+  // Labels are translated (t); values are localised content (pick), except the
+  // accession number which is a plain identifier. Object type is a strong search
+  // signal — boost it above the other rows for Pagefind (feature 11).
   const rows = [
-    ["Object type", object.objectType],
-    ["Materials", object.materials],
-    ["Dimensions", object.dimensions],
-    ["Accession no.", object.accession],
-    ["Condition", object.condition],
-  ].filter(([, value]) => value);
+    { key: "metaObjectType", value: pick(object.objectType), boost: true },
+    { key: "metaMaterials", value: pick(object.materials) },
+    { key: "metaDimensions", value: pick(object.dimensions) },
+    { key: "metaAccession", value: object.accession },
+    { key: "metaCondition", value: pick(object.condition) },
+  ].filter((r) => r.value);
   if (!rows.length) return "";
   const items = rows
     .map(
-      ([label, value]) =>
-        // Object type is a strong search signal — boost it above the other
-        // metadata rows for Pagefind (feature 11). The rest index at weight 1.
-        `    <div><dt>${esc(label)}</dt><dd${label === "Object type" ? ' data-pagefind-weight="4"' : ""}>${esc(value)}</dd></div>`,
+      (r) =>
+        `    <div><dt>${esc(t(r.key))}</dt><dd${r.boost ? ' data-pagefind-weight="4"' : ""}>${esc(r.value)}</dd></div>`,
     )
     .join("\n");
   return `<dl class="object-meta">
@@ -226,7 +229,7 @@ function renderExplore(site, explore) {
   const cards = explore.map((obj) => objectCard(site, obj)).join("\n");
   return `<section class="collection band band--light" aria-labelledby="explore-heading">
   <div class="container">
-    <h2 class="collection__heading" id="explore-heading">Explore The Collection</h2>
+    <h2 class="collection__heading" id="explore-heading">${esc(t("exploreTheCollection"))}</h2>
     <ul class="collection-grid">
 ${cards}
     </ul>
@@ -276,7 +279,7 @@ export function renderObject({
         <p class="object__title-es" lang="es">${esc(object.title.es)}</p>
         ${renderMeta(object)}
         <div class="object__description">
-${renderMarkdown(object.description)}
+${renderMarkdown(pick(object.description))}
         </div>
         <p class="object__rights">${esc(object.rights)}</p>
       </div>
@@ -288,7 +291,7 @@ ${renderMarkdown(object.description)}
       hrefFor: (o) => `/${o.section}/${o.id}/`,
       nameFor: (o) => o.title.tl,
       nameLang: "tl",
-      ariaLabel: "Browse objects in this section",
+      ariaLabel: t("browseObjects"),
     })}
   </div>
 </article>
