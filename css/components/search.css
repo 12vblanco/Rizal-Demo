@@ -40,6 +40,10 @@
 }
 
 .site-search {
+  /* Height of the Pagefind field, mirrored from its own sizing (1.25rem text at
+     scale 1, 0.75rem block padding, 1px border) so the close button can match it. */
+  --search-field-size: calc(1.25rem * 1.4 + 1.5rem + 2px);
+
   position: absolute;
   top: 100%;
   inset-inline-end: 0;
@@ -47,7 +51,7 @@
   width: min(90vw, 26rem);
   max-height: min(80vh, 34rem);
   overflow-y: auto;
-  padding: var(--space-m) var(--space-l) var(--space-l);
+  padding: 0.8rem 0rem 0.8rem 1rem;
   background: var(--bg-light);
   color: var(--text-on-light);
   border-radius: 0 0 12px 12px;
@@ -58,24 +62,27 @@
   display: none;
 }
 
-.site-search__head {
+/* The field and the close button share one row (the panel's heading is a
+   screen-reader-only label), which keeps the panel short. Results grow inside
+   the first column, so the button aligns to the top of that column. */
+.site-search__row {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-m);
-  margin-block-end: var(--space-s);
+  align-items: flex-start;
+  gap: var(--space-2xs);
 }
 
-.site-search__title {
-  margin: 0;
-  font-size: var(--step-1);
-  color: var(--heading-on-light);
+.site-search__row .search-ui {
+  flex: 1;
+  min-width: 0;
 }
 
 .site-search__close {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: none;
+  block-size: var(--search-field-size);
+  inline-size: var(--search-field-size);
   padding: var(--space-2xs);
   background: none;
   border: 0;

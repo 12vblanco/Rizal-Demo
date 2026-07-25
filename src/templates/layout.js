@@ -113,14 +113,14 @@ ${items}
       <span class="visually-hidden">${esc(t("search"))}</span>
     </a>
     <section class="site-search" id="site-search" aria-labelledby="site-search-title" hidden>
-      <div class="site-search__head">
-        <h2 class="site-search__title" id="site-search-title">${esc(t("search"))}</h2>
+      <h2 class="site-search__title visually-hidden" id="site-search-title">${esc(t("search"))}</h2>
+      <div class="site-search__row">
+        <div id="site-search-ui" class="search-ui"></div>
         <button class="site-search__close" type="button">
           <span class="nav-icon-wrap" aria-hidden="true">${icons.close}</span>
           <span class="visually-hidden">${esc(t("closeSearch"))}</span>
         </button>
       </div>
-      <div id="site-search-ui" class="search-ui"></div>
     </section>
   </div>
   ${renderLangSwitch(currentPath)}
