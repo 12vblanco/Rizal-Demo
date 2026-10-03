@@ -9,7 +9,7 @@
 // markup edits (spec acceptance). Grids reuse the shared object/person cards so
 // their view-transition-name matches the detail-page hero (cross-doc morph).
 
-import { esc } from "./layout.js";
+import { esc, seoTitle } from "./layout.js";
 import { renderImage } from "./media.js";
 import { icons } from "../icons.js";
 import { objectCard, personCard, renderVtStyle, vtName } from "./fragments.js";
@@ -27,9 +27,7 @@ import { localizeHref, pick, t } from "../i18n.js";
 
 /** @param {Section} section @param {Site} site */
 export function sectionTitle(section, site) {
-  const title = pick(section.title);
-  const full = `${title} | ${pick(site.siteTitle)}`;
-  return full.length <= 70 ? full : title;
+  return seoTitle(pick(section.title), pick(site.siteTitle));
 }
 
 /** @param {Section} section */
@@ -75,10 +73,10 @@ function renderHero(site, section) {
  * @param {Essay} essay */
 function renderEssayTeaser(essay) {
   return `<li class="essay-card">
-  <h3 class="essay-card__title">${esc(essay.title)}</h3>
+  <h3 class="essay-card__title">${esc(pick(essay.title))}</h3>
   <p class="essay-card__byline">${esc(t("by", { author: essay.author }))}</p>
-  <p class="essay-card__summary">${esc(essay.summary)}</p>
-  <a class="essay-card__more" href="${esc(localizeHref(`/essays/${essay.slug}/`))}" aria-label="${esc(t("readMoreAria", { title: essay.title }))}">${esc(t("readMore"))} ${icons.arrow}</a>
+  <p class="essay-card__summary">${esc(pick(essay.summary))}</p>
+  <a class="essay-card__more" href="${esc(localizeHref(`/essays/${essay.slug}/`))}" aria-label="${esc(t("readMoreAria", { title: pick(essay.title) }))}">${esc(t("readMore"))} ${icons.arrow}</a>
 </li>`;
 }
 
@@ -185,8 +183,11 @@ ${categoryPanels}
 
 // --- Plain grid view (Scholar / any live section without categories) -------
 
-/** @param {Site} site @param {Section} section @param {Essay[]} essays @param {string[]} cards */
-function renderGridView(site, section, essays, cards) {
+/** @param {Site} site @param {Section} section @param {Essay[]} essays
+ *  @param {string[]} cards @param {string} [gridClass] - extra class on the
+ *  grid, so a card set with its own column rhythm (the Scholar portraits) can
+ *  override the shared auto-fill track list. */
+function renderGridView(site, section, essays, cards, gridClass = "") {
   const essayBlock = essays.length
     ? `<div class="section-body__editorial"><h2 class="section-grid__heading">${esc(t("essays"))}</h2>\n    ${renderEssayList(essays)}</div>\n    `
     : "";
@@ -195,7 +196,7 @@ function renderGridView(site, section, essays, cards) {
   // the "Explore the collection" heading + grid rather than render it empty.
   const collectionBlock = cards.length
     ? `<h2 class="section-grid__heading">${esc(t("exploreCollection"))}</h2>
-    <ul class="collection-grid">
+    <ul class="collection-grid${gridClass ? " " + gridClass : ""}">
 ${cards.join("\n")}
     </ul>`
     : "";
@@ -210,9 +211,12 @@ ${cards.join("\n")}
 
 /** @param {Site} site @param {Section} section @param {Essay[]} essays */
 function renderUpcomingView(site, section, essays) {
+  // Same "Essays" heading the live grid view uses — the teasers are <h3>s, so
+  // without it an upcoming section with editorial jumps h1 → h3.
   const editorial = essays.length
     ? `<div class="band band--light section-body">
   <div class="container">
+    <h2 class="section-grid__heading">${esc(t("essays"))}</h2>
     ${renderEssayList(essays)}
   </div>
 </div>
@@ -248,7 +252,7 @@ export function renderSection({ site, section, objects, people, essays }) {
     body = renderCategoryView(site, section, objects, essays);
     vtNames = objects.map((o) => vtName("obj", o.id));
   } else if (people.length) {
-    body = renderGridView(site, section, essays, people.map((p) => personCard(site, p)));
+    body = renderGridView(site, section, essays, people.map((p) => personCard(site, p)), "collection-grid--people");
     vtNames = people.map((p) => vtName("person", p.id));
   } else {
     body = renderGridView(site, section, essays, objects3dFirst(objects).map((o) => objectCard(site, o)));

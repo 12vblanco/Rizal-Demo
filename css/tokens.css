@@ -24,6 +24,11 @@
   --accent-on-light: var(--falu-red);
   --heading-on-light: var(--deep-cove);
   --surface-secondary: var(--black-cow);
+  /* The ground an exhibit image is shown against. Exhibit images are never
+     cropped to fill their box (`object-fit: contain`), so whatever the work's
+     proportions, this colour frames it. Kept a shade off the page so a work on a
+     white or transparent ground still reads as a framed object, not a bleed. */
+  --exhibit-frame: #eceef2;
 
   /* Typography.
      Alice ships in Regular 400 only — hierarchy comes from size, spacing,
@@ -68,12 +73,15 @@
   --focus-ring-on-dark: var(--squash);
   --focus-ring-on-light: var(--deep-cove);
 
-  /* 3D model stage — warm neutral gradient behind interactive 3D objects,
-     shared by the home 3D teaser, the object page's inline gallery, and the
-     fullscreen dialog viewer. Darker at the top-right/bottom-left corners,
-     lighter through the centre. */
-  --model-stage-start: #39362f;
-  --model-stage-end: #5e5b52;
+  /* 3D model stage — flat warm neutral behind interactive 3D objects, shared by
+     the home 3D teaser, the object page's inline gallery, the fullscreen dialog
+     viewer, and the pull-quote band. It was a 45° gradient; it is now the
+     midpoint of that ramp, flat, so an object reads against one even ground.
+     Kept as a linear-gradient() with equal stops because it is consumed both as
+     `background` and as `background-image` (home.css), and the latter cannot
+     take a bare colour. */
+  --model-stage-start: #4b4840;
+  --model-stage-end: #4b4840;
   --model-stage-gradient: linear-gradient(
     45deg,
     var(--model-stage-start),

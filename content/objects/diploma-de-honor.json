@@ -1,0 +1,40 @@
+{
+  "id": "diploma-de-honor",
+  "section": "artist",
+  "category": "poetry-and-retellings",
+  "order": 15,
+  "title": {
+    "en": "Diploma de Honor"
+  },
+  "objectType": "Award",
+  "description": "As early as age 14, Rizal valued education for enabling the youth to contribute to society. He would later express this sentiment at 18, during his second year at the Universidad de Santo Tomas (UST), through his winning piece, “A La Juventud Filipina.”\n\nThe sonnet implores the Filipino youth to “display in splendor your magnificent talents… and break the heavy chains that hold down your artistic genius” for “the Spaniard offering a splendid crown.” The “heavy chains” mentioned do not refer to the Spanish repression of the Filipino genius, as “the Spaniard” is described as “loving” and “wise.”\n\nBut as Paul Arvisu Dumol, PhD and Clement C. Camposano, PhD wrote in The Nation as Project: A New Reading of Jose Rizal’s Life and Works, the “heavy chains” refer instead to the Filipinos’ timidity, as seen in the poem’s first line, “Grow, oh timid flower,” which is sometimes translated as “Raise your smooth brow.”Further, in Rizal’s novel El Filibusterismo, timidity is identified as a detrimental trait among Filipinos.\n\n## References\n\nDumol, Paul Arvisu and Composano, Dumol. The Nation as Project: A New Reading of Jose Rizal’s Life and Works. 2018.",
+  "images": [
+    {
+      "src": "diploma-de-honor/front.webp",
+      "alt": "Framed diploma within an ornate scrolled border, with two seals and a pale centre panel",
+      "deepZoom": true
+    },
+    {
+      "src": "diploma-de-honor/view-1.webp",
+      "alt": "Diploma de Honor, alternate view 1"
+    },
+    {
+      "src": "diploma-de-honor/view-2.webp",
+      "alt": "Diploma de Honor, alternate view 2"
+    },
+    {
+      "src": "diploma-de-honor/view-3.webp",
+      "alt": "Diploma de Honor, alternate view 3"
+    },
+    {
+      "src": "diploma-de-honor/view-4.webp",
+      "alt": "Diploma de Honor, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [
+    "pluma-silver-quill"
+  ],
+  "featured": false
+}

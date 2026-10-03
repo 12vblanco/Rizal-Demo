@@ -3,17 +3,47 @@
   "section": "ethnographer",
   "category": "daily-life",
   "order": 6,
-  "title": { "en": "Betel Mortar", "tl": "Kalikut", "es": "Kalikut" },
-  "objectType": "Betel Mortar",
-  "materials": "Wood, brass, and steel",
+  "title": {
+    "en": "Betel Mortar",
+    "tl": "Kalikut",
+    "es": "Kalikut"
+  },
+  "objectType": {
+    "en": "Betel Mortar",
+    "fil": "Almires Pangnganga",
+    "de": "Betelmörser"
+  },
+  "materials": {
+    "en": "Wood, brass, and steel",
+    "fil": "Kahoy, tanso, at asero",
+    "de": "Holz, Messing und Stahl"
+  },
   "accession": "I C 18671",
-  "description": "This cylindrical, wooden betel mortar is hollow inside, like a tube, and plated with brass at the base, with an oval-shaped wooden handle/cover that has a pestle inside made of a steel rod, flattened on one end like a flathead screwdriver. The pestle is connected to the handle through a screw mechanism made of brass, serving as a lock and hook when worn as part of the owner's clothing or belt. The oval handle is designed with a ring embossed with repeated dots near the brass lock. Betel mortars such as this were used by those who could not chew betel nut because of old age or mutilated teeth, as practiced by the Bagobo and Western Bukidnon Manobo.",
-  "condition": "Fair and stable condition, with a few abrasions, signs of wear, cracks on the body, and a slightly jagged flathead pestle.",
+  "description": {
+    "en": "This cylindrical, wooden betel mortar is hollow inside, like a tube, and plated with brass at the base, with an oval-shaped wooden handle/cover that has a pestle inside made of a steel rod, flattened on one end like a flathead screwdriver. The pestle is connected to the handle through a screw mechanism made of brass, serving as a lock and hook when worn as part of the owner's clothing or belt. The oval handle is designed with a ring embossed with repeated dots near the brass lock. Betel mortars such as this were used by those who could not chew betel nut because of old age or mutilated teeth, as practiced by the Bagobo and Western Bukidnon Manobo.",
+    "fil": "Ang bilugang almires pangngangang ito na yari sa kahoy ay hungkag sa loob, tulad ng tubo, at may tansong balot sa puno, na may bilugang hawakan o takip na kahoy na may pambayo sa loob na yari sa asero, pinatag ang isang dulo tulad ng distornilyadorang patag. Nakaugnay ang pambayo sa hawakan sa pamamagitan ng mekanismong turnilyo na yari sa tanso, na nagsisilbing kandado at kawit kapag isinusuot bilang bahagi ng kasuotan o sinturon ng may-ari. Ang bilugang hawakan ay may disenyong singsing na may paulit-ulit na tuldok malapit sa kandadong tanso. Ginagamit ang mga almires pangnganga na tulad nito ng mga hindi makanganga dahil sa katandaan o sirang ngipin, gaya ng gawi ng mga Bagobo at Kanlurang Bukidnon Manobo.",
+    "de": "Dieser zylindrische Betelmörser aus Holz ist innen hohl wie eine Röhre und am Fuß mit Messing beschlagen; ein ovaler Holzgriff dient als Deckel und birgt einen Stößel aus einem Stahlstab, dessen eines Ende flach wie ein Schlitzschraubendreher ist. Der Stößel ist über ein Schraubgewinde aus Messing mit dem Griff verbunden, das als Verschluss und Haken dient, wenn das Gerät an Kleidung oder Gürtel getragen wird. Der ovale Griff ist nahe dem Messingverschluss mit einem Ring aus wiederholten, getriebenen Punkten verziert. Betelmörser dieser Art nutzten jene, die wegen ihres Alters oder beschädigter Zähne keine Betelnuss kauen konnten, wie es bei den Bagobo und den westlichen Bukidnon-Manobo Brauch war."
+  },
+  "condition": {
+    "en": "Fair and stable condition, with a few abrasions, signs of wear, cracks on the body, and a slightly jagged flathead pestle.",
+    "fil": "Katamtaman at matatag ang kalagayan, may ilang gasgas, tanda ng paggamit, lamat sa katawan, at bahagyang ngipin-ngipin ang patag na pambayo.",
+    "de": "Mäßiger, stabiler Zustand, mit einigen Abschürfungen, Gebrauchsspuren, Rissen am Korpus und einem leicht ausgezackten flachen Stößel."
+  },
   "images": [
-    { "src": "kalikut/front.webp", "alt": "Cylindrical wooden betel mortar (kalikut) with a pear-shaped carved handle and brass fittings, standing upright", "deepZoom": true },
-    { "src": "kalikut/detail.webp", "alt": "Detail of the kalikut's brass screw mechanism and hook, with a beaded wooden ring where the pestle handle meets the tube" }
+    {
+      "src": "kalikut/front.webp",
+      "alt": "Cylindrical wooden betel mortar (kalikut) with a pear-shaped carved handle and brass fittings, standing upright",
+      "deepZoom": true
+    },
+    {
+      "src": "kalikut/detail.webp",
+      "alt": "Detail of the kalikut's brass screw mechanism and hook, with a beaded wooden ring where the pestle handle meets the tube"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["sulpakan", "pang-ani"],
+  "related": [
+    "sulpakan",
+    "pang-ani"
+  ],
   "featured": true
 }

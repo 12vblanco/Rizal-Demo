@@ -1,0 +1,12 @@
+---
+title: Rizal in Deutschland
+intro: José Rizal reiste nach Deutschland, um sich auf Augenheilkunde zu spezialisieren. Er ahnte nicht, dass sein Aufenthalt, besonders in Berlin, ihm bald einen weiteren Blick und ein neues Weltbild eröffnen würde. Vom Abschluss des Noli Me Tángere bis zum Austausch mit führenden Wissenschaftlern gelangte Rizal zu einem klareren Verständnis seiner Identität.
+---
+
+Der philippinische Arzt, Universalgelehrte und Nationalheld José Rizal lebte von Februar 1886 bis Mai 1887 in Deutschland, vor allem um sich auf Augenheilkunde zu spezialisieren. Dort vollendete er seinen wegweisenden Roman Noli Me Tángere, der im März 1887 in Berlin erschien. Zugleich tauchte er in das geistige Leben der Stadt ein: Er verkehrte in der Berliner Gesellschaft für Anthropologie, Ethnologie und Urgeschichte sowie in der Gesellschaft für Erdkunde zu Berlin, besuchte Vorträge, begegnete führenden Wissenschaftlern, darunter Rudolf Virchow, und trug eine Arbeit über Tagalog-Dichtung vor, die er auch veröffentlichte.
+
+Gleichzeitig arbeitete Rizal an Übersetzungen von Friedrich Schillers Wilhelm Tell und des malaiischen Bandes von Theodor Waitz' Anthropologie der Naturvölker und pflegte einen regen Briefwechsel mit seinen philippinischen Weggefährten und mit Ferdinand Blumentritt. Diese Briefe kreisten oft um die Schwierigkeit, Begriffe über kulturelle und sprachliche Grenzen hinweg zu deuten. Später bezeichnete er Deutschland als sein „wissenschaftliches Mutterland“ und bekräftigte damit, wie prägend dieser Abschnitt für seine geistige Entwicklung war.
+
+Ein weniger bekannter Aspekt von Rizals Aufenthalt in Deutschland ist, dass er neben seinen vielen Ausflügen in das damals neue und aufregende Feld der Anthropologie auch 21 Stücke philippinischer materieller Kultur über Fedor Jagor dem Berliner Museum für Völkerkunde schenkte. Dies kam erst 2009 ans Licht, als der belgische Rizal-Forscher Lucien Spittael einen Brief Rizals an den Museumsdirektor Adolf Bastian vom Juli 1888 entdeckte, der die Schenkung bestätigt. Spittael wies später nach, dass sich alle 21 Objekte noch in den Beständen des Museums befinden.
+
+Dieser kleine Bestand eröffnet einen neuen Blick auf Rizals geistige Bestrebungen. Er zeigt, dass seine Beschäftigung mit der Anthropologie über Lektüre, Vorträge und Briefwechsel hinausging: Er trug auch materielle Kultur zu den frühen Gesprächen des Faches bei.

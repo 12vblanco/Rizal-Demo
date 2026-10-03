@@ -1,0 +1,40 @@
+{
+  "id": "five-tales-of-andersen",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 24,
+  "title": {
+    "en": "Five Tales of Andersen"
+  },
+  "objectType": "Manuscript",
+  "description": "A photocopy of the original manuscript, these five Hans Andersen tales were translated by Jose Rizal when he was in Leipzig, Germany on 14 October 1886. Dedicated to his nieces and nephews, Rizal wanted them to share these with their friends. He illustrated the stories to make them more appealing.",
+  "images": [
+    {
+      "src": "five-tales-of-andersen/front.webp",
+      "alt": "Handwritten manuscript page in Tagalog headed by a small ink illustration of a flower",
+      "deepZoom": true
+    },
+    {
+      "src": "five-tales-of-andersen/view-1.webp",
+      "alt": "Five Tales of Andersen, alternate view 1"
+    },
+    {
+      "src": "five-tales-of-andersen/view-2.webp",
+      "alt": "Five Tales of Andersen, alternate view 2"
+    },
+    {
+      "src": "five-tales-of-andersen/view-3.webp",
+      "alt": "Five Tales of Andersen, alternate view 3"
+    },
+    {
+      "src": "five-tales-of-andersen/view-4.webp",
+      "alt": "Five Tales of Andersen, alternate view 4"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "related": [
+    "guillermo-tell",
+    "the-monkey-and-the-tortoise"
+  ],
+  "featured": false
+}

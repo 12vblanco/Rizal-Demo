@@ -1,0 +1,37 @@
+{
+  "id": "head-of-dapitan-girl",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 7,
+  "title": {
+    "en": "Head of a Dapitan Girl (Replica)"
+  },
+  "objectType": "Sculpture",
+  "draft": true,
+  "images": [
+    {
+      "src": "head-of-dapitan-girl/front.webp",
+      "alt": "Terracotta relief of a child's head, signed RIZAL, mounted on white backing in a red velvet frame",
+      "deepZoom": true
+    },
+    {
+      "src": "head-of-dapitan-girl/view-1.webp",
+      "alt": "Head of a Dapitan Girl (Replica), alternate view 1"
+    },
+    {
+      "src": "head-of-dapitan-girl/view-2.webp",
+      "alt": "Head of a Dapitan Girl (Replica), alternate view 2"
+    },
+    {
+      "src": "head-of-dapitan-girl/view-3.webp",
+      "alt": "Head of a Dapitan Girl (Replica), alternate view 3"
+    },
+    {
+      "src": "head-of-dapitan-girl/view-4.webp",
+      "alt": "Head of a Dapitan Girl (Replica), alternate view 4"
+    }
+  ],
+  "rights": "National Historical Commission of the Philippines / National Museum of the Philippines",
+  "related": [],
+  "featured": false
+}

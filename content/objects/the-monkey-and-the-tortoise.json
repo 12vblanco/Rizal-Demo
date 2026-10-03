@@ -1,0 +1,32 @@
+{
+  "id": "the-monkey-and-the-tortoise",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 19,
+  "title": {
+    "en": "The Monkey and the Tortoise"
+  },
+  "objectType": "Illustrated book",
+  "description": "The story of “The Monkey and the Tortoise” is a passed-on fable that Rizal brought to a wider audience through his illustrations. This was featured in 1889 in Trübner’s American, European, and Oriental Literary Record in London.",
+  "images": [
+    {
+      "src": "the-monkey-and-the-tortoise/front.webp",
+      "alt": "Open book at the title page reading THE MONKEY AND THE TORTOISE, A TAGALOG TALE, told in English and illustrated by Jose Rizal",
+      "deepZoom": true
+    },
+    {
+      "src": "the-monkey-and-the-tortoise/view-1.webp",
+      "alt": "The Monkey and the Tortoise, alternate view 1"
+    },
+    {
+      "src": "the-monkey-and-the-tortoise/view-2.webp",
+      "alt": "The Monkey and the Tortoise, alternate view 2"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "related": [
+    "five-tales-of-andersen"
+  ],
+  "featured": false
+}

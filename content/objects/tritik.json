@@ -3,18 +3,51 @@
   "section": "ethnographer",
   "category": "clothing",
   "order": 1,
-  "title": { "en": "Upper Garment", "tl": "Tritik", "es": "Tritik" },
-  "objectType": "Upper Garment",
-  "materials": "Abaca cloth and cotton trim",
+  "title": {
+    "en": "Upper Garment",
+    "tl": "Tritik",
+    "es": "Tritik"
+  },
+  "objectType": {
+    "en": "Upper Garment",
+    "fil": "Panlabas na Kasuotan",
+    "de": "Oberbekleidung"
+  },
+  "materials": {
+    "en": "Abaca cloth and cotton trim",
+    "fil": "Telang abaka at palamuting bulak",
+    "de": "Abakagewebe und Baumwollbesatz"
+  },
   "accession": "I C 18666",
-  "description": "This v-neck, long-sleeved, red abaca upper garment has dyed geometric designs on all parts except on both shoulders. The neckline, cuffs, and hem are piped with a blue cotton cloth and sewn in using abaca threads. Tritik was the dyeing technique employed in this garment, an after-weave stitched design through wax-covered threads, commonly done by the Manobo-Kulaman and the Bagobo communities in Mindanao. The root of the noni or apatot plant (Morinda citrifolia) is traditionally used to achieve the red dye. The vertical line in the middle and the difference in thickness of the after-weave stitches show that the bodice was probably dyed folded. The sleeves were dyed separately and stitched afterward, and the armholes are open with around two inches of space. A piece of cloth is sewn in on one side to probably make the bodice wider.",
-  "condition": "Good and stable condition. Turned inside-out, showing friable threads along the stitched edges, which is normal; a few folds and creases on the sleeves; a few repairs/mended spots done before the museum acquired the collection, according to the EMB staff.",
+  "description": {
+    "en": "This v-neck, long-sleeved, red abaca upper garment has dyed geometric designs on all parts except on both shoulders. The neckline, cuffs, and hem are piped with a blue cotton cloth and sewn in using abaca threads. Tritik was the dyeing technique employed in this garment, an after-weave stitched design through wax-covered threads, commonly done by the Manobo-Kulaman and the Bagobo communities in Mindanao. The root of the noni or apatot plant (Morinda citrifolia) is traditionally used to achieve the red dye. The vertical line in the middle and the difference in thickness of the after-weave stitches show that the bodice was probably dyed folded. The sleeves were dyed separately and stitched afterward, and the armholes are open with around two inches of space. A piece of cloth is sewn in on one side to probably make the bodice wider.",
+    "fil": "Ang hugis-V ang leeg, mahabang-manggas, at pulang panlabas na kasuotang yari sa abaka ay may tinang disenyong heometriko sa lahat ng bahagi maliban sa dalawang balikat. Ang leeg, pulso, at laylayan ay may gilid na asul na telang bulak at tinahi gamit ang sinulid na abaka. Tritik ang teknik ng pagtitinang ginamit sa kasuotang ito, isang disenyong tinahi matapos habihin sa pamamagitan ng sinulid na binalutan ng kandila, na karaniwang ginagawa ng mga pamayanang Manobo-Kulaman at Bagobo sa Mindanao. Tradisyunal na ginagamit ang ugat ng halamang noni o apatot (Morinda citrifolia) upang makamit ang pulang tina. Ang patayong guhit sa gitna at ang pagkakaiba sa kapal ng mga tahi matapos habihin ay nagpapakitang marahil nakatiklop ang bodis nang tinain. Hiwalay na tinain ang mga manggas at tinahi pagkatapos, at bukas ang butas ng braso nang may mga dalawang pulgadang puwang. Isang piraso ng tela ang tinahi sa isang panig marahil upang palawakin ang bodis.",
+    "de": "Dieses rote Obergewand aus Abaka mit V-Ausschnitt und langen Ärmeln trägt an allen Teilen außer an beiden Schultern gefärbte geometrische Muster. Halsausschnitt, Manschetten und Saum sind mit blauem Baumwollstoff eingefasst und mit Abakafäden angenäht. Als Färbetechnik diente bei diesem Gewand tritik, ein nach dem Weben eingenähtes Muster mittels wachsüberzogener Fäden, wie es bei den Manobo-Kulaman- und Bagobo-Gemeinschaften auf Mindanao üblich ist. Herkömmlich verwendet man die Wurzel der Noni- oder apatot-Pflanze (Morinda citrifolia), um das Rot zu erzielen. Die senkrechte Linie in der Mitte und die unterschiedliche Dicke der nach dem Weben gesetzten Stiche zeigen, dass das Oberteil wohl gefaltet gefärbt wurde. Die Ärmel wurden gesondert gefärbt und danach angenäht; die Armlöcher stehen etwa fünf Zentimeter offen. An einer Seite ist ein Stoffstück eingenäht, wohl um das Oberteil zu verbreitern."
+  },
+  "condition": {
+    "en": "Good and stable condition. Turned inside-out, showing friable threads along the stitched edges, which is normal; a few folds and creases on the sleeves; a few repairs/mended spots done before the museum acquired the collection, according to the EMB staff.",
+    "fil": "Mabuti at matatag ang kalagayan. Nakabaligtad, na nagpapakita ng marupok na sinulid sa mga tinahing gilid, na normal; ilang tupi at lukot sa manggas; ilang pagkukumpuni o tinagpi na bahagi na ginawa bago pa nakuha ng museo ang koleksiyon, ayon sa mga kawani ng EMB.",
+    "de": "Guter, stabiler Zustand. Auf links gewendet, wodurch mürbe Fäden entlang der genähten Kanten sichtbar werden, was normal ist; einige Falten und Knicke an den Ärmeln; einige Reparaturen und geflickte Stellen, die nach Angaben der EMB-Mitarbeitenden vor dem Erwerb der Sammlung durch das Museum ausgeführt wurden."
+  },
   "images": [
-    { "src": "tritik/front.webp", "alt": "Red abaca upper garment (tritik) laid flat, its cream tie-dyed bands forming diamond and zigzag patterns across the yoke and sleeves, blue-trimmed V-neck at center", "deepZoom": true },
-    { "src": "tritik/neckline-detail.webp", "alt": "Close-up of the tritik garment's V-neck, its blue cotton piping framing bands of cream tie-dyed diamonds and chevrons on the maroon yoke" },
-    { "src": "tritik/back.webp", "alt": "Reverse of the tritik upper garment, its solid maroon back panel bordered by the same tie-dyed cream sleeve bands as the front" }
+    {
+      "src": "tritik/front.webp",
+      "alt": "Red abaca upper garment (tritik) laid flat, its cream tie-dyed bands forming diamond and zigzag patterns across the yoke and sleeves, blue-trimmed V-neck at center",
+      "deepZoom": true
+    },
+    {
+      "src": "tritik/neckline-detail.webp",
+      "alt": "Close-up of the tritik garment's V-neck, its blue cotton piping framing bands of cream tie-dyed diamonds and chevrons on the maroon yoke"
+    },
+    {
+      "src": "tritik/back.webp",
+      "alt": "Reverse of the tritik upper garment, its solid maroon back panel bordered by the same tie-dyed cream sleeve bands as the front"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["unfinished-upper-garment", "baby-sling"],
+  "related": [
+    "unfinished-upper-garment",
+    "baby-sling"
+  ],
   "featured": false
 }

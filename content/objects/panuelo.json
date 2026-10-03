@@ -3,17 +3,47 @@
   "section": "ethnographer",
   "category": "clothing",
   "order": 2,
-  "title": { "en": "Shawl", "tl": "Pañuelo", "es": "Pañuelo de Nipis de Mujer" },
-  "objectType": "Shawl",
-  "materials": "Piña cloth",
+  "title": {
+    "en": "Shawl",
+    "tl": "Pañuelo",
+    "es": "Pañuelo de Nipis de Mujer"
+  },
+  "objectType": {
+    "en": "Shawl",
+    "fil": "Alampay",
+    "de": "Schultertuch"
+  },
+  "materials": {
+    "en": "Piña cloth",
+    "fil": "Telang piña",
+    "de": "Piña-Gewebe"
+  },
   "accession": "I C 18667",
-  "description": "This white, square-shaped piña shawl for women has scalloped and embroidered edges. The embroidery employed is suksuk or sinuksuk, a brocading technique common in pineapple fabrics that uses additional or supplementary weft threads to create elaborate patterns. Each edge has six round and scalloped patterns, and inside each round pattern has a five-stemmed rice stalk-like design and seven floral-like designs underneath it. The shawl has 31 small dots in the middle as a design, equally distanced from each other.",
-  "condition": "Several holes and old repairs, more obvious on two of the four quadrants; some areas show yellowish-brown jagged stains, possibly due to water damage; minimal creases and folds. A white cloth was stitched underneath the shawl as backing support to stabilize it, an intervention decided upon by the EMB staff.",
+  "description": {
+    "en": "This white, square-shaped piña shawl for women has scalloped and embroidered edges. The embroidery employed is suksuk or sinuksuk, a brocading technique common in pineapple fabrics that uses additional or supplementary weft threads to create elaborate patterns. Each edge has six round and scalloped patterns, and inside each round pattern has a five-stemmed rice stalk-like design and seven floral-like designs underneath it. The shawl has 31 small dots in the middle as a design, equally distanced from each other.",
+    "fil": "Ang puting alampay na hugis-parisukat na yari sa piña para sa kababaihan ay may kurbadong at burdadong gilid. Ang burdang ginamit ay suksuk o sinuksuk, isang teknik ng brocading na karaniwan sa telang piña na gumagamit ng karagdagang sinulid sa tinilad upang lumikha ng masalimuot na disenyo. May anim na bilog at kurbadong disenyo ang bawat gilid, at sa loob ng bawat bilugang disenyo ay may disenyong tila tangkay ng palay na may limang usbong at pitong disenyong tila bulaklak sa ilalim nito. May 31 maliliit na tuldok sa gitna ng alampay bilang disenyo, na pantay-pantay ang layo sa isa't isa.",
+    "de": "Dieses weiße, quadratische piña-Schultertuch für Frauen hat bogenförmig ausgeschnittene und bestickte Kanten. Verwendet wurde die suksuk- oder sinuksuk-Stickerei, eine bei Ananasgeweben verbreitete Broschiertechnik, die zusätzliche Schussfäden einsetzt, um aufwendige Muster zu bilden. Jede Kante trägt sechs runde und bogenförmige Muster, und in jedem runden Muster findet sich ein Motiv wie ein fünfstängeliger Reishalm mit sieben blütenartigen Motiven darunter. In der Mitte des Tuchs sitzen als Muster 31 kleine, gleichmäßig verteilte Punkte."
+  },
+  "condition": {
+    "en": "Several holes and old repairs, more obvious on two of the four quadrants; some areas show yellowish-brown jagged stains, possibly due to water damage; minimal creases and folds. A white cloth was stitched underneath the shawl as backing support to stabilize it, an intervention decided upon by the EMB staff.",
+    "fil": "Ilang butas at lumang pagkukumpuni, mas maliwanag sa dalawa sa apat na kuwadrante; may mga bahaging nagpapakita ng madilaw-kayumangging ngipin-ngiping mantsa, marahil dahil sa pinsalang tubig; kaunting lukot at tupi. Isang puting tela ang tinahi sa ilalim ng alampay bilang panlikod na suporta upang patatagin ito, isang panghihimasok na pinasiyahan ng mga kawani ng EMB.",
+    "de": "Mehrere Löcher und alte Reparaturen, deutlicher in zwei der vier Quadranten; in einigen Bereichen gelbbraune, gezackte Flecken, möglicherweise durch Wasserschaden; geringe Knicke und Falten. Ein weißes Tuch wurde als stützende Unterlage untergenäht, um das Schultertuch zu stabilisieren – ein Eingriff, über den die Mitarbeitenden des EMB entschieden."
+  },
   "images": [
-    { "src": "panuelo/front.webp", "alt": "Square white piña shawl with a scalloped, floral-embroidered border and a grid of small raised dots across the center", "deepZoom": true },
-    { "src": "panuelo/detail.webp", "alt": "Close-up of the panuelo's scalloped edge, its suksuk brocaded leaves and flowers worked in fine white supplementary-weft thread" }
+    {
+      "src": "panuelo/front.webp",
+      "alt": "Square white piña shawl with a scalloped, floral-embroidered border and a grid of small raised dots across the center",
+      "deepZoom": true
+    },
+    {
+      "src": "panuelo/detail.webp",
+      "alt": "Close-up of the panuelo's scalloped edge, its suksuk brocaded leaves and flowers worked in fine white supplementary-weft thread"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["tapis", "camisa-husi"],
+  "related": [
+    "tapis",
+    "camisa-husi"
+  ],
   "featured": false
 }

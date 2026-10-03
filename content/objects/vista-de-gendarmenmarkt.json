@@ -1,0 +1,39 @@
+{
+  "id": "vista-de-gendarmenmarkt",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 18,
+  "title": {
+    "en": "View of the Gendarmenmarkt, Berlin",
+    "es": "Vista de Gendarmenmarkt en Berlin"
+  },
+  "objectType": "Drawing",
+  "description": "While in sojourn in Germany, Rizal sketched the view of the public square where the Schauspielhaus (Concert Hall), the Französischer Dom (French Cathedral), and the Deutscher Dom (German Cathedral) are located.",
+  "images": [
+    {
+      "src": "vista-de-gendarmenmarkt/front.webp",
+      "alt": "Framed pencil drawing of the Gendarmenmarkt in Berlin, showing the domed cathedral beside a colonnaded hall",
+      "deepZoom": true
+    },
+    {
+      "src": "vista-de-gendarmenmarkt/view-1.webp",
+      "alt": "View of the Gendarmenmarkt, Berlin, alternate view 1"
+    },
+    {
+      "src": "vista-de-gendarmenmarkt/view-2.webp",
+      "alt": "View of the Gendarmenmarkt, Berlin, alternate view 2"
+    },
+    {
+      "src": "vista-de-gendarmenmarkt/view-3.webp",
+      "alt": "View of the Gendarmenmarkt, Berlin, alternate view 3"
+    },
+    {
+      "src": "vista-de-gendarmenmarkt/view-4.webp",
+      "alt": "View of the Gendarmenmarkt, Berlin, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [],
+  "featured": false
+}

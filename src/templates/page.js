@@ -6,7 +6,7 @@
 // landing persona-card grid (fragments.js). Missing-content states never appear
 // here — these pages carry migrated live-site copy.
 
-import { esc } from "./layout.js";
+import { esc, seoTitle } from "./layout.js";
 import { renderImage } from "./media.js";
 import { orderedPersonas, personaCard, renderMarkdown } from "./fragments.js";
 import { pick, t } from "../i18n.js";
@@ -21,13 +21,12 @@ import { pick, t } from "../i18n.js";
 
 /** @param {ContentPage} page @param {Site} site */
 export function pageTitle(page, site) {
-  const full = `${page.title} | ${pick(site.siteTitle)}`;
-  return full.length <= 70 ? full : page.title;
+  return seoTitle(pick(page.title), pick(site.siteTitle));
 }
 
 /** @param {ContentPage} page */
 export function pageDescription(page) {
-  const plain = String(page.intro || page.body).replace(/\s+/g, " ").trim();
+  const plain = String(pick(page.intro) || pick(page.body)).replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }
@@ -48,12 +47,12 @@ function renderHero(site, page) {
         fetchpriority: "high",
       }) + `\n  <div class="page-hero__scrim"></div>`
     : "";
-  const intro = page.intro ? `\n    <p class="page-hero__intro">${esc(page.intro)}</p>` : "";
+  const intro = page.intro ? `\n    <p class="page-hero__intro">${esc(pick(page.intro))}</p>` : "";
   const modifier = page.heroImage ? " page-hero--image" : "";
   return `<section class="page-hero band band--dark${modifier}">
   ${bg}
   <div class="container page-hero__inner">
-    <h1 class="page-hero__title">${esc(page.title)}</h1>${intro}
+    <h1 class="page-hero__title">${esc(pick(page.title))}</h1>${intro}
   </div>
 </section>`;
 }
@@ -87,7 +86,7 @@ ${personas.map((s) => personaCard(site, s)).join("\n")}
  */
 export function renderContentPage({ site, page, sections = [] }) {
   const heading = page.bodyHeading
-    ? `<h2 class="page-body__heading">${esc(page.bodyHeading)}</h2>\n    `
+    ? `<h2 class="page-body__heading">${esc(pick(page.bodyHeading))}</h2>\n    `
     : "";
   const byline = page.author
     ? `<p class="page-body__byline">${esc(t("by", { author: page.author }))}</p>\n    `
@@ -97,7 +96,7 @@ export function renderContentPage({ site, page, sections = [] }) {
 <div class="band band--light page-body">
   <div class="container container--narrow">
     ${heading}${byline}<div class="page-body__prose">
-${renderMarkdown(page.body)}
+${renderMarkdown(pick(page.body), { site })}
     </div>
   </div>
 </div>${personas}`;

@@ -1,0 +1,50 @@
+---
+title: Ang Sulpakan
+summary: Ang sulpakan na ipinadala ni Rizal sa Berlin at kay Ferdinand Blumentritt, isang sinaunang teknolohiya ng paggawa ng apoy sa Timog-Silangang Asya, at ang pagtutol ni Rizal sa pagmamaliit ng mga mananakop sa katalinuhan ng Pilipino.
+---
+
+Ang sulpakan, isang matatangay na panggawa ng apoy ng mga Tagalog, ay kumakatawan sa isang mapanlikhang teknolohiya ng paggawa ng apoy na nakaugat sa Timog-Silangang Asya at sa mga Pulo ng Pasipiko. Salungat sa laganap na paniniwala sa internet na si José Rizal ang umimbento ng bagay na ito, ipinapakita ng mga ebidensiyang pangkasaysayan at etnograpiko na ang sulpakan ay sinaunang kasangkapang malawakang ginagamit sa buong Timog-Silangang Asya, matagal bago pa ang panahon ni Rizal. Ang mga sulpakan ay tradisyunal na gawa sa kawayan, sungay, garing, buto, metal, at matigas na kahoy, at ginagamit ng iba't ibang pangkat etnolingguwistiko sa buong Pilipinas.
+
+Sa 21 bagay na ipinadala ni Rizal sa Museong Etnolohiko ng Berlin noong 1888, ang sulpakan lamang ang may kalakip na masusing paglalarawan. Inilarawan ito ni Rizal sa wikang Aleman bilang gawa sa sungay ng kalabaw at nilakipan ng iskematikong guhit na nagpapakita kung paano gumagana ang kasangkapan.
+
+Ang kahanga-hangang katumpakan nito ay naglalantad ng dalubhasang panday sa paghubog, pagkakasya, at pagpapalamuti ng mga pinong materyal. Ang mga maliliit na butas sa magkabilang dulo ay nagmumungkahing dumaan ito sa prosesong pag-ikot na katulad ng makikita sa mga balustre na kahoy noong ika-19 na dantaon na matatagpuan pa rin sa arkitekturang Pilipino ngayon.
+
+Batay sa liham ni Rizal, maaaring may kasamang pulbos na yesca (pansindi) ang sulpakan noong una, ngunit nawawala ito nang dumating. Lalo itong mahalaga sa mga pamayanang nagsasaka sa kaingin, kung saan kailangang-kailangan sa pang-araw-araw ang mabilis at maaasahang kagamitan sa paggawa ng apoy.
+
+Isang taon bago nito, noong ika-26 ng Setyembre 1887, nagpadala rin si Rizal ng sulpakan sa kanyang kaibigang si Ferdinand Blumentritt. Sa liham ding iyon, ipinaalam niya kay Blumentritt ang pagkamatay ng kanyang kapatid na si Olimpia dahil sa panganganak. Bahagi ang sulpakan ng maliit na pakete na naglalaman din ng sigarilyo, sampaguita, kanela, at bulaklak ng kamuning.
+
+Paliwanag niya: “Ang pansindi ay inilalagay sa dulo ng patpat na 'a'. Hinahawakan ang pansiding ito sa 'd'. Pagkatapos, isinusuksok ang patpat sa butas na 'c', itinutulak nang malakas at kaagad hinihila palabas, at heto na ang apoy. Upang mas madulas itong pumasok, nilalangisan ang patpat ('e').”
+
+Ipinaliwanag din ni Rizal ang pagkilos ng kasangkapan bilang nakabatay sa simulain ng siniksik na hangin, at itinala ang pinagmulan ng salita mula sa salitang-ugat na Tagalog na sulpak, na ang ibig sabihin ay “magsuksok ng patpat sa butas.”
+
+Binibigyang-kahulugan ng UP Diksiyonaryong Filipino ang sulpak bilang ang pagsuksok ng matigas na bagay sa butas, at bilang kasangkapan sa paggawa ng apoy gamit ang tubong yari sa sungay ng kalabaw, matigas na kahoy, garing, at katulad na materyales. Sa mas malalim pang pagbabalik sa Vocabulario de la lengua tagala nina Juan de Noceda at Pedro de Sanlucar na inilathala noong 1613, maaaring may kaugnayan ang salita sa solpa, na tumutukoy sa pagsuksok ng isang maikling kawayan sa isa pa. Ang pantig na ugat na sul- o sol- ay maaaring magmula sa Proto-Austronesyo, marahil kaugnay ng muling itinayong ugat na *surup (“pumasok, tumagos”), na nagmumungkahi ng pagpapatuloy na lingguwistiko sa maraming wikang Pilipino. Halimbawa, ang Tagalog na sulop (“tumagos”) ay kaayon ng Cebuano na sulod (“pumasok”) at Kapampangan na sulud (“isuot”), na pawang sumasalamin sa isang batayang larangan ng kahulugang paloob na paggalaw o pagsuksok.
+
+Kaya naman, sa salitang sulpak (o solpak), tulad ng sa sulpakan mismo, natatagpuan natin ang pagtatagpo ng dalawang larangan ng kahulugan: ang pagsuksok (sul-) at ang maingay na lakas o untog (-pak). Nilalagom ng salita ang tungkulin nito: ang puwersahang pagtulak ng hangin at materyal sa isang silid (sul), na lumilikha ng putok o pagliyab (pak). Ito rin ang dahilan kung bakit sulpak o sumpak ang karaniwang tawag sa mga gawang-bahay na laruang baril sa maraming pamayanang Pilipino — isang ibang bagay na gayundin ang kinakailangang lakas at tunog.
+
+Sa kanyang tugon na may petsang ika-15 ng Nobyembre 1887, ipinahayag ni Blumentritt ang kanyang pakikiramay sa pagkamatay ni Olimpia at itinala ang kanyang paghanga sa sulpakan. Binalak niyang iharap ito sa mga propesor ng pisika bilang argumentum vivum, isang buhay na patunay ng “dakilang talino ng mga indio,” na binanggit niyang hindi lamang nagpayaman sa kanyang koleksiyong Pilipino kundi nagpalawak din ng kanyang talasalitaan ng bago at di-kilalang mga termino.
+
+Ang pagkakaloob ni Rizal ng mga bagay na ito sa isang banyagang museo ay sumasalamin sa kanyang mas malalim na paninindigang patunayan ang pagkakakilanlang kultural at pangkasaysayan ng mga Pilipino. Sa paglalahad ng gayong mga artepakto sa ibayong dagat, hinangad ni Rizal na hamunin ang paglalarawan ng mga mananakop sa mga indio bilang walang kabihasnan o kultura. Ang kanyang iskolarling kaalaman sa etnolohiya at sa kapuluang Malayo ay naghain ng patunay na ang mga Pilipino ay bahagi ng masigla at may kabihasnang daigdig na may likas na kakayahan sa pagkamalikhain at kahusayang teknolohiko. Kaya't ang sulpakan ay nagiging hindi lamang kasangkapang may silbi, kundi isang mabisang panlaban sa diskursong kolonyal.
+
+## Isang Imbensiyon ng Timog-Silangang Asya
+
+Ang sulpakan, na tinatawag ding hiringgilyang pang-apoy ayon kay Rizal, ay gumagana batay sa simulain ng pagsiksik ng hangin. Mabilis na itinutulak ang piston sa loob ng silindro, na sumisiksik sa hangin sa loob hanggang sa magpaningas ito ng kaunting pansindi, tulad ng lulug o iba pang nasusunog na himaymay. Ang paggana nito ay nakabatay sa parehong simulaing termodinamiko na ginagamit sa makabagong makinang disel — isang imbensiyong ang lumikha, si Rudolf Diesel, ay sinasabing nakakuha ng inspirasyon mula sa mekanismong ito ng Timog-Silangang Asya.
+
+Bagama't nananatiling malabo ang tiyak na pinagmulan ng sulpakan, nauna ang pagkakaroon nito sa Pilipinas kaysa sa mga patente at paggamit sa Europa. Sa Pambansang Koleksiyong Etnograpiko, lumilitaw ang mga sulpakan sa iba't ibang anyo, gaya ng hulpakan o pinki ng mga Ifugao (gawa sa sungay ng kalabaw at kahoy) at ang sulpak ng mga Tagalog mula sa Sta. Maria, Laguna (gawa sa kahoy). Isang sulpak na hugis-baril mula sa San Miguel, Bulacan (gawa sa sungay ng kalabaw) ang ginamit bilang pansindi ng sigarilyo noong panahon ng pananakop ng mga Hapon. Gumagamit ang mga bersiyong Tagalog na ito ng lulug, isang pansinding mula sa palma na may abo ng suha, at sebo ng kalabaw bilang pampadulas, na umaalingawngaw sa orihinal na paglalarawan ni Rizal na pinapadulas ang patpat.
+
+Mula sa rehiyon ng Cordillera, gumamit din ang mga Tinguian ng Luba, Abra ng sulpakan na tinatawag na sitoc o sugpec, na may kasamang kilos na paglagari upang lumikha ng kiskisan at init. Ginamit din ang mga ito ng mga Mountain Christian, Ilokano, at Aeta ng Villaviciosa, Abra, batay sa mga talaan ng museo.
+
+Kasama sa ulat noong 1908 ng arkeologong Britaniko na si Henry Balfour ang mga ilustrasyon ng sulpakan mula sa iba't ibang pangkat sa Hilaga at Timog Luzon. Itinala rin niyang matatagpuan ang gayong mga bagay sa Museo ng Dresden, Museo ng Vienna, Museo ng Berlin, at sa Museong Etnolohiko sa Roma.
+
+## Pagtatangi ng mga Mananakop
+
+Ipinapakita ng pandaigdigang salaysay ng sulpakan kung paanong madalas na minamaliit ng mga iskolar na Kanluranin at Europeo ang kakayahang intelektwal ng mga pamayanan sa Timog-Silangang Asya sa kabila ng pagkakaharap nila sa masalimuot na katutubong imbensiyong ito.
+
+Sa kanyang aklat noong 1898 na The Philippine Islands and Their People, inilarawan ng opisyal na kolonyal na Amerikano na si Dean C. Worcester ang mga sulpakan na gawa sa sungay ng kalabaw sa hilagang Luzon. Salamin ng kaisipang kolonyal ng kanyang panahon, wika niya: “Upang maisagawa ito nang matagumpay ay kailangan ng matagal na pagsasanay. Hindi pa ako nakakakita ng puting tao na nagsasabing kaya niya ito… kung paano naisip ng mga ganid ang gumawa ng apoy sa ganitong paraan ay isang hiwaga sa akin.”
+
+Kahit na nakikita ang mga sulpakan sa aktuwal na paggamit sa buong rehiyon, nahirapang tanggapin ng mga banyagang siyentipiko ang ideyang nakapag-unlad nang mag-isa ang mga “primitibong” tao ng gayong kasangkapan.
+
+Naging huwaran ng pag-aalinlangang ito si Henry Balfour, na nagsabing tila “halos hindi kapani-paniwala” na natuklasan ng mga taga-Silangan ang gayong pamamaraan sa pamamagitan ng aksidente o unti-unting pagpipino. Gayunman, ipinapakita ng mga talaan bago ang 1907 na malawakang ginagamit ang sulpakan sa buong Burma, Indo-Tsina ng Pranses, Tangway ng Malaya, Sumatra, Borneo, at Kapuluang Pilipinas, na nagmumungkahi ng mahaba at malalim na kasaysayan ng paggamit na hindi maaaring nagmula sa paghahatid ng mga Europeo.
+
+Kawili-wili, iminungkahi ng ilang teoretiko na maaaring nagmula ang sulpakan sa paggamit ng almires at pambayo para sa nganga, bagaman malabo ito dahil sa magkaibang pangangailangang mekanikal ng bawat kasangkapan. Mas makatwiran ang teoryang nagtuturo sa aksidenteng pagkatuklas habang gumagawa ng sumpit, kung saan ang pagbutas ay maaaring nagpasiklab dahil sa pagsiksik ng hangin — isang kabatirang maaaring nagkatulad sa mga kultura sa buong Timog-Silangang Asya.
+
+Pagsapit ng huling bahagi ng ika-19 at unang bahagi ng ika-20 dantaon, madalas na nanatiling nakasentro sa inobasyong Europeo ang diskursong Kanluranin sa kabila ng laganap na sulpakan sa Asya. Gayunman, hinamon ng mga tulad ni Rizal ang salaysay na ito sa pamamagitan ng nahahawakang ebidensiyang kultural. Para kay Rizal, isang gawaing pampulitika ang pagkakaloob ng sulpakan: upang igiit na ang mga Pilipino, malayo sa pagiging tahimik na sakop, ay mga manlilikha, palaisip, at imbentor. Pinagningas ng sulpakan ang pagmamalaki — isang buhay na artepakto, isang argumentum vivum, ng talino ng isang bayan.

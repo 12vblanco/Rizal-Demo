@@ -12,13 +12,19 @@ José Rizal's heroism was rooted in his unwavering commitment to truth, educatio
 
 ## Museo ni José Rizal Calamba
 
+![The reconstructed Rizal family bahay-na-bato in Calamba: a stone ground floor under a wooden upper storey of sliding capiz windows, draped with a Philippine flag banner beneath a red tiled roof](hero/museo-calamba.webp "Museo ni José Rizal Calamba")
+
 Rizal's story begins in Calamba, Laguna, where he was born in a traditional bahay-na-bato near the town plaza. Though the original house was lost in a land dispute in 1890, the present structure, reconstructed in 1950 by National Artist Juan Nakpil, stands as a tribute to his roots. Inside, visitors find facsimiles of manuscripts, drawings, and household artifacts that reflect the family's lifestyle and deep familial bonds.
 
 ## Museo ni José Rizal Dapitan
 
+![The colonnaded pale-blue facade of the Museo ni José Rizal in Dapitan, set among tall shade trees, its portico carved with relief panels](hero/museo-dapitan.webp "Museo ni José Rizal Dapitan")
+
 From 1892 to 1896, Rizal lived in exile in Dapitan, Zamboanga del Norte. Far from Manila, he transformed adversity into opportunity by building water systems, improving the town plaza, and teaching locals. His estate became a hub of learning and livelihood, complete with a school, clinic, and farm. Today, the shrine preserves original objects and replicas of his huts, offering a glimpse into his industrious and compassionate nature.
 
 ## Museo ni José Rizal Fort Santiago
+
+![The carved stone gate of Fort Santiago in Intramuros, its relief of Santiago Matamoros above the arch, set into the fort's moss-covered rampart](hero/museo-fort-santiago.webp "Museo ni José Rizal Fort Santiago")
 
 Rizal's final days were spent in a cell at Fort Santiago, Manila, before his execution. The shrine now houses artworks, personal belongings, and the most poignant artifact: a fragment of his spine struck by the fatal bullet, encased in an ornate urn. This site stands as a solemn reminder of his ultimate sacrifice for freedom.
 

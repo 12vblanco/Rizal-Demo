@@ -1,0 +1,42 @@
+{
+  "id": "triumph-of-death-over-life",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 5,
+  "title": {
+    "en": "Triumph of Death Over Life (Replica)",
+    "tl": "Pagtatagumpay ng Kamatayan sa Paglipas ng Buhay"
+  },
+  "objectType": "Sculpture",
+  "description": "Obscurantism kills enlightenment, is the message of “Triumph of Death Over Life”. The hooded skeletal figure is the Spanish colonial government, the corpse of a woman still in her youth, represents the Philippines. Rizal believed that Spain obstructed enlightenment and liberalism thus killing the country’s aspirations for political and economic progress.\n\nIn 1890, when Rizal was in Belgium, he sent Scientia and Triumph of Death Over Life to his friend, Austrian Professor Ferdinand Blumentritt, as “little tokens of remembrance.”\n\nBlumentritt sent his gratitude and admiration in a letter to Rizal on 29 September 1890: “The statuette Triumph of Death over Life” has been admired by two German artists… of opposite viewpoints, the Berliner being a cold realist and the Viennese who is really from Leitmeritz and a Slav, an idealist of sensitive feelings - admire your statuettes. They are both agreed in the sublimity of the conception and execution of the statuette representing the triumph of death over life”.\n\nA sculptural reproduction was made by Anastacio Caedo based on the replica previously made by Guillermo Tolentino in 1961. Currently, it is exhibited in Gallery 5 (Ang Unang Paglalakbay ni Rizal sa Europa, 1882-1887) of the Museo ni Jose Rizal in Calamba, Laguna.\n\n## References\n\nClaudio, Lisandro E. Jose Rizal: Liberalism and the Paradox of Coloniality. Palgrave Macmillan, 2019.\n\nNHCP Museo ni Jose Rizal Fort Santiago. “Triumph of Death over Life (Pagtatagumpay ng Kamatayan sa Paglipas ng Buhay) Reproduction. Facebook, July 17, 2020. https://www.facebook.com/photo.php?fbid=3103822022988612&set=a.487323360072872&id=100063856365905\n\nRizal-Blumentritt Correspondence: How It\n\nStarted 110 Years Ago 50 Selected Letters Between Rizal and Blumentritt. joserizallifeandworks.wordpress.com/wp-content/uploads/2019/04/rizal-blumentritt-correspondence-converted.pdf. Accessed February 16, 2026.",
+  "images": [
+    {
+      "src": "triumph-of-death-over-life/front.webp",
+      "alt": "Statuette of a hooded skeletal figure embracing the body of a young woman, raised on a tall plinth",
+      "deepZoom": true
+    },
+    {
+      "src": "triumph-of-death-over-life/view-1.webp",
+      "alt": "Triumph of Death Over Life (Replica), alternate view 1"
+    },
+    {
+      "src": "triumph-of-death-over-life/view-2.webp",
+      "alt": "Triumph of Death Over Life (Replica), alternate view 2"
+    },
+    {
+      "src": "triumph-of-death-over-life/view-3.webp",
+      "alt": "Triumph of Death Over Life (Replica), alternate view 3"
+    },
+    {
+      "src": "triumph-of-death-over-life/view-4.webp",
+      "alt": "Triumph of Death Over Life (Replica), alternate view 4"
+    }
+  ],
+  "rights": "National Historical Commission of the Philippines / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "related": [
+    "triumph-of-science-over-death",
+    "prometheus-bound"
+  ],
+  "featured": false
+}

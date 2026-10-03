@@ -57,5 +57,7 @@
   "searchNoscript": "Kailangan ng JavaScript para gumana ang paghahanap. Gumagana ito nang buo sa iyong browser (walang datos na umaalis sa iyong device), ngunit kailangan munang mag-load ang script. Maaari ka pa ring mag-browse sa eksibisyon ayon sa seksyon:",
   "notFoundTitle": "Hindi mahanap ang pahinang ito",
   "notFoundText": "Maaaring inilipat na ang pahinang hinahanap mo, o luma na ang link. Subukan ang isa sa mga ito:",
-  "pageNotFound": "Hindi mahanap ang pahina"
+  "pageNotFound": "Hindi mahanap ang pahina",
+  "textPending": "Inihahanda pa ang teksto ng katalogo para sa likhang ito.",
+  "bioPending": "Inihahanda pa ang talambuhay para sa personalidad na ito."
 }

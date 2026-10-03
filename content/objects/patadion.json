@@ -3,18 +3,50 @@
   "section": "ethnographer",
   "category": "clothing",
   "order": 3,
-  "title": { "en": "Tubular Skirt", "tl": "Patadion", "es": "Patadion de Mindanao" },
-  "objectType": "Tubular Skirt",
-  "materials": "Abaca (warp ikat weave)",
+  "title": {
+    "en": "Tubular Skirt",
+    "tl": "Patadion",
+    "es": "Patadion de Mindanao"
+  },
+  "objectType": {
+    "en": "Tubular Skirt",
+    "fil": "Tapis na Tubular",
+    "de": "Schlauchrock"
+  },
+  "materials": {
+    "en": "Abaca (warp ikat weave)",
+    "fil": "Abaka (habing ikat sa habi)",
+    "de": "Abaka (Kettikat-Gewebe)"
+  },
   "accession": "I C 18668",
-  "description": "This red abaca warp ikat tubular skirt worn by women features horizontal bands and geometric designs. It has three panels, horizontally stitched together using red-dyed abaca threads. The upper and lower panels have identical alternating bands of white lines and dashes on red bands, and white chains sandwiched between thin brown bands. The middle panel has distinct zoomorphic patterns with brown bands of geometric designs on both sides. The Bagobos commonly apply this particular design and color motif. Traditionally, the red dye comes from the root of the Morinda citrifolia plant, boiled for days up to two weeks depending on the desired shade.",
-  "condition": "Good and stable condition, with an indistinct stain on the lower panel. A small patchwork uses abaca thread for stitching, probably a repair or old restoration; the museum team was not permitted to turn the skirt inside out to confirm previous restoration.",
+  "description": {
+    "en": "This red abaca warp ikat tubular skirt worn by women features horizontal bands and geometric designs. It has three panels, horizontally stitched together using red-dyed abaca threads. The upper and lower panels have identical alternating bands of white lines and dashes on red bands, and white chains sandwiched between thin brown bands. The middle panel has distinct zoomorphic patterns with brown bands of geometric designs on both sides. The Bagobos commonly apply this particular design and color motif. Traditionally, the red dye comes from the root of the Morinda citrifolia plant, boiled for days up to two weeks depending on the desired shade.",
+    "fil": "Ang pulang tapis na tubular na ito na yari sa abakang ikat sa habi at isinusuot ng mga babae ay may pahalang na banda at disenyong heometriko. May tatlong panel ito, na pinagtahi nang pahalang gamit ang sinulid na abakang tinang pula. Ang itaas at ibabang panel ay may magkatulad na magsalitang banda ng puting guhit at gitling sa pulang banda, at puting kadena na nakapaloob sa manipis na kayumangging banda. Ang gitnang panel ay may natatanging disenyong soomorpiko na may kayumangging banda ng disenyong heometriko sa magkabilang panig. Karaniwang ginagamit ng mga Bagobo ang partikular na disenyo at motibong kulay na ito. Tradisyunal, nagmumula ang pulang tina sa ugat ng halamang Morinda citrifolia, na pinapakuluan nang maraming araw hanggang dalawang linggo depende sa ninanais na lalim ng kulay.",
+    "de": "Dieser rote Schlauchrock aus Abaka in Kettikat, von Frauen getragen, zeigt waagerechte Bänder und geometrische Muster. Er besteht aus drei Bahnen, die waagerecht mit rot gefärbten Abakafäden zusammengenäht sind. Obere und untere Bahn tragen gleiche, abwechselnde Bänder aus weißen Linien und Strichen auf roten Bändern sowie weiße Ketten, eingefasst zwischen dünnen braunen Bändern. Die mittlere Bahn zeigt eigene tiergestaltige Muster mit braunen Bändern geometrischer Musterung zu beiden Seiten. Die Bagobo verwenden dieses Muster und diese Farbgebung häufig. Herkömmlich stammt der rote Farbstoff aus der Wurzel der Pflanze Morinda citrifolia, die je nach gewünschtem Ton mehrere Tage bis zu zwei Wochen gekocht wird."
+  },
+  "condition": {
+    "en": "Good and stable condition, with an indistinct stain on the lower panel. A small patchwork uses abaca thread for stitching, probably a repair or old restoration; the museum team was not permitted to turn the skirt inside out to confirm previous restoration.",
+    "fil": "Mabuti at matatag ang kalagayan, may di-malinaw na mantsa sa ibabang panel. Isang maliit na tagpi ang gumagamit ng sinulid na abaka sa pananahi, marahil isang pagkukumpuni o lumang pagpapanumbalik; hindi pinayagan ang pangkat ng museo na baliktarin ang tapis upang tiyakin ang naunang pagpapanumbalik.",
+    "de": "Guter, stabiler Zustand, mit einem undeutlichen Fleck auf der unteren Bahn. Ein kleiner Flicken ist mit Abakafaden angenäht, wohl eine Reparatur oder alte Restaurierung; dem Museumsteam war es nicht erlaubt, den Rock zu wenden, um eine frühere Restaurierung zu bestätigen."
+  },
   "images": [
-    { "src": "patadion/front.webp", "alt": "Red abaca tubular skirt (patadion) mounted on a stand, its horizontal ikat bands of cream lines, dashes, and dark zoomorphic patterns wrapping the cylinder", "deepZoom": true },
-    { "src": "patadion/back.webp", "alt": "Reverse of the patadion on its stand, showing the center seam between its two symmetrical woven panels" },
-    { "src": "patadion/detail.webp", "alt": "Detail of the patadion's woven surface, its cream geometric ikat motifs set against the red abaca ground" }
+    {
+      "src": "patadion/front.webp",
+      "alt": "Red abaca tubular skirt (patadion) mounted on a stand, its horizontal ikat bands of cream lines, dashes, and dark zoomorphic patterns wrapping the cylinder",
+      "deepZoom": true
+    },
+    {
+      "src": "patadion/back.webp",
+      "alt": "Reverse of the patadion on its stand, showing the center seam between its two symmetrical woven panels"
+    },
+    {
+      "src": "patadion/detail.webp",
+      "alt": "Detail of the patadion's woven surface, its cream geometric ikat motifs set against the red abaca ground"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["camisa-mujer"],
+  "related": [
+    "camisa-mujer"
+  ],
   "featured": false
 }

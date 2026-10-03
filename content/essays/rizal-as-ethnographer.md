@@ -1,5 +1,5 @@
 ---
-title: Rizal as an Ethnographer
+title: Rizal as an Ethnographer (Essay)
 slug: rizal-as-ethnographer
 section: ethnographer
 summary: In 1888 Rizal mailed 21 ethnographic objects from London to Berlin, a material argument for Philippine skill, artistry, and cultural richness, offered into an emerging European science of anthropology.

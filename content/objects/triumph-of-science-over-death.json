@@ -1,0 +1,42 @@
+{
+  "id": "triumph-of-science-over-death",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 4,
+  "title": {
+    "en": "Triumph of Science over Death (Replica)",
+    "tl": "Ang Pagtatagumpay ng Agham sa Kamatayan"
+  },
+  "objectType": "Sculpture",
+  "description": "The Triumph of Science Over Death, or Scientia, is one of the three statuettes Rizal made while in London. Scientia depicts a woman holding a burning torch standing on a skull completely naked. In 19th century art, nudity symbolized power, purity, invincibility, the moral character to conquer ignorance through enlightenment.\n\nThere are several reproductions of this piece: one by Inocencio Gallemit now displayed in Silid Pamana of the Museo ni Jose Rizal in Fort Santiago; another, a big concrete replica known as Lady Med, stands in front of the Fernando Calderon Hall of the University of the Philippines College of Medicine in Manila; yet another replica, by Dr. Genaro Sy-Changco, can be found in Alabang, Muntinlupa City, in the former Biological Production Services Building (now part of Festival Mall).\n\n## References\n\nCity Government of Muntinlupa. “Biological\n\nProduction Services Building.” Accessed on March 24, 2026. https://muntinlupacity.gov.ph/tourism/biological-production-services-building/\n\nNHCP Museo ni Jose Rizal Fort Santiago. “Triumph of Science Over Death” (Pagtatagumpay ng Agham sa Kamatayan) Reproduction.” Facebook, July 17, 2020. https://www.facebook.com/photo/?fbid=\n\n3103822116321936&set=pcb.3103841029653378\n\nPalma, Celestino, III. Jose Rizal: Sculptor. Reyes Publishing, 2020.\n\nReyes, Raquel A. G. Love, Passion and Patriotism: Sexuality and the Philippine Propaganda Movement, 1882–1892. Nus Press, 2008.",
+  "images": [
+    {
+      "src": "triumph-of-science-over-death/front.webp",
+      "alt": "Slender statuette of a nude woman holding a torch aloft, standing on a skull atop a dark wooden plinth",
+      "deepZoom": true
+    },
+    {
+      "src": "triumph-of-science-over-death/view-1.webp",
+      "alt": "Triumph of Science over Death (Replica), alternate view 1"
+    },
+    {
+      "src": "triumph-of-science-over-death/view-2.webp",
+      "alt": "Triumph of Science over Death (Replica), alternate view 2"
+    },
+    {
+      "src": "triumph-of-science-over-death/view-3.webp",
+      "alt": "Triumph of Science over Death (Replica), alternate view 3"
+    },
+    {
+      "src": "triumph-of-science-over-death/view-4.webp",
+      "alt": "Triumph of Science over Death (Replica), alternate view 4"
+    }
+  ],
+  "rights": "National Historical Commission of the Philippines / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "related": [
+    "triumph-of-death-over-life",
+    "prometheus-bound"
+  ],
+  "featured": false
+}

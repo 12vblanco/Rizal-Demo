@@ -1,0 +1,44 @@
+{
+  "id": "la-venganza-de-la-madre",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 1,
+  "title": {
+    "en": "The Mother's Revenge",
+    "es": "La Venganza de la Madre"
+  },
+  "objectType": "Sculpture",
+  "materials": "Terracotta",
+  "description": "A mother dog fearlessly attacks a crocodile about to devour her puppy, an allegory of the Motherland (Inang Bayan) rescuing the nation from colonial oppression. Rizal made this terracotta sculpture while banished in Dapitan after he was arrested by the Spanish colonial government in 1892.\n\nThis was declared a National Cultural Treasure by the National Museum in 2008.",
+  "images": [
+    {
+      "src": "la-venganza-de-la-madre/front.webp",
+      "alt": "Terracotta group of a mother dog biting into a crocodile that has seized her puppy, mounted on an oval base",
+      "deepZoom": true
+    },
+    {
+      "src": "la-venganza-de-la-madre/front-2.webp",
+      "alt": "The Mother's Revenge, further view"
+    },
+    {
+      "src": "la-venganza-de-la-madre/view-1.webp",
+      "alt": "The Mother's Revenge, alternate view 1"
+    },
+    {
+      "src": "la-venganza-de-la-madre/view-2.webp",
+      "alt": "The Mother's Revenge, alternate view 2"
+    },
+    {
+      "src": "la-venganza-de-la-madre/view-3.webp",
+      "alt": "The Mother's Revenge, alternate view 3"
+    },
+    {
+      "src": "la-venganza-de-la-madre/view-4.webp",
+      "alt": "The Mother's Revenge, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [],
+  "featured": false
+}

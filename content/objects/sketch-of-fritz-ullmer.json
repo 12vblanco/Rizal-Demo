@@ -1,0 +1,41 @@
+{
+  "id": "sketch-of-fritz-ullmer",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 22,
+  "title": {
+    "en": "Sketch of Fritz Ullmer"
+  },
+  "objectType": "Drawing",
+  "materials": "Pencil on paper",
+  "description": "Pencil sketch by Rizal of Friedrich Ullmer, 1886, annotated by Ullmer in German on the lower left: “Dr. Jose Rizal killed 30 Dec. 96, etc.” signed with his monogram.",
+  "images": [
+    {
+      "src": "sketch-of-fritz-ullmer/front.webp",
+      "alt": "Pencil portrait sketch of a young man's head on foxed paper, annotated in German at the lower left",
+      "deepZoom": true
+    },
+    {
+      "src": "sketch-of-fritz-ullmer/view-1.webp",
+      "alt": "Sketch of Fritz Ullmer, alternate view 1"
+    },
+    {
+      "src": "sketch-of-fritz-ullmer/view-2.webp",
+      "alt": "Sketch of Fritz Ullmer, alternate view 2"
+    },
+    {
+      "src": "sketch-of-fritz-ullmer/view-3.webp",
+      "alt": "Sketch of Fritz Ullmer, alternate view 3"
+    },
+    {
+      "src": "sketch-of-fritz-ullmer/view-4.webp",
+      "alt": "Sketch of Fritz Ullmer, alternate view 4"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "related": [
+    "cartoon-of-a-man-farting",
+    "pencil-sketch"
+  ],
+  "featured": false
+}

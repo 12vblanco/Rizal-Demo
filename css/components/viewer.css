@@ -245,7 +245,7 @@
 .viewer__thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* a picker must show which view it picks — never cropped */
 }
 
 /* The 3D entry in the strip: a small corner "3D" label over its poster thumb.

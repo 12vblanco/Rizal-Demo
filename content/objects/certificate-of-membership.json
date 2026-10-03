@@ -1,0 +1,40 @@
+{
+  "id": "certificate-of-membership",
+  "section": "artist",
+  "category": "poetry-and-retellings",
+  "order": 16,
+  "title": {
+    "en": "Certificate of Membership, Ateneo Científico y Literario de Madrid"
+  },
+  "objectType": "Award",
+  "description": "An exclusive club for men, the Ateneo Científico y Literario de Madrid (Scientific and Literary Athenaeum of Madrid) or Ateneo de Madrid was founded in 1835 in the former Abrantes House, and later relocated to 21 Prado Street in 1882.\n\nChampioning its cause as “the driving force behind the Enlightenment and a haven for free thought, tolerance, and cutting-edge ideas,” the Ateneo undoubtedly shaped the sensibilities of Rizal, who, as a member, regularly watched theater plays, attended music and poetry recitals, went to book launches, studied English under Sr. Schüts, and did research work.\n\nTo this day, the Ateneo remains open to the public. It includes a lecture hall, library, reading and discussion rooms, galleries, and an assembly hall—which retains its high ceilings, classical stage, and a portrait hall for prominent members, including Rizal for a time.\n\nOne could immerse oneself in a cultural experience similar to Rizal’s through the Ateneo’s creative courses open to beginners, sharing the maxim, “Learning for the sake of learning.”\n\n## References\n\nAteneo Madrid. “El Ateneo - Ateneo Madrid.” Ateneo Madrid, 22 February 2026, ateneodemadrid.com.\n\nEmbassy of the Philippines, Madrid, et al. “Rizal’s Madrid.” philembassymadrird.com, www.philembassymadrid.com/wordpress/wp-content/uploads/Forms/RIZAL'S%20MADRID.pdf. Accessed 23 February 2026.",
+  "images": [
+    {
+      "src": "certificate-of-membership/front.webp",
+      "alt": "Framed certificate headed ATENEO CIENTIFICO Y LITERARIO within a decorative printed border",
+      "deepZoom": true
+    },
+    {
+      "src": "certificate-of-membership/view-1.webp",
+      "alt": "Certificate of Membership, Ateneo Científico y Literario de Madrid, alternate view 1"
+    },
+    {
+      "src": "certificate-of-membership/view-2.webp",
+      "alt": "Certificate of Membership, Ateneo Científico y Literario de Madrid, alternate view 2"
+    },
+    {
+      "src": "certificate-of-membership/view-3.webp",
+      "alt": "Certificate of Membership, Ateneo Científico y Literario de Madrid, alternate view 3"
+    },
+    {
+      "src": "certificate-of-membership/view-4.webp",
+      "alt": "Certificate of Membership, Ateneo Científico y Literario de Madrid, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [
+    "diploma-bachelor-of-arts"
+  ],
+  "featured": false
+}

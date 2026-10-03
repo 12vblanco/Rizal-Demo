@@ -165,5 +165,96 @@ expectFailure(
   "duplicate redirect source",
 );
 
+/**
+ * Clone the real content, apply a mutation, and assert it still validates.
+ * The mirror of expectFailure — used where a flag is meant to *permit* something.
+ * @param {string} name
+ * @param {(dir: string) => void} mutate
+ */
+function expectSuccess(name, mutate) {
+  const dir = mkdtempSync(path.join(tmpdir(), "rizal-content-"));
+  try {
+    cpSync(realContent, dir, { recursive: true });
+    mutate(dir);
+    try {
+      loadContent({ contentDir: dir, assetsDir: realAssets });
+      ok(name);
+    } catch (err) {
+      bad(name, err instanceof Error ? err.message : String(err));
+    }
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+// --- the `draft` flag ------------------------------------------------------
+// It must open exactly one door (filler text on a knowingly-unfinished record)
+// and no others: the guard has to stay live everywhere it is not set.
+
+expectSuccess(
+  "draft record may carry stand-in text",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => {
+    o.draft = true;
+    o.description = "Lorem ipsum — catalogue text pending.";
+  }),
+);
+
+expectFailure(
+  "non-draft record still rejects filler",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => {
+    o.description = "Lorem ipsum — catalogue text pending.";
+  }),
+  "placeholder",
+);
+
+expectFailure(
+  "draft must be a boolean",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => (o.draft = "yes")),
+  "must be a boolean",
+);
+
+expectSuccess(
+  "draft object may omit its description",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => {
+    o.draft = true;
+    delete o.description;
+  }),
+);
+
+expectFailure(
+  "non-draft object still requires a description",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => delete o.description),
+  "description",
+);
+
+expectSuccess(
+  "draft person may omit role and biography",
+  (dir) => editJson(dir, "people/ferdinand-blumentritt.json", (p) => {
+    p.draft = true;
+    delete p.role;
+    delete p.bio;
+  }),
+);
+
+expectFailure(
+  "non-draft person still requires a biography",
+  (dir) => editJson(dir, "people/ferdinand-blumentritt.json", (p) => delete p.bio),
+  "bio",
+);
+
+// --- object titles ---------------------------------------------------------
+// `en` is the guaranteed slot; `tl`/`es` are curatorial extras an artwork may lack.
+
+expectSuccess(
+  "object title may carry en alone",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => (o.title = { en: "Hat" })),
+);
+
+expectFailure(
+  "object title still requires en",
+  (dir) => editJson(dir, "objects/salakot.json", (o) => (o.title = { tl: "Salakot" })),
+  "title.en",
+);
+
 console.log(`\ncontent tests: ${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);

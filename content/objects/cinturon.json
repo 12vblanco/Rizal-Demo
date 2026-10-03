@@ -3,17 +3,47 @@
   "section": "ethnographer",
   "category": "clothing",
   "order": 9,
-  "title": { "en": "Belt", "tl": "Cinturón", "es": "Cinturón" },
-  "objectType": "Belt",
-  "materials": "Abaca, cotton, and horsehair",
+  "title": {
+    "en": "Belt",
+    "tl": "Cinturón",
+    "es": "Cinturón"
+  },
+  "objectType": {
+    "en": "Belt",
+    "fil": "Sinturon",
+    "de": "Gürtel"
+  },
+  "materials": {
+    "en": "Abaca, cotton, and horsehair",
+    "fil": "Abaka, bulak, at buhok ng kabayo",
+    "de": "Abaka, Baumwolle und Pferdehaar"
+  },
   "accession": "I C 18674",
-  "description": "This narrow, red-dyed and natural-colored abaca belt has alternating braids and tassels on both ends, composed of twined abaca, red, blue, and white cotton pompoms, and horsehair. Narrow braided abaca belts like this are common to the Kulaman Manobo, who call it kinawit, and kiarvit to the Blaan. It was used to hold up the lower garment or to carry knives around the waist.",
-  "condition": "Good and stable condition, with a few loose fibers.",
+  "description": {
+    "en": "This narrow, red-dyed and natural-colored abaca belt has alternating braids and tassels on both ends, composed of twined abaca, red, blue, and white cotton pompoms, and horsehair. Narrow braided abaca belts like this are common to the Kulaman Manobo, who call it kinawit, and kiarvit to the Blaan. It was used to hold up the lower garment or to carry knives around the waist.",
+    "fil": "Ang makitid na sinturong ito na yari sa abakang tinang pula at likas ang kulay ay may magsalitang tirintas at palawit sa dalawang dulo, na binubuo ng pinilipit na abaka, mga borlas na pula, asul, at puting bulak, at buhok ng kabayo. Karaniwan ang makikitid at tirintas na sinturong abaka na tulad nito sa mga Kulaman Manobo, na tinatawag itong kinawit, at kiarvit sa mga Blaan. Ginamit ito upang ihawak ang panloob na kasuotan o upang magdala ng kutsilyo sa baywang.",
+    "de": "Dieser schmale Gürtel aus rot gefärbtem und naturfarbenem Abaka trägt an beiden Enden abwechselnd Geflechte und Quasten aus gezwirntem Abaka, roten, blauen und weißen Baumwollbommeln sowie Pferdehaar. Schmale geflochtene Abakagürtel dieser Art sind bei den Kulaman-Manobo verbreitet, die sie kinawit nennen, und bei den Blaan als kiarvit. Er diente dazu, das Untergewand zu halten oder Messer an der Hüfte zu tragen."
+  },
+  "condition": {
+    "en": "Good and stable condition, with a few loose fibers.",
+    "fil": "Mabuti at matatag ang kalagayan, may ilang lubay na hibla.",
+    "de": "Guter, stabiler Zustand, mit einigen losen Fasern."
+  },
   "images": [
-    { "src": "cinturon/front.webp", "alt": "The full length of the narrow braided abaca belt, coiled to show both tasseled ends", "deepZoom": true },
-    { "src": "cinturon/detail.webp", "alt": "Detail of the cinturón's tasseled ends, red-and-tan braided abaca giving way to bundles of red, blue, and white cotton pompoms and horsehair" }
+    {
+      "src": "cinturon/front.webp",
+      "alt": "The full length of the narrow braided abaca belt, coiled to show both tasseled ends",
+      "deepZoom": true
+    },
+    {
+      "src": "cinturon/detail.webp",
+      "alt": "Detail of the cinturón's tasseled ends, red-and-tan braided abaca giving way to bundles of red, blue, and white cotton pompoms and horsehair"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["bakus", "baby-sling"],
+  "related": [
+    "bakus",
+    "baby-sling"
+  ],
   "featured": false
 }

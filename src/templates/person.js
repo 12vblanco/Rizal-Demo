@@ -5,7 +5,7 @@
 // (spec). Shares the breadcrumb, prev/next pager, related-cards, Markdown, and
 // View-Transition helpers with the object page via fragments.js.
 
-import { esc } from "./layout.js";
+import { esc, seoTitle, TITLE_MAX } from "./layout.js";
 import { renderImage } from "./media.js";
 import {
   objectCard,
@@ -31,14 +31,19 @@ import { pick, t } from "../i18n.js";
 /** @param {Person} person @param {Site} site */
 export function personTitle(person, site) {
   const siteTitle = pick(site.siteTitle);
-  const rich = `${person.name} · ${pick(person.role)} | ${siteTitle}`;
-  const base = `${person.name} | ${siteTitle}`;
-  return rich.length <= 70 ? rich : base;
+  // A draft person has no role yet, so there is nothing to put after the separator.
+  if (person.role) {
+    const rich = `${person.name} · ${pick(person.role)} | ${siteTitle}`;
+    if (rich.length <= TITLE_MAX) return rich;
+  }
+  return seoTitle(person.name, siteTitle);
 }
 
 /** @param {Person} person */
 export function personDescription(person) {
-  const plain = pick(person.bio).replace(/\s+/g, " ").trim();
+  // Falls back to the role, then the name, while the biography is outstanding.
+  const source = pick(person.bio) || pick(person.role) || person.name;
+  const plain = source.replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }
@@ -64,6 +69,32 @@ function renderPortrait(site, person) {
   </figure>`;
 }
 
+/** Dates and, when known, the place — one line, so the biography still opens
+ *  directly under the name.
+ * @param {Person} person */
+function renderLifeline(person) {
+  const place = pick(person.birthplace);
+  const parts = [pick(person.lifespan), place].filter(Boolean);
+  if (!parts.length) return "";
+  return `<p class="person__lifespan">${parts.map((s) => esc(s)).join(" · ")}</p>`;
+}
+
+/** The pull-quote that opens each scholar's page: Rizal's own words (or a
+ *  correspondent's) naming this person, above the biography. Rendered as a real
+ *  <blockquote> + <cite>, never a styled paragraph, and only ever with its
+ *  attribution — the validator refuses one without the other.
+ * @param {Person} person */
+function renderQuote(person) {
+  if (!person.quote || !person.quoteSource) return "";
+  return `<figure class="person__quote">
+          <blockquote class="person__quote-text">
+            <p>${esc(pick(person.quote))}</p>
+          </blockquote>
+          <figcaption class="person__quote-source">— <cite>${esc(pick(person.quoteSource))}</cite></figcaption>
+        </figure>
+        `;
+}
+
 /**
  * @param {object} p
  * @param {Site} p.site
@@ -77,6 +108,9 @@ function renderPortrait(site, person) {
 export function renderPerson({ site, person, section, prev, next, relatedObjects, relatedPeople }) {
   const objectCards = relatedObjects.map((o) => objectCard(site, o));
   const peopleCards = relatedPeople.map((p) => personCard(site, p));
+  const byline = person.author
+    ? `<p class="person__byline">${esc(t("by", { author: person.author }))}</p>\n        `
+    : "";
   const vtNames = [
     vtName("person", person.id),
     ...relatedObjects.map((o) => vtName("obj", o.id)),
@@ -92,10 +126,13 @@ export function renderPerson({ site, person, section, prev, next, relatedObjects
       </div>
       <div class="person__info-col">
         <h1 class="person__name" data-pagefind-weight="10">${esc(person.name)}</h1>
-        <p class="person__role" data-pagefind-weight="4">${esc(pick(person.role))}</p>
-        <p class="person__lifespan">${esc(pick(person.lifespan))}</p>
-        <div class="person__bio">
-${renderMarkdown(pick(person.bio))}
+        ${person.role ? `<p class="person__role" data-pagefind-weight="4">${esc(pick(person.role))}</p>\n        ` : ""}${renderLifeline(person)}
+        ${byline}${renderQuote(person)}<div class="person__bio">
+${
+  person.draft
+    ? `          <p class="text-pending">${esc(t("bioPending"))}</p>`
+    : renderMarkdown(pick(person.bio), { site })
+}
         </div>
       </div>
     </div>

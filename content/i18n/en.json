@@ -57,5 +57,7 @@
   "searchNoscript": "Search needs JavaScript to run. It works entirely in your browser (no data leaves your device), but the script has to load first. You can still browse the exhibition by section:",
   "notFoundTitle": "This page could not be found",
   "notFoundText": "The page you were looking for may have moved, or the link may be out of date. Try one of these instead:",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "textPending": "Catalogue text for this work is being prepared.",
+  "bioPending": "A biography for this figure is being prepared."
 }

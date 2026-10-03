@@ -1,0 +1,41 @@
+{
+  "id": "prometheus-bound",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 6,
+  "title": {
+    "en": "Prometheus Bound (Replica)"
+  },
+  "objectType": "Sculpture",
+  "description": "“And in thy Silence was his Sentence,\n\nAnd in his Soul a vain repentance,\n\nAnd evil dread so ill dissembled,\n\nThat in his hand lightning trembled.\n\nThy Godlike crime was to be kind,\n\nTo render with thy precepts less\n\nThe sum of human wretchedness,\n\nAnd strengthen Man with his own mind;”\n\nExcerpt from “Prometheus”, Lord Byron 1816\n\nRizal’s sculpture Prometheus Bound depicts the Greek myth of the Titan Prometheus, who defied Zeus by giving humans fire, the first technology. Prometheus is considered a hero for bestowing upon mortals the unprecedented agency once reserved for the gods; yet, the irrevocable gift carries the curse of inevitable progress, whether mortals—or gods—can handle it. As if to challenge whether Prometheus can bear the weight of immortality, Zeus punishes Prometheus by tying him to a rock so an eagle could eat his liver while still alive; his body always healed, but the eagle returned to eat his liver again and again, ad infinitum.\n\nRizal learned about Prometheus while studying in Ateneo. In a letter to Blumentritt dated 20 January 1890, Rizal confessed that he saw himself as a sort of Prometheus (Zanker, 2026). Despite the allegory’s pre-scientific origin, Rizal turned to myth to understand the human condition beyond the constraints of ideology and to illustrate the enlightenment that comes at the price of being human.\n\nRizal gave Blumentritt both the Scientia and Triumph of Death over Life to Blumentritt.\n\nInocencio Gallemit also made a reproduction of Prometheus Bound which is currently exhibited in the Silid Pamana of the Museo ni Jose Rizal, Fort Santiago.\n\n## References\n\nPalma, Celestino. Jose Rizal, Sculptor. Reyes Publishing, 2020.\n\nReese, Byron. The Fourth Age: Smart\n\nRobots, Conscious Computers, and the Future of Humanity. Atria Books, 2020.\n\nZanker, Andreas T. José Rizal, the\n\nPhilippines, and Greco-Roman Antiquity. Routledge, 2026. [1]",
+  "images": [
+    {
+      "src": "prometheus-bound/front.webp",
+      "alt": "Green-toned statuette of Prometheus bound to a rock with an eagle at his body, on a pale base",
+      "deepZoom": true
+    },
+    {
+      "src": "prometheus-bound/view-1.webp",
+      "alt": "Prometheus Bound (Replica), alternate view 1"
+    },
+    {
+      "src": "prometheus-bound/view-2.webp",
+      "alt": "Prometheus Bound (Replica), alternate view 2"
+    },
+    {
+      "src": "prometheus-bound/view-3.webp",
+      "alt": "Prometheus Bound (Replica), alternate view 3"
+    },
+    {
+      "src": "prometheus-bound/view-4.webp",
+      "alt": "Prometheus Bound (Replica), alternate view 4"
+    }
+  ],
+  "rights": "National Historical Commission of the Philippines / National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [
+    "triumph-of-science-over-death",
+    "triumph-of-death-over-life"
+  ],
+  "featured": false
+}

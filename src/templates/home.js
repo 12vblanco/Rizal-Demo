@@ -73,7 +73,7 @@ function renderHero(site) {
 // section-grid→object-page morph, and this strip can show one object more
 // than once (below), which would duplicate that name in the same document.
 
-const MIN_3D_CARDS = 4;
+const HOME_3D_CARDS = 4;
 
 /** @param {Site} site @param {ContentObject} obj */
 function model3dCard(site, obj) {
@@ -92,8 +92,7 @@ function model3dCard(site, obj) {
       <span class="models3d__badge" aria-hidden="true">${icons.cube}3D</span>
     </span>
     <span class="models3d__body">
-      <span class="models3d__native" lang="tl">${esc(obj.title.tl)}</span>
-      <span class="models3d__en">${esc(obj.title.en)}</span>
+      ${obj.title.tl ? `<span class="models3d__native" lang="tl">${esc(obj.title.tl)}</span>\n      <span class="models3d__en">${esc(obj.title.en)}</span>` : `<span class="models3d__native">${esc(obj.title.en)}</span>`}
     </span>
   </a>
 </li>`;
@@ -103,10 +102,11 @@ function model3dCard(site, obj) {
 function render3dGallery(site, objects) {
   const models = objects.filter((o) => o.model3d);
   if (!models.length) return "";
-  // Only one 3D object exists today (content-gaps.md); cycle it to fill a
-  // fuller-looking row until 11c/11d–11g add more model3d objects, at which
-  // point this naturally shows the real distinct set with no changes.
-  const count = Math.max(models.length, MIN_3D_CARDS);
+  // The teaser is a single row of four: enough to advertise the 3D collection
+  // without turning the landing page into the collection itself. Below four
+  // model3d objects the list is cycled so the row still reads as a row; above
+  // four it is trimmed, and the section pages carry the full set.
+  const count = HOME_3D_CARDS;
   const cards = Array.from(
     { length: count },
     (_, i) => models[i % models.length],

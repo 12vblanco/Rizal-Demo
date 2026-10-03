@@ -8,11 +8,27 @@
     "tl": "Tangkulu",
     "es": "Pañuelo"
   },
-  "objectType": "Headcloth",
-  "materials": "Cotton, glass beads, and abaca fiber",
+  "objectType": {
+    "en": "Headcloth",
+    "fil": "Panyong Pang-ulo",
+    "de": "Kopftuch"
+  },
+  "materials": {
+    "en": "Cotton, glass beads, and abaca fiber",
+    "fil": "Bulak, butil na salamin, at hiblang abaka",
+    "de": "Baumwolle, Glasperlen und Abakafaser"
+  },
   "accession": "I C 18682",
-  "description": "This red, square-shaped, tie-dyed cotton headcloth features small white beads embellishing all sides and dangling beads on all four corners. The maker used the pelangi dyeing technique, tying the cotton cloth with abaca threads to create patterns of small white circles after dyeing it with red (Quizon 2012, p. 45, 48). This particular headcloth is common among the Mindanao indigenous groups (Blaan, Bagobo, and Manobo) and characterizes a “priestly” and “chiefly” role in the community (Quizon 2012, pp. 46-47).",
-  "condition": "Fair and stable condition. Has a few dark red/brown stains; stitch-repaired tears/holes; remnants of abaca threads (probably used as a tie before dyeing).",
+  "description": {
+    "en": "This red, square-shaped, tie-dyed cotton headcloth features small white beads embellishing all sides and dangling beads on all four corners. The maker used the pelangi dyeing technique, tying the cotton cloth with abaca threads to create patterns of small white circles after dyeing it with red (Quizon 2012, p. 45, 48). This particular headcloth is common among the Mindanao indigenous groups (Blaan, Bagobo, and Manobo) and characterizes a “priestly” and “chiefly” role in the community (Quizon 2012, pp. 46-47).",
+    "fil": "Ang pulang panyong pang-ulo na hugis-parisukat at tinang-tali ay may maliliit na puting butil na nagpapalamuti sa lahat ng gilid at nakalaylay na butil sa apat na sulok. Ginamit ng gumawa ang teknik ng pagtitinang pelangi, na itinatali ang telang bulak sa sinulid na abaka upang lumikha ng disenyong maliliit na puting bilog matapos itong tinain ng pula (Quizon 2012, p. 45, 48). Ang partikular na panyong pang-ulong ito ay karaniwan sa mga katutubong pangkat ng Mindanao (Blaan, Bagobo, at Manobo) at nagtatampok ng papel na “pang-pari” at “pang-pinuno” sa pamayanan (Quizon 2012, pp. 46-47).",
+    "de": "Dieses rote, quadratische, reserviert gefärbte Baumwolltuch für den Kopf ist an allen Seiten mit kleinen weißen Perlen geschmückt und trägt an allen vier Ecken hängende Perlen. Der Hersteller verwendete die pelangi-Färbetechnik und band das Baumwolltuch mit Abakafäden ab, um nach dem Rotfärben Muster aus kleinen weißen Kreisen zu erzeugen (Quizon 2012, S. 45, 48). Dieses Kopftuch ist bei den indigenen Gruppen Mindanaos (Blaan, Bagobo und Manobo) verbreitet und kennzeichnet eine „priesterliche“ und „häuptliche“ Rolle in der Gemeinschaft (Quizon 2012, S. 46–47)."
+  },
+  "condition": {
+    "en": "Fair and stable condition. Has a few dark red/brown stains; stitch-repaired tears/holes; remnants of abaca threads (probably used as a tie before dyeing).",
+    "fil": "Katamtaman at matatag ang kalagayan. May ilang madilim na pula o kayumangging mantsa; mga punit o butas na kinumpuni ng tahi; labi ng sinulid na abaka (marahil ginamit bilang tali bago tinain).",
+    "de": "Mäßiger, stabiler Zustand. Einige dunkelrote bis braune Flecken; durch Nähte geflickte Risse und Löcher; Reste von Abakafäden (wohl vor dem Färben als Abbindung verwendet)."
+  },
   "images": [
     {
       "src": "tangkulu/front.webp",
@@ -30,6 +46,10 @@
     "poster": "placeholder-3d/model-poster.webp",
     "altText": "3D model coming soon: placeholder pyramid standing in for the tangkulu"
   },
-  "related": ["salakot", "trousers", "unfinished-upper-garment"],
+  "related": [
+    "salakot",
+    "trousers",
+    "unfinished-upper-garment"
+  ],
   "featured": false
 }

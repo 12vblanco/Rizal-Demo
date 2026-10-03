@@ -1,0 +1,47 @@
+{
+  "id": "pluma-silver-quill",
+  "section": "artist",
+  "category": "poetry-and-retellings",
+  "order": 13,
+  "title": {
+    "en": "Silver Quill",
+    "es": "Pluma"
+  },
+  "objectType": "Award",
+  "materials": "Silver with a gold band, encased in a kamagong box lined with green gamosa",
+  "description": "While a student at the Universidad de Santo Tomas in 1879, Jose Rizal joined a poetry contest organized by the Liceo Artistico de Manila and was awarded this quill for his poem, “A La Juventud Filipina” [To the Filipino Youth].\n\nEncased in a kamagong box with green gamosa lining, the silver quill has a liceo inscription on its gold band. It is in good condition, despite three missing feathers, some corrosion, and minor restoration.",
+  "condition": "Good condition, despite three missing feathers, some corrosion, and minor restoration.",
+  "images": [
+    {
+      "src": "pluma-silver-quill/front.webp",
+      "alt": "Silver quill pen shaped as a feather with a banded gold collar, lying on a pale ground",
+      "deepZoom": true
+    },
+    {
+      "src": "pluma-silver-quill/front-2.webp",
+      "alt": "Silver Quill, further view"
+    },
+    {
+      "src": "pluma-silver-quill/view-1.webp",
+      "alt": "Silver Quill, alternate view 1"
+    },
+    {
+      "src": "pluma-silver-quill/view-2.webp",
+      "alt": "Silver Quill, alternate view 2"
+    },
+    {
+      "src": "pluma-silver-quill/view-3.webp",
+      "alt": "Silver Quill, alternate view 3"
+    },
+    {
+      "src": "pluma-silver-quill/view-4.webp",
+      "alt": "Silver Quill, alternate view 4"
+    }
+  ],
+  "rights": "Bayanihan Collectors Club / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "related": [
+    "diploma-de-honor"
+  ],
+  "featured": false
+}

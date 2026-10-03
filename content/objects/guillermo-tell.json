@@ -1,0 +1,33 @@
+{
+  "id": "guillermo-tell",
+  "section": "artist",
+  "category": "poetry-and-retellings",
+  "order": 17,
+  "title": {
+    "en": "Guillermo Tell",
+    "tl": "Trahediang Tinula ni Schiller sa Wikang Aleman"
+  },
+  "objectType": "Manuscript",
+  "description": "In 1886, while in Leipzig, Germany, Rizal translated Friedrich Schiller’s drama Wilhelm Tell into Tagalog, titling it Guillermo Tell and sent a copy to his brother Paciano in Calamba, Laguna\n\nIn a letter to Blumentritt in October 1886, as he hopes for a better political condition he intends to say one day to posterity what Schiller did to the Swiss:\n\n“We have conquered this land with the diligence of our hand; the old forest, which formerly was the abode of wild bears, we have changed into the habitation of men; we have killed the spawn of the dragon.”\n\n## References\n\nDomingo, Benjamin. Rizal in Germany. Foreign Service Institute, 1983.",
+  "images": [
+    {
+      "src": "guillermo-tell/front.webp",
+      "alt": "Aged manuscript cover inscribed Guillermo Tell in brown ink, with a handwritten subtitle beneath",
+      "deepZoom": true
+    },
+    {
+      "src": "guillermo-tell/view-1.webp",
+      "alt": "Guillermo Tell, alternate view 1"
+    },
+    {
+      "src": "guillermo-tell/view-2.webp",
+      "alt": "Guillermo Tell, alternate view 2"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "related": [
+    "five-tales-of-andersen"
+  ],
+  "featured": false
+}

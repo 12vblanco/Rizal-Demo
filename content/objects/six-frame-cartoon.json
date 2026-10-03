@@ -1,0 +1,40 @@
+{
+  "id": "six-frame-cartoon",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 21,
+  "title": {
+    "en": "Six-Frame Cartoon"
+  },
+  "objectType": "Drawing",
+  "description": "The text for each frame:\n\nFrame 1: How they solved a bad quarrel\n\nFrame 2: How they happily picked apples to throw in the water.\n\nFrame 3: Attention, Fritz said. You can fall into the water\n\nFrame 4: Ha! Ha!\n\nFrame 5: For heaven’s sake! That was a cold bath! Help! Help!\n\nFrame 6: Hu! Hu! The water is wet!",
+  "images": [
+    {
+      "src": "six-frame-cartoon/front.webp",
+      "alt": "Six-panel ink cartoon of figures picking apples and tumbling into water, each frame captioned in German",
+      "deepZoom": true
+    },
+    {
+      "src": "six-frame-cartoon/view-1.webp",
+      "alt": "Six-Frame Cartoon, alternate view 1"
+    },
+    {
+      "src": "six-frame-cartoon/view-2.webp",
+      "alt": "Six-Frame Cartoon, alternate view 2"
+    },
+    {
+      "src": "six-frame-cartoon/view-3.webp",
+      "alt": "Six-Frame Cartoon, alternate view 3"
+    },
+    {
+      "src": "six-frame-cartoon/view-4.webp",
+      "alt": "Six-Frame Cartoon, alternate view 4"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "related": [
+    "cartoon-of-a-man-farting",
+    "sketch-of-fritz-ullmer"
+  ],
+  "featured": false
+}

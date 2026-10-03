@@ -1,0 +1,40 @@
+{
+  "id": "diploma-bachelor-of-arts",
+  "section": "artist",
+  "category": "poetry-and-retellings",
+  "order": 14,
+  "title": {
+    "en": "Bachelor of Arts Diploma"
+  },
+  "objectType": "Award",
+  "description": "Contrary to popular myth, Jose Rizal did not always earn the highest honor of his class. It is less known that Ateneo nearly turned down his enrollment due to his late application or possibly his frail stature. He would later write about his years taking up a Bachelor of Arts at Ateneo Municipal de Manila in his memoir, Memorias de un estudiante de Manila, recalling his transformation from a boy “almost without refinement in my sentiments” to a “new man” owing to “a thousand corrections” and the “influence of a zealous professor.” He graduated at the top of his class, bringing home five first-prize medals.\n\nRizal’s Bachelor of Arts diploma, earned at the Ateneo Municipal de Manila, was conferred by the University of Santo Tomas (UST), which was authorized by a Royal Order of Queen Isabella to supervise schools in the Philippines. Under this decree, all diplomas issued by other schools had to be approved by the Rector of the University of Santo Tomas.\n\n## References\n\nBonoan, S.J. (2013) \"Rizal’s Record at the Ateneo,\" Philippine Studies: Historical and Ethnographic Viewpoints: Vol. 27: No. 1, Article 4. University of Santo Tomas. “History - University of Santo Tomas.” University of Santo Tomas, 8 Sept. 2023. www.ust.edu.ph/university-history/#:~:text=On%20May%2020%2C%201865%2C%20a,the%20Dominican%20professors%20of%20UST.",
+  "images": [
+    {
+      "src": "diploma-bachelor-of-arts/front.webp",
+      "alt": "Framed diploma headed EL RECTOR Y CANCELARIO, its printed text and seals browned with age",
+      "deepZoom": true
+    },
+    {
+      "src": "diploma-bachelor-of-arts/view-1.webp",
+      "alt": "Bachelor of Arts Diploma, alternate view 1"
+    },
+    {
+      "src": "diploma-bachelor-of-arts/view-2.webp",
+      "alt": "Bachelor of Arts Diploma, alternate view 2"
+    },
+    {
+      "src": "diploma-bachelor-of-arts/view-3.webp",
+      "alt": "Bachelor of Arts Diploma, alternate view 3"
+    },
+    {
+      "src": "diploma-bachelor-of-arts/view-4.webp",
+      "alt": "Bachelor of Arts Diploma, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [
+    "certificate-of-membership"
+  ],
+  "featured": false
+}

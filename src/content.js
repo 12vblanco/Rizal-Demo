@@ -183,7 +183,7 @@ function validateImage(errors, file, field, img, assetsDir) {
 const OBJECT_KEYS = [
   "id", "section", "category", "order", "title", "objectType", "materials",
   "dimensions", "accession", "description", "condition", "images", "rights",
-  "model3d", "related", "featured", "hotspots",
+  "model3d", "related", "featured", "hotspots", "author", "draft",
 ];
 
 function validateObject(errors, file, obj, assetsDir) {
@@ -194,19 +194,39 @@ function validateObject(errors, file, obj, assetsDir) {
     checkKebab(errors, file, "category", obj.category);
   reqNumber(errors, file, obj, "order");
 
+  // Curatorial naming, not UI locale: `tl` is the object's own/vernacular name,
+  // `en` the English descriptor, `es` the historical Spanish designation. Only
+  // `en` is guaranteed — the Berlin ethnographic objects carry all three, but an
+  // artwork often has a single title, and repeating it in all three slots would
+  // print the same words three times on the page. Templates omit what is absent.
   if (typeof obj.title === "object" && obj.title !== null) {
     checkKeys(errors, file, obj.title, ["en", "tl", "es"], "title");
-    for (const locale of ["en", "tl", "es"]) reqString(errors, file, obj.title, locale);
+    // Reported as `title.en` etc., not a bare `en` — the sub-object has no
+    // context of its own and "en: missing" reads as a top-level field.
+    if (!isNonEmptyString(obj.title.en)) {
+      errors.add(file, "title.en", "missing or empty — the English name is required");
+    }
+    for (const slot of ["tl", "es"]) {
+      if (obj.title[slot] !== undefined && !isNonEmptyString(obj.title[slot])) {
+        errors.add(file, `title.${slot}`, "present but empty — omit the slot or fill it in");
+      }
+    }
   } else {
-    errors.add(file, "title", "missing or not a locale-keyed object { en, tl, es }");
+    errors.add(file, "title", "missing or not a locale-keyed object { en, tl?, es? }");
   }
 
   reqLocalized(errors, file, obj, "objectType");
   optLocalized(errors, file, obj, "materials");
   optLocalized(errors, file, obj, "dimensions");
   optString(errors, file, obj, "accession");
-  reqLocalized(errors, file, obj, "description");
+  // A draft record has no prose yet — the template renders the "pending" note
+  // instead — so `description` is only required once the flag comes off.
+  (obj.draft === true ? optLocalized : reqLocalized)(errors, file, obj, "description");
   optLocalized(errors, file, obj, "condition");
+  // Who wrote the catalogue entry, when the source credits one (the Artist
+  // delivery does; the Berlin ethnographic records don't).
+  optString(errors, file, obj, "author");
+  checkDraft(errors, file, obj);
   reqString(errors, file, obj, "rights");
   reqBool(errors, file, obj, "featured");
 
@@ -268,8 +288,8 @@ function validateObject(errors, file, obj, assetsDir) {
 }
 
 const PERSON_KEYS = [
-  "id", "section", "order", "name", "role", "lifespan", "portrait", "bio",
-  "relatedObjects", "relatedPeople",
+  "id", "section", "order", "name", "role", "lifespan", "birthplace", "portrait",
+  "author", "quote", "quoteSource", "bio", "relatedObjects", "relatedPeople", "draft",
 ];
 
 function validatePerson(errors, file, person, assetsDir) {
@@ -278,9 +298,24 @@ function validatePerson(errors, file, person, assetsDir) {
   reqString(errors, file, person, "section");
   reqNumber(errors, file, person, "order");
   reqString(errors, file, person, "name");
-  reqLocalized(errors, file, person, "role");
-  reqLocalized(errors, file, person, "lifespan");
-  reqLocalized(errors, file, person, "bio");
+  // Both `role` and `bio` wait on the client's text, so a draft person needs only
+  // a name and a portrait — the template renders the "pending" note for the rest.
+  const reqUnlessDraft = person.draft === true ? optLocalized : reqLocalized;
+  reqUnlessDraft(errors, file, person, "role");
+  // Not every figure has published dates (Pastor Ullmer has none), so the
+  // lifeline is assembled from whichever of these two the source actually gives.
+  optLocalized(errors, file, person, "lifespan");
+  optLocalized(errors, file, person, "birthplace");
+  reqUnlessDraft(errors, file, person, "bio");
+  // A pull-quote is only a pull-quote with its source attached — half of one is
+  // an unattributed quotation, which the reading pages must never show.
+  optString(errors, file, person, "author");
+  optLocalized(errors, file, person, "quote");
+  optLocalized(errors, file, person, "quoteSource");
+  if (Boolean(person.quote) !== Boolean(person.quoteSource)) {
+    errors.add(file, "quote", "`quote` and `quoteSource` go together — supply both or neither");
+  }
+  checkDraft(errors, file, person);
   validateImage(errors, file, "portrait", person.portrait, assetsDir);
   for (const field of ["relatedObjects", "relatedPeople"]) {
     if (reqArray(errors, file, person, field)) {
@@ -567,6 +602,21 @@ function validateRedirects(errors, file, redirects) {
   });
 }
 
+/**
+ * `draft: true` marks a record the client has delivered assets for but not yet
+ * text. It does two things: the detail page renders a "pending" note instead of
+ * the missing prose, and the record is exempted from the placeholder scan so the
+ * stand-in copy can say plainly that it is unfinished. Everything else on the
+ * record is still validated normally, and the guard stays fully active on every
+ * record that does not carry the flag — see CONTENT-STATUS.md, which is
+ * generated from this flag so the tracker cannot drift out of sync.
+ */
+function checkDraft(errors, file, rec) {
+  if (rec.draft !== undefined && typeof rec.draft !== "boolean") {
+    errors.add(file, "draft", "must be a boolean");
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Placeholder scan: no lorem/TODO/[OPEN QUESTION]/… anywhere in content.
 
@@ -594,6 +644,69 @@ function scanPlaceholders(errors, file, value, fieldPath) {
 
 // ---------------------------------------------------------------------------
 // Loading.
+
+// Which long-form fields a `<slug>.<locale>.md` may translate. Everything else
+// (slug, section, order, author, heroImage, category, personaCards) is
+// structural or a proper name and is always taken from the English base file,
+// so a translation can never fork a route or re-point an image.
+const ESSAY_TRANSLATABLE = ["title", "summary", "heroCaption", "body"];
+const PAGE_TRANSLATABLE = ["title", "intro", "bodyHeading", "body"];
+
+/**
+ * Read the `<base>.fil.md` / `<base>.de.md` siblings of a long-form record.
+ * Returns `{ [locale]: { field: string } }` for whichever exist — a missing
+ * translation is not an error, it just falls back to English at render time
+ * (the same progressive-rollout rule `pick()` applies to locale-keyed JSON).
+ * @param {ContentErrors} errors @param {string} contentDir @param {string} sub
+ * @param {string} base @param {string[]} translatable
+ */
+function readLocaleVariants(errors, contentDir, sub, base, translatable) {
+  /** @type {Record<string, Record<string, string>>} */
+  const variants = {};
+  for (const locale of ["fil", "de"]) {
+    const fileName = `${base}.${locale}.md`;
+    const abs = path.join(contentDir, sub, fileName);
+    if (!existsSync(abs)) continue;
+    const file = `content/${sub}/${fileName}`;
+    const { frontmatter, body } = parseFrontmatter(errors, file, readFileSync(abs, "utf8"));
+    for (const key of Object.keys(frontmatter)) {
+      if (!translatable.includes(key)) {
+        errors.add(file, key, `not translatable — it is taken from ${base}.md (translatable: ${translatable.join(", ")})`);
+      }
+    }
+    if (!isNonEmptyString(body)) errors.add(file, "body", "translation has no body text");
+    scanPlaceholders(errors, file, frontmatter, "");
+    scanPlaceholders(errors, file, body, "body");
+    /** @type {Record<string, string>} */
+    const fields = { body };
+    for (const key of translatable) {
+      if (key !== "body" && isNonEmptyString(frontmatter[key])) fields[key] = String(frontmatter[key]);
+    }
+    variants[locale] = fields;
+  }
+  return variants;
+}
+
+/**
+ * Fold a record's locale variants into locale-keyed values, so templates read
+ * them through the same `pick()` every other localized field uses.
+ * @param {{ frontmatter: Record<string, any>, body: string, variants: Record<string, Record<string, string>> }} rec
+ * @param {string[]} translatable
+ */
+function localizeRecord({ frontmatter, body, variants }, translatable) {
+  const out = { ...frontmatter, body };
+  for (const key of translatable) {
+    const en = out[key];
+    if (!isNonEmptyString(en)) continue; // optional field absent in English
+    const localized = { en: String(en) };
+    for (const [locale, fields] of Object.entries(variants)) {
+      if (fields[key] !== undefined) localized[locale] = fields[key];
+    }
+    // Only pay for an object when a translation actually exists.
+    out[key] = Object.keys(localized).length > 1 ? localized : en;
+  }
+  return out;
+}
 
 /** Minimal YAML frontmatter: `key: value` lines between --- fences. */
 function parseFrontmatter(errors, file, raw) {
@@ -700,7 +813,9 @@ export function loadContent({ contentDir, assetsDir }) {
       const data = parseJson(errors, file, raw);
       if (data !== null) {
         validate(errors, file, data, assetsDir);
-        scanPlaceholders(errors, file, data, "");
+        // A `draft` record is knowingly unfinished (see checkDraft), so its
+        // stand-in copy is allowed to say so; every other record is scanned.
+        if (data.draft !== true) scanPlaceholders(errors, file, data, "");
       }
       return { file, base, data };
     }).filter((e) => e.data !== null);
@@ -711,7 +826,13 @@ export function loadContent({ contentDir, assetsDir }) {
 
   const essays = readDir(errors, contentDir, "essays", ".md").map(({ file, base, raw }) => {
     const { frontmatter, body } = parseFrontmatter(errors, file, raw);
-    const essay = { file, base, frontmatter, body };
+    const essay = {
+      file,
+      base,
+      frontmatter,
+      body,
+      variants: readLocaleVariants(errors, contentDir, "essays", base, ESSAY_TRANSLATABLE),
+    };
     validateEssay(errors, file, essay, assetsDir);
     scanPlaceholders(errors, file, frontmatter, "");
     scanPlaceholders(errors, file, body, "body");
@@ -721,7 +842,13 @@ export function loadContent({ contentDir, assetsDir }) {
   // Standalone content pages (Markdown). Route is /<slug>/, slug === filename.
   const pages = readDir(errors, contentDir, "pages", ".md").map(({ file, base, raw }) => {
     const { frontmatter, body } = parseFrontmatter(errors, file, raw);
-    const page = { file, base, frontmatter, body };
+    const page = {
+      file,
+      base,
+      frontmatter,
+      body,
+      variants: readLocaleVariants(errors, contentDir, "pages", base, PAGE_TRANSLATABLE),
+    };
     validatePage(errors, file, page, assetsDir);
     scanPlaceholders(errors, file, frontmatter, "");
     scanPlaceholders(errors, file, body, "body");
@@ -860,8 +987,8 @@ export function loadContent({ contentDir, assetsDir }) {
     sections: sections.map((s) => s.data),
     objects: objects.map((o) => o.data),
     people: people.map((p) => p.data),
-    essays: essays.map(({ frontmatter, body }) => ({ ...frontmatter, body })),
-    pages: pages.map(({ frontmatter, body }) => ({ ...frontmatter, body })),
+    essays: essays.map((e) => localizeRecord(e, ESSAY_TRANSLATABLE)),
+    pages: pages.map((p) => localizeRecord(p, PAGE_TRANSLATABLE)),
     about,
     redirects,
   };

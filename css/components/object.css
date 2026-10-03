@@ -75,10 +75,15 @@
   background: color-mix(in srgb, var(--black-cow) 12%, transparent);
 }
 
+/* `contain`, never `cover`: this is an exhibition — an exhibit image is never
+   cropped by its container. The box keeps a fixed ratio so the grid and gallery
+   stay on a steady rhythm; whatever the work's own proportions, it is shown
+   whole and centred, letterboxed against the frame colour. */
 .object-gallery__img {
   width: 100%;
-  aspect-ratio: 4 / 3; /* interim: no image dimensions until pipeline (08) */
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: var(--exhibit-frame);
 }
 
 .object-gallery__credit {
@@ -108,7 +113,8 @@
 .object-gallery__thumb-img {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain; /* a thumbnail is a picker — it must show which view it picks */
+  background: var(--exhibit-frame);
 }
 
 /* --- 3D model view (feature 10) ---------------------------------------- */
@@ -395,9 +401,26 @@
   max-width: var(--measure);
 }
 
+/* Byline for a credited catalogue entry — same voice as the essay/person byline. */
+.object__author {
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black-cow);
+}
+
 .object__rights {
   margin-top: var(--space-l);
   font-size: var(--step--1);
+  color: var(--black-cow);
+}
+
+/* Stand-in shown where a record carries `draft: true` — assets delivered, text
+   still to come. Deliberately quiet and italic so it reads as a status note
+   rather than as the object's own description. Shared by object and person. */
+.text-pending {
+  font-style: italic;
   color: var(--black-cow);
 }
 
@@ -471,6 +494,11 @@
 .collection-card__link {
   text-decoration: none;
   display: grid;
+  /* The photo hugs its own fixed 3/4 box; the label panel absorbs whatever
+     height the row has left over. Without this the two rows split the spare
+     height, so a card whose neighbours carry longer titles grows a band of
+     bare LQIP below its photo and the grid's images stop lining up. */
+  grid-template-rows: auto 1fr;
   gap: 0;
   height: 100%;
 }
@@ -478,13 +506,14 @@
 .collection-card__media {
   display: block;
   overflow: hidden;
-  background: color-mix(in srgb, var(--black-cow) 12%, transparent);
+  background: var(--exhibit-frame);
 }
 
 .collection-card__img {
   width: 100%;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain; /* see .object-gallery__img — never crop an exhibit */
+  background: var(--exhibit-frame);
   transition: transform var(--duration-slow) var(--ease);
 }
 

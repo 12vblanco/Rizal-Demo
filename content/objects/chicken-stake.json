@@ -3,17 +3,46 @@
   "section": "ethnographer",
   "category": "daily-life",
   "order": 18,
-  "title": { "en": "Chicken Stake", "tl": "Cuerda", "es": "Cuerda para Atar el Gallo" },
-  "objectType": "Cockfighting Implement",
-  "materials": "Abaca rope, bone, cotton cord, and tortoise shell",
+  "title": {
+    "en": "Chicken Stake",
+    "tl": "Cuerda",
+    "es": "Cuerda para Atar el Gallo"
+  },
+  "objectType": {
+    "en": "Cockfighting Implement",
+    "fil": "Kagamitan sa Sabong",
+    "de": "Gerät zum Hahnenkampf"
+  },
+  "materials": {
+    "en": "Abaca rope, bone, cotton cord, and tortoise shell",
+    "fil": "Lubid na abaka, buto, tali ng bulak, at payaw",
+    "de": "Abakaschnur, Knochen, Baumwollschnur und Schildpatt"
+  },
   "accession": "I C 18683",
-  "description": "This stake cord, used for tying up a fighting cock, consists of braided abaca rope. An elongated, triangle-shaped white animal bone is knotted onto one end to lock it. On the other end, a braided blue and yellow cotton cord is tied and looped, serving as an adjustable lock. At the center, a two-holed, oval carved cord organizer made of tortoise shell connects the two separate braided abaca cords.",
-  "condition": "Fair and stable condition, with a few abrasions on the bone and a few loose threads.",
+  "description": {
+    "en": "This stake cord, used for tying up a fighting cock, consists of braided abaca rope. An elongated, triangle-shaped white animal bone is knotted onto one end to lock it. On the other end, a braided blue and yellow cotton cord is tied and looped, serving as an adjustable lock. At the center, a two-holed, oval carved cord organizer made of tortoise shell connects the two separate braided abaca cords.",
+    "fil": "Ang panaling ito, na ginagamit sa pagtali ng tandang sa sabong, ay binubuo ng pinagsalit-salit na lubid na abaka. Isang mahaba at hugis-tatsulok na puting buto ng hayop ang ibinuhol sa isang dulo upang ikandado ito. Sa kabilang dulo, isang pinagsalit-salit na asul at dilaw na tali ng bulak ang nakatali at nakasilo, na nagsisilbing maiaayos na kandado. Sa gitna, isang bilugang inukit na tagapag-organisa ng tali na yari sa payaw at may dalawang butas ang nag-uugnay sa dalawang hiwalay na pinagsalit-salit na lubid na abaka.",
+    "de": "Diese Fesselschnur, mit der ein Kampfhahn angebunden wird, besteht aus geflochtener Abakaschnur. An einem Ende ist ein langgezogener, dreieckiger weißer Tierknochen als Sperre verknotet. Am anderen Ende ist eine geflochtene blau-gelbe Baumwollschnur angeknüpft und zur Schlinge gelegt, die als verstellbarer Verschluss dient. In der Mitte verbindet ein ovaler, geschnitzter Schnurhalter aus Schildpatt mit zwei Löchern die beiden getrennten geflochtenen Abakaschnüre."
+  },
+  "condition": {
+    "en": "Fair and stable condition, with a few abrasions on the bone and a few loose threads.",
+    "fil": "Katamtaman at matatag ang kalagayan, may ilang gasgas sa buto at ilang lubay na sinulid.",
+    "de": "Mäßiger, stabiler Zustand, mit einigen Abschürfungen am Knochen und wenigen losen Fäden."
+  },
   "images": [
-    { "src": "chicken-stake/front.webp", "alt": "Cockfighting tether of braided abaca rope coiled into a loop, a carved bone lock at one end and a knotted blue-and-yellow cord organizer at the other", "deepZoom": true },
-    { "src": "chicken-stake/detail.webp", "alt": "The chicken stake's bone toggle and abaca cord seen from another angle, showing the tortoiseshell cord organizer where the two braided lengths meet" }
+    {
+      "src": "chicken-stake/front.webp",
+      "alt": "Cockfighting tether of braided abaca rope coiled into a loop, a carved bone lock at one end and a knotted blue-and-yellow cord organizer at the other",
+      "deepZoom": true
+    },
+    {
+      "src": "chicken-stake/detail.webp",
+      "alt": "The chicken stake's bone toggle and abaca cord seen from another angle, showing the tortoiseshell cord organizer where the two braided lengths meet"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["tooth-cleaner"],
+  "related": [
+    "tooth-cleaner"
+  ],
   "featured": true
 }

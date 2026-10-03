@@ -1,0 +1,43 @@
+{
+  "id": "josephine-sleeping",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 8,
+  "title": {
+    "en": "Josephine Sleeping"
+  },
+  "objectType": "Sculpture",
+  "description": "Dubbed Rizal’s Mona Lisa, Josephine Sleeping was molded in Dapitan, personally signed by Rizal. In 2024, the National Museum of the Philippines acquired the statuette, which is currently exhibited in the Spoliarium Gallery.",
+  "images": [
+    {
+      "src": "josephine-sleeping/front.webp",
+      "alt": "Pale reclining figure of a sleeping woman wrapped in drapery, modelled in the round",
+      "deepZoom": true
+    },
+    {
+      "src": "josephine-sleeping/view-1.webp",
+      "alt": "Josephine Sleeping, alternate view 1"
+    },
+    {
+      "src": "josephine-sleeping/view-2.webp",
+      "alt": "Josephine Sleeping, alternate view 2"
+    },
+    {
+      "src": "josephine-sleeping/view-3.webp",
+      "alt": "Josephine Sleeping, alternate view 3"
+    },
+    {
+      "src": "josephine-sleeping/view-4.webp",
+      "alt": "Josephine Sleeping, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "model3d": {
+    "src": "placeholder-3d.glb",
+    "poster": "placeholder-3d/model-poster.webp",
+    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+  },
+  "related": [],
+  "featured": false
+}

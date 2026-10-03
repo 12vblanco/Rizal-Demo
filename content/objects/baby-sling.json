@@ -3,17 +3,47 @@
   "section": "ethnographer",
   "category": "daily-life",
   "order": 11,
-  "title": { "en": "Baby Sling", "tl": "Banda", "es": "Banda para Llevar al Niño" },
-  "objectType": "Baby Carrier",
-  "materials": "Abaca",
+  "title": {
+    "en": "Baby Sling",
+    "tl": "Banda",
+    "es": "Banda para Llevar al Niño"
+  },
+  "objectType": {
+    "en": "Baby Carrier",
+    "fil": "Pantangkil sa Sanggol",
+    "de": "Tragetuch für Kleinkinder"
+  },
+  "materials": {
+    "en": "Abaca",
+    "fil": "Abaka",
+    "de": "Abaka"
+  },
   "accession": "I C 18676",
-  "description": "This red, tubular, abaca baby sling has dyed geometric designs all over the cloth. The cloth is sewn on the two short sides, making it tubular. The design is made up of five different kinds of wavy lines, forming a concentric diamond repeated on the whole cloth, while three vertical bands of zigzag lines serve as a break in the repeating design. Tritik is the dyeing technique used, similar to the camisa (upper garment, IC 18666). The cloth was probably folded lengthwise before dyeing, creating a seemingly negative and positive design, with thin geometric lines on one side and thick lines on the other.",
-  "condition": "Fair and stable condition, with a few loose threads and patches in several parts due to holes, creases, and folds.",
+  "description": {
+    "en": "This red, tubular, abaca baby sling has dyed geometric designs all over the cloth. The cloth is sewn on the two short sides, making it tubular. The design is made up of five different kinds of wavy lines, forming a concentric diamond repeated on the whole cloth, while three vertical bands of zigzag lines serve as a break in the repeating design. Tritik is the dyeing technique used, similar to the camisa (upper garment, IC 18666). The cloth was probably folded lengthwise before dyeing, creating a seemingly negative and positive design, with thin geometric lines on one side and thick lines on the other.",
+    "fil": "Ang pulang tubular na pantangkil sa sanggol na ito na yari sa abaka ay may tinang disenyong heometriko sa buong tela. Tinahi ang tela sa dalawang maikling gilid, kaya't naging tubular. Binubuo ang disenyo ng limang magkakaibang uri ng alon-along guhit, na bumubuo ng magkakasentrong parihaba na paulit-ulit sa buong tela, samantalang tatlong patayong bandang may sigsag na guhit ang nagsisilbing hati sa paulit-ulit na disenyo. Tritik ang teknik ng pagtitina na ginamit, katulad sa camisa (panlabas na kasuotan, IC 18666). Malamang na nakatiklop ang tela nang pahaba bago tinain, kaya't lumitaw ang tila negatibo at positibong disenyo, na may manipis na guhit heometriko sa isang panig at makapal na guhit sa kabila.",
+    "de": "Dieses rote, schlauchförmige Tragetuch aus Abaka trägt über die ganze Fläche gefärbte geometrische Muster. Das Tuch ist an den beiden kurzen Seiten zusammengenäht und dadurch schlauchförmig. Das Muster besteht aus fünf verschiedenen Arten von Wellenlinien, die eine konzentrische Raute bilden, die sich über das ganze Tuch wiederholt, während drei senkrechte Bänder mit Zickzacklinien das sich wiederholende Muster unterbrechen. Als Färbetechnik diente tritik, ähnlich wie bei der camisa (Oberbekleidung, IC 18666). Das Tuch wurde vor dem Färben wohl längs gefaltet, wodurch ein scheinbar negatives und positives Muster entstand, mit dünnen geometrischen Linien auf der einen und dicken Linien auf der anderen Seite."
+  },
+  "condition": {
+    "en": "Fair and stable condition, with a few loose threads and patches in several parts due to holes, creases, and folds.",
+    "fil": "Katamtaman at matatag ang kalagayan, may ilang lubay na sinulid at tagpi sa ilang bahagi dahil sa mga butas, lukot, at tupi.",
+    "de": "Mäßiger, stabiler Zustand, mit einigen losen Fäden und Flicken an mehreren Stellen infolge von Löchern, Knicken und Falten."
+  },
   "images": [
-    { "src": "baby-sling/front.webp", "alt": "Red abaca baby sling laid flat, densely patterned with cream tie-dyed diamonds in a repeating concentric design", "deepZoom": true },
-    { "src": "baby-sling/detail.webp", "alt": "Extreme close-up of the sling's tritik-dyed cloth, showing the fine geometric diamond and zigzag patterning up close" }
+    {
+      "src": "baby-sling/front.webp",
+      "alt": "Red abaca baby sling laid flat, densely patterned with cream tie-dyed diamonds in a repeating concentric design",
+      "deepZoom": true
+    },
+    {
+      "src": "baby-sling/detail.webp",
+      "alt": "Extreme close-up of the sling's tritik-dyed cloth, showing the fine geometric diamond and zigzag patterning up close"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["tritik", "cinturon"],
+  "related": [
+    "tritik",
+    "cinturon"
+  ],
   "featured": false
 }

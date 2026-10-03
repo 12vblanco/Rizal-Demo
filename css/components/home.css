@@ -131,7 +131,7 @@
 .models3d__img {
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
+  object-fit: contain; /* exhibit image — shown whole, never cropped */
   transition: transform var(--duration-slow) var(--ease);
   /* The poster's own background is transparent, so the auto dominant-colour
      LQIP placeholder (images.js) paints near-black behind it; layer the same

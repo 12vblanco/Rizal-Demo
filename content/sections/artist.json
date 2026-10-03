@@ -15,6 +15,31 @@
     "alt": "Pencil self-portrait of the young José Rizal, signed 'Rizal', on aged paper",
     "credit": "Self-portrait by José Rizal"
   },
-  "categories": [],
-  "status": "upcoming"
+  "categories": [
+    {
+      "id": "of-clay-and-resistance",
+      "label": {
+        "en": "Of Clay and Resistance",
+        "fil": "Sa Luwad at Paglaban",
+        "de": "Aus Ton und Widerstand"
+      }
+    },
+    {
+      "id": "poetry-and-retellings",
+      "label": {
+        "en": "Poetry and Retellings",
+        "fil": "Tula at Muling Pagsasalaysay",
+        "de": "Dichtung und Nacherzählung"
+      }
+    },
+    {
+      "id": "strokes-sketches-and-satire",
+      "label": {
+        "en": "Strokes, Sketches, and Satire",
+        "fil": "Hagod, Sketch, at Satira",
+        "de": "Strich, Skizze und Satire"
+      }
+    }
+  ],
+  "status": "live"
 }

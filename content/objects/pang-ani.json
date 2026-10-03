@@ -3,17 +3,46 @@
   "section": "ethnographer",
   "category": "daily-life",
   "order": 7,
-  "title": { "en": "Harvesting Knife", "tl": "Pang-ani", "es": "Pang-ani" },
-  "objectType": "Harvesting Knife",
-  "materials": "Wood and iron",
+  "title": {
+    "en": "Harvesting Knife",
+    "tl": "Pang-ani",
+    "es": "Pang-ani"
+  },
+  "objectType": {
+    "en": "Harvesting Knife",
+    "fil": "Kutsilyong Pang-ani",
+    "de": "Erntemesser"
+  },
+  "materials": {
+    "en": "Wood and iron",
+    "fil": "Kahoy at bakal",
+    "de": "Holz und Eisen"
+  },
   "accession": "I C 18672",
-  "description": "The handle of this harvesting knife is made of wood, with a handlebar-shaped iron blade inserted at the middle of the handle to cut rice stalks. The ends of the iron blade have different designs: one is jagged at the tip, and the other is grooved and pointed.",
-  "condition": "Fair and stable condition, with abrasions on the handle and inactive corrosion on the blade.",
+  "description": {
+    "en": "The handle of this harvesting knife is made of wood, with a handlebar-shaped iron blade inserted at the middle of the handle to cut rice stalks. The ends of the iron blade have different designs: one is jagged at the tip, and the other is grooved and pointed.",
+    "fil": "Ang hawakan ng kutsilyong pang-aning ito ay yari sa kahoy, na may talim na bakal na hugis-manibela na isinuksok sa gitna ng hawakan upang putulin ang tangkay ng palay. Magkaiba ang disenyo ng mga dulo ng talim na bakal: ngipin-ngipin ang isang dulo, at may ukit at tulis ang isa pa.",
+    "de": "Der Griff dieses Erntemessers besteht aus Holz; in seiner Mitte sitzt eine lenkerförmige Eisenklinge zum Schneiden der Reishalme. Die Enden der Eisenklinge sind unterschiedlich gestaltet: das eine ist an der Spitze gezackt, das andere gekehlt und zugespitzt."
+  },
+  "condition": {
+    "en": "Fair and stable condition, with abrasions on the handle and inactive corrosion on the blade.",
+    "fil": "Katamtaman at matatag ang kalagayan, may gasgas sa hawakan at hindi aktibong kalawang sa talim.",
+    "de": "Mäßiger, stabiler Zustand, mit Abschürfungen am Griff und inaktiver Korrosion an der Klinge."
+  },
   "images": [
-    { "src": "pang-ani/front.webp", "alt": "Harvesting knife (pang-ani) with a mustache-shaped iron blade set through a wooden dowel handle, its two jagged and grooved tips curving outward", "deepZoom": true },
-    { "src": "pang-ani/detail.webp", "alt": "The pang-ani's wooden handle end, inked with its accession number, angled to show the iron blade's curve and pointed tip" }
+    {
+      "src": "pang-ani/front.webp",
+      "alt": "Harvesting knife (pang-ani) with a mustache-shaped iron blade set through a wooden dowel handle, its two jagged and grooved tips curving outward",
+      "deepZoom": true
+    },
+    {
+      "src": "pang-ani/detail.webp",
+      "alt": "The pang-ani's wooden handle end, inked with its accession number, angled to show the iron blade's curve and pointed tip"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["kalikut"],
+  "related": [
+    "kalikut"
+  ],
   "featured": true
 }

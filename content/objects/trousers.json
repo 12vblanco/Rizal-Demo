@@ -3,17 +3,47 @@
   "section": "ethnographer",
   "category": "clothing",
   "order": 14,
-  "title": { "en": "Trousers", "tl": "Calzón", "es": "Calzón" },
-  "objectType": "Trousers",
-  "materials": "Cotton, abaca cord, glass beads, and sequins",
+  "title": {
+    "en": "Trousers",
+    "tl": "Calzón",
+    "es": "Calzón"
+  },
+  "objectType": {
+    "en": "Trousers",
+    "fil": "Salawal",
+    "de": "Hose"
+  },
+  "materials": {
+    "en": "Cotton, abaca cord, glass beads, and sequins",
+    "fil": "Bulak, tali ng abaka, butil na salamin, at sequin",
+    "de": "Baumwolle, Abakaschnur, Glasperlen und Pailletten"
+  },
   "accession": "I C 18679",
-  "description": "This red, tie-dyed cotton pair of trousers features a wide crotch and wide leg openings. The pelangi or plangi technique, similar to IC 18678, forms a series of repeating triangles and horizontal lines across the thighs and near the leg hems, both front and back. A brown and natural-colored, braided abaca cord functions as a belt at the waist. Each leg hem has a black cloth panel sewn on, carrying an appliqué of three white cloth strips, creating alternating horizontal lines of black and white. Red cotton twines, some holding white beads, are sewn on top of these strips. A series of gray sequins and small white beads surrounds the black cloth panel.",
-  "condition": "Fair and stable condition. Small black stains on the front, stitch-repaired holes, and fading in the crotch area; a few loose threads; improperly tied circles resulted in some being dyed light red.",
+  "description": {
+    "en": "This red, tie-dyed cotton pair of trousers features a wide crotch and wide leg openings. The pelangi or plangi technique, similar to IC 18678, forms a series of repeating triangles and horizontal lines across the thighs and near the leg hems, both front and back. A brown and natural-colored, braided abaca cord functions as a belt at the waist. Each leg hem has a black cloth panel sewn on, carrying an appliqué of three white cloth strips, creating alternating horizontal lines of black and white. Red cotton twines, some holding white beads, are sewn on top of these strips. A series of gray sequins and small white beads surrounds the black cloth panel.",
+    "fil": "Ang pula at tinang-taling salawal na yari sa bulak ay may malapad na singit at malapad na bukana ng binti. Ang teknik na pelangi o plangi, katulad ng IC 18678, ay bumubuo ng serye ng paulit-ulit na tatsulok at pahalang na guhit sa buong hita at malapit sa laylayan ng binti, sa harap at likod. Isang pinagsalit-salit na tali ng abakang kayumanggi at likas ang kulay ang gumaganap na sinturon sa baywang. Bawat laylayan ng binti ay may itim na panel ng telang tinahi, na may aplike ng tatlong puting piraso ng tela, na lumilikha ng magsalitang pahalang na guhit na itim at puti. Mga pulang pinilipit na bulak, na may hawak na puting butil sa ilan, ang tinahi sa ibabaw ng mga pirasong ito. Isang serye ng abuhing sequin at maliliit na puting butil ang nakapalibot sa itim na panel ng tela.",
+    "de": "Diese rote, reserviert gefärbte Baumwollhose hat einen weiten Schritt und weite Beinöffnungen. Die pelangi- oder plangi-Technik, ähnlich wie bei IC 18678, bildet eine Folge sich wiederholender Dreiecke und waagerechter Linien über die Oberschenkel und nahe den Beinsäumen, vorn wie hinten. Eine braune und naturfarbene geflochtene Abakaschnur dient an der Taille als Gürtel. An jedem Beinsaum ist eine schwarze Stoffbahn angenäht, die eine Applikation aus drei weißen Stoffstreifen trägt und so abwechselnd waagerechte schwarze und weiße Linien erzeugt. Darüber sind rote Baumwollzwirne aufgenäht, von denen einige weiße Perlen halten. Eine Reihe grauer Paletten und kleiner weißer Perlen umschließt die schwarze Stoffbahn."
+  },
+  "condition": {
+    "en": "Fair and stable condition. Small black stains on the front, stitch-repaired holes, and fading in the crotch area; a few loose threads; improperly tied circles resulted in some being dyed light red.",
+    "fil": "Katamtaman at matatag ang kalagayan. Maliliit na itim na mantsa sa harap, mga butas na kinumpuni ng tahi, at pagkupas sa bahagi ng singit; ilang lubay na sinulid; dahil sa maling pagtatali ng mga bilog, may ilang natinang mapusyaw na pula.",
+    "de": "Mäßiger, stabiler Zustand. Kleine schwarze Flecken auf der Vorderseite, durch Nähte geflickte Löcher und Ausbleichen im Schrittbereich; einige lose Fäden; unsauber abgebundene Kreise führten dazu, dass einige hellrot gefärbt wurden."
+  },
   "images": [
-    { "src": "trousers/front.webp", "alt": "Red pelangi-dyed cotton trousers with a wide crotch, cream tie-dyed star patterns on the thighs and a braided abaca cord tied at the waist", "deepZoom": true },
-    { "src": "trousers/back.webp", "alt": "Reverse of the trousers, showing beaded black-and-white cuffs banding each wide leg hem below more tie-dyed star motifs" }
+    {
+      "src": "trousers/front.webp",
+      "alt": "Red pelangi-dyed cotton trousers with a wide crotch, cream tie-dyed star patterns on the thighs and a braided abaca cord tied at the waist",
+      "deepZoom": true
+    },
+    {
+      "src": "trousers/back.webp",
+      "alt": "Reverse of the trousers, showing beaded black-and-white cuffs banding each wide leg hem below more tie-dyed star motifs"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["tangkulu", "unfinished-upper-garment"],
+  "related": [
+    "tangkulu",
+    "unfinished-upper-garment"
+  ],
   "featured": false
 }

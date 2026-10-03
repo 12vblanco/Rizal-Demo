@@ -133,17 +133,20 @@ async function encode(srcPath, src, hash, cacheFilesDir) {
 
   /** @type {Variant[]} */ const avif = [];
   /** @type {Variant[]} */ const webp = [];
-  /** @type {Variant[]} */ const fallback = [];
   for (const w of widths) {
     avif.push(await emit("avif", w));
     webp.push(await emit("webp", w));
-    fallback.push(await emit(fallbackFmt, w));
   }
 
-  // The <img> points at the fallback variant nearest FALLBACK_TARGET (largest
-  // not exceeding it, else the smallest). width/height come from it.
-  const imgVar =
-    [...fallback].reverse().find((v) => v.w <= FALLBACK_TARGET) ?? fallback[0];
+  // Exactly one fallback variant, the one the <img src> points at: nearest
+  // FALLBACK_TARGET (largest not exceeding it, else the smallest). The <img>
+  // carries no srcset — the AVIF/WebP <source>s do all the responsive work —
+  // so a fallback at any other width would be encoded, copied into dist, and
+  // never requested by anything.
+  const fbWidth = [...widths].reverse().find((w) => w <= FALLBACK_TARGET) ?? widths[0];
+  /** @type {Variant[]} */ const fallback = [await emit(fallbackFmt, fbWidth)];
+
+  const imgVar = fallback[0];
   const fullVar = webp[webp.length - 1];
 
   return {

@@ -1,0 +1,14 @@
+{
+  "id": "juan-luna",
+  "section": "scholar",
+  "order": 16,
+  "name": "Juan Luna",
+  "portrait": {
+    "src": "people/juan-luna.webp",
+    "alt": "Oil portrait of the young Juan Luna in a dark coat and white collar, inscribed by the artist at the right",
+    "credit": "Felix Resurreccion Hidalgo, Portrait of Juan Luna y Novicio, 1886. National Museum of the Philippines"
+  },
+  "draft": true,
+  "relatedObjects": [],
+  "relatedPeople": []
+}

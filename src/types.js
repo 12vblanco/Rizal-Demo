@@ -178,6 +178,8 @@
  * @property {string} rights
  * @property {Model3d} [model3d]
  * @property {string[]} related
+ * @property {string} [author] - who wrote the catalogue entry, when credited
+ * @property {boolean} [draft] - assets delivered, text pending; see checkDraft in content.js
  * @property {boolean} featured
  * @property {Hotspot[]} [hotspots]
  */
@@ -190,11 +192,16 @@
  * @property {number} order
  * @property {string} name
  * @property {LocalizedString} role
- * @property {LocalizedString} lifespan
+ * @property {LocalizedString} [lifespan]
+ * @property {LocalizedString} [birthplace]
  * @property {Image} portrait
+ * @property {string} [author] - byline for the biography, when credited
+ * @property {LocalizedString} [quote] - pull-quote tying Rizal to this person
+ * @property {LocalizedString} [quoteSource] - the quote's attribution (required with `quote`)
  * @property {LocalizedString} bio
  * @property {string[]} relatedObjects
  * @property {string[]} relatedPeople
+ * @property {boolean} [draft] - portrait delivered, biography pending; see checkDraft in content.js
  */
 
 /**
@@ -219,31 +226,35 @@
 /**
  * An essay after loading: frontmatter flattened onto the Markdown body. Note
  * heroImage is a bare path string here (decorative hero), not an Image object.
+ * Long-form fields (title/summary/heroCaption/body) are LocalizedString: the
+ * loader folds any `<slug>.fil.md` / `<slug>.de.md` sibling into them, and they
+ * stay plain strings while no translation exists.
  * @typedef {object} Essay
- * @property {string} title
+ * @property {LocalizedString} title
  * @property {string} slug
  * @property {string} section
- * @property {string} summary
+ * @property {LocalizedString} summary
  * @property {string} heroImage
- * @property {string} [heroCaption]
+ * @property {LocalizedString} [heroCaption]
  * @property {number} order
  * @property {string} author
  * @property {string} [category]
- * @property {string} body
+ * @property {LocalizedString} body
  */
 
 /**
  * A standalone content page after loading (content/pages/*.md). heroImage, when
  * present, is a bare path string.
+ * Long-form fields (title/intro/bodyHeading/body) are LocalizedString — see Essay.
  * @typedef {object} ContentPage
- * @property {string} title
+ * @property {LocalizedString} title
  * @property {string} slug
- * @property {string} [intro]
+ * @property {LocalizedString} [intro]
  * @property {string} [heroImage]
- * @property {string} [bodyHeading]
+ * @property {LocalizedString} [bodyHeading]
  * @property {string} [author]
  * @property {boolean} [personaCards]
- * @property {string} body
+ * @property {LocalizedString} body
  */
 
 /**

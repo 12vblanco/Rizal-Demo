@@ -1,0 +1,49 @@
+{
+  "id": "san-antonio-de-padua",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 2,
+  "title": {
+    "en": "Saint Anthony of Padua",
+    "es": "San Antonio de Padua"
+  },
+  "objectType": "Sculpture",
+  "description": "San Antonio de Padua, patron of lost things, was one of the many statuettes Rizal made during his exile in Dapitan. The heads of both the saint and the Infant Jesus were lost, the piece was restored with abaca.\n\nIt is kept in the Museo ni Jose Rizal in Fort Santiago and displayed during Rizal-related events.",
+  "condition": "The heads of both the saint and the Infant Jesus were lost; the piece was restored with abaca.",
+  "images": [
+    {
+      "src": "san-antonio-de-padua/front.webp",
+      "alt": "Weathered statuette of Saint Anthony of Padua holding the Infant Jesus, both figures missing their heads, on a square plinth",
+      "deepZoom": true
+    },
+    {
+      "src": "san-antonio-de-padua/front-2.webp",
+      "alt": "Saint Anthony of Padua, further view"
+    },
+    {
+      "src": "san-antonio-de-padua/view-1.webp",
+      "alt": "Saint Anthony of Padua, alternate view 1"
+    },
+    {
+      "src": "san-antonio-de-padua/view-2.webp",
+      "alt": "Saint Anthony of Padua, alternate view 2"
+    },
+    {
+      "src": "san-antonio-de-padua/view-3.webp",
+      "alt": "Saint Anthony of Padua, alternate view 3"
+    },
+    {
+      "src": "san-antonio-de-padua/view-4.webp",
+      "alt": "Saint Anthony of Padua, alternate view 4"
+    }
+  ],
+  "rights": "National Historical Commission of the Philippines / Bayanihan Collectors Club / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "model3d": {
+    "src": "placeholder-3d.glb",
+    "poster": "placeholder-3d/model-poster.webp",
+    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+  },
+  "related": [],
+  "featured": false
+}

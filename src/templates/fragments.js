@@ -89,22 +89,47 @@ function inlineMd(escaped) {
     .replace(/(^|[^*])\*(?!\s)([^*]+?)\*/g, "$1<em>$2</em>");
 }
 
+/** One in-body figure: a pipeline `<picture>` plus, when authored, a real
+ *  caption. Lazy-loaded by design — these sit below the fold, under the hero.
+ * @param {Site} site @param {string} alt @param {string} src @param {string} [caption] */
+function renderProseFigure(site, alt, src, caption) {
+  const img = renderImage({
+    site,
+    image: { src, alt },
+    className: "prose-figure__img",
+    sizes: "(min-width: 60rem) 55rem, 100vw",
+  });
+  const cap = caption
+    ? `\n  <figcaption class="prose-figure__caption">${inlineMd(esc(caption))}</figcaption>`
+    : "";
+  return `<figure class="prose-figure">${img}${cap}\n</figure>`;
+}
+
 /**
  * Paragraphs + `**bold**`/`*italic*`/links, plus `## Heading` blocks as real,
  * visible `<h2>`s — long essays (feature 11d) have genuine subsections, and
  * rule 10 requires a real heading over a bolded pseudo-heading.
- * @param {string} raw
+ *
+ * A block that is nothing but a Markdown image — `![alt](src "caption")` —
+ * becomes a real `<figure>` through the pipeline helper, so editorial whose
+ * argument depends on pictures (the Artist essay's two plates, the Hero essay's
+ * shrines) keeps them inline instead of losing them to the single hero slot.
+ * That needs `site` for basePath, so callers rendering figure-bearing prose
+ * pass it; without it the image syntax stays inert text rather than silently
+ * half-rendering.
+ * @param {string} raw @param {{ site?: Site }} [opts]
  */
-export function renderMarkdown(raw) {
+export function renderMarkdown(raw, { site } = {}) {
   return raw
     .split(/\r?\n\r?\n+/)
     .map((block) => block.trim())
     .filter(Boolean)
     .map((block) => {
       const heading = block.match(/^##\s+(.+)$/);
-      return heading
-        ? `<h2>${inlineMd(esc(heading[1].trim()))}</h2>`
-        : `<p>${inlineMd(esc(block.replace(/\s*\r?\n\s*/g, " ")))}</p>`;
+      if (heading) return `<h2>${inlineMd(esc(heading[1].trim()))}</h2>`;
+      const figure = site && block.match(/^!\[([^\]]*)\]\(([^\s)]+)(?:\s+"([^"]*)")?\)$/);
+      if (figure) return renderProseFigure(site, figure[1], figure[2], figure[3]);
+      return `<p>${inlineMd(esc(block.replace(/\s*\r?\n\s*/g, " ")))}</p>`;
     })
     .join("\n");
 }
@@ -228,9 +253,9 @@ export function objectCard(site, obj) {
     media,
     // Object names stay in their original form on every locale (curatorial
     // metadata) — never routed through pick().
-    title: obj.title.tl,
+    title: obj.title.tl || obj.title.en,
     titleLang: "tl",
-    subtitle: obj.title.en,
+    subtitle: obj.title.tl ? obj.title.en : "",
     has3d: Boolean(obj.model3d),
   });
 }

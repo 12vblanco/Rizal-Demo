@@ -1,0 +1,43 @@
+{
+  "id": "oyang-dapitana",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 9,
+  "title": {
+    "en": "Oyang Dapitana (Replica)"
+  },
+  "objectType": "Sculpture",
+  "description": "Rizal loved observing people and while banished in Dapitan, Zamboanga (1892- 1896) he served and improved the life of his community. Rizal was keenly aware of the important role of women as homemakers and teachers of their children. He himself had nine sisters and his mother was his first teacher.\n\nThe Dapitana captured the labor of peasant women grass-cutters. Rizal immortalized Oyang the humble grass-cutter, her hair tied in a bun (pusod), barefooted and crouched, using a grass-cutting tool called panday,\n\nIn 1961, National Artist for Sculpture Guillermo Tolentino made a bronze-cast reproduction of this statuette which now resides in the Rizal Gallery of the National Museum of Fine Arts.\n\n## References\n\nPalma, Celestino. Jose Rizal, Sculptor.\n\nReyes Publishing, 2020.",
+  "images": [
+    {
+      "src": "oyang-dapitana/front.webp",
+      "alt": "Dark bronze figure of a crouching barefoot woman with her hair tied in a bun, cutting grass",
+      "deepZoom": true
+    },
+    {
+      "src": "oyang-dapitana/view-1.webp",
+      "alt": "Oyang Dapitana (Replica), alternate view 1"
+    },
+    {
+      "src": "oyang-dapitana/view-2.webp",
+      "alt": "Oyang Dapitana (Replica), alternate view 2"
+    },
+    {
+      "src": "oyang-dapitana/view-3.webp",
+      "alt": "Oyang Dapitana (Replica), alternate view 3"
+    },
+    {
+      "src": "oyang-dapitana/view-4.webp",
+      "alt": "Oyang Dapitana (Replica), alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "model3d": {
+    "src": "placeholder-3d.glb",
+    "poster": "placeholder-3d/model-poster.webp",
+    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+  },
+  "related": [],
+  "featured": false
+}

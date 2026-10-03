@@ -1,0 +1,44 @@
+{
+  "id": "san-pablo-el-ermitano",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 10,
+  "title": {
+    "en": "Saint Paul the Hermit",
+    "es": "San Pablo el Ermitaño"
+  },
+  "objectType": "Sculpture",
+  "materials": "Terracotta, with bakhaw sap binding the palm-leaf tunic",
+  "description": "Between 1892 to 1893, Rizal Fr. Pablo Pastells, S.J. had an intellectually vigorous exchange of letters. The latter was determined to make Rizal return to the Catholic faith. Rizal exposed the Church’s abuse of power in his writings and was excommunicated after joining the freemasons. Rizal gave Fr. Pastells a terracotta sculpture of San Pablo el Ermitano or Saint Paul of Thebes who fled from Roman persecution and became the first Christian hermit in Catholic Church history. On February 2, 1893, Fr. Pastells acknowledged the gift and took it as Rizal’s heart had remained Christian, despite his rebellious ideas. Rizal replied that Fr. Pastells should not consider his art work an unconscious confession and that creative expression does not equate to belief. Rather, his sculpture reflects his respect for others’ faith without subscribing to it himself.\n\nIn creating this statuette, Rizal used sap from the bakhaw tree as a binder for the palm tree leaves' tunic of St. Paul. The piece is currently exhibited in the Rizal Gallery of the National Museum of Fine Arts.\n\n## References\n\n“Misyon ng mga Hesuwitas sa Pilipinas.”\n\nLetter to Dr. Rizal. 2 February 1893. Typescript, National Historical Commission of the Philippines.\n\nPalma, Celestino. Jose Rizal, Sculptor. Reyes Publishing, 2020.",
+  "images": [
+    {
+      "src": "san-pablo-el-ermitano/front.webp",
+      "alt": "Terracotta figure of the bearded hermit Saint Paul reclining against rock, one arm raised, on an inscribed base",
+      "deepZoom": true
+    },
+    {
+      "src": "san-pablo-el-ermitano/front-2.webp",
+      "alt": "Saint Paul the Hermit, further view"
+    },
+    {
+      "src": "san-pablo-el-ermitano/view-1.webp",
+      "alt": "Saint Paul the Hermit, alternate view 1"
+    },
+    {
+      "src": "san-pablo-el-ermitano/view-2.webp",
+      "alt": "Saint Paul the Hermit, alternate view 2"
+    },
+    {
+      "src": "san-pablo-el-ermitano/view-3.webp",
+      "alt": "Saint Paul the Hermit, alternate view 3"
+    },
+    {
+      "src": "san-pablo-el-ermitano/view-4.webp",
+      "alt": "Saint Paul the Hermit, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [],
+  "featured": false
+}

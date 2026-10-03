@@ -1,0 +1,40 @@
+{
+  "id": "pencil-sketch",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 23,
+  "title": {
+    "en": "Pencil Sketch"
+  },
+  "objectType": "Drawing",
+  "materials": "Pencil on paper",
+  "description": "Pencil sketch of a woman with a Ludwigplatz 12 at the back",
+  "images": [
+    {
+      "src": "pencil-sketch/front.webp",
+      "alt": "Pencil drawing of a seated woman on a torn sheet of paper bearing a collection stamp",
+      "deepZoom": true
+    },
+    {
+      "src": "pencil-sketch/view-1.webp",
+      "alt": "Pencil Sketch, alternate view 1"
+    },
+    {
+      "src": "pencil-sketch/view-2.webp",
+      "alt": "Pencil Sketch, alternate view 2"
+    },
+    {
+      "src": "pencil-sketch/view-3.webp",
+      "alt": "Pencil Sketch, alternate view 3"
+    },
+    {
+      "src": "pencil-sketch/view-4.webp",
+      "alt": "Pencil Sketch, alternate view 4"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "related": [
+    "sketch-of-fritz-ullmer"
+  ],
+  "featured": false
+}

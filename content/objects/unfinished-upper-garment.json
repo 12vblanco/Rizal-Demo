@@ -3,17 +3,48 @@
   "section": "ethnographer",
   "category": "clothing",
   "order": 13,
-  "title": { "en": "Unfinished Upper Garment", "tl": "Camisa", "es": "Camisa de Hombre" },
-  "objectType": "Upper Garment",
-  "materials": "Cotton and abaca thread",
+  "title": {
+    "en": "Unfinished Upper Garment",
+    "tl": "Camisa",
+    "es": "Camisa de Hombre"
+  },
+  "objectType": {
+    "en": "Upper Garment",
+    "fil": "Panlabas na Kasuotan",
+    "de": "Oberbekleidung"
+  },
+  "materials": {
+    "en": "Cotton and abaca thread",
+    "fil": "Bulak at sinulid na abaka",
+    "de": "Baumwolle und Abakafaden"
+  },
   "accession": "I C 18678",
-  "description": "This red, tie-dyed cotton cloth is probably an unfinished male upper garment. The maker has not yet cut the neck hole, but has sewn the short sleeves onto the larger fabric using red-dyed abaca threads. Small, white circles, made by tying the cloth with wax-covered threads, form larger geometric patterns arranged in diagonal, diamond, and zigzag lines. Bagobos commonly use this technique, called pelangi or plangi, another form of tritik (see IC 18666 and IC 18676), and common among the Bagobo.",
-  "condition": "Fair and stable condition, with eight patchworks, possibly covering holes or intentional, and a few circles dyed light red due to improper tying.",
+  "description": {
+    "en": "This red, tie-dyed cotton cloth is probably an unfinished male upper garment. The maker has not yet cut the neck hole, but has sewn the short sleeves onto the larger fabric using red-dyed abaca threads. Small, white circles, made by tying the cloth with wax-covered threads, form larger geometric patterns arranged in diagonal, diamond, and zigzag lines. Bagobos commonly use this technique, called pelangi or plangi, another form of tritik (see IC 18666 and IC 18676), and common among the Bagobo.",
+    "fil": "Ang pula at tinang-taling telang bulak na ito ay marahil isang hindi natapos na panlabas na kasuotang panlalaki. Hindi pa hiniwa ng gumawa ang butas sa leeg, ngunit tinahi na niya ang maiiksing manggas sa mas malaking tela gamit ang sinulid na abakang tinang pula. Maliliit at puting bilog, na ginawa sa pagtatali ng tela gamit ang sinulid na binalutan ng kandila, ang bumubuo ng mas malalaking disenyong heometriko na inayos sa pahilig, parihaba, at sigsag na guhit. Karaniwang ginagamit ng mga Bagobo ang teknik na ito, na tinatawag na pelangi o plangi, isa pang anyo ng tritik (tingnan ang IC 18666 at IC 18676).",
+    "de": "Dieses rote, reserviert gefärbte Baumwolltuch ist wohl ein unfertiges Obergewand für Männer. Der Hersteller hat den Halsausschnitt noch nicht geschnitten, jedoch die kurzen Ärmel mit rot gefärbten Abakafäden an das größere Gewebe angenäht. Kleine weiße Kreise, entstanden durch Abbinden des Tuchs mit wachsüberzogenen Fäden, bilden größere geometrische Muster, die in diagonalen, rautenförmigen und Zickzacklinien angeordnet sind. Die Bagobo verwenden diese Technik häufig; sie heißt pelangi oder plangi und ist eine weitere Form des tritik (siehe IC 18666 und IC 18676)."
+  },
+  "condition": {
+    "en": "Fair and stable condition, with eight patchworks, possibly covering holes or intentional, and a few circles dyed light red due to improper tying.",
+    "fil": "Katamtaman at matatag ang kalagayan, may walong tagpi, na maaaring nagtatakip ng butas o sinadya, at ilang bilog na natinang mapusyaw na pula dahil sa maling pagtatali.",
+    "de": "Mäßiger, stabiler Zustand, mit acht Flicken, die möglicherweise Löcher abdecken oder absichtlich gesetzt wurden, sowie einigen Kreisen, die wegen unsauberer Abbindung hellrot gefärbt sind."
+  },
   "images": [
-    { "src": "unfinished-upper-garment/front.webp", "alt": "The unfinished garment laid flat with both sleeves extended, cream circular tie-dye patterns radiating in diamond and zigzag lines across the red cloth", "deepZoom": true },
-    { "src": "unfinished-upper-garment/back.webp", "alt": "Red pelangi-dyed cotton cloth for an unfinished men's upper garment, its sleeves stitched on but no neck opening cut yet, white tie-dyed circles forming a large X across the panel" }
+    {
+      "src": "unfinished-upper-garment/front.webp",
+      "alt": "The unfinished garment laid flat with both sleeves extended, cream circular tie-dye patterns radiating in diamond and zigzag lines across the red cloth",
+      "deepZoom": true
+    },
+    {
+      "src": "unfinished-upper-garment/back.webp",
+      "alt": "Red pelangi-dyed cotton cloth for an unfinished men's upper garment, its sleeves stitched on but no neck opening cut yet, white tie-dyed circles forming a large X across the panel"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["tangkulu", "tritik", "trousers"],
+  "related": [
+    "tangkulu",
+    "tritik",
+    "trousers"
+  ],
   "featured": false
 }

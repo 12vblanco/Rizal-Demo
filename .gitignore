@@ -2,6 +2,10 @@ node_modules/
 dist/
 .cache/
 /scripts/migrate/staging/
+# Raw client deliveries (1.5 GB incl. Agisoft photogrammetry source). Same rule as
+# the harvester's staging dir: nothing here is committed — curated copies are placed
+# by hand into content/ and assets-src/. NOTE: the folder name has a trailing space.
+/NEW-ASSETS\ /
 .DS_Store
 /test-results/
 /playwright-report/

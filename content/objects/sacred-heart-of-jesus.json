@@ -1,0 +1,45 @@
+{
+  "id": "sacred-heart-of-jesus",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 12,
+  "title": {
+    "en": "Sacred Heart of Jesus"
+  },
+  "objectType": "Sculpture",
+  "materials": "Batikuling wood",
+  "description": "While a student at Ateneo de Municipal, Rizal carved the statuette out of batikuling wood. The figure of Jesus Christ sits atop a globe-like structure mounted on an octagonal base, with His hand held close to His Sacred Heart.\n\nThe piece remains in good condition, with minor chipping and paint flaking.",
+  "condition": "Good condition, with minor chipping and paint flaking.",
+  "images": [
+    {
+      "src": "sacred-heart-of-jesus/front.webp",
+      "alt": "Carved wooden statuette of Christ standing on a globe-like form, his hand held to his heart",
+      "deepZoom": true
+    },
+    {
+      "src": "sacred-heart-of-jesus/view-1.webp",
+      "alt": "Sacred Heart of Jesus, alternate view 1"
+    },
+    {
+      "src": "sacred-heart-of-jesus/view-2.webp",
+      "alt": "Sacred Heart of Jesus, alternate view 2"
+    },
+    {
+      "src": "sacred-heart-of-jesus/view-3.webp",
+      "alt": "Sacred Heart of Jesus, alternate view 3"
+    },
+    {
+      "src": "sacred-heart-of-jesus/view-4.webp",
+      "alt": "Sacred Heart of Jesus, alternate view 4"
+    }
+  ],
+  "rights": "Ateneo de Manila University / National Museum of the Philippines",
+  "author": "Reann Clarisse A. Robes",
+  "model3d": {
+    "src": "placeholder-3d.glb",
+    "poster": "placeholder-3d/model-poster.webp",
+    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+  },
+  "related": [],
+  "featured": false
+}

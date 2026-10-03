@@ -30,6 +30,23 @@ export function esc(text) {
     .replaceAll('"', "&quot;");
 }
 
+/** Search engines truncate past ~70 characters, and html-validate enforces it. */
+export const TITLE_MAX = 70;
+
+/**
+ * Build a `<title>`, degrading gracefully as the name grows: suffix the site
+ * title while it fits, then drop the suffix, then trim the name itself at a word
+ * boundary. Some catalogue names are a full sentence ("Certificate of Membership
+ * of Dr. Jose Rizal issued by …"), so the last step is not hypothetical.
+ * @param {string} name @param {string} siteTitle
+ */
+export function seoTitle(name, siteTitle) {
+  const full = `${name} | ${siteTitle}`;
+  if (full.length <= TITLE_MAX) return full;
+  if (name.length <= TITLE_MAX) return name;
+  return name.slice(0, TITLE_MAX - 1).replace(/\s+\S*$/, "") + "…";
+}
+
 /**
  * Language switcher — flag-only, right of the search icon. Shows the *other*
  * locales (the active one is omitted): from English it offers Filipino + German,
@@ -147,21 +164,18 @@ function renderFooter(site) {
   } = site;
 
   // partners[0] is the host (NMP) — the panel's brand lockup; the rest are the
-  // collaborator seals in the grid below it (chip: white backing to read on
-  // dark; caption: a visible name line under seals whose art alone doesn't
-  // spell out who they are — the image alt is then emptied so the name isn't
-  // announced twice).
+  // collaborator seals below it (chip: white backing to read on dark). Seals
+  // carry no visible name line: they render as one even set of circles, so the
+  // partner's name lives in the image alt, where it is announced once and shows
+  // as the tooltip on hover.
   const [brand, ...seals] = partners ?? [];
   const brandImg = brand
     ? `<img class="footer-panel__logo" src="${esc(basePath + brand.logo)}" alt="${esc(brand.name)}" loading="lazy" decoding="async">`
     : "";
   const sealItems = seals
     .map((p) => {
-      const alt = p.caption ? "" : esc(p.name);
-      const img = `<img src="${esc(basePath + p.logo)}" alt="${alt}" loading="lazy" decoding="async">`;
-      if (p.caption) {
-        return `<li class="footer-seal--captioned">${img}<span class="footer-seal__caption">${esc(p.caption)}</span></li>`;
-      }
+      const name = esc(p.caption ?? p.name);
+      const img = `<img src="${esc(basePath + p.logo)}" alt="${name}" title="${name}" loading="lazy" decoding="async">`;
       return `<li${p.chip ? ' class="footer-seal--chip"' : ""}>${img}</li>`;
     })
     .join("\n");

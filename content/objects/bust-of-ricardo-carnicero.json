@@ -1,0 +1,39 @@
+{
+  "id": "bust-of-ricardo-carnicero",
+  "section": "artist",
+  "category": "of-clay-and-resistance",
+  "order": 11,
+  "title": {
+    "en": "Bust of Ricardo Carnicero"
+  },
+  "objectType": "Sculpture",
+  "materials": "Terracotta",
+  "description": "The subject of this terracotta sculpture, captain Ricardo Carnicero, was the Spanish Politico Military Governor of Dapitan, Zamboanga del Norte during Dr. Rizal’s exile from 1892-1896. An inscription at the rear of the sculpture reads in Spanish: A D[on] R[icardo] C[arnicero], C[omandante] P[olitico] M[ilitar] de Dap[itan], Recuerdo de, S[uyo] Af[ectisi]mo, Jose Rizal, 1892 — To Don Ricardo Carnicero/ Political-Militar Governor of Dapitan/ [A] Remembrance of/ Yours Truly/ Jose Rizal/ 1892.\n\nOn August 26, 1892, Dr. Rizal wrote a poem entitled “Kay Don Ricardo Carnicero”, honoring the local commander on his birthday. The following month, Captain Carnicero, Dr. Rizal, and another local Spaniard won a second prize lottery worth Php 20,000.00. Rizal used his share in the prize to procure a parcel of land in Dapitan near the sea. Captain Carnicero also assisted Dr. Rizal to develop and enhance the city plaza of Dapitan.",
+  "images": [
+    {
+      "src": "bust-of-ricardo-carnicero/front.webp",
+      "alt": "Terracotta bust of a moustached man in a buttoned military tunic",
+      "deepZoom": true
+    },
+    {
+      "src": "bust-of-ricardo-carnicero/view-1.webp",
+      "alt": "Bust of Ricardo Carnicero, alternate view 1"
+    },
+    {
+      "src": "bust-of-ricardo-carnicero/view-2.webp",
+      "alt": "Bust of Ricardo Carnicero, alternate view 2"
+    },
+    {
+      "src": "bust-of-ricardo-carnicero/view-3.webp",
+      "alt": "Bust of Ricardo Carnicero, alternate view 3"
+    },
+    {
+      "src": "bust-of-ricardo-carnicero/view-4.webp",
+      "alt": "Bust of Ricardo Carnicero, alternate view 4"
+    }
+  ],
+  "rights": "National Museum of the Philippines",
+  "author": "Nicole Lasquety",
+  "related": [],
+  "featured": false
+}

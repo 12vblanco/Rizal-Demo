@@ -1,0 +1,42 @@
+{
+  "id": "cartoon-of-a-man-farting",
+  "section": "artist",
+  "category": "strokes-sketches-and-satire",
+  "order": 20,
+  "title": {
+    "en": "Cartoon of a Man Farting"
+  },
+  "objectType": "Drawing",
+  "materials": "Black ink on paper",
+  "description": "Erroneously listed as 11 humorous sketches by Rizal, the manuscript actually consists of only one drawing with eleven figures, drawn in black ink on paper with the lower part missing. An example of Rizal’s humor, this cartoon depicts a man farting violently.\n\nGerman text on the bottom of the page: Folgen [illegible] Lombordery (Alfred)",
+  "condition": "The lower part of the sheet is missing.",
+  "images": [
+    {
+      "src": "cartoon-of-a-man-farting/front.webp",
+      "alt": "Ink drawing on torn paper with eleven small comic figures, annotated in German along the foot",
+      "deepZoom": true
+    },
+    {
+      "src": "cartoon-of-a-man-farting/view-1.webp",
+      "alt": "Cartoon of a Man Farting, alternate view 1"
+    },
+    {
+      "src": "cartoon-of-a-man-farting/view-2.webp",
+      "alt": "Cartoon of a Man Farting, alternate view 2"
+    },
+    {
+      "src": "cartoon-of-a-man-farting/view-3.webp",
+      "alt": "Cartoon of a Man Farting, alternate view 3"
+    },
+    {
+      "src": "cartoon-of-a-man-farting/view-4.webp",
+      "alt": "Cartoon of a Man Farting, alternate view 4"
+    }
+  ],
+  "rights": "National Library of the Philippines / National Museum of the Philippines",
+  "related": [
+    "six-frame-cartoon",
+    "sketch-of-fritz-ullmer"
+  ],
+  "featured": false
+}

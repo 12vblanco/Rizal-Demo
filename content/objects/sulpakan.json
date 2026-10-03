@@ -3,17 +3,47 @@
   "section": "ethnographer",
   "category": "daily-life",
   "order": 21,
-  "title": { "en": "Fire Piston", "tl": "Sulpakan", "es": "Sulpakan" },
-  "objectType": "Fire Piston",
-  "materials": "Carabao horn and brass",
+  "title": {
+    "en": "Fire Piston",
+    "tl": "Sulpakan",
+    "es": "Sulpakan"
+  },
+  "objectType": {
+    "en": "Fire Piston",
+    "fil": "Panggawa ng Apoy",
+    "de": "Feuerkolben"
+  },
+  "materials": {
+    "en": "Carabao horn and brass",
+    "fil": "Sungay ng kalabaw at tanso",
+    "de": "Karabauhorn und Messing"
+  },
   "accession": "I C 18686",
-  "description": "This cylindrical fire piston, made of carabao horn, is carved like a pear with grooves near the base. It features a flat, round base that allows it to stand and has a tiny hole at the center. The plunger's tip is shallow and dome-shaped, and it also has grooves on the neck. A thread is inserted between the piston and the plunger. Pushing the plunger compresses air to ignite the tinder placed inside the piston. Among the 21 objects Rizal sent to the Ethnological Museum of Berlin in 1888, the sulpakan was the only item he accompanied with a detailed description, in German, of how the tool functioned.",
-  "condition": "Poor but stable condition. Significant cracks and abrasions on the body; the base is chipped, almost a quarter of the whole; it cannot be opened, probably due to the visible cracks.",
+  "description": {
+    "en": "This cylindrical fire piston, made of carabao horn, is carved like a pear with grooves near the base. It features a flat, round base that allows it to stand and has a tiny hole at the center. The plunger's tip is shallow and dome-shaped, and it also has grooves on the neck. A thread is inserted between the piston and the plunger. Pushing the plunger compresses air to ignite the tinder placed inside the piston. Among the 21 objects Rizal sent to the Ethnological Museum of Berlin in 1888, the sulpakan was the only item he accompanied with a detailed description, in German, of how the tool functioned.",
+    "fil": "Ang bilugang sulpakang ito, yari sa sungay ng kalabaw, ay inukit na tila peras at may ukit malapit sa puno. May patag at bilugang puno ito na nagbibigay-daan upang tumayo, at may maliit na butas sa gitna. Mababaw at hugis-simboryo ang dulo ng pambayo, at may ukit din ito sa leeg. May sinulid na isinuksok sa pagitan ng sulpakan at ng pambayo. Ang pagtulak sa pambayo ay sumisiksik sa hangin upang paningasin ang pansinding inilagay sa loob ng sulpakan. Sa 21 bagay na ipinadala ni Rizal sa Museong Etnolohiko ng Berlin noong 1888, ang sulpakan lamang ang binigyan niya ng masusing paglalarawan, sa wikang Aleman, kung paano gumagana ang kasangkapan.",
+    "de": "Dieser zylindrische Feuerkolben aus Karabauhorn ist birnenförmig geschnitzt und trägt Kehlungen nahe dem Fuß. Er hat einen flachen, runden Fuß, auf dem er stehen kann, mit einem winzigen Loch in der Mitte. Die Spitze des Stößels ist flach gewölbt und kuppelförmig, und auch am Hals finden sich Kehlungen. Zwischen Kolben und Stößel ist ein Faden eingelegt. Das Hineinstoßen des Stößels verdichtet die Luft und entzündet den im Kolben eingelegten Zunder. Unter den 21 Objekten, die Rizal 1888 an das Ethnologische Museum Berlin sandte, war der sulpakan das einzige Stück, dem er eine ausführliche Beschreibung auf Deutsch beigab, wie das Gerät funktioniert."
+  },
+  "condition": {
+    "en": "Poor but stable condition. Significant cracks and abrasions on the body; the base is chipped, almost a quarter of the whole; it cannot be opened, probably due to the visible cracks.",
+    "fil": "Mahina ngunit matatag ang kalagayan. Malaking lamat at gasgas sa katawan; napingas ang puno, halos isang kapat ng kabuuan; hindi ito maaaring buksan, marahil dahil sa nakikitang mga lamat.",
+    "de": "Schlechter, aber stabiler Zustand. Ausgeprägte Risse und Abschürfungen am Korpus; der Fuß ist ausgebrochen, fast zu einem Viertel des Ganzen; er lässt sich nicht öffnen, wohl wegen der sichtbaren Risse."
+  },
   "images": [
-    { "src": "sulpakan/front.webp", "alt": "Cylindrical carabao-horn fire piston (sulpakan) standing upright, its pear-shaped plunger knob topping a dark grooved barrel on a brass-rimmed base", "deepZoom": true },
-    { "src": "sulpakan/detail.webp", "alt": "The sulpakan lying on its side, showing the brass collar fittings and the base's small central ignition hole" }
+    {
+      "src": "sulpakan/front.webp",
+      "alt": "Cylindrical carabao-horn fire piston (sulpakan) standing upright, its pear-shaped plunger knob topping a dark grooved barrel on a brass-rimmed base",
+      "deepZoom": true
+    },
+    {
+      "src": "sulpakan/detail.webp",
+      "alt": "The sulpakan lying on its side, showing the brass collar fittings and the base's small central ignition hole"
+    }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "related": ["kalikut", "lambong"],
+  "related": [
+    "kalikut",
+    "lambong"
+  ],
   "featured": true
 }

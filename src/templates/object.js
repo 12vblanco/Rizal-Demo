@@ -17,7 +17,7 @@ import {
   renderVtStyle,
   vtName,
 } from "./fragments.js";
-import { esc } from "./layout.js";
+import { esc, seoTitle, TITLE_MAX } from "./layout.js";
 import { imageUrl, modelUrl, renderImage, viewerImage, viewerModel } from "./media.js";
 import { icons } from "../icons.js";
 import { pick, t } from "../i18n.js";
@@ -34,9 +34,18 @@ import { pick, t } from "../i18n.js";
 /** @param {ContentObject} object @param {Site} site */
 export function objectTitle(object, site) {
   const siteTitle = pick(site.siteTitle);
-  const rich = `${object.title.tl} · ${object.title.en} | ${siteTitle}`;
-  const base = `${object.title.tl} | ${siteTitle}`;
-  return rich.length <= 70 ? rich : base;
+  const lead = objectName(object);
+  if (object.title.tl) {
+    const rich = `${object.title.tl} · ${object.title.en} | ${siteTitle}`;
+    if (rich.length <= TITLE_MAX) return rich;
+  }
+  return seoTitle(lead, siteTitle);
+}
+
+/** The name an object is referred to by in breadcrumbs, pagers and cards: its
+ *  own/vernacular title when it has one, otherwise the English descriptor. */
+export function objectName(object) {
+  return object.title.tl || object.title.en;
 }
 
 /** @param {ContentObject} object */
@@ -266,21 +275,27 @@ export function renderObject({
   return `${renderVtStyle(vtNames)}
 <article class="object band band--light">
   <div class="container">
-    ${renderBreadcrumb({ site, section, leaf: object.title.tl, leafLang: "tl" })}
+    ${renderBreadcrumb({ site, section, leaf: objectName(object), leafLang: object.title.tl ? "tl" : undefined })}
     <div class="object__layout">
       <div class="object__gallery-col">
         ${renderGallery(site, object)}
       </div>
       <div class="object__info-col">
         <h1 class="object__title" data-pagefind-weight="10">
-          <span class="object__title-native" lang="tl">${esc(object.title.tl)}</span>
-          <span class="object__title-en">${esc(object.title.en)}</span>
-        </h1>
-        <p class="object__title-es" lang="es">${esc(object.title.es)}</p>
+          ${object.title.tl ? `<span class="object__title-native" lang="tl">${esc(object.title.tl)}</span>\n          ` : ""}<span class="object__title-en">${esc(object.title.en)}</span>
+        </h1>${object.title.es ? `\n        <p class="object__title-es" lang="es">${esc(object.title.es)}</p>` : ""}
         ${renderMeta(object)}
         <div class="object__description">
-${renderMarkdown(pick(object.description))}
-        </div>
+${
+  object.draft
+    ? `          <p class="text-pending">${esc(t("textPending"))}</p>`
+    : renderMarkdown(pick(object.description))
+}
+        </div>${
+  object.author && !object.draft
+    ? `\n        <p class="object__author">${esc(t("by", { author: object.author }))}</p>`
+    : ""
+}
         <p class="object__rights">${esc(object.rights)}</p>
       </div>
     </div>
@@ -289,7 +304,7 @@ ${renderMarkdown(pick(object.description))}
       prev,
       next,
       hrefFor: (o) => `/${o.section}/${o.id}/`,
-      nameFor: (o) => o.title.tl,
+      nameFor: (o) => objectName(o),
       nameLang: "tl",
       ariaLabel: t("browseObjects"),
     })}

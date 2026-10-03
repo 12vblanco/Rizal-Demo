@@ -1,0 +1,45 @@
+{
+  "id": "otto-becker",
+  "section": "scholar",
+  "order": 12,
+  "name": "Otto Becker",
+  "role": {
+    "en": "German ophthalmologist and professor at the University of Heidelberg",
+    "fil": "Alemang optalmologo at propesor sa Unibersidad ng Heidelberg",
+    "de": "Deutscher Augenarzt und Professor an der Universität Heidelberg"
+  },
+  "lifespan": {
+    "en": "3 May 1828 – 7 February 1890",
+    "fil": "3 Mayo 1828 – 7 Pebrero 1890",
+    "de": "3. Mai 1828 – 7. Februar 1890"
+  },
+  "birthplace": {
+    "en": "Ratzeburg, Germany",
+    "fil": "Ratzeburg, Alemanya",
+    "de": "Ratzeburg, Deutschland"
+  },
+  "portrait": {
+    "src": "people/otto-becker.webp",
+    "alt": "Sepia studio portrait of Otto Becker, a man with swept-back hair and a full grey beard in a dark coat"
+  },
+  "author": "Jane Maren Dasal",
+  "quote": {
+    "en": "It has been 13 days since I started going to the Crugen Klinki (ophthalmic clinic) in the city, which is headed by a known ophthalmologist Dr. Otto Becker. He is not as renowned nor as eminent as Dr. de Wecker of Paris, but in Germany, he has a stellar reputation and has already published a lot of his works.",
+    "fil": "Labintatlong araw na mula nang magsimula akong pumasok sa Crugen Klinki (klinika ng mata) sa lungsod, na pinamumunuan ng kilalang optalmologong si Dr. Otto Becker. Hindi siya kasing tanyag ni kasing dakila ni Dr. de Wecker ng Paris, ngunit sa Alemanya ay mahusay ang kanyang reputasyon at marami na siyang nailathalang akda.",
+    "de": "Seit dreizehn Tagen gehe ich nun in die Crugen Klinki (Augenklinik) in der Stadt, die von dem bekannten Augenarzt Dr. Otto Becker geleitet wird. Er ist nicht so berühmt und nicht so bedeutend wie Dr. de Wecker in Paris, doch in Deutschland hat er einen glänzenden Ruf und hat bereits viele seiner Arbeiten veröffentlicht."
+  },
+  "quoteSource": {
+    "en": "Rizal to his parents and siblings, Heidelberg, February 1886",
+    "fil": "Rizal sa kanyang mga magulang at kapatid, Heidelberg, Pebrero 1886",
+    "de": "Rizal an seine Eltern und Geschwister, Heidelberg, Februar 1886"
+  },
+  "bio": {
+    "en": "Rizal's learning path in his study of ophthalmology was unconventional. He learned how to perform eye surgeries under de Wecker's tutelage before even fully understanding how the eye works. This curiosity led him to the Augenklinik (Eye Clinic) of Otto Becker, German ophthalmologist and professor at the University of Heidelberg, in February 1886.\n\nCompared to his training under de Wecker, Rizal did not witness as many eye surgeries in Becker's clinic. However, Becker's aptitude in eye anatomy as proven by his published texts on the anatomy of the normal and diseased lens after having collected 1,800 pathological specimens made him an apt mentor to Rizal who was yet to learn it. Under Becker's six-month tutelage, Rizal learned how to conduct eye examinations and diagnose eye conditions more precisely.\n\nThis proved useful in Rizal's life later on when he became a renowned ophthalmologist in Southeast Asia from his clinical practice in Calamba and in Hong Kong. In Dapitan, where he was exiled from 1892 until his ill-fated death in 1896, Rizal opened his home in Talisay to treat patients from both nearby towns and more distant cities, whom he housed in two huts near his main residence. His surgical instruments, a set from a brand called Collin, mostly for cataract surgery, are still extant at the Museo ni Jose Rizal-Dapitan in Zamboanga del Norte. More than a century hence, they continue to tell stories of how Rizal was prolific in service, even in exile and despite attempts by Spanish authorities to weaken the spirit of a cosmopolitan man who had once explored the cities of Europe.",
+    "fil": "Hindi karaniwan ang landas ng pagkatuto ni Rizal sa kanyang pag-aaral ng optalmolohiya. Natutuhan niyang magsagawa ng operasyon sa mata sa ilalim ng pagtuturo ni de Wecker bago pa man niya lubusang maunawaan kung paano gumagana ang mata. Ang pag-uusisang ito ang naghatid sa kanya sa Augenklinik (Klinika ng Mata) ni Otto Becker, ang Alemang optalmologo at propesor sa Unibersidad ng Heidelberg, noong Pebrero 1886.\n\nKung ihahambing sa kanyang pagsasanay sa ilalim ni de Wecker, hindi nasaksihan ni Rizal ang gaanong karaming operasyon sa mata sa klinika ni Becker. Gayunman, ang kahusayan ni Becker sa anatomiya ng mata, na pinatunayan ng kanyang mga inilathalang teksto hinggil sa anatomiya ng normal at may-sakit na lente matapos makapangalap ng 1,800 ispesimeng patolohiko, ang naging dahilan upang siya ay angkop na tagapagturo kay Rizal na hindi pa nito natututuhan. Sa anim na buwang pagtuturo ni Becker, natutuhan ni Rizal kung paano magsagawa ng eksaminasyon sa mata at mas tumpak na masuri ang mga kalagayan ng mata.\n\nNaging kapaki-pakinabang ito sa buhay ni Rizal kalaunan nang maging tanyag siyang optalmologo sa Timog-Silangang Asya mula sa kanyang praktis sa Calamba at sa Hong Kong. Sa Dapitan, kung saan ipinatapon siya mula 1892 hanggang sa kanyang malagim na kamatayan noong 1896, binuksan ni Rizal ang kanyang tahanan sa Talisay upang gamutin ang mga pasyente mula sa mga karatig-bayan at sa mas malalayong lungsod, na pinatuloy niya sa dalawang kubo malapit sa kanyang pangunahing tahanan. Ang kanyang mga kasangkapang pangkirurhiya, isang set mula sa tatak na Collin, kadalasan para sa operasyon ng katarata, ay nananatili pa sa Museo ni Jose Rizal-Dapitan sa Zamboanga del Norte. Mahigit isang dantaon matapos nito, patuloy nilang isinasalaysay kung paanong naging masigasig si Rizal sa paglilingkod, kahit sa pagkatapon at sa kabila ng mga pagtatangka ng mga awtoridad na Espanyol na pahinain ang diwa ng kosmopolitanong taong minsang tumahak sa mga lungsod ng Europa.",
+    "de": "Rizals Lernweg im Studium der Augenheilkunde war unkonventionell. Er lernte unter de Weckers Anleitung Augenoperationen auszuführen, noch bevor er ganz verstand, wie das Auge arbeitet. Diese Wissbegierde führte ihn im Februar 1886 in die Augenklinik Otto Beckers, des deutschen Ophthalmologen und Professors an der Universität Heidelberg.\n\nVerglichen mit seiner Ausbildung bei de Wecker sah Rizal in Beckers Klinik weit weniger Augenoperationen. Doch Beckers Sachkenntnis in der Anatomie des Auges – belegt durch seine Veröffentlichungen über die Anatomie der normalen und der erkrankten Linse, nachdem er 1.800 pathologische Präparate zusammengetragen hatte – machte ihn zum passenden Lehrer für Rizal, der dies noch zu lernen hatte. In Beckers sechsmonatiger Lehre lernte Rizal, Augenuntersuchungen durchzuführen und Augenleiden genauer zu bestimmen.\n\nDies erwies sich in Rizals späterem Leben als nützlich, als er durch seine Praxis in Calamba und in Hongkong zu einem angesehenen Augenarzt in Südostasien wurde. In Dapitan, wo er von 1892 bis zu seinem unglücklichen Tod 1896 im Exil lebte, öffnete Rizal sein Haus in Talisay, um Patienten aus benachbarten Orten und aus ferneren Städten zu behandeln, die er in zwei Hütten neben seinem Wohnhaus unterbrachte. Seine chirurgischen Instrumente, ein Satz der Marke Collin, überwiegend für Kataraktoperationen, sind im Museo ni Jose Rizal-Dapitan in Zamboanga del Norte noch erhalten. Mehr als ein Jahrhundert später erzählen sie weiterhin davon, wie tätig Rizal im Dienst am Menschen war, selbst im Exil und trotz der Versuche der spanischen Behörden, den Geist eines weltläufigen Mannes zu brechen, der einst die Städte Europas durchstreift hatte."
+  },
+  "relatedObjects": [],
+  "relatedPeople": [
+    "louis-de-wecker"
+  ]
+}

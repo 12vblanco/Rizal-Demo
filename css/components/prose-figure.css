@@ -1,0 +1,22 @@
+/* In-body editorial figure — a Markdown image on its own line (see
+   renderMarkdown in src/templates/fragments.js). Shares the essay hero's
+   caption voice (.essay__hero-caption) so a plate reads as part of the same
+   reading page; the figure itself is allowed to break the narrow prose measure
+   because the pictures are evidence, not decoration. */
+
+.prose-figure {
+  margin-block: var(--space-xl);
+  margin-inline: 0;
+}
+
+.prose-figure__img {
+  width: 100%;
+  height: auto;
+  background: color-mix(in srgb, var(--black-cow) 12%, transparent);
+}
+
+.prose-figure__caption {
+  margin-block-start: var(--space-xs);
+  font-size: var(--step--1);
+  color: var(--black-cow);
+}
