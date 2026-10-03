@@ -29,6 +29,11 @@
      proportions, this colour frames it. Kept a shade off the page so a work on a
      white or transparent ground still reads as a framed object, not a bleed. */
   --exhibit-frame: #eceef2;
+  /* The letterbox behind a contained exhibit photo. Matches the studio backdrop
+     the collection's own photography is shot on (#585848), so the frame is
+     invisible against a full-bleed shot and only shows where an image's
+     proportions differ from its box. */
+  --exhibit-frame-dark: #585848;
 
   /* Typography.
      Alice ships in Regular 400 only — hierarchy comes from size, spacing,

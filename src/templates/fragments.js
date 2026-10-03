@@ -200,11 +200,18 @@ export function renderPager({ prev, next, hrefFor, nameFor, nameLang, ariaLabel 
  * @param {string} p.title
  * @param {string} [p.titleLang]
  * @param {string} [p.subtitle]
+ * @param {string} [p.subtitleLang]
  * @param {boolean} [p.has3d] - shows a "3D" pill beside the title
  */
-export function renderCollectionCard({ href, media, title, titleLang, subtitle, has3d }) {
+export function renderCollectionCard({ href, media, title, titleLang, subtitle, subtitleLang, has3d }) {
   const langAttr = titleLang ? ` lang="${esc(titleLang)}"` : "";
-  const subtitleEl = subtitle ? `\n      <span class="collection-card__en">${esc(subtitle)}</span>` : "";
+  const subLangAttr = subtitleLang ? ` lang="${esc(subtitleLang)}"` : "";
+  // Always emitted, even with nothing to say: the empty span reserves one line
+  // (see .collection-card__en:empty in object.css) so a grid of cards that
+  // carry a second name and a grid of cards that do not come out the same
+  // height. Without it the artist grid sits ~30px shorter than the
+  // ethnographer one.
+  const subtitleEl = `\n      <span class="collection-card__en"${subLangAttr}>${subtitle ? esc(subtitle) : ""}</span>`;
   const badge = has3d ? `\n      <span class="collection-card__badge">3D</span>` : "";
   return `<li class="collection-card">
   <a class="collection-card__link" href="${esc(href)}">
@@ -248,14 +255,28 @@ export function objectCard(site, obj) {
     sizes: "(min-width: 48rem) 22rem, 100vw",
     dataVt: vtName("obj", obj.id),
   });
+  // Object names stay in their original form on every locale (curatorial
+  // metadata) — never routed through pick().
+  //
+  // Which name leads depends on what `tl` means for the record. For an
+  // ethnographer object it is the thing's own name (salakot, tangkulu) and the
+  // English is a gloss, so the vernacular leads. For an artist work it is a
+  // translation of the work's English title, so English leads there — matching
+  // how the artist detail pages read.
+  const vernacular = obj.title.tl;
+  const vernacularLeads = Boolean(vernacular) && obj.section !== "artist";
   return renderCollectionCard({
     href: localizeHref(`/${obj.section}/${obj.id}/`),
     media,
-    // Object names stay in their original form on every locale (curatorial
-    // metadata) — never routed through pick().
-    title: obj.title.tl || obj.title.en,
-    titleLang: "tl",
-    subtitle: obj.title.tl ? obj.title.en : "",
+    title: vernacularLeads ? vernacular : obj.title.en,
+    titleLang: vernacularLeads ? "tl" : undefined,
+    // An ethnographer card's second line is a short English gloss of the
+    // vernacular name and earns its place. An artist card's would be the
+    // work's full vernacular title, which runs three or four lines at this
+    // width and cannot be cut to one without stranding a word ("Ang…"), so the
+    // card shows the English title alone and the detail page carries the rest.
+    subtitle: vernacularLeads ? obj.title.en : "",
+    subtitleLang: undefined,
     has3d: Boolean(obj.model3d),
   });
 }

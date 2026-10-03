@@ -34,9 +34,10 @@
   "rights": "National Museum of the Philippines",
   "author": "Nicole Lasquety",
   "model3d": {
-    "src": "placeholder-3d.glb",
-    "poster": "placeholder-3d/model-poster.webp",
-    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+    "src": "josephine-sleeping.glb",
+    "poster": "josephine-sleeping/model-poster.webp",
+    "altText": "Interactive 3D model of Rizal's Josephine Sleeping, the reclining figure free to rotate and zoom",
+    "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },
   "related": [],
   "featured": false

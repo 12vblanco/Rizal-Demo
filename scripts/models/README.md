@@ -18,37 +18,110 @@ The **content validator fails the build** if the GLB is missing or **larger than
 opens the 3D view, so it must stay lean. `build.js` copies each referenced GLB
 verbatim into `dist/media/models/`.
 
-## Offline pipeline (source scan → shippable GLB)
+## Metashape delivery → shippable GLB
 
-Do this once per object, offline; commit only the finished GLB.
+The museum's photogrammetry arrives as **Agisoft Metashape projects** (a `.psx`
+next to a `.files/` tree). That looks like it needs Metashape to export, but it
+does not: each `<name>.files/0/0/model*/model.zip` already contains a plain
+**`mesh.ply`** (binary little-endian, triangles, per-corner UVs) and its
+**`texture.tif`**. `scripts/models/from-metashape.mjs` reads those two directly,
+so the conversion needs no Metashape and no Blender and is reproducible from the
+raw delivery:
 
-1. **Blender** — import the raw scan. Clean up: remove stray geometry, close
-   holes, and **decimate to ~50k–150k triangles**. Bake fine detail into a
-   **normal map** so the low-poly mesh still reads as detailed.
-2. **Textures** — bake/resize to sane sizes (albedo/normal/roughness at
-   1–2k). Export **glTF Binary (.glb)**.
-3. **`gltf-transform`** — optimise. Our target output uses **meshopt** geometry
-   compression + **WebP** textures + vertex **quantization** (this is exactly what
-   the shipped `salakot.glb` uses):
+```sh
+node scripts/models/from-metashape.mjs all              # every known scan
+node scripts/models/from-metashape.mjs josephine-sleeping
+```
 
-   ```sh
-   npx @gltf-transform/cli optimize in.glb salakot.glb \
-     --compress meshopt --texture-compress webp
-   ```
+Each source is registered in the `MODELS` table at the top of that script. The
+script de-indexes the wedge UVs and re-welds them (splitting vertices only at
+real atlas seams), computes smooth vertex normals — the PLY carries none, and
+glTF without `NORMAL` renders faceted — drops the PLY's vertex colours so they
+cannot multiply against the baked texture, discards all but the largest
+connected component, resizes the texture, centres and scales the model, and
+finishes with the same **meshopt + WebP** optimisation as everything else here.
 
-   > **Decoder note.** model-viewer ships **no** default meshopt decoder, so we
-   > vendor one (`static/vendor/model-viewer/meshopt_decoder.js`, UMD) and set
-   > `ModelViewerElement.meshoptDecoderLocation` to it in `js/main.js` and
-   > `js/viewer.js`. **Prefer meshopt + WebP.** If you instead use **Draco** or
-   > **KTX2/Basis** textures, model-viewer will try to fetch those decoders from
-   > `gstatic.com` at runtime — which breaks the self-contained/offline guarantee.
-   > Vendor those decoders and set their locations too before using them.
+Textures are downscaled to **2048 px** (from the delivered 8192²). The four
+delivered scans are 43k–73k triangles, already inside the 50k–150k budget, so
+nothing is decimated; the resulting GLBs are 0.5–0.6 MB each.
 
-4. **Verify size** — `ls -lh salakot.glb`; must be ≤ 8 MB. Re-decimate or shrink
-   textures if not.
-5. **Drop in** — put the `.glb` in `assets-src/models/` and reference it from the
-   object's `model3d.src`. Add a real **poster** render of the model under
-   `assets-src/images/<id>/` and point `model3d.poster` at it.
+### Orientation is manual, and has to be
+
+Metashape leaves an un-georeferenced chunk in arbitrary camera-local
+coordinates, and none of the delivered chunks carries a region or transform — so
+which way is up cannot be derived from the data. Fitting the base plane
+numerically does not rescue it either: these scans mostly lack a captured
+underside, so the fit latches onto whatever lower surface happens to be largest.
+
+Each entry therefore records two numbers, verified by eye:
+
+- `rotate` — degrees applied X then Y then Z, levelling the object so its base
+  sits flat.
+- `yaw` — degrees about the vertical axis *after* levelling, turning the
+  object's front towards +Z, which is where the gallery camera and the poster
+  render look from.
+
+They are deliberately separate: a yaw folded into `rotate` would be applied
+before levelling and would tip the object back over.
+
+To work out the pair for a new scan, render a six-view contact sheet and compare
+it with the object's reference photograph already in `assets-src/images/<id>/`:
+
+```sh
+node scripts/models/orient-sheet.mjs josephine-sleeping.glb /tmp/sheet.png
+```
+
+Then re-run `from-metashape.mjs` with `--rotate x,y,z --yaw deg` until the
+object stands up and faces front, and record the values in `MODELS`.
+
+### Poster
+
+Once the GLB is right, the poster is a single command — it renders through the
+vendored `<model-viewer>` at the canonical camera, so the still and the live
+model line up pixel-for-pixel:
+
+```sh
+node scripts/models/render-poster.mjs josephine-sleeping.glb \
+  assets-src/images/josephine-sleeping/model-poster.webp
+```
+
+### Any other source
+
+For a scan that does *not* arrive as a Metashape project, the old route still
+applies: clean up and decimate to ~50k–150k triangles in Blender, bake detail to
+a normal map, keep textures at 1–2k, export `.glb`, and optimise with
+**meshopt + WebP** —
+
+```sh
+npx @gltf-transform/cli optimize in.glb out.glb \
+  --compress meshopt --texture-compress webp
+```
+
+> **Decoder note.** model-viewer ships **no** default meshopt decoder, so we
+> vendor one (`static/vendor/model-viewer/meshopt_decoder.js`, UMD) and set
+> `ModelViewerElement.meshoptDecoderLocation` to it in `js/main.js` and
+> `js/viewer.js`. **Prefer meshopt + WebP.** If you instead use **Draco** or
+> **KTX2/Basis** textures, model-viewer will try to fetch those decoders from
+> `gstatic.com` at runtime — which breaks the self-contained/offline guarantee.
+> Vendor those decoders and set their locations too before using them.
+
+Whatever the source: **verify size** (`ls -lh assets-src/models/`) — the content
+validator fails the build over 8 MB — then point the object's `model3d.src` and
+`model3d.poster` at the new files.
+
+## Turntable videos
+
+The photogrammetry delivery also includes a 30-second turntable MP4 per scan
+(108–168 MB each). Nothing on the site references them — the interactive GLB
+supersedes a turntable, and objects have no video component — but web-ready
+1280 px encodes are kept, git-ignored, in `prepared/video/` in case they are
+wanted elsewhere:
+
+```sh
+ffmpeg -i "<src>.mp4" -vf "scale=1280:-2,fps=30" -c:v libx264 -crf 24 \
+  -preset slow -pix_fmt yuv420p -movflags +faststart -an \
+  "prepared/video/<id>-turntable.mp4"
+```
 
 ## Stand-in 3D: `placeholder-3d.glb` (feature 11c)
 

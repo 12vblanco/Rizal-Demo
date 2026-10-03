@@ -11,3 +11,6 @@ dist/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+# Web-ready encodes of raw client media, kept out of the repo until something
+# references them (turntable videos from the photogrammetry delivery).
+/prepared/

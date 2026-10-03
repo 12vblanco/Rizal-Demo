@@ -89,11 +89,13 @@ L.push("");
 
 L.push("## Placeholder 3D");
 L.push("");
-L.push("Photogrammetry was delivered as Agisoft Metashape source (`.psx`), not a");
-L.push("web-ready model. These works are wired to the shared stand-in GLB so the 3D");
-L.push("gallery slide and viewer are live; swapping in the real scan is a three-field");
-L.push("edit (`src`, `poster`, `altText`) with no template change. See");
-L.push("`scripts/models/README.md` for the Blender → gltf-transform pipeline.");
+L.push("The four Artist works whose photogrammetry the client delivered are live as");
+L.push("real models: the Metashape archives carry a usable `mesh.ply` + `texture.tif`,");
+L.push("which `scripts/models/from-metashape.mjs` converts straight to an optimised");
+L.push("GLB. Anything still listed below has had **no scan delivered at all** — it is");
+L.push("wired to the shared stand-in GLB so the 3D gallery slide and viewer stay live,");
+L.push("and swapping in a real scan is a three-field edit (`src`, `poster`, `altText`)");
+L.push("with no template change. See `scripts/models/README.md` for the pipeline.");
 L.push("");
 if (placeholder3d.length === 0) {
   L.push("_No placeholder models in use._");

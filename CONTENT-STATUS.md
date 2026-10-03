@@ -21,10 +21,6 @@ detail page shows a short “being prepared” note where the prose will go.
 | Record | Section | Has | Needs |
 | --- | --- | --- | --- |
 | `head-of-dapitan-girl` | artist | 5 images, credit | description |
-| `felix-pardo-de-tavera` | scholar | portrait, credit | role + biography |
-| `felix-resurreccion-hidalgo` | scholar | portrait, credit | role + biography |
-| `fr-francisco-de-paula-sanchez` | scholar | portrait, credit | role + biography |
-| `juan-luna` | scholar | portrait, credit | role + biography |
 
 ## Outstanding client request — artwork catalogue fields
 
@@ -42,18 +38,16 @@ structured catalogue sheet closes the last gap to full parity.
 
 ## Placeholder 3D
 
-Photogrammetry was delivered as Agisoft Metashape source (`.psx`), not a
-web-ready model. These works are wired to the shared stand-in GLB so the 3D
-gallery slide and viewer are live; swapping in the real scan is a three-field
-edit (`src`, `poster`, `altText`) with no template change. See
-`scripts/models/README.md` for the Blender → gltf-transform pipeline.
+The four Artist works whose photogrammetry the client delivered are live as
+real models: the Metashape archives carry a usable `mesh.ply` + `texture.tif`,
+which `scripts/models/from-metashape.mjs` converts straight to an optimised
+GLB. Anything still listed below has had **no scan delivered at all** — it is
+wired to the shared stand-in GLB so the 3D gallery slide and viewer stay live,
+and swapping in a real scan is a three-field edit (`src`, `poster`, `altText`)
+with no template change. See `scripts/models/README.md` for the pipeline.
 
 | Record | Awaiting |
 | --- | --- |
-| `san-antonio-de-padua` | optimised .glb (≤ 8 MB) + poster render |
-| `josephine-sleeping` | optimised .glb (≤ 8 MB) + poster render |
-| `oyang-dapitana` | optimised .glb (≤ 8 MB) + poster render |
-| `sacred-heart-of-jesus` | optimised .glb (≤ 8 MB) + poster render |
 | `tangkulu` | optimised .glb (≤ 8 MB) + poster render |
 
 ## Translations

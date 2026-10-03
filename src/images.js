@@ -22,9 +22,14 @@ import {
   rmSync,
   writeFileSync,
 } from "node:fs";
+import { availableParallelism } from "node:os";
 import path from "node:path";
 
 import sharp from "sharp";
+
+// sharp's async ops queue on the libuv threadpool, which defaults to 4 threads
+// and is sized on first use — widen it to the core count before any encode runs.
+process.env.UV_THREADPOOL_SIZE ??= String(availableParallelism());
 
 // Responsive width ladder. A source contributes every ladder width narrower
 // than it, plus its own width capped at MAX_WIDTH — so we never upscale and
@@ -123,7 +128,7 @@ async function encode(srcPath, src, hash, cacheFilesDir) {
     let pipe = sharp(srcPath, { failOn: "none" }).resize(w, null, {
       withoutEnlargement: true,
     });
-    if (fmt === "avif") pipe = pipe.avif({ quality: 50, effort: 4 });
+    if (fmt === "avif") pipe = pipe.avif({ quality: 50, effort: 3 });
     else if (fmt === "webp") pipe = pipe.webp({ quality: 74 });
     else if (fmt === "jpeg") pipe = pipe.jpeg({ quality: 80, mozjpeg: true });
     else pipe = pipe.png({ compressionLevel: 9 });
@@ -131,12 +136,13 @@ async function encode(srcPath, src, hash, cacheFilesDir) {
     return { w: info.width, h: info.height, file: `${OUT_DIR}/${file}` };
   };
 
-  /** @type {Variant[]} */ const avif = [];
-  /** @type {Variant[]} */ const webp = [];
-  for (const w of widths) {
-    avif.push(await emit("avif", w));
-    webp.push(await emit("webp", w));
-  }
+  // Variants are independent, so encode them concurrently (sharp runs each on
+  // the libuv threadpool); a cold build of the full collection is otherwise
+  // long enough to hit the CI time limit.
+  const [avif, webp] = await Promise.all([
+    Promise.all(widths.map((w) => emit("avif", w))),
+    Promise.all(widths.map((w) => emit("webp", w))),
+  ]);
 
   // Exactly one fallback variant, the one the <img src> points at: nearest
   // FALLBACK_TARGET (largest not exceeding it, else the smallest). The <img>
@@ -198,6 +204,8 @@ export async function processImages({ assetsDir, dist, cacheDir, log = () => {} 
   let encoded = 0;
   let reused = 0;
 
+  /** @type {{ src: string, srcPath: string, hash: string }[]} */
+  const toEncode = [];
   for (const src of sources) {
     const srcPath = path.join(imagesDir, src);
     const hash = contentHash(readFileSync(srcPath));
@@ -208,19 +216,35 @@ export async function processImages({ assetsDir, dist, cacheDir, log = () => {} 
       [...cached.avif, ...cached.webp, ...cached.fallback].every((v) =>
         existsSync(path.join(cacheFilesDir, path.basename(v.file))),
       );
-
-    /** @type {ImageEntry} */
-    let entry;
     if (filesPresent) {
-      const { hash: _h, ...rest } = cached;
-      entry = rest;
+      nextCache[src] = cached;
       reused++;
     } else {
-      entry = await encode(srcPath, src, hash, cacheFilesDir);
-      encoded++;
+      toEncode.push({ src, srcPath, hash });
     }
+  }
+
+  // Encode cache misses several sources at a time (a cold build of the full
+  // collection otherwise runs past the CI time limit), logging progress so the
+  // build never sits silent.
+  let next = 0;
+  const worker = async () => {
+    while (next < toEncode.length) {
+      const { src, srcPath, hash } = toEncode[next++];
+      nextCache[src] = { ...(await encode(srcPath, src, hash, cacheFilesDir)), hash };
+      encoded++;
+      if (encoded % 10 === 0 || encoded === toEncode.length) {
+        log(`Images: encoded ${encoded}/${toEncode.length}`);
+      }
+    }
+  };
+  const workers = Math.min(toEncode.length, availableParallelism());
+  await Promise.all(Array.from({ length: workers }, worker));
+
+  // Manifest in sorted source order, so output is deterministic.
+  for (const src of sources) {
+    const { hash: _h, ...entry } = nextCache[src];
     manifest.set(src, entry);
-    nextCache[src] = { ...entry, hash };
   }
 
   // Copy every current variant from cache into dist (dist is wiped each build,

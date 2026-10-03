@@ -36,9 +36,10 @@
   "rights": "Ateneo de Manila University / National Museum of the Philippines",
   "author": "Reann Clarisse A. Robes",
   "model3d": {
-    "src": "placeholder-3d.glb",
-    "poster": "placeholder-3d/model-poster.webp",
-    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+    "src": "sacred-heart-of-jesus.glb",
+    "poster": "sacred-heart-of-jesus/model-poster.webp",
+    "altText": "Interactive 3D model of Rizal's Sacred Heart of Jesus statuette, free to rotate and zoom",
+    "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },
   "related": [],
   "featured": false

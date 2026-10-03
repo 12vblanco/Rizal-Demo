@@ -53,7 +53,8 @@
   "model3d": {
     "src": "salakot.glb",
     "poster": "salakot/model-poster.webp",
-    "altText": "Interactive 3D model of the silver-and-horn salakot, free to rotate and zoom"
+    "altText": "Interactive 3D model of the silver-and-horn salakot, free to rotate and zoom",
+    "credit": "3D model by Mapping Philippine Material Culture, licensed CC BY 4.0"
   },
   "related": [
     "tangkulu",

@@ -12,13 +12,13 @@
   "condition": "The heads of both the saint and the Infant Jesus were lost; the piece was restored with abaca.",
   "images": [
     {
+      "src": "san-antonio-de-padua/front-2.webp",
+      "alt": "Saint Anthony of Padua, further view"
+    },
+    {
       "src": "san-antonio-de-padua/front.webp",
       "alt": "Weathered statuette of Saint Anthony of Padua holding the Infant Jesus, both figures missing their heads, on a square plinth",
       "deepZoom": true
-    },
-    {
-      "src": "san-antonio-de-padua/front-2.webp",
-      "alt": "Saint Anthony of Padua, further view"
     },
     {
       "src": "san-antonio-de-padua/view-1.webp",
@@ -40,9 +40,10 @@
   "rights": "National Historical Commission of the Philippines / Bayanihan Collectors Club / National Museum of the Philippines",
   "author": "Reann Clarisse A. Robes",
   "model3d": {
-    "src": "placeholder-3d.glb",
-    "poster": "placeholder-3d/model-poster.webp",
-    "altText": "Interactive 3D model — the museum's photogrammetry scan is being prepared; a placeholder model is shown for now"
+    "src": "san-antonio-de-padua.glb",
+    "poster": "san-antonio-de-padua/model-poster.webp",
+    "altText": "Interactive 3D model of Rizal's San Antonio de Padua on its stepped base, free to rotate and zoom",
+    "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },
   "related": [],
   "featured": false

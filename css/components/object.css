@@ -84,6 +84,12 @@
   aspect-ratio: 4 / 3;
   object-fit: contain;
   background: var(--exhibit-frame);
+  /* Declared as a background-image, not a colour: the generated .lqip-* rules
+     are appended last in the CSS bundle and set background-color, so they beat
+     this rule's colour and the letterbox would otherwise take the image's own
+     dominant tone — a pale band around anything shot on white. Same layering
+     trick as the 3D stage below. */
+  background-image: linear-gradient(var(--exhibit-frame-dark), var(--exhibit-frame-dark));
 }
 
 .object-gallery__credit {
@@ -115,6 +121,7 @@
   aspect-ratio: 1;
   object-fit: contain; /* a thumbnail is a picker — it must show which view it picks */
   background: var(--exhibit-frame);
+  background-image: linear-gradient(var(--exhibit-frame-dark), var(--exhibit-frame-dark));
 }
 
 /* --- 3D model view (feature 10) ---------------------------------------- */
@@ -488,7 +495,21 @@
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 10rem), 1fr));
+  /* Every row takes the height of the tallest card in the grid, so cards are
+     one size throughout and the photos line up across rows — not just within
+     a row, which is all `auto` rows give you. */
+  grid-auto-rows: 1fr;
   gap: var(--space-l);
+}
+
+/* Let a card shrink to its share of the track: without this a long unbroken
+   title (e.g. "Pagtatagumpay") sets a min-content floor and widens its column,
+   so its photo renders a few pixels taller than its neighbours'. */
+.collection-card,
+.collection-card__link,
+.collection-card__body,
+.collection-card__title-row {
+  min-width: 0;
 }
 
 .collection-card__link {
@@ -506,7 +527,7 @@
 .collection-card__media {
   display: block;
   overflow: hidden;
-  background: var(--exhibit-frame);
+  background: var(--exhibit-frame-dark);
 }
 
 .collection-card__img {
@@ -514,6 +535,8 @@
   aspect-ratio: 3 / 4;
   object-fit: contain; /* see .object-gallery__img — never crop an exhibit */
   background: var(--exhibit-frame);
+  /* see .object-gallery__img */
+  background-image: linear-gradient(var(--exhibit-frame-dark), var(--exhibit-frame-dark));
   transition: transform var(--duration-slow) var(--ease);
 }
 
@@ -525,6 +548,10 @@
    the flush-edge photo, distinct from the plain light band behind the grid. */
 .collection-card__body {
   display: grid;
+  /* Pack the label to the top of the panel. The panel is stretched to fill
+     whatever height the equal-height row leaves it, and without this the grid
+     rows share out that slack and the title drifts down the card. */
+  align-content: start;
   gap: var(--space-2xs);
   padding: var(--space-m);
   background: white;
@@ -535,7 +562,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* The badge stays on the title's line. Allowed to wrap it drops onto a line
+     of its own as soon as the title needs two lines, which made the artist
+     cards a line taller than the ethnographer ones. The title is clamped and
+     free to shrink (min-width: 0), so there is always room beside it. */
+  flex-wrap: nowrap;
   gap: var(--space-2xs);
 }
 
@@ -543,10 +574,21 @@
   font-family: var(--font-heading);
   font-size: var(--step-1);
   color: var(--heading-on-light);
+  /* Two lines, then an ellipsis: the longest titles here run to four lines and
+     set the height of every other card in the grid. The full title is still
+     the link's accessible name and is on the detail page. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 .collection-card__badge {
   display: inline-block;
+  flex: 0 0 auto;
   font-family: var(--font-body);
   font-size: 0.75rem;
   font-weight: 600;
@@ -561,4 +603,17 @@
 .collection-card__en {
   font-size: var(--step--1);
   color: var(--black-cow);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+/* Cards without a second name still reserve its line, so every collection grid
+   on the site resolves to the same card height. */
+.collection-card__en:empty::before {
+  content: "\00a0";
 }
