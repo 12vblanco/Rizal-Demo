@@ -605,10 +605,17 @@
   color: var(--black-cow);
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  /* Two lines, and always two lines' worth of space. An ethnographer gloss
+     ("Hat") takes one and an artist card's is blank, while a scholar's role is
+     a full sentence that needs both — so reserving the pair here is what makes
+     a card the same size on all four section pages. Clamping to one line
+     instead would fit, but cuts the roles to "German…". Word-boundary breaks,
+     so an ellipsis never lands mid-word. */
   -webkit-line-clamp: 2;
   line-clamp: 2;
+  min-height: calc(2 * 1.6em); /* 1.6 = the body line-height in base.css */
   overflow: hidden;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
   min-width: 0;
 }
 

@@ -3,33 +3,6 @@
    and card grid (.collection-*) styles from object.css; only the portrait,
    biography, and related-row wrappers are person-specific. */
 
-/* --- Scholar portrait grid ---------------------------------------------- */
-/* The twelve scholars read as a set, so they get fixed column counts rather
-   than the shared grid's auto-fill: six across at full width lands them as two
-   even rows of six, and each step down keeps the rows even (4×3, 3×4, 2×6)
-   instead of leaving one orphan card on a last row. */
-.collection-grid--people {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-@media (min-width: 34rem) {
-  .collection-grid--people {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 48rem) {
-  .collection-grid--people {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 72rem) {
-  .collection-grid--people {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-}
-
 /* --- Two-column layout -------------------------------------------------- */
 .person__layout {
   display: grid;

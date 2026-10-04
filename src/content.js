@@ -288,7 +288,7 @@ function validateObject(errors, file, obj, assetsDir) {
 }
 
 const PERSON_KEYS = [
-  "id", "section", "order", "name", "role", "lifespan", "birthplace", "portrait",
+  "id", "section", "category", "order", "name", "role", "lifespan", "birthplace", "portrait",
   "author", "quote", "quoteSource", "bio", "relatedObjects", "relatedPeople", "draft",
 ];
 
@@ -296,6 +296,8 @@ function validatePerson(errors, file, person, assetsDir) {
   checkKeys(errors, file, person, PERSON_KEYS);
   reqString(errors, file, person, "id") && checkKebab(errors, file, "id", person.id);
   reqString(errors, file, person, "section");
+  optString(errors, file, person, "category") && person.category !== undefined &&
+    checkKebab(errors, file, "category", person.category);
   reqNumber(errors, file, person, "order");
   reqString(errors, file, person, "name");
   // Both `role` and `bio` wait on the client's text, so a draft person needs only
@@ -901,20 +903,26 @@ export function loadContent({ contentDir, assetsDir }) {
     return section;
   };
 
+  // A record in a categorised section must name one of that section's tabs, or
+  // it renders only under "Introduction" and is invisible from every tab. The
+  // rule is the same whether the section tiles objects (Ethnographer, Artist)
+  // or people (Scholar), so both loops share it.
+  const checkCategoryRef = (file, data, section) => {
+    const categoryIds = section.categories?.map((c) => c.id) ?? [];
+    if (categoryIds.length > 0) {
+      if (!data.category) {
+        errors.add(file, "category", `required — section "${section.id}" declares categories (${categoryIds.join(", ")})`);
+      } else if (!categoryIds.includes(data.category)) {
+        errors.add(file, "category", `"${data.category}" is not declared in content/sections/${section.id}.json (${categoryIds.join(", ")})`);
+      }
+    } else if (data.category) {
+      errors.add(file, "category", `section "${section.id}" declares no categories — remove the field`);
+    }
+  };
+
   for (const { file, data } of objects) {
     const section = checkSectionRef(file, data);
-    if (section) {
-      const categoryIds = section.categories?.map((c) => c.id) ?? [];
-      if (categoryIds.length > 0) {
-        if (!data.category) {
-          errors.add(file, "category", `required — section "${section.id}" declares categories (${categoryIds.join(", ")})`);
-        } else if (!categoryIds.includes(data.category)) {
-          errors.add(file, "category", `"${data.category}" is not declared in content/sections/${section.id}.json (${categoryIds.join(", ")})`);
-        }
-      } else if (data.category) {
-        errors.add(file, "category", `section "${section.id}" declares no categories — remove the field`);
-      }
-    }
+    if (section) checkCategoryRef(file, data, section);
     (Array.isArray(data.related) ? data.related : []).forEach((id, i) => {
       if (id === data.id) errors.add(file, `related[${i}]`, "an object cannot relate to itself");
       else if (!objectIds.has(id)) errors.add(file, `related[${i}]`, `"${id}" does not resolve to an object in content/objects/`);
@@ -922,7 +930,8 @@ export function loadContent({ contentDir, assetsDir }) {
   }
 
   for (const { file, data } of people) {
-    checkSectionRef(file, data);
+    const section = checkSectionRef(file, data);
+    if (section) checkCategoryRef(file, data, section);
     (Array.isArray(data.relatedObjects) ? data.relatedObjects : []).forEach((id, i) => {
       if (!objectIds.has(id)) errors.add(file, `relatedObjects[${i}]`, `"${id}" does not resolve to an object in content/objects/`);
     });

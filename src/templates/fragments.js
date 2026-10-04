@@ -41,7 +41,7 @@ export function personaCard(site, section) {
     site,
     image: section.heroImage,
     className: "persona-card__img",
-    sizes: "(min-width: 40rem) 33rem, 100vw",
+    sizes: "(min-width: 69rem) 32rem, (min-width: 40rem) calc((100vw - 5rem) / 2), calc(100vw - 3rem)",
   });
   return `<li class="persona-card">
   <a class="persona-card__link" href="${esc(localizeHref(`/${section.id}/`))}">
@@ -252,7 +252,7 @@ export function objectCard(site, obj) {
     site,
     image: obj.images[0],
     className: "collection-card__img",
-    sizes: "(min-width: 48rem) 22rem, 100vw",
+    sizes: "(min-width: 36rem) 16rem, (min-width: 24.5rem) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)",
     dataVt: vtName("obj", obj.id),
   });
   // Object names stay in their original form on every locale (curatorial
@@ -289,7 +289,7 @@ export function personCard(site, person) {
     site,
     image: person.portrait,
     className: "collection-card__img",
-    sizes: "(min-width: 48rem) 22rem, 100vw",
+    sizes: "(min-width: 36rem) 16rem, (min-width: 24.5rem) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)",
     dataVt: vtName("person", person.id),
   });
   return renderCollectionCard({

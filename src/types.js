@@ -189,6 +189,7 @@
  * @typedef {object} Person
  * @property {string} id
  * @property {string} section
+ * @property {string} [category] - the section category tab this person sits under; required when their section declares categories
  * @property {number} order
  * @property {string} name
  * @property {LocalizedString} role

@@ -8,7 +8,11 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  min-height: min(60vh, 34rem);
+  /* Tuned against the fold, not for its own sake: the band, the tab bar and
+     the column heading stack above the first row of cards, and at 60vh/34rem
+     that row began below the viewport on a 1280×800 or 1440×900 laptop — so
+     the page looked like it ended at the hero until you scrolled. */
+  min-height: min(55vh, 32rem);
   padding-block: var(--space-3xl) var(--space-2xl);
 }
 
@@ -68,7 +72,7 @@
 
 /* --- Category tabs (plain in-page anchor links; work JS-free) ----------- */
 .section-tabs {
-  margin-block-end: var(--space-2xl);
+  margin-block-end: var(--space-xl);
   border-bottom: 1px solid color-mix(in srgb, var(--black-cow) 25%, transparent);
 }
 
@@ -100,6 +104,13 @@
   border-bottom-color: var(--accent-on-light);
 }
 
+/* The band's own padding is the site-wide 4rem; the section body opens tighter
+   so the collection clears the fold (see .section-hero). The foot keeps the
+   full rhythm, since nothing is competing for space down there. */
+.section-body {
+  padding-block-start: var(--space-xl);
+}
+
 /* --- Panels ------------------------------------------------------------- */
 .section-panel {
   margin-block-end: var(--space-3xl);
@@ -121,6 +132,24 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     gap: var(--space-2xl);
     align-items: start;
+  }
+
+  /* Scholar carries no essays of its own — its prose lives on the person
+     pages. The grid keeps the width of the wide column it would have sat in
+     rather than spreading over both: card width follows the measure it sits
+     in, so holding that measure is what makes a Scholar portrait exactly the
+     size of an Ethnographer or Artist card (and lands the sixteen as 4×4).
+     The freed-up column is then split either side as margin, so the grid
+     centres instead of hanging off the left edge. */
+  .category-panel__columns--single {
+    grid-template-columns: minmax(0, calc((100% - var(--space-2xl)) / 3 * 2));
+    justify-content: center;
+  }
+
+  /* With no essay column beside it the heading has no left edge to align to,
+     so it centres over its own grid rather than floating at the far left. */
+  .category-panel__columns--single .section-panel__subheading {
+    text-align: center;
   }
 
   .category-panel__essays {

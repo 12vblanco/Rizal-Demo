@@ -34,11 +34,32 @@ process.env.UV_THREADPOOL_SIZE ??= String(availableParallelism());
 // Responsive width ladder. A source contributes every ladder width narrower
 // than it, plus its own width capped at MAX_WIDTH — so we never upscale and
 // never emit a needlessly huge variant (deep zoom is feature 09's job).
-const LADDER = [400, 800, 1200, 1600];
+// The 600 rung exists for the collection-card grid: a card is ~160–180px on a
+// two-column phone, so it asks for ~480–540px at 3x and would otherwise round
+// all the way up to 800.
+const LADDER = [400, 600, 800, 1200, 1600];
 const MAX_WIDTH = 2000;
 // The <img> fallback (for the rare client with no <picture>/AVIF/WebP) targets
 // a mid-size variant to balance quality against bytes.
 const FALLBACK_TARGET = 1200;
+
+// Per-codec encode options, kept in one place so CONFIG_KEY below can hash the
+// settings that actually determine the bytes on disk.
+const CODEC = {
+  avif: { quality: 50, effort: 3 },
+  webp: { quality: 74 },
+  jpeg: { quality: 80, mozjpeg: true },
+  png: { compressionLevel: 9 },
+};
+
+// The cache is keyed on the source bytes *and* on everything that decides what
+// is encoded from them. Without the second half, editing LADDER or a codec
+// setting leaves every source "unchanged" and the build silently reuses the
+// variants encoded under the old settings.
+const CONFIG_KEY = createHash("md5")
+  .update(JSON.stringify({ LADDER, MAX_WIDTH, FALLBACK_TARGET, CODEC }))
+  .digest("hex")
+  .slice(0, 8);
 
 const OUT_DIR = "media/images"; // relative to dist/
 const DZ_DIR = "media/dz"; // deep-zoom tile pyramids, relative to dist/
@@ -47,6 +68,13 @@ const DZ_DIR = "media/dz"; // deep-zoom tile pyramids, relative to dist/
 // through an inline OpenSeadragon tile descriptor, so no .dzi XML is fetched.
 const DZ_TILE_SIZE = 254;
 const DZ_OVERLAP = 1;
+const DZ_CODEC = { quality: 80, mozjpeg: true };
+
+/** Cache key for the tiling pipeline — see CONFIG_KEY. */
+const DZ_CONFIG_KEY = createHash("md5")
+  .update(JSON.stringify({ DZ_TILE_SIZE, DZ_OVERLAP, DZ_CODEC }))
+  .digest("hex")
+  .slice(0, 8);
 
 /** @typedef {{ w: number, h: number, file: string }} Variant */
 /**
@@ -64,9 +92,15 @@ const DZ_OVERLAP = 1;
  * @property {string} fullUrl           largest webp URL (JS-off "view full image")
  */
 
-/** @param {Buffer} buf */
-function contentHash(buf) {
-  return createHash("md5").update(buf).digest("hex").slice(0, 8);
+/**
+ * Cache/filename key for one source: its bytes plus the settings that decide
+ * what gets encoded from them. Each pipeline passes its own `configKey`, so a
+ * change to the responsive ladder does not needlessly re-tile every deep-zoom
+ * pyramid (and vice versa).
+ * @param {Buffer} buf @param {string} configKey
+ */
+function contentHash(buf, configKey) {
+  return createHash("md5").update(buf).update(configKey).digest("hex").slice(0, 8);
 }
 
 /** All image sources under assets-src/images/, as paths relative to that dir. */
@@ -128,10 +162,10 @@ async function encode(srcPath, src, hash, cacheFilesDir) {
     let pipe = sharp(srcPath, { failOn: "none" }).resize(w, null, {
       withoutEnlargement: true,
     });
-    if (fmt === "avif") pipe = pipe.avif({ quality: 50, effort: 3 });
-    else if (fmt === "webp") pipe = pipe.webp({ quality: 74 });
-    else if (fmt === "jpeg") pipe = pipe.jpeg({ quality: 80, mozjpeg: true });
-    else pipe = pipe.png({ compressionLevel: 9 });
+    if (fmt === "avif") pipe = pipe.avif(CODEC.avif);
+    else if (fmt === "webp") pipe = pipe.webp(CODEC.webp);
+    else if (fmt === "jpeg") pipe = pipe.jpeg(CODEC.jpeg);
+    else pipe = pipe.png(CODEC.png);
     const info = await pipe.toFile(outAbs);
     return { w: info.width, h: info.height, file: `${OUT_DIR}/${file}` };
   };
@@ -208,7 +242,7 @@ export async function processImages({ assetsDir, dist, cacheDir, log = () => {} 
   const toEncode = [];
   for (const src of sources) {
     const srcPath = path.join(imagesDir, src);
-    const hash = contentHash(readFileSync(srcPath));
+    const hash = contentHash(readFileSync(srcPath), CONFIG_KEY);
     const cached = cache[src];
     const filesPresent =
       cached &&
@@ -388,7 +422,7 @@ export async function processDeepZoom({ assetsDir, dist, cacheDir, sources, log 
 
   for (const src of [...sources].sort()) {
     const srcPath = path.join(imagesDir, src);
-    const hash = contentHash(readFileSync(srcPath));
+    const hash = contentHash(readFileSync(srcPath), DZ_CONFIG_KEY);
     const dir = `${slugFor(src)}-${hash}`; // "salakot-front-<hash>"
     const cacheEntryDir = path.join(cacheTilesDir, dir);
     const filesDir = path.join(cacheEntryDir, "tiles_files");
@@ -407,7 +441,7 @@ export async function processDeepZoom({ assetsDir, dist, cacheDir, sources, log 
       mkdirSync(cacheEntryDir, { recursive: true });
       const meta = await sharp(srcPath).metadata();
       await sharp(srcPath, { failOn: "none" })
-        .jpeg({ quality: 80, mozjpeg: true })
+        .jpeg(DZ_CODEC)
         .tile({ size: DZ_TILE_SIZE, overlap: DZ_OVERLAP, layout: "dz" })
         .toFile(path.join(cacheEntryDir, "tiles.dz"));
       // Sharp emits tiles.dzi (descriptor, unused) + tiles_files/ (the pyramid).

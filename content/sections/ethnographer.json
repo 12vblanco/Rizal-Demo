@@ -11,12 +11,18 @@
     "de": "Auf seiner Europareise im Jahr 1888 sandte José Rizal 21 Objekte von London nach Berlin – Kulturzeugnisse, die Gemeinschaften aus dem ganzen Land repräsentieren. Seine ethnografischen Beiträge zeichneten ein umfassendes Bild des philippinischen Archipels und seiner Kultur."
   },
   "heroImage": {
-    "src": "sections/ethnographer.webp",
-    "alt": "A domed salakot of translucent carabao horn studded with silver flowers, displayed on a stand"
+    "src": "sections/ethnographer-crown.webp",
+    "alt": "Close-up of the salakot crown, its horn panels joined by silver seams and star- and flower-shaped studs"
   },
   "categories": [
-    { "id": "clothing", "label": "Articles of Clothing" },
-    { "id": "daily-life", "label": "Technologies of Daily Life" }
+    {
+      "id": "clothing",
+      "label": "Articles of Clothing"
+    },
+    {
+      "id": "daily-life",
+      "label": "Technologies of Daily Life"
+    }
   ],
   "status": "live"
 }

@@ -116,7 +116,11 @@ if (
         }
       }
     },
-    { rootMargin: "0px 0px -10% 0px", threshold: 0.1 },
+    // No negative bottom margin: trimming the root by 10% held back the cards
+    // sitting just inside the fold on load, so the first row stayed invisible
+    // until the visitor scrolled. Reveals now fire the moment a card is on
+    // screen, including at load.
+    { rootMargin: "0px", threshold: 0.1 },
   );
   for (const el of revealTargets) observer.observe(el);
 }

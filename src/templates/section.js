@@ -2,8 +2,10 @@
 // Section (persona) page — one generated page per section at /<section-id>/
 // (/ethnographer/, /scholar/, /artist/, /hero/). One template drives three
 // data states, all keyed off sections/<id>.json:
-//   • live + categories  → tab-styled category view (Ethnographer)
-//   • live, no categories → object or person grid (Scholar)
+//   • live + categories  → tab-styled category view (Ethnographer, Artist,
+//                          Scholar — which tiles people where the other two
+//                          tile objects)
+//   • live, no categories → object or person grid (Hero)
 //   • status "upcoming"   → editorial teasers + the designed "upcoming" state
 // The `status` flag alone flips a section's grid area upcoming ↔ live — no
 // markup edits (spec acceptance). Grids reuse the shared object/person cards so
@@ -106,49 +108,98 @@ function panelEmpty(message) {
   return `<p class="section-panel__empty">${esc(message)}</p>`;
 }
 
-/** @param {string} id @param {string} heading @param {string} inner */
-function renderPanel(id, heading, inner) {
+/** The panel's <h2> is what `aria-labelledby` points at and what keeps the
+ *  outline at h1 → h2 → h3 (the cards inside are h3s), so a heading that would
+ *  only repeat its own tab label is hidden rather than dropped — the element
+ *  stays for assistive tech, the words leave the page.
+ * @param {string} id @param {string} heading @param {string} inner
+ * @param {boolean} [hideHeading] */
+function renderPanel(id, heading, inner, hideHeading = false) {
+  const headingClass = `section-panel__heading${hideHeading ? " visually-hidden" : ""}`;
   return `    <section class="section-panel" id="${esc(id)}" aria-labelledby="${esc(id)}-h">
-      <h2 class="section-panel__heading" id="${esc(id)}-h">${esc(heading)}</h2>
+      <h2 class="${headingClass}" id="${esc(id)}-h">${esc(heading)}</h2>
       ${inner}
     </section>`;
 }
 
-/** One category tab's content: a narrow essay column beside a wide object
- *  grid, both filtered to that category (or, for the Introduction tab, the
- *  full unfiltered object collection). Both columns always render — with
- *  their own heading — so the two content types (article vs. artifact) stay
- *  visually distinct regardless of how many of each a category has.
- * @param {Site} site @param {string} id @param {string} heading
- * @param {Essay[]} essays @param {ContentObject[]} objects */
-function renderCategoryPanel(site, id, heading, essays, objects) {
-  const essaysCol = `<div class="category-panel__essays">
+/** The artifact column's contents for a category view. Ethnographer and Artist
+ *  tile objects; Scholar tiles the people Rizal learned from. Only the cards,
+ *  the column heading, and the grid's track list differ, so the cards are
+ *  rendered up front and the panel template below stays collection-agnostic.
+ * @typedef {object} Collection
+ * @property {{ category?: string, card: string }[]} entries - one per record:
+ *   the category tab it belongs to, and its rendered card
+ * @property {string} heading
+ * @property {string} empty - designed empty state when a tab has none
+ */
+
+/** @param {Site} site @param {ContentObject[]} objects @returns {Collection} */
+function objectCollection(site, objects) {
+  return {
+    entries: objects3dFirst(objects).map((o) => ({ category: o.category, card: objectCard(site, o) })),
+    heading: t("exploreObjects"),
+    empty: t("objectsComingSoon"),
+  };
+}
+
+/** @param {Site} site @param {Person[]} people @returns {Collection} */
+function peopleCollection(site, people) {
+  return {
+    entries: people.map((p) => ({ category: p.category, card: personCard(site, p) })),
+    heading: t("explorePeople"),
+    empty: t("peopleComingSoon"),
+  };
+}
+
+/** This collection narrowed to one tab.
+ * @param {Collection} collection @param {string} categoryId @returns {Collection} */
+function inCategory(collection, categoryId) {
+  return { ...collection, entries: collection.entries.filter((e) => e.category === categoryId) };
+}
+
+/** One category tab's content: a narrow essay column beside a wide collection
+ *  grid, both already filtered to that category (or, for the Introduction tab,
+ *  the full unfiltered collection). Where the section has editorial at all,
+ *  both columns always render — with their own heading — so the two content
+ *  types (article vs. artifact) stay visually distinct regardless of how many
+ *  of each a category has. A section with no essays anywhere (Scholar, whose
+ *  prose lives on the person pages) drops the column instead of repeating a
+ *  "being prepared" note under every tab, and the grid takes the full width.
+ * @param {string} id @param {string} heading @param {Essay[]} essays
+ * @param {Collection} collection @param {boolean} withEssays
+ * @param {boolean} [hideHeading] */
+function renderCategoryPanel(id, heading, essays, collection, withEssays, hideHeading = false) {
+  const essaysCol = withEssays
+    ? `<div class="category-panel__essays">
         <h3 class="section-panel__subheading">${esc(t("essays"))}</h3>
         ${essays.length ? renderEssayList(essays) : panelEmpty(t("essaysComingSoon"))}
-      </div>`;
-  const objectsCol = `<div class="category-panel__objects">
-        <h3 class="section-panel__subheading">${esc(t("exploreObjects"))}</h3>
+      </div>
+      `
+    : "";
+  const collectionCol = `<div class="category-panel__objects">
+        <h3 class="section-panel__subheading">${esc(collection.heading)}</h3>
         ${
-          objects.length
+          collection.entries.length
             ? `<ul class="collection-grid">
-${objects3dFirst(objects).map((o) => objectCard(site, o)).join("\n")}
+${collection.entries.map((e) => e.card).join("\n")}
         </ul>`
-            : panelEmpty(t("objectsComingSoon"))
+            : panelEmpty(collection.empty)
         }
       </div>`;
   return renderPanel(
     id,
     heading,
-    `<div class="category-panel__columns">
-      ${essaysCol}
-      ${objectsCol}
+    `<div class="category-panel__columns${withEssays ? "" : " category-panel__columns--single"}">
+      ${essaysCol}${collectionCol}
     </div>`,
+    hideHeading,
   );
 }
 
-/** @param {Site} site @param {Section} section @param {ContentObject[]} objects @param {Essay[]} essays */
-function renderCategoryView(site, section, objects, essays) {
+/** @param {Section} section @param {Essay[]} essays @param {Collection} collection */
+function renderCategoryView(section, essays, collection) {
   const uncategorised = essays.filter((e) => !e.category);
+  const withEssays = essays.length > 0;
 
   const tabs = [
     { id: "section-intro", label: t("introduction") },
@@ -160,16 +211,23 @@ ${tabs.map((tab) => `        <li><a class="section-tabs__link" href="#${tab.id}"
       </ul>
     </nav>`;
 
-  // Introduction pairs the overview essay with every object, unfiltered —
-  // matching the live site's behavior — rather than an empty grid.
-  const introPanel = renderCategoryPanel(site, "section-intro", t("introduction"), uncategorised, objects);
+  // Introduction pairs the overview essay with the whole collection,
+  // unfiltered — matching the live site's behavior — rather than an empty grid.
+  // Its heading would sit directly beneath the identically-worded first tab, so
+  // it renders for assistive tech only; the category panels keep theirs, which
+  // name which slice of the collection you are looking at.
+  const introPanel = renderCategoryPanel("section-intro", t("introduction"), uncategorised, collection, withEssays, true);
 
   const categoryPanels = section.categories
-    .map((c) => {
-      const catEssays = essays.filter((e) => e.category === c.id);
-      const catObjects = objects.filter((o) => o.category === c.id);
-      return renderCategoryPanel(site, `category-${c.id}`, pick(c.label), catEssays, catObjects);
-    })
+    .map((c) =>
+      renderCategoryPanel(
+        `category-${c.id}`,
+        pick(c.label),
+        essays.filter((e) => e.category === c.id),
+        inCategory(collection, c.id),
+        withEssays,
+      )
+    )
     .join("\n");
 
   return `<div class="band band--light section-body">
@@ -181,13 +239,11 @@ ${categoryPanels}
 </div>`;
 }
 
-// --- Plain grid view (Scholar / any live section without categories) -------
+// --- Plain grid view (Hero / any live section without categories) ----------
 
 /** @param {Site} site @param {Section} section @param {Essay[]} essays
- *  @param {string[]} cards @param {string} [gridClass] - extra class on the
- *  grid, so a card set with its own column rhythm (the Scholar portraits) can
- *  override the shared auto-fill track list. */
-function renderGridView(site, section, essays, cards, gridClass = "") {
+ *  @param {string[]} cards */
+function renderGridView(site, section, essays, cards) {
   const essayBlock = essays.length
     ? `<div class="section-body__editorial"><h2 class="section-grid__heading">${esc(t("essays"))}</h2>\n    ${renderEssayList(essays)}</div>\n    `
     : "";
@@ -196,7 +252,7 @@ function renderGridView(site, section, essays, cards, gridClass = "") {
   // the "Explore the collection" heading + grid rather than render it empty.
   const collectionBlock = cards.length
     ? `<h2 class="section-grid__heading">${esc(t("exploreCollection"))}</h2>
-    <ul class="collection-grid${gridClass ? " " + gridClass : ""}">
+    <ul class="collection-grid">
 ${cards.join("\n")}
     </ul>`
     : "";
@@ -249,10 +305,19 @@ export function renderSection({ site, section, objects, people, essays }) {
   if (section.status === "upcoming") {
     body = renderUpcomingView(site, section, essays);
   } else if (section.categories.length) {
-    body = renderCategoryView(site, section, objects, essays);
-    vtNames = objects.map((o) => vtName("obj", o.id));
+    // A section's collection is one or the other, never both: Scholar is the
+    // people Rizal learned from, Ethnographer and Artist their objects.
+    const usePeople = people.length > 0;
+    body = renderCategoryView(
+      section,
+      essays,
+      usePeople ? peopleCollection(site, people) : objectCollection(site, objects),
+    );
+    vtNames = usePeople
+      ? people.map((p) => vtName("person", p.id))
+      : objects.map((o) => vtName("obj", o.id));
   } else if (people.length) {
-    body = renderGridView(site, section, essays, people.map((p) => personCard(site, p)), "collection-grid--people");
+    body = renderGridView(site, section, essays, people.map((p) => personCard(site, p)));
     vtNames = people.map((p) => vtName("person", p.id));
   } else {
     body = renderGridView(site, section, essays, objects3dFirst(objects).map((o) => objectCard(site, o)));

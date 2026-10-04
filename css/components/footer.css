@@ -215,12 +215,16 @@
   margin-bottom: 3rem;
 }
 
-/* Right column: pills on top, social icons pinned to the bottom-right */
+/* Right column: pills on top, social icons pinned to the bottom-right.
+   Mobile-first — until the 48rem two-column .footer-grid kicks in this is the
+   footer's last block, running full width under the About text, so the pills,
+   the social row and the contact line all centre rather than hanging off the
+   right edge against nothing. */
 .footer-side {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   gap: var(--space-l);
 }
 
@@ -265,7 +269,7 @@
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   gap: var(--space-s);
 }
 
@@ -298,9 +302,22 @@
 .footer-contact {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: var(--space-2xs) var(--space-m);
+}
+
+/* From the 48rem .footer-grid breakpoint the side column sits in its own
+   right-hand track, where the stack reads as a right-aligned group again. */
+@media (min-width: 48rem) {
+  .footer-side {
+    align-items: flex-end;
+  }
+
+  .footer-social,
+  .footer-contact {
+    justify-content: flex-end;
+  }
 }
 
 .footer-contact__label {
@@ -313,8 +330,12 @@
 }
 
 /* ── Copyright bar (compact) ─────────────────────────────────────────── */
+/* The inline padding scales with the viewport: a flat 5rem is 160px of gutter
+   on a 390px phone, which squeezed the line into the middle third and wrapped
+   it. Centred on mobile to match the side column above it, left-aligned again
+   once the footer goes two-column. */
 .site-footer__bar {
-  padding: 2rem 5rem;
+  padding: 2rem clamp(var(--space-l), 6vw, 5rem);
   border-top: 1px solid color-mix(in srgb, var(--text-on-dark) 15%, transparent);
 }
 
@@ -322,5 +343,12 @@
   margin: 0;
   max-width: none;
   font-size: var(--step--1);
+  text-align: center;
   color: color-mix(in srgb, var(--text-on-dark) 70%, transparent);
+}
+
+@media (min-width: 48rem) {
+  .site-footer__copyright {
+    text-align: start;
+  }
 }

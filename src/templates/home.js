@@ -84,7 +84,7 @@ function model3dCard(site, obj) {
     site,
     image: { src: model.poster, alt: model.altText },
     className: "models3d__img",
-    sizes: "(min-width: 60rem) 20rem, 60vw",
+    sizes: "min(18rem, 78vw)",
   });
   return `<li class="models3d__item">
   <a class="models3d__link" href="${esc(localizeHref(`/${obj.section}/${obj.id}/`))}">
@@ -158,7 +158,7 @@ function renderTeaser(site, teaser) {
     ? `\n      <p class="teaser__text">${esc(pick(teaser.text))}</p>`
     : "";
   const media = teaser.image
-    ? `\n    <span class="teaser__media">${renderImage({ site, image: teaser.image, className: "teaser__img", sizes: "(min-width: 48rem) 34rem, 100vw" })}</span>`
+    ? `\n    <span class="teaser__media">${renderImage({ site, image: teaser.image, className: "teaser__img", sizes: "(min-width: 90rem) 42.75rem, (min-width: 48rem) calc((100vw - 4.5rem) / 2), calc(100vw - 3rem)" })}</span>`
     : "";
   return `<article class="teaser${accent}">
     <div class="teaser__content">
