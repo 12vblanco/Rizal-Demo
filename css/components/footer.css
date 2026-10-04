@@ -267,8 +267,10 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+  /* The four icons sit as a 2×2 block on mobile. A wrapping flex row breaks
+     them 3 + 1 at this width, which reads as a stray icon rather than a set. */
+  display: grid;
+  grid-template-columns: repeat(2, auto);
   justify-content: center;
   gap: var(--space-s);
 }
@@ -312,6 +314,12 @@
 @media (min-width: 48rem) {
   .footer-side {
     align-items: flex-end;
+  }
+
+  /* Back to a single right-aligned row once the column is wide enough. */
+  .footer-social {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .footer-social,
