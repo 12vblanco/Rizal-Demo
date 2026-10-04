@@ -2,7 +2,7 @@
   "siteTitle": {
     "en": "The Hero, Artist, and Ethnographer",
     "fil": "Ang Bayani, Artista, at Etnograpo",
-    "de": "Der Held, Künstler und Ethnograph"
+    "de": "Der Held, Künstler und Ethnograf"
   },
   "siteSubtitle": {
     "en": "José Rizal in the Philippines and in Germany",
@@ -22,7 +22,7 @@
   "homeTitle": {
     "en": "The Hero, Artist, and Ethnographer: José Rizal Digital Exhibition",
     "fil": "Ang Bayani, Artista, at Etnograpo: Digital na Eksibisyon ni José Rizal",
-    "de": "Der Held, Künstler und Ethnograph: Digitale Ausstellung zu José Rizal"
+    "de": "Der Held, Künstler und Ethnograf: Digitale Ausstellung zu José Rizal"
   },
   "baseUrl": "https://rizal.nationalmuseum.gov.ph",
   "basePath": "/",
@@ -30,7 +30,7 @@
   "description": {
     "en": "This digital exhibition reflects on Rizal's life, offering a glimpse into his many facets beyond the renowned hero. A gifted artist, an ethnographer championing Filipino culture, and an exceptional scholar.",
     "fil": "Ang digital na eksibisyong ito ay nagninilay sa buhay ni Rizal, na nagbibigay ng sulyap sa kanyang maraming aspeto higit pa sa kilalang bayani. Isang mahusay na artista, isang etnograpong nagtataguyod ng kulturang Filipino, at isang pambihirang iskolar.",
-    "de": "Diese digitale Ausstellung beleuchtet Rizals Leben und gibt einen Einblick in seine vielen Facetten jenseits des berühmten Helden: ein begabter Künstler, ein Ethnograph, der die philippinische Kultur würdigte, und ein außergewöhnlicher Gelehrter."
+    "de": "Diese digitale Ausstellung beleuchtet Rizals Leben und gibt einen Einblick in seine vielen Facetten jenseits des berühmten Helden: ein begabter Künstler, ein Ethnograf, der die philippinische Kultur würdigte, und ein außergewöhnlicher Gelehrter."
   },
   "heroCtas": [
     {
@@ -63,7 +63,7 @@
       "text": {
         "en": "José Rizal traveled to Germany to pursue his specialization in ophthalmology. Little did he know that his stay, particularly in Berlin, would soon open his eyes to a broader perspective and worldview. From finishing Noli Me Tángere to engaging with leading scientists, Rizal came to understand his identity more clearly.",
         "fil": "Naglakbay si José Rizal patungong Alemanya upang ituloy ang kanyang espesyalisasyon sa optalmolohiya. Hindi niya inaasahan na ang kanyang pananatili, lalo na sa Berlin, ay magbubukas sa kanyang mga mata sa mas malawak na pananaw at pagtingin sa mundo. Mula sa pagtatapos ng Noli Me Tángere hanggang sa pakikipag-ugnayan sa mga nangungunang siyentipiko, mas naunawaan ni Rizal ang kanyang pagkakakilanlan.",
-        "de": "José Rizal reiste nach Deutschland, um seine Spezialisierung in der Augenheilkunde zu vertiefen. Kaum ahnte er, dass sein Aufenthalt, insbesondere in Berlin, ihm bald eine weitere Perspektive und Weltsicht eröffnen würde. Von der Vollendung des Noli Me Tángere bis zum Austausch mit führenden Wissenschaftlern gelangte Rizal zu einem klareren Verständnis seiner Identität."
+        "de": "José Rizal reiste nach Deutschland, um seine Spezialisierung in der Augenheilkunde zu vertiefen. Kaum ahnte er, dass sein Aufenthalt, insbesondere in Berlin, ihm bald eine breitere Perspektive und Weltsicht eröffnen würde. Von der Vollendung des Noli Me Tángere bis zum Austausch mit führenden Wissenschaftlern gelangte Rizal zu einem klareren Verständnis seiner Identität."
       },
       "image": {
         "src": "home/rizal-in-germany.webp",
@@ -81,7 +81,7 @@
       "text": {
         "en": "This digital exhibition reflects on Rizal's life, offering a glimpse into his many facets beyond the renowned hero: a gifted artist, an ethnographer championing Filipino culture, and an exceptional scholar.",
         "fil": "Ang digital na eksibisyong ito ay nagninilay sa buhay ni Rizal, na nagbibigay ng sulyap sa kanyang maraming aspeto higit pa sa kilalang bayani: isang mahusay na artista, isang etnograpong nagtataguyod ng kulturang Filipino, at isang pambihirang iskolar.",
-        "de": "Diese digitale Ausstellung beleuchtet Rizals Leben und gibt einen Einblick in seine vielen Facetten jenseits des berühmten Helden: ein begabter Künstler, ein Ethnograph, der die philippinische Kultur würdigte, und ein außergewöhnlicher Gelehrter."
+        "de": "Diese digitale Ausstellung beleuchtet Rizals Leben und gibt einen Einblick in seine vielen Facetten jenseits des berühmten Helden: ein begabter Künstler, ein Ethnograf, der die philippinische Kultur würdigte, und ein außergewöhnlicher Gelehrter."
       },
       "image": {
         "src": "home/about-the-project.webp",
@@ -97,7 +97,7 @@
       "children": [
         { "label": { "en": "As Hero", "fil": "Bilang Bayani", "de": "Als Held" }, "href": "/hero/" },
         { "label": { "en": "As Artist", "fil": "Bilang Artista", "de": "Als Künstler" }, "href": "/artist/" },
-        { "label": { "en": "As Ethnographer", "fil": "Bilang Etnograpo", "de": "Als Ethnograph" }, "href": "/ethnographer/" },
+        { "label": { "en": "As Ethnographer", "fil": "Bilang Etnograpo", "de": "Als Ethnograf" }, "href": "/ethnographer/" },
         { "label": { "en": "As Scholar", "fil": "Bilang Iskolar", "de": "Als Gelehrter" }, "href": "/scholar/" }
       ]
     },
@@ -111,7 +111,7 @@
     { "label": { "en": "Overview", "fil": "Pangkalahatang-tanaw", "de": "Überblick" }, "href": "/jose-rizal/" },
     { "label": { "en": "Hero", "fil": "Bayani", "de": "Held" }, "href": "/hero/" },
     { "label": { "en": "Artist", "fil": "Artista", "de": "Künstler" }, "href": "/artist/" },
-    { "label": { "en": "Ethnographer", "fil": "Etnograpo", "de": "Ethnograph" }, "href": "/ethnographer/" },
+    { "label": { "en": "Ethnographer", "fil": "Etnograpo", "de": "Ethnograf" }, "href": "/ethnographer/" },
     { "label": { "en": "Scholar", "fil": "Iskolar", "de": "Gelehrter" }, "href": "/scholar/" },
     { "label": { "en": "About", "fil": "Tungkol", "de": "Über uns" }, "href": "/about/" }
   ],

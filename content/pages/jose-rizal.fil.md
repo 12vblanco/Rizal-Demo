@@ -1,5 +1,5 @@
 ---
-title: Panimulang Tanaw
+title: Pangkalahatang Tanaw
 bodyHeading: Panimula sa Eksibisyon
 ---
 
@@ -11,7 +11,7 @@ Magiging bukas ang temang Si Rizal bilang Artista sa ika-19 ng Hunyo 2026, bilan
 
 Bubuksan ang temang Si Rizal bilang Bayani sa ika-30 ng Disyembre 2026, na tanda ng ika-130 anibersaryo ng kanyang kamatayan. Itatampok nito ang mga personal na kagamitang nakalagak sa Museo ni José Rizal sa Calamba, Dapitan, at Fort Santiago, kasama ang kanyang mga orihinal na manuskritong iniingatan sa Pambansang Aklatan ng Pilipinas.
 
-Bukod sa tatlong pangunahing temang ito, kabilang din sa eksibisyon ang Si Rizal bilang Iskolar, na naglalarawan sa mga taong humubog sa kanyang paglago intelektwal at kalaunan ay naging kanyang mga tagapagturo, kababayan, at kapatid sa Kilusang Propaganda.
+Bukod sa tatlong pangunahing temang ito, kabilang din sa eksibisyon ang Si Rizal bilang Iskolar, na naglalarawan sa mga taong humubog sa kanyang paglagong intelektwal at kalaunan ay naging kanyang mga tagapagturo, kababayan, at kapatid sa Kilusang Propaganda.
 
 Isa pang pokus na pantema, ang Si Rizal sa Alemanya, ay nagtatampok sa kanyang panahon sa Berlin at sa kanyang mga nagawa mula Pebrero 1886 hanggang Mayo 1887, isang mapagpasiyang yugto ng kanyang buhay.
 

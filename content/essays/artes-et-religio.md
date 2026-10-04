@@ -9,7 +9,9 @@ author: Jane Maren Dasal
 category: of-clay-and-resistance
 ---
 
-Even before studying in Manila, the young Pepe had already shown an interest in sculpting. He started making models of birds and butterflies made of clay and wax as play time in his childhood home in Calamba. He eventually carved with a pen knife despite no formal training.Rizal used the same material to carve what would become an extant manifestation of his artistic talent more than a century after his death. At the request of his Jesuit professor in Ateneo Municipal, Father Jose Leonard, Rizal carved an image of the Sacred Heart of Jesus out of batikuling (Litsea leytensis Merr.) wood.
+Even before studying in Manila, the young Pepe had already shown an interest in sculpting. He started making models of birds and butterflies made of clay and wax as play time in his childhood home in Calamba. He eventually carved with a pen knife despite no formal training.
+
+Rizal used the same material to carve what would become an extant manifestation of his artistic talent more than a century after his death. At the request of his Jesuit professor in Ateneo Municipal, Father Jose Leonard, Rizal carved an image of the Sacred Heart of Jesus out of batikuling (Litsea leytensis Merr.) wood.
 
 His training in Ateneo Municipal honed his talent in sculpting. Here, his formative years were deeply immersed in the arts and humanities. While his primary subjects were religious studies, mathematics, and the sciences, Rizal took what they call classes de adorno, or cultural studies. These encompass music, painting, and sculpture. His teacher in sculpture was Romualdo de Jesus, a Filipino.
 
