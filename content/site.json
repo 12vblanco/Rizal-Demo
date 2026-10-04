@@ -161,7 +161,11 @@
     {
       "name": "Office of Senator Loren Legarda",
       "logo": "img/logos/loren-legarda.webp",
-      "caption": "Office of Senator Loren Legarda"
+      "caption": {
+        "en": "Office of Senator Loren Legarda",
+        "fil": "Tanggapan ni Senador Loren Legarda",
+        "de": "Büro von Senatorin Loren Legarda"
+      }
     },
     {
       "name": "Embassy of the Republic of the Philippines, Berlin",

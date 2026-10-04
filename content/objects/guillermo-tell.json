@@ -7,8 +7,16 @@
     "en": "Guillermo Tell",
     "tl": "Trahediang Tinula ni Schiller sa Wikang Aleman"
   },
-  "objectType": "Manuscript",
-  "description": "In 1886, while in Leipzig, Germany, Rizal translated Friedrich Schiller’s drama Wilhelm Tell into Tagalog, titling it Guillermo Tell and sent a copy to his brother Paciano in Calamba, Laguna\n\nIn a letter to Blumentritt in October 1886, as he hopes for a better political condition he intends to say one day to posterity what Schiller did to the Swiss:\n\n“We have conquered this land with the diligence of our hand; the old forest, which formerly was the abode of wild bears, we have changed into the habitation of men; we have killed the spawn of the dragon.”\n\n## References\n\nDomingo, Benjamin. Rizal in Germany. Foreign Service Institute, 1983.",
+  "objectType": {
+    "en": "Manuscript",
+    "fil": "Manuskrito",
+    "de": "Manuskript"
+  },
+  "description": {
+    "en": "In 1886, while in Leipzig, Germany, Rizal translated Friedrich Schiller’s drama Wilhelm Tell into Tagalog, titling it Guillermo Tell and sent a copy to his brother Paciano in Calamba, Laguna\n\nIn a letter to Blumentritt in October 1886, as he hopes for a better political condition he intends to say one day to posterity what Schiller did to the Swiss:\n\n“We have conquered this land with the diligence of our hand; the old forest, which formerly was the abode of wild bears, we have changed into the habitation of men; we have killed the spawn of the dragon.”\n\n## References\n\nDomingo, Benjamin. Rizal in Germany. Foreign Service Institute, 1983.",
+    "fil": "Noong 1886, habang nasa Leipzig, Alemanya, isinalin ni Rizal sa Tagalog ang dulang Wilhelm Tell ni Friedrich Schiller, na pinamagatan niyang Guillermo Tell, at nagpadala ng kopya sa kanyang kapatid na si Paciano sa Calamba, Laguna\n\nSa isang liham kay Blumentritt noong Oktubre 1886, habang umaasa siya sa mas mabuting kalagayang pampulitika, nilalayon niyang sabihin isang araw sa mga susunod na salinlahi ang sinabi ni Schiller sa mga Suwiso:\n\n“Napagtagumpayan namin ang lupaing ito sa pamamagitan ng sikap ng aming kamay; ang matandang gubat, na dating tahanan ng mababangis na oso, ay ginawa naming tirahan ng tao; pinatay namin ang supling ng dragon.”\n\n## Mga Sanggunian\n\nDomingo, Benjamin. Rizal in Germany. Foreign Service Institute, 1983.",
+    "de": "1886 übersetzte Rizal in Leipzig Friedrich Schillers Drama Wilhelm Tell ins Tagalog, gab ihm den Titel Guillermo Tell und sandte seinem Bruder Paciano in Calamba, Laguna, ein Exemplar\n\nIn einem Brief an Blumentritt vom Oktober 1886 äußert er, in der Hoffnung auf bessere politische Verhältnisse, die Absicht, der Nachwelt eines Tages zu sagen, was Schiller die Schweizer sagen ließ:\n\n„Wir haben dieses Land erschaffen durch unsrer Hände Fleiß, den alten Wald, der sonst der wilden Bären finstre Wohnung war, zu einem Sitz für Menschen umgewandelt; die Brut des Drachen haben wir getötet.“\n\n## Literatur\n\nDomingo, Benjamin. Rizal in Germany. Foreign Service Institute, 1983."
+  },
   "images": [
     {
       "src": "guillermo-tell/front.webp",

@@ -6,9 +6,21 @@
   "title": {
     "en": "Bust of Ricardo Carnicero"
   },
-  "objectType": "Sculpture",
-  "materials": "Terracotta",
-  "description": "The subject of this terracotta sculpture, captain Ricardo Carnicero, was the Spanish Politico Military Governor of Dapitan, Zamboanga del Norte during Dr. Rizal’s exile from 1892-1896. An inscription at the rear of the sculpture reads in Spanish: A D[on] R[icardo] C[arnicero], C[omandante] P[olitico] M[ilitar] de Dap[itan], Recuerdo de, S[uyo] Af[ectisi]mo, Jose Rizal, 1892 — To Don Ricardo Carnicero/ Political-Militar Governor of Dapitan/ [A] Remembrance of/ Yours Truly/ Jose Rizal/ 1892.\n\nOn August 26, 1892, Dr. Rizal wrote a poem entitled “Kay Don Ricardo Carnicero”, honoring the local commander on his birthday. The following month, Captain Carnicero, Dr. Rizal, and another local Spaniard won a second prize lottery worth Php 20,000.00. Rizal used his share in the prize to procure a parcel of land in Dapitan near the sea. Captain Carnicero also assisted Dr. Rizal to develop and enhance the city plaza of Dapitan.",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
+  "materials": {
+    "en": "Terracotta",
+    "fil": "Terracotta",
+    "de": "Terrakotta"
+  },
+  "description": {
+    "en": "The subject of this terracotta sculpture, captain Ricardo Carnicero, was the Spanish Politico Military Governor of Dapitan, Zamboanga del Norte during Dr. Rizal’s exile from 1892-1896. An inscription at the rear of the sculpture reads in Spanish: A D[on] R[icardo] C[arnicero], C[omandante] P[olitico] M[ilitar] de Dap[itan], Recuerdo de, S[uyo] Af[ectisi]mo, Jose Rizal, 1892 — To Don Ricardo Carnicero/ Political-Militar Governor of Dapitan/ [A] Remembrance of/ Yours Truly/ Jose Rizal/ 1892.\n\nOn August 26, 1892, Dr. Rizal wrote a poem entitled “Kay Don Ricardo Carnicero”, honoring the local commander on his birthday. The following month, Captain Carnicero, Dr. Rizal, and another local Spaniard won a second prize lottery worth Php 20,000.00. Rizal used his share in the prize to procure a parcel of land in Dapitan near the sea. Captain Carnicero also assisted Dr. Rizal to develop and enhance the city plaza of Dapitan.",
+    "fil": "Ang pinaksa ng eskulturang terracotta na ito, si kapitan Ricardo Carnicero, ay ang Gobernador Politiko-Militar na Espanyol ng Dapitan, Zamboanga del Norte noong panahon ng pagkakatapon ni Dr. Rizal mula 1892 hanggang 1896. Ganito ang nakaukit sa likod ng eskultura, sa Espanyol: A D[on] R[icardo] C[arnicero], C[omandante] P[olitico] M[ilitar] de Dap[itan], Recuerdo de, S[uyo] Af[ectisi]mo, Jose Rizal, 1892 — Kay Don Ricardo Carnicero/ Gobernador Politiko-Militar ng Dapitan/ Alaala mula sa/ Lubos na sumasainyo/ Jose Rizal/ 1892.\n\nNoong 26 Agosto 1892, sumulat si Dr. Rizal ng tulang pinamagatang “Kay Don Ricardo Carnicero,” na nagpupugay sa komandanteng lokal sa araw ng kanyang kaarawan. Nang sumunod na buwan, nagwagi si Kapitan Carnicero, si Dr. Rizal, at isa pang Espanyol sa lugar sa ikalawang gantimpala ng loterya na nagkakahalaga ng Php 20,000.00. Ginamit ni Rizal ang kanyang bahagi sa premyo upang makuha ang isang lagay ng lupa sa Dapitan malapit sa dagat. Tumulong din si Kapitan Carnicero kay Dr. Rizal sa pagpapaunlad at pagpapaganda ng liwasang-bayan ng Dapitan.",
+    "de": "Der Dargestellte dieser Terrakottaskulptur, Hauptmann Ricardo Carnicero, war während Dr. Rizals Verbannung von 1892 bis 1896 der spanische politisch-militärische Gouverneur von Dapitan, Zamboanga del Norte. Eine Inschrift auf der Rückseite der Skulptur lautet auf Spanisch: A D[on] R[icardo] C[arnicero], C[omandante] P[olitico] M[ilitar] de Dap[itan], Recuerdo de, S[uyo] Af[ectisi]mo, Jose Rizal, 1892 – An Don Ricardo Carnicero/ politisch-militärischer Gouverneur von Dapitan/ Ein Andenken von/ Ihrem ergebenen/ Jose Rizal/ 1892.\n\nAm 26. August 1892 schrieb Dr. Rizal ein Gedicht mit dem Titel „Kay Don Ricardo Carnicero“ zu Ehren des örtlichen Kommandanten an dessen Geburtstag. Im folgenden Monat gewannen Hauptmann Carnicero, Dr. Rizal und ein weiterer ortsansässiger Spanier den zweiten Preis einer Lotterie im Wert von 20.000,00 philippinischen Pesos. Rizal verwendete seinen Anteil, um in Dapitan ein Grundstück nahe dem Meer zu erwerben. Hauptmann Carnicero unterstützte Dr. Rizal auch beim Ausbau und der Verschönerung des Stadtplatzes von Dapitan."
+  },
   "images": [
     {
       "src": "bust-of-ricardo-carnicero/front.webp",

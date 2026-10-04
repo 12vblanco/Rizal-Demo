@@ -475,7 +475,7 @@ function validateSite(errors, file, site, assetsDir) {
       if ("chip" in p && typeof p.chip !== "boolean") {
         errors.add(file, `partners[${i}].chip`, "must be a boolean");
       }
-      optString(errors, file, p, "caption");
+      optLocalized(errors, file, p, "caption");
     });
   }
   if (reqArray(errors, file, site, "social")) {

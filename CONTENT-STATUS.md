@@ -62,21 +62,8 @@ back to English at render — never a broken page.
 
 | Content set | Translated | Total | Coverage |
 | --- | --- | --- | --- |
-| Essays | 11 | 21 | 52% |
-| Object records — artist | 1 | 24 | 4% |
+| Essays | 21 | 21 | 100% |
+| Object records — artist | 24 | 24 | 100% |
 | Object records — other sections | 21 | 21 | 100% |
 | Person records | 16 | 16 | 100% |
-
-Essays still English-only on `/fil/` and `/de/`:
-
-- `an-ode-to-the-filipino-youth`
-- `artes-et-religio`
-- `conveying-and-creating`
-- `expressing-thoughts-in-translation`
-- `heldenreise`
-- `la-dulce-estranjera-in-repose`
-- `love-and-resistance`
-- `outsmarting-greed`
-- `the-patron-saint-of-lost-things`
-- `vista-de-gendarmenmarkt-an-urban-sketch`
 

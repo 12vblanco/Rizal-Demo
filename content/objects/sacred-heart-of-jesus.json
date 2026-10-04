@@ -6,10 +6,26 @@
   "title": {
     "en": "Sacred Heart of Jesus"
   },
-  "objectType": "Sculpture",
-  "materials": "Batikuling wood",
-  "description": "While a student at Ateneo de Municipal, Rizal carved the statuette out of batikuling wood. The figure of Jesus Christ sits atop a globe-like structure mounted on an octagonal base, with His hand held close to His Sacred Heart.\n\nThe piece remains in good condition, with minor chipping and paint flaking.",
-  "condition": "Good condition, with minor chipping and paint flaking.",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
+  "materials": {
+    "en": "Batikuling wood",
+    "fil": "Kahoy na batikuling",
+    "de": "Batikuling-Holz"
+  },
+  "description": {
+    "en": "While a student at Ateneo de Municipal, Rizal carved the statuette out of batikuling wood. The figure of Jesus Christ sits atop a globe-like structure mounted on an octagonal base, with His hand held close to His Sacred Heart.\n\nThe piece remains in good condition, with minor chipping and paint flaking.",
+    "fil": "Habang mag-aaral sa Ateneo de Municipal, inukit ni Rizal ang estatwilya mula sa kahoy na batikuling. Ang pigura ni Hesukristo ay nakaupo sa ibabaw ng isang estrukturang tila globo na nakalagay sa walong-gilid na patungan, ang Kanyang kamay ay nakalapat malapit sa Kanyang Banal na Puso.\n\nNananatiling mabuti ang kalagayan ng piyesa, may kakaunting pagkatipak at pagtatalop ng pintura.",
+    "de": "Als Schüler am Ateneo de Municipal schnitzte Rizal die Statuette aus Batikuling-Holz. Die Figur Jesu Christi sitzt auf einem kugelähnlichen Gebilde, das auf einem achteckigen Sockel ruht, die Hand nah an sein Heiligstes Herz gelegt.\n\nDas Stück ist in gutem Zustand, mit geringen Absplitterungen und abblätternder Farbe."
+  },
+  "condition": {
+    "en": "Good condition, with minor chipping and paint flaking.",
+    "fil": "Mabuti ang kalagayan, may kakaunting pagkatipak at pagtatalop ng pintura.",
+    "de": "Guter Zustand, mit geringen Absplitterungen und abblätternder Farbe."
+  },
   "images": [
     {
       "src": "sacred-heart-of-jesus/front.webp",

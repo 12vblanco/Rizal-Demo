@@ -6,8 +6,16 @@
   "title": {
     "en": "Five Tales of Andersen"
   },
-  "objectType": "Manuscript",
-  "description": "A photocopy of the original manuscript, these five Hans Andersen tales were translated by Jose Rizal when he was in Leipzig, Germany on 14 October 1886. Dedicated to his nieces and nephews, Rizal wanted them to share these with their friends. He illustrated the stories to make them more appealing.",
+  "objectType": {
+    "en": "Manuscript",
+    "fil": "Manuskrito",
+    "de": "Manuskript"
+  },
+  "description": {
+    "en": "A photocopy of the original manuscript, these five Hans Andersen tales were translated by Jose Rizal when he was in Leipzig, Germany on 14 October 1886. Dedicated to his nieces and nephews, Rizal wanted them to share these with their friends. He illustrated the stories to make them more appealing.",
+    "fil": "Isang potokopya ng orihinal na manuskrito, ang limang kuwentong ito ni Hans Andersen ay isinalin ni Jose Rizal noong siya ay nasa Leipzig, Alemanya noong 14 Oktubre 1886. Inialay sa kanyang mga pamangkin, nais ni Rizal na ibahagi nila ang mga ito sa kanilang mga kaibigan. Inilustrahan niya ang mga kuwento upang mas maging kaakit-akit ang mga ito.",
+    "de": "Bei diesem Stück handelt es sich um eine Fotokopie des Originalmanuskripts: Diese fünf Märchen von Hans Andersen übersetzte Jose Rizal am 14. Oktober 1886 während seines Aufenthalts in Leipzig. Er widmete sie seinen Nichten und Neffen und wünschte, dass sie sie mit ihren Freunden teilten. Die Geschichten illustrierte er, um sie ansprechender zu machen."
+  },
   "images": [
     {
       "src": "five-tales-of-andersen/front.webp",

@@ -93,7 +93,7 @@
  * @property {string} name
  * @property {string} logo
  * @property {boolean} [chip]
- * @property {string} [caption]
+ * @property {LocalizedString} [caption]
  */
 
 /**

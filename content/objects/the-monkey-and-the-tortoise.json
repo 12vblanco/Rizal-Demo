@@ -6,8 +6,16 @@
   "title": {
     "en": "The Monkey and the Tortoise"
   },
-  "objectType": "Illustrated book",
-  "description": "The story of “The Monkey and the Tortoise” is a passed-on fable that Rizal brought to a wider audience through his illustrations. This was featured in 1889 in Trübner’s American, European, and Oriental Literary Record in London.",
+  "objectType": {
+    "en": "Illustrated book",
+    "fil": "Aklat na may Ilustrasyon",
+    "de": "Illustriertes Buch"
+  },
+  "description": {
+    "en": "The story of “The Monkey and the Tortoise” is a passed-on fable that Rizal brought to a wider audience through his illustrations. This was featured in 1889 in Trübner’s American, European, and Oriental Literary Record in London.",
+    "fil": "Ang kuwento ng “The Monkey and the Tortoise” ay isang pabulang ipinamana mula sa salinlahi tungo sa salinlahi na inilapit ni Rizal sa mas malawak na mambabasa sa pamamagitan ng kanyang mga ilustrasyon. Itinampok ito noong 1889 sa Trübner’s American, European, and Oriental Literary Record sa London.",
+    "de": "Die Erzählung „The Monkey and the Tortoise“ ist eine überlieferte Fabel, die Rizal durch seine Illustrationen einem breiteren Publikum zugänglich machte. Sie erschien 1889 in Trübner’s American, European, and Oriental Literary Record in London."
+  },
   "images": [
     {
       "src": "the-monkey-and-the-tortoise/front.webp",

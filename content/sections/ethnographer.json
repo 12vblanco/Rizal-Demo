@@ -17,11 +17,19 @@
   "categories": [
     {
       "id": "clothing",
-      "label": "Articles of Clothing"
+      "label": {
+        "en": "Articles of Clothing",
+        "fil": "Mga Kasuotan",
+        "de": "Kleidungsstücke"
+      }
     },
     {
       "id": "daily-life",
-      "label": "Technologies of Daily Life"
+      "label": {
+        "en": "Technologies of Daily Life",
+        "fil": "Mga Teknolohiya ng Araw-araw na Buhay",
+        "de": "Technologien des Alltags"
+      }
     }
   ],
   "status": "live"

@@ -7,10 +7,26 @@
     "en": "Silver Quill",
     "es": "Pluma"
   },
-  "objectType": "Award",
-  "materials": "Silver with a gold band, encased in a kamagong box lined with green gamosa",
-  "description": "While a student at the Universidad de Santo Tomas in 1879, Jose Rizal joined a poetry contest organized by the Liceo Artistico de Manila and was awarded this quill for his poem, “A La Juventud Filipina” [To the Filipino Youth].\n\nEncased in a kamagong box with green gamosa lining, the silver quill has a liceo inscription on its gold band. It is in good condition, despite three missing feathers, some corrosion, and minor restoration.",
-  "condition": "Good condition, despite three missing feathers, some corrosion, and minor restoration.",
+  "objectType": {
+    "en": "Award",
+    "fil": "Parangal",
+    "de": "Auszeichnung"
+  },
+  "materials": {
+    "en": "Silver with a gold band, encased in a kamagong box lined with green gamosa",
+    "fil": "Pilak na may gintong pamigkis, nakalagay sa kahong kamagong na may linyang berdeng gamosa",
+    "de": "Silber mit Goldband, in einem Kästchen aus Kamagong-Holz mit grünem Gamosa-Futter"
+  },
+  "description": {
+    "en": "While a student at the Universidad de Santo Tomas in 1879, Jose Rizal joined a poetry contest organized by the Liceo Artistico de Manila and was awarded this quill for his poem, “A La Juventud Filipina” [To the Filipino Youth].\n\nEncased in a kamagong box with green gamosa lining, the silver quill has a liceo inscription on its gold band. It is in good condition, despite three missing feathers, some corrosion, and minor restoration.",
+    "fil": "Habang mag-aaral sa Universidad de Santo Tomas noong 1879, sumali si Jose Rizal sa isang paligsahan sa tula na inorganisa ng Liceo Artistico de Manila at iginawad sa kanya ang plumang ito para sa kanyang tulang “A La Juventud Filipina” [Sa Kabataang Pilipino].\n\nNakalagay sa kahong kamagong na may linyang berdeng gamosa, ang plumang pilak ay may inskripsiyon ng liceo sa gintong pamigkis nito. Mabuti ang kalagayan nito, sa kabila ng tatlong nawawalang balahibo, kaunting kalawang, at kakaunting restorasyon.",
+    "de": "Als Student an der Universidad de Santo Tomas nahm Jose Rizal 1879 an einem Dichtungswettbewerb des Liceo Artistico de Manila teil und erhielt für sein Gedicht „A La Juventud Filipina“ [An die philippinische Jugend] diese Schreibfeder.\n\nDie silberne Feder, in einem Kästchen aus Kamagong-Holz mit grünem Gamosa-Futter aufbewahrt, trägt auf ihrem Goldband eine Inschrift des Liceo. Sie ist in gutem Zustand, trotz dreier fehlender Federn, etwas Korrosion und geringer Restaurierung."
+  },
+  "condition": {
+    "en": "Good condition, despite three missing feathers, some corrosion, and minor restoration.",
+    "fil": "Mabuti ang kalagayan, sa kabila ng tatlong nawawalang balahibo, kaunting kalawang, at kakaunting restorasyon.",
+    "de": "Guter Zustand, trotz dreier fehlender Federn, etwas Korrosion und geringer Restaurierung."
+  },
   "images": [
     {
       "src": "pluma-silver-quill/front.webp",

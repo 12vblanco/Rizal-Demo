@@ -7,9 +7,21 @@
     "en": "Saint Anthony of Padua",
     "es": "San Antonio de Padua"
   },
-  "objectType": "Sculpture",
-  "description": "San Antonio de Padua, patron of lost things, was one of the many statuettes Rizal made during his exile in Dapitan. The heads of both the saint and the Infant Jesus were lost, the piece was restored with abaca.\n\nIt is kept in the Museo ni Jose Rizal in Fort Santiago and displayed during Rizal-related events.",
-  "condition": "The heads of both the saint and the Infant Jesus were lost; the piece was restored with abaca.",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
+  "description": {
+    "en": "San Antonio de Padua, patron of lost things, was one of the many statuettes Rizal made during his exile in Dapitan. The heads of both the saint and the Infant Jesus were lost, the piece was restored with abaca.\n\nIt is kept in the Museo ni Jose Rizal in Fort Santiago and displayed during Rizal-related events.",
+    "fil": "Si San Antonio de Padua, patron ng mga bagay na nawawala, ay isa sa maraming estatwilyang ginawa ni Rizal noong panahon ng kanyang pagkakatapon sa Dapitan. Nawala ang mga ulo ng santo at ng Sanggol na Hesus, at isinaayos ang piyesa gamit ang abaka.\n\nNakatago ito sa Museo ni Jose Rizal sa Fort Santiago at itinatanghal sa mga okasyong may kaugnayan kay Rizal.",
+    "de": "San Antonio de Padua, der Schutzpatron der verlorenen Dinge, war eine der vielen Statuetten, die Rizal während seiner Verbannung in Dapitan schuf. Die Köpfe des Heiligen und des Christuskinds gingen verloren, das Stück wurde mit Abaka ergänzt.\n\nEs wird im Museo ni Jose Rizal in Fort Santiago bewahrt und bei Veranstaltungen rund um Rizal gezeigt."
+  },
+  "condition": {
+    "en": "The heads of both the saint and the Infant Jesus were lost; the piece was restored with abaca.",
+    "fil": "Nawala ang mga ulo ng santo at ng Sanggol na Hesus; isinaayos ang piyesa gamit ang abaka.",
+    "de": "Die Köpfe des Heiligen und des Christuskinds gingen verloren; das Stück wurde mit Abaka ergänzt."
+  },
   "images": [
     {
       "src": "san-antonio-de-padua/front-2.webp",

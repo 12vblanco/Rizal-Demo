@@ -174,7 +174,7 @@ function renderFooter(site) {
     : "";
   const sealItems = seals
     .map((p) => {
-      const name = esc(p.caption ?? p.name);
+      const name = esc(p.caption ? pick(p.caption) : p.name);
       const img = `<img src="${esc(basePath + p.logo)}" alt="${name}" title="${name}" loading="lazy" decoding="async">`;
       return `<li${p.chip ? ' class="footer-seal--chip"' : ""}>${img}</li>`;
     })

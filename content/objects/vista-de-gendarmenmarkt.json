@@ -7,8 +7,16 @@
     "en": "View of the Gendarmenmarkt, Berlin",
     "es": "Vista de Gendarmenmarkt en Berlin"
   },
-  "objectType": "Drawing",
-  "description": "While in sojourn in Germany, Rizal sketched the view of the public square where the Schauspielhaus (Concert Hall), the Französischer Dom (French Cathedral), and the Deutscher Dom (German Cathedral) are located.",
+  "objectType": {
+    "en": "Drawing",
+    "fil": "Guhit",
+    "de": "Zeichnung"
+  },
+  "description": {
+    "en": "While in sojourn in Germany, Rizal sketched the view of the public square where the Schauspielhaus (Concert Hall), the Französischer Dom (French Cathedral), and the Deutscher Dom (German Cathedral) are located.",
+    "fil": "Habang nananatili sa Alemanya, isinketch ni Rizal ang tanawin ng liwasang-bayan kung saan matatagpuan ang Schauspielhaus (Bulwagang Pangkonsiyerto), ang Französischer Dom (Katedral na Pranses), at ang Deutscher Dom (Katedral na Aleman).",
+    "de": "Während seines Aufenthalts in Deutschland zeichnete Rizal die Ansicht des Platzes, an dem das Schauspielhaus, der Französische Dom und der Deutsche Dom stehen."
+  },
   "images": [
     {
       "src": "vista-de-gendarmenmarkt/front.webp",

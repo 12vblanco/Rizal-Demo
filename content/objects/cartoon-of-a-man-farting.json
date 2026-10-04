@@ -6,10 +6,26 @@
   "title": {
     "en": "Cartoon of a Man Farting"
   },
-  "objectType": "Drawing",
-  "materials": "Black ink on paper",
-  "description": "Erroneously listed as 11 humorous sketches by Rizal, the manuscript actually consists of only one drawing with eleven figures, drawn in black ink on paper with the lower part missing. An example of Rizal’s humor, this cartoon depicts a man farting violently.\n\nGerman text on the bottom of the page: Folgen [illegible] Lombordery (Alfred)",
-  "condition": "The lower part of the sheet is missing.",
+  "objectType": {
+    "en": "Drawing",
+    "fil": "Guhit",
+    "de": "Zeichnung"
+  },
+  "materials": {
+    "en": "Black ink on paper",
+    "fil": "Itim na tinta sa papel",
+    "de": "Schwarze Tinte auf Papier"
+  },
+  "description": {
+    "en": "Erroneously listed as 11 humorous sketches by Rizal, the manuscript actually consists of only one drawing with eleven figures, drawn in black ink on paper with the lower part missing. An example of Rizal’s humor, this cartoon depicts a man farting violently.\n\nGerman text on the bottom of the page: Folgen [illegible] Lombordery (Alfred)",
+    "fil": "Mali ang pagkakatala nito bilang 11 nakakatuwang sketch ni Rizal; ang manuskrito ay binubuo lamang ng isang drowing na may labing-isang pigura, iginuhit sa itim na tinta sa papel na nawawala ang ibabang bahagi. Isang halimbawa ng pagpapatawa ni Rizal, inilalarawan ng kartun na ito ang isang lalaking umuutot nang malakas.\n\nTekstong Aleman sa ibaba ng pahina: Folgen [hindi mabasa] Lombordery (Alfred)",
+    "de": "Fälschlich als 11 humoristische Skizzen Rizals verzeichnet, besteht das Manuskript tatsächlich aus nur einer Zeichnung mit elf Figuren, mit schwarzer Tinte auf Papier ausgeführt, dessen unterer Teil fehlt. Als Beispiel für Rizals Humor zeigt diese Karikatur einen Mann, der heftig furzt.\n\nDeutscher Text am unteren Seitenrand: Folgen [unlesbar] Lombordery (Alfred)"
+  },
+  "condition": {
+    "en": "The lower part of the sheet is missing.",
+    "fil": "Nawawala ang ibabang bahagi ng papel.",
+    "de": "Der untere Teil des Blattes fehlt."
+  },
   "images": [
     {
       "src": "cartoon-of-a-man-farting/front.webp",

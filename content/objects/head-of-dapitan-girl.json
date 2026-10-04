@@ -6,7 +6,11 @@
   "title": {
     "en": "Head of a Dapitan Girl (Replica)"
   },
-  "objectType": "Sculpture",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
   "draft": true,
   "images": [
     {

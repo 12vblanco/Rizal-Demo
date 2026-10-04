@@ -6,8 +6,16 @@
   "title": {
     "en": "Oyang Dapitana (Replica)"
   },
-  "objectType": "Sculpture",
-  "description": "Rizal loved observing people and while banished in Dapitan, Zamboanga (1892- 1896) he served and improved the life of his community. Rizal was keenly aware of the important role of women as homemakers and teachers of their children. He himself had nine sisters and his mother was his first teacher.\n\nThe Dapitana captured the labor of peasant women grass-cutters. Rizal immortalized Oyang the humble grass-cutter, her hair tied in a bun (pusod), barefooted and crouched, using a grass-cutting tool called panday,\n\nIn 1961, National Artist for Sculpture Guillermo Tolentino made a bronze-cast reproduction of this statuette which now resides in the Rizal Gallery of the National Museum of Fine Arts.\n\n## References\n\nPalma, Celestino. Jose Rizal, Sculptor.\n\nReyes Publishing, 2020.",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
+  "description": {
+    "en": "Rizal loved observing people and while banished in Dapitan, Zamboanga (1892- 1896) he served and improved the life of his community. Rizal was keenly aware of the important role of women as homemakers and teachers of their children. He himself had nine sisters and his mother was his first teacher.\n\nThe Dapitana captured the labor of peasant women grass-cutters. Rizal immortalized Oyang the humble grass-cutter, her hair tied in a bun (pusod), barefooted and crouched, using a grass-cutting tool called panday,\n\nIn 1961, National Artist for Sculpture Guillermo Tolentino made a bronze-cast reproduction of this statuette which now resides in the Rizal Gallery of the National Museum of Fine Arts.\n\n## References\n\nPalma, Celestino. Jose Rizal, Sculptor.\n\nReyes Publishing, 2020.",
+    "fil": "Hilig ni Rizal ang pagmamasid sa mga tao at habang nakatapon sa Dapitan, Zamboanga (1892–1896) ay naglingkod siya at pinabuti ang buhay ng kanyang pamayanan. Lubos na alam ni Rizal ang mahalagang papel ng kababaihan bilang tagapangalaga ng tahanan at guro ng kanilang mga anak. Siya mismo ay may siyam na kapatid na babae at ang kanyang ina ang kanyang unang guro.\n\nSinaklaw ng Dapitana ang pagpapagal ng kababaihang magsasakang tagagapas ng damo. Inimortal ni Rizal si Oyang, ang mapagkumbabang tagagapas ng damo, ang buhok na nakapusod, nakayapak at nakayukyok, na gumagamit ng kasangkapang panggapas ng damo na tinatawag na panday,\n\nNoong 1961, gumawa ang Pambansang Alagad ng Sining para sa Eskultura na si Guillermo Tolentino ng reproduksiyong hinulma sa tanso ng estatwilyang ito, na nasa Rizal Gallery ngayon ng National Museum of Fine Arts.\n\n## Mga Sanggunian\n\nPalma, Celestino. Jose Rizal, Sculptor.\n\nReyes Publishing, 2020.",
+    "de": "Rizal liebte es, Menschen zu beobachten, und während seiner Verbannung in Dapitan, Zamboanga (1892–1896), diente er seiner Gemeinschaft und verbesserte deren Leben. Rizal war sich der wichtigen Rolle der Frauen als Hüterinnen des Hauses und erste Lehrerinnen ihrer Kinder deutlich bewusst. Er selbst hatte neun Schwestern, und seine Mutter war seine erste Lehrerin.\n\nDie Dapitana hält die Arbeit der bäuerlichen Grasschneiderinnen fest. Rizal verewigte Oyang, die einfache Grasschneiderin: das Haar im Knoten (pusod) zusammengebunden, barfuß und in die Hocke gegangen, mit einem Grasschneidegerät namens panday in der Hand,\n\n1961 schuf Guillermo Tolentino, Nationalkünstler für Bildhauerei, einen Bronzeguss dieser Statuette, der heute in der Rizal-Galerie des National Museum of Fine Arts steht.\n\n## Literatur\n\nPalma, Celestino. Jose Rizal, Sculptor.\n\nReyes Publishing, 2020."
+  },
   "images": [
     {
       "src": "oyang-dapitana/front.webp",

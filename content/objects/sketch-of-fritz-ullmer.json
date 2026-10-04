@@ -6,9 +6,21 @@
   "title": {
     "en": "Sketch of Fritz Ullmer"
   },
-  "objectType": "Drawing",
-  "materials": "Pencil on paper",
-  "description": "Pencil sketch by Rizal of Friedrich Ullmer, 1886, annotated by Ullmer in German on the lower left: “Dr. Jose Rizal killed 30 Dec. 96, etc.” signed with his monogram.",
+  "objectType": {
+    "en": "Drawing",
+    "fil": "Guhit",
+    "de": "Zeichnung"
+  },
+  "materials": {
+    "en": "Pencil on paper",
+    "fil": "Lapis sa papel",
+    "de": "Bleistift auf Papier"
+  },
+  "description": {
+    "en": "Pencil sketch by Rizal of Friedrich Ullmer, 1886, annotated by Ullmer in German on the lower left: “Dr. Jose Rizal killed 30 Dec. 96, etc.” signed with his monogram.",
+    "fil": "Sketch sa lapis ni Rizal ng Friedrich Ullmer, 1886, na may anotasyon ni Ullmer sa Aleman sa kaliwang ibaba: “Dr. Jose Rizal, pinatay 30 Dis. 96, atbp.” nilagdaan ng kanyang monograma.",
+    "de": "Bleistiftskizze Friedrich Ullmers von Rizal, 1886, von Ullmer unten links auf Deutsch beschriftet: „Dr. Jose Rizal getötet 30. Dez. 96 etc.“ und mit seinem Monogramm gezeichnet."
+  },
   "images": [
     {
       "src": "sketch-of-fritz-ullmer/front.webp",

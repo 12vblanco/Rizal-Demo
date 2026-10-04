@@ -7,9 +7,21 @@
     "en": "The Mother's Revenge",
     "es": "La Venganza de la Madre"
   },
-  "objectType": "Sculpture",
-  "materials": "Terracotta",
-  "description": "A mother dog fearlessly attacks a crocodile about to devour her puppy, an allegory of the Motherland (Inang Bayan) rescuing the nation from colonial oppression. Rizal made this terracotta sculpture while banished in Dapitan after he was arrested by the Spanish colonial government in 1892.\n\nThis was declared a National Cultural Treasure by the National Museum in 2008.",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
+  "materials": {
+    "en": "Terracotta",
+    "fil": "Terracotta",
+    "de": "Terrakotta"
+  },
+  "description": {
+    "en": "A mother dog fearlessly attacks a crocodile about to devour her puppy, an allegory of the Motherland (Inang Bayan) rescuing the nation from colonial oppression. Rizal made this terracotta sculpture while banished in Dapitan after he was arrested by the Spanish colonial government in 1892.\n\nThis was declared a National Cultural Treasure by the National Museum in 2008.",
+    "fil": "Walang takot na sinasalakay ng isang inang aso ang buwayang nasa bingit ng paglapa sa kanyang tuta, isang alegorya ng Inang Bayan na sumasagip sa bansa mula sa panunupil ng kolonyalismo. Ginawa ni Rizal ang eskulturang terracotta na ito habang nakatapon sa Dapitan matapos siyang arestuhin ng pamahalaang kolonyal na Espanyol noong 1892.\n\nIdineklara ito ng Pambansang Museo bilang Pambansang Kayamanang Kultural noong 2008.",
+    "de": "Eine Hündin greift furchtlos ein Krokodil an, das gerade ihren Welpen verschlingen will – eine Allegorie des Mutterlandes (Inang Bayan), das die Nation aus der kolonialen Unterdrückung rettet. Rizal schuf diese Terrakottaskulptur während seiner Verbannung in Dapitan, nachdem ihn die spanische Kolonialregierung 1892 verhaftet hatte.\n\n2008 erklärte das Nationalmuseum das Werk zum Nationalen Kulturschatz."
+  },
   "images": [
     {
       "src": "la-venganza-de-la-madre/front.webp",

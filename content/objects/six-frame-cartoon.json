@@ -6,8 +6,16 @@
   "title": {
     "en": "Six-Frame Cartoon"
   },
-  "objectType": "Drawing",
-  "description": "The text for each frame:\n\nFrame 1: How they solved a bad quarrel\n\nFrame 2: How they happily picked apples to throw in the water.\n\nFrame 3: Attention, Fritz said. You can fall into the water\n\nFrame 4: Ha! Ha!\n\nFrame 5: For heaven’s sake! That was a cold bath! Help! Help!\n\nFrame 6: Hu! Hu! The water is wet!",
+  "objectType": {
+    "en": "Drawing",
+    "fil": "Guhit",
+    "de": "Zeichnung"
+  },
+  "description": {
+    "en": "The text for each frame:\n\nFrame 1: How they solved a bad quarrel\n\nFrame 2: How they happily picked apples to throw in the water.\n\nFrame 3: Attention, Fritz said. You can fall into the water\n\nFrame 4: Ha! Ha!\n\nFrame 5: For heaven’s sake! That was a cold bath! Help! Help!\n\nFrame 6: Hu! Hu! The water is wet!",
+    "fil": "Ang teksto para sa bawat kuwadro:\n\nKuwadro 1: Kung paano nila nilutas ang isang masamang away\n\nKuwadro 2: Kung paano sila masayang namitas ng mansanas upang ihagis sa tubig.\n\nKuwadro 3: Mag-ingat, sabi ni Fritz. Maaari kang malaglag sa tubig\n\nKuwadro 4: Ha! Ha!\n\nKuwadro 5: Naku po! Napakalamig na paliguan niyon! Tulong! Tulong!\n\nKuwadro 6: Hu! Hu! Basa ang tubig!",
+    "de": "Der Text zu jedem Bild:\n\nBild 1: Wie sie einen bösen Streit beilegten\n\nBild 2: Wie sie vergnügt Äpfel pflückten, um sie ins Wasser zu werfen.\n\nBild 3: Achtung, sagte Fritz. Du kannst ins Wasser fallen\n\nBild 4: Ha! Ha!\n\nBild 5: Um Himmels willen! Das war ein kaltes Bad! Hilfe! Hilfe!\n\nBild 6: Hu! Hu! Das Wasser ist nass!"
+  },
   "images": [
     {
       "src": "six-frame-cartoon/front.webp",

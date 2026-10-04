@@ -6,8 +6,16 @@
   "title": {
     "en": "Josephine Sleeping"
   },
-  "objectType": "Sculpture",
-  "description": "Dubbed Rizal’s Mona Lisa, Josephine Sleeping was molded in Dapitan, personally signed by Rizal. In 2024, the National Museum of the Philippines acquired the statuette, which is currently exhibited in the Spoliarium Gallery.",
+  "objectType": {
+    "en": "Sculpture",
+    "fil": "Eskultura",
+    "de": "Skulptur"
+  },
+  "description": {
+    "en": "Dubbed Rizal’s Mona Lisa, Josephine Sleeping was molded in Dapitan, personally signed by Rizal. In 2024, the National Museum of the Philippines acquired the statuette, which is currently exhibited in the Spoliarium Gallery.",
+    "fil": "Tinaguriang Mona Lisa ni Rizal, ang Josephine Sleeping ay inanyuan sa Dapitan at personal na nilagdaan ni Rizal. Noong 2024, nakuha ng Pambansang Museo ng Pilipinas ang estatwilya, na nakatanghal sa kasalukuyan sa Spoliarium Gallery.",
+    "de": "Josephine Sleeping, Rizals „Mona Lisa“ genannt, wurde in Dapitan modelliert und von Rizal eigenhändig signiert. 2024 erwarb das Nationalmuseum der Philippinen die Statuette, die derzeit in der Spoliarium-Galerie ausgestellt ist."
+  },
   "images": [
     {
       "src": "josephine-sleeping/front.webp",
