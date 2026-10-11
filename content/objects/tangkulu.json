@@ -34,18 +34,9 @@
       "src": "tangkulu/front.webp",
       "alt": "Square red tie-dyed cotton tangkulu with concentric white-circle patterns and beaded edges, front",
       "deepZoom": true
-    },
-    {
-      "src": "tangkulu/back.webp",
-      "alt": "Reverse of the tangkulu showing the tie-dye patterning and beaded corner tassels"
     }
   ],
   "rights": "Images courtesy of the Ethnologisches Museum, Staatliche Museen zu Berlin.",
-  "model3d": {
-    "src": "placeholder-3d.glb",
-    "poster": "placeholder-3d/model-poster.webp",
-    "altText": "3D model coming soon: placeholder pyramid standing in for the tangkulu"
-  },
   "related": [
     "salakot",
     "trousers",

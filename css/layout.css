@@ -54,20 +54,28 @@
   gap: var(--space-m);
 }
 
+/* No `gap`: the PAMANA logo file carries its own transparent margin (376px on
+   every side of a 2524x1570 frame), and that margin is the spacing the client
+   designed between the mark and the wordmark. A CSS gap would add to it. */
 .site-header__brand {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: var(--space-s);
+  gap: 0;
 }
 
-/* Museum mark, left of the wordmark. Inherits the header's text colour via
-   currentColor (light on the dark band) — set an explicit colour here to
-   override. Aspect ratio ~2.3:1; height drives the size. */
-.site-header__mark {
+/* PAMANA logo, left of the wordmark. The file ships untrimmed so its built-in
+   margin does the spacing (see .site-header__brand) — which means the frame is
+   taller and wider than the mark inside it: at this height the stroke itself
+   reads about 2.2rem tall, close to the museum mark it replaced.
+   The one margin that is cancelled is the left one, pulled back so the mark
+   still lines up with the container edge and the content below it; the file's
+   own margin is what separates it from the text, which is the point. */
+.site-header__logo {
   flex: none;
-  height: 2.75rem;
+  height: 4.25rem;
   width: auto;
+  margin-inline-start: calc(4.25rem * -376 / 1570);
 }
 
 .site-header__brand-text {

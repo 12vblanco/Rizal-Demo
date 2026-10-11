@@ -10,14 +10,14 @@
     "de": "José Rizal auf den Philippinen und in Deutschland"
   },
   "exhibitionTitle": {
-    "en": "Connecting and Collecting",
-    "fil": "Pag-uugnay at Pangongolekta",
-    "de": "Verbinden und Sammeln"
+    "en": "Hero, Artist, and Ethnographer",
+    "fil": "Bayani, Artista, at Etnograpo",
+    "de": "Held, Künstler und Ethnograf"
   },
   "exhibitionSubtitle": {
-    "en": "Rizal's Ethnographic Objects in Germany",
-    "fil": "Mga Etnograpikong Bagay ni Rizal sa Alemanya",
-    "de": "Rizals ethnografische Objekte in Deutschland"
+    "en": "José Rizal Digital Exhibition",
+    "fil": "Digital na Eksibisyon ni José Rizal",
+    "de": "Digitale Ausstellung zu José Rizal"
   },
   "homeTitle": {
     "en": "The Hero, Artist, and Ethnographer: José Rizal Digital Exhibition",
@@ -35,20 +35,33 @@
   "heroCtas": [
     {
       "label": {
-        "en": "Watch the video",
-        "fil": "Panoorin ang video",
-        "de": "Video ansehen"
+        "en": "Introduction",
+        "fil": "Panimula",
+        "de": "Einführung"
       },
-      "video": "assets/video/rizal_avp2.mp4"
+      "video": "video/rizal-intro-720p.mp4"
+    },
+    {
+      "label": {
+        "en": "Rizal as Artist",
+        "fil": "Si Rizal bilang Artista",
+        "de": "Rizal als Künstler"
+      },
+      "video": "video/rizal-as-an-artist-1080p.mp4",
+      "videoSmall": "video/rizal-as-an-artist-720p.mp4"
     },
     {
       "label": { "en": "Read more", "fil": "Magbasa pa", "de": "Mehr lesen" },
       "href": "/jose-rizal/"
     }
   ],
+  "home3dObjects": [
+    "san-antonio-de-padua",
+    "josephine-sleeping",
+    "oyang-dapitana",
+    "sacred-heart-of-jesus"
+  ],
   "homeQuote": {
-    "text": "Ang paaralan ang aklat kung saan nakasulat ang kinabukasan ng bayan.",
-    "lang": "tl",
     "attribution": "José Rizal"
   },
   "homeTeasers": [
@@ -90,30 +103,90 @@
     }
   ],
   "nav": [
-    { "label": { "en": "Home", "fil": "Tahanan", "de": "Startseite" }, "href": "/" },
+    {
+      "label": { "en": "Home", "fil": "Tahanan", "de": "Startseite" },
+      "href": "/"
+    },
     {
       "label": { "en": "Jose Rizal", "fil": "Jose Rizal", "de": "José Rizal" },
       "href": "/jose-rizal/",
       "children": [
-        { "label": { "en": "As Hero", "fil": "Bilang Bayani", "de": "Als Held" }, "href": "/hero/" },
-        { "label": { "en": "As Artist", "fil": "Bilang Artista", "de": "Als Künstler" }, "href": "/artist/" },
-        { "label": { "en": "As Ethnographer", "fil": "Bilang Etnograpo", "de": "Als Ethnograf" }, "href": "/ethnographer/" },
-        { "label": { "en": "As Scholar", "fil": "Bilang Iskolar", "de": "Als Gelehrter" }, "href": "/scholar/" }
+        {
+          "label": {
+            "en": "As Hero",
+            "fil": "Bilang Bayani",
+            "de": "Als Held"
+          },
+          "href": "/hero/"
+        },
+        {
+          "label": {
+            "en": "As Artist",
+            "fil": "Bilang Artista",
+            "de": "Als Künstler"
+          },
+          "href": "/artist/"
+        },
+        {
+          "label": {
+            "en": "As Ethnographer",
+            "fil": "Bilang Etnograpo",
+            "de": "Als Ethnograf"
+          },
+          "href": "/ethnographer/"
+        },
+        {
+          "label": {
+            "en": "As Scholar",
+            "fil": "Bilang Iskolar",
+            "de": "Als Gelehrter"
+          },
+          "href": "/scholar/"
+        }
       ]
     },
     {
-      "label": { "en": "Rizal in Germany", "fil": "Si Rizal sa Alemanya", "de": "Rizal in Deutschland" },
+      "label": {
+        "en": "Rizal in Germany",
+        "fil": "Si Rizal sa Alemanya",
+        "de": "Rizal in Deutschland"
+      },
       "href": "/rizal-in-germany/"
     },
-    { "label": { "en": "About", "fil": "Tungkol", "de": "Über uns" }, "href": "/about/" }
+    {
+      "label": { "en": "About", "fil": "Tungkol", "de": "Über uns" },
+      "href": "/about/"
+    }
   ],
   "footerNav": [
-    { "label": { "en": "Overview", "fil": "Pangkalahatang-tanaw", "de": "Überblick" }, "href": "/jose-rizal/" },
-    { "label": { "en": "Hero", "fil": "Bayani", "de": "Held" }, "href": "/hero/" },
-    { "label": { "en": "Artist", "fil": "Artista", "de": "Künstler" }, "href": "/artist/" },
-    { "label": { "en": "Ethnographer", "fil": "Etnograpo", "de": "Ethnograf" }, "href": "/ethnographer/" },
-    { "label": { "en": "Scholar", "fil": "Iskolar", "de": "Gelehrter" }, "href": "/scholar/" },
-    { "label": { "en": "About", "fil": "Tungkol", "de": "Über uns" }, "href": "/about/" }
+    {
+      "label": {
+        "en": "Overview",
+        "fil": "Pangkalahatang-tanaw",
+        "de": "Überblick"
+      },
+      "href": "/jose-rizal/"
+    },
+    {
+      "label": { "en": "Hero", "fil": "Bayani", "de": "Held" },
+      "href": "/hero/"
+    },
+    {
+      "label": { "en": "Artist", "fil": "Artista", "de": "Künstler" },
+      "href": "/artist/"
+    },
+    {
+      "label": { "en": "Ethnographer", "fil": "Etnograpo", "de": "Ethnograf" },
+      "href": "/ethnographer/"
+    },
+    {
+      "label": { "en": "Scholar", "fil": "Iskolar", "de": "Gelehrter" },
+      "href": "/scholar/"
+    },
+    {
+      "label": { "en": "About", "fil": "Tungkol", "de": "Über uns" },
+      "href": "/about/"
+    }
   ],
   "copyright": {
     "en": "© All rights reserved · National Museum of the Philippines · 2026",
@@ -122,26 +195,46 @@
   },
   "footerCtas": [
     {
-      "label": { "en": "Explore the exhibition", "fil": "Tuklasin ang eksibisyon", "de": "Die Ausstellung entdecken" },
+      "label": {
+        "en": "Explore the exhibition",
+        "fil": "Tuklasin ang eksibisyon",
+        "de": "Die Ausstellung entdecken"
+      },
       "href": "/jose-rizal/"
     },
     {
-      "label": { "en": "Contact us", "fil": "Makipag-ugnayan", "de": "Kontakt" },
+      "label": {
+        "en": "Contact us",
+        "fil": "Makipag-ugnayan",
+        "de": "Kontakt"
+      },
       "href": "mailto:inquiry@nationalmuseum.gov.ph"
     },
     {
-      "label": { "en": "Visit the museum", "fil": "Bisitahin ang museo", "de": "Das Museum besuchen" },
+      "label": {
+        "en": "Visit the museum",
+        "fil": "Bisitahin ang museo",
+        "de": "Das Museum besuchen"
+      },
       "href": "https://www.google.com/maps/search/?api=1&query=National+Museum+of+the+Philippines+Manila"
     }
   ],
   "footer": {
-    "aboutHeading": { "en": "About the Project", "fil": "Tungkol sa Proyekto", "de": "Über das Projekt" },
+    "aboutHeading": {
+      "en": "About Us",
+      "fil": "Tungkol sa Amin",
+      "de": "Über uns"
+    },
     "aboutText": {
       "en": "The National Museum of the Philippines is an educational, scientific, and cultural institution that acquires, documents, preserves, exhibits, and fosters scholarly studies and public appreciation of works of art, specimens, and cultural and historical artifacts representative of the unique cultural heritage of the Filipino people and natural history of the Philippines.",
       "fil": "Ang Pambansang Museo ng Pilipinas ay isang institusyong pang-edukasyon, pang-agham, at pangkultura na nangangalap, nagdodokumento, nangangalaga, naglalahad, at nagtataguyod ng mga pag-aaral at pagpapahalaga ng publiko sa mga likhang sining, ispesimen, at mga artefaktong pangkultura at pangkasaysayan na kumakatawan sa natatanging pamanang kultural ng mga Pilipino at sa likas na kasaysayan ng Pilipinas.",
       "de": "Das Nationalmuseum der Philippinen ist eine Bildungs-, Wissenschafts- und Kultureinrichtung, die Kunstwerke, Exponate sowie kulturelle und historische Artefakte erwirbt, dokumentiert, bewahrt, ausstellt und deren wissenschaftliche Erforschung und öffentliche Wertschätzung fördert – repräsentativ für das einzigartige kulturelle Erbe des philippinischen Volkes und die Naturgeschichte der Philippinen."
     },
-    "contactHeading": { "en": "Contact Us", "fil": "Makipag-ugnayan", "de": "Kontakt" }
+    "contactHeading": {
+      "en": "Contact Us",
+      "fil": "Makipag-ugnayan",
+      "de": "Kontakt"
+    }
   },
   "contact": {
     "address": "P. Burgos Drive, Rizal Park, Manila",

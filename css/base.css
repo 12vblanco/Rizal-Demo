@@ -153,6 +153,24 @@ address {
   transform: none;
 }
 
+/* Crop anchors. Any image rendered through the pipeline helper with a
+   `position` in its content data gets one of these; they only bite where the
+   layout box crops the image (object-fit: cover). Default stays centred. */
+.img-anchor-top {
+  object-position: top;
+}
+
+/* Between top and centre. A wide hero band crops a landscape scene to a thin
+   horizontal slice, and a seated figure's head sits above a centred one; 15%
+   clears the hairline at every band width without baring the wall above. */
+.img-anchor-upper {
+  object-position: 50% 15%;
+}
+
+.img-anchor-bottom {
+  object-position: bottom;
+}
+
 /* Motion is opt-out by default */
 @media (prefers-reduced-motion: reduce) {
   *,

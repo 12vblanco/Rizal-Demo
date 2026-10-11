@@ -11,8 +11,9 @@
     "de": "Auf seiner Europareise im Jahr 1888 sandte José Rizal 21 Objekte von London nach Berlin – Kulturzeugnisse, die Gemeinschaften aus dem ganzen Land repräsentieren. Seine ethnografischen Beiträge zeichneten ein umfassendes Bild des philippinischen Archipels und seiner Kultur."
   },
   "heroImage": {
-    "src": "sections/ethnographer-crown.webp",
-    "alt": "Close-up of the salakot crown, its horn panels joined by silver seams and star- and flower-shaped studs"
+    "src": "sections/ethnographer-reformist.webp",
+    "alt": "Painting of José Rizal writing at a cloth-covered desk, books, a sword and carved figures around him",
+    "position": "upper"
   },
   "categories": [
     {

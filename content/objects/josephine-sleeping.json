@@ -44,6 +44,7 @@
   "model3d": {
     "src": "josephine-sleeping.glb",
     "poster": "josephine-sleeping/model-poster.webp",
+    "cardPoster": "josephine-sleeping/card-poster.webp",
     "altText": "Interactive 3D model of Rizal's Josephine Sleeping, the reclining figure free to rotate and zoom",
     "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },

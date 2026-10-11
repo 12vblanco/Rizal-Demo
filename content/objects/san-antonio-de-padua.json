@@ -17,16 +17,7 @@
     "fil": "Si San Antonio de Padua, patron ng mga bagay na nawawala, ay isa sa maraming estatwilyang ginawa ni Rizal noong panahon ng kanyang pagkakatapon sa Dapitan. Nawala ang mga ulo ng santo at ng Sanggol na Hesus, at isinaayos ang piyesa gamit ang abaka.\n\nNakatago ito sa Museo ni Jose Rizal sa Fort Santiago at itinatanghal sa mga okasyong may kaugnayan kay Rizal.",
     "de": "San Antonio de Padua, der Schutzpatron der verlorenen Dinge, war eine der vielen Statuetten, die Rizal während seiner Verbannung in Dapitan schuf. Die Köpfe des Heiligen und des Christuskinds gingen verloren, das Stück wurde mit Abaka ergänzt.\n\nEs wird im Museo ni Jose Rizal in Fort Santiago bewahrt und bei Veranstaltungen rund um Rizal gezeigt."
   },
-  "condition": {
-    "en": "The heads of both the saint and the Infant Jesus were lost; the piece was restored with abaca.",
-    "fil": "Nawala ang mga ulo ng santo at ng Sanggol na Hesus; isinaayos ang piyesa gamit ang abaka.",
-    "de": "Die Köpfe des Heiligen und des Christuskinds gingen verloren; das Stück wurde mit Abaka ergänzt."
-  },
   "images": [
-    {
-      "src": "san-antonio-de-padua/front-2.webp",
-      "alt": "Saint Anthony of Padua, further view"
-    },
     {
       "src": "san-antonio-de-padua/front.webp",
       "alt": "Weathered statuette of Saint Anthony of Padua holding the Infant Jesus, both figures missing their heads, on a square plinth",
@@ -34,19 +25,24 @@
     },
     {
       "src": "san-antonio-de-padua/view-1.webp",
-      "alt": "Saint Anthony of Padua, alternate view 1"
-    },
-    {
-      "src": "san-antonio-de-padua/view-2.webp",
-      "alt": "Saint Anthony of Padua, alternate view 2"
+      "alt": "Close view of the saint's hooded habit, broken off at the neck where the head was lost"
     },
     {
       "src": "san-antonio-de-padua/view-3.webp",
-      "alt": "Saint Anthony of Padua, alternate view 3"
+      "alt": "Detail of the saint's hands cradling the headless Infant Jesus"
+    },
+    {
+      "src": "san-antonio-de-padua/view-2.webp",
+      "alt": "The saint's knees and feet, with the twisted abaca cord running down the front of the habit"
     },
     {
       "src": "san-antonio-de-padua/view-4.webp",
-      "alt": "Saint Anthony of Padua, alternate view 4"
+      "alt": "Close view of the stepped base, the frayed end of the abaca cord and the incised marks on the plinth"
+    },
+    {
+      "src": "san-antonio-de-padua/front-2.webp",
+      "alt": "Postcard from 1911 reproducing a photograph of the statuette when it was still intact, with both heads in place and \u201cRizal\u201d carved on the base",
+      "credit": "Postales Rizal No. 6, Librer\u00eda Manila Filat\u00e9lica, 1911 \u2014 the statuette photographed while still intact"
     }
   ],
   "rights": "National Historical Commission of the Philippines / Bayanihan Collectors Club / National Museum of the Philippines",
@@ -54,6 +50,7 @@
   "model3d": {
     "src": "san-antonio-de-padua.glb",
     "poster": "san-antonio-de-padua/model-poster.webp",
+    "cardPoster": "san-antonio-de-padua/card-poster.webp",
     "altText": "Interactive 3D model of Rizal's San Antonio de Padua on its stepped base, free to rotate and zoom",
     "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },

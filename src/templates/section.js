@@ -56,12 +56,13 @@ function renderHero(site, section) {
   const badge = section.status === "upcoming"
     ? `<p class="upcoming-badge">${esc(t("upcoming"))}</p>\n    `
     : "";
+  const scrim = section.heroScrim === "light" ? " section-hero__scrim--light" : "";
   return `<section class="section-hero band band--dark">
   ${bg}
-  <div class="section-hero__scrim"></div>
+  <div class="section-hero__scrim${scrim}"></div>
   <div class="container section-hero__inner">
     ${badge}<a class="section-hero__eyebrow" href="${esc(localizeHref("/jose-rizal/"))}">${esc(t("joseRizal"))}</a>
-    <h1 class="section-hero__title">${esc(pick(section.title))}</h1>
+    <h1 class="section-hero__title">${esc(pick(section.heroTitle ?? section.title))}</h1>
     <p class="section-hero__intro">${esc(pick(section.intro))}</p>
   </div>
 </section>`;
@@ -158,8 +159,8 @@ function inCategory(collection, categoryId) {
 }
 
 /** One category tab's content: a narrow essay column beside a wide collection
- *  grid, both already filtered to that category (or, for the Introduction tab,
- *  the full unfiltered collection). Where the section has editorial at all,
+ *  grid, both already filtered to that category (or, for the first tab — named
+ *  after the section — the full unfiltered collection). Where the section has editorial at all,
  *  both columns always render — with their own heading — so the two content
  *  types (article vs. artifact) stay visually distinct regardless of how many
  *  of each a category has. A section with no essays anywhere (Scholar, whose
@@ -202,7 +203,7 @@ function renderCategoryView(section, essays, collection) {
   const withEssays = essays.length > 0;
 
   const tabs = [
-    { id: "section-intro", label: t("introduction") },
+    { id: "section-intro", label: pick(section.title) },
     ...section.categories.map((c) => ({ id: `category-${c.id}`, label: pick(c.label) })),
   ];
   const tabBar = `<nav class="section-tabs" aria-label="${esc(t("categoryNav"))}">
@@ -211,12 +212,13 @@ ${tabs.map((tab) => `        <li><a class="section-tabs__link" href="#${tab.id}"
       </ul>
     </nav>`;
 
-  // Introduction pairs the overview essay with the whole collection,
+  // The overview panel pairs the overview essay with the whole collection,
   // unfiltered — matching the live site's behavior — rather than an empty grid.
-  // Its heading would sit directly beneath the identically-worded first tab, so
-  // it renders for assistive tech only; the category panels keep theirs, which
-  // name which slice of the collection you are looking at.
-  const introPanel = renderCategoryPanel("section-intro", t("introduction"), uncategorised, collection, withEssays, true);
+  // Its first tab is named after the section itself, so the panel heading would
+  // only repeat the page title above it; it renders for assistive tech only.
+  // The category panels keep theirs, which name which slice of the collection
+  // you are looking at.
+  const introPanel = renderCategoryPanel("section-intro", pick(section.title), uncategorised, collection, withEssays, true);
 
   const categoryPanels = section.categories
     .map((c) =>

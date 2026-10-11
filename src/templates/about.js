@@ -1,11 +1,12 @@
 // @ts-check
-// About page (content/about.json). Dark hero (title + intro standfirst) over two
-// institution blurbs and the "Messages" video grid. Each message is a real
-// poster + name/role caption; the player loads only on a click — js/main.js
-// reads data-video and swaps in a <video> — so the page is complete without JS
-// (posters + captions), and the not-yet-hosted MP4 paths never reach the link
-// checker (they live in a data-* attribute, injected on intent). Video hosting is
-// open question #10 (self-hosted MP4 is the default the click-to-load assumes).
+// About page (content/about.json). Dark hero (title + intro standfirst) over the
+// write-up blurbs — the project, then each partner institution — and the
+// "Messages" video grid. Each message is a real poster + name/role caption; the
+// player loads only on a click — js/main.js reads data-video and swaps in a
+// <video> — so the page is complete without JS (posters + captions), and the
+// not-yet-hosted MP4 paths never reach the link checker (they live in a data-*
+// attribute, injected on intent). Video hosting is open question #10
+// (self-hosted MP4 is the default the click-to-load assumes).
 
 import { esc } from "./layout.js";
 import { renderImage } from "./media.js";
@@ -61,13 +62,14 @@ function renderMessage(site, message, index) {
     loading: index < 3 ? "eager" : "lazy",
     sizes: "(min-width: 60rem) 28rem, (min-width: 40rem) 45vw, 100vw",
   });
-  // The dignitary videos are already hosted at the museum origin under
-  // /assets/video/ (the phase-1 asset tree); the rebuild ships to that same
-  // origin, so the player streams them from there instead of the repo re-hosting
-  // ~155 MB. `message.video` is the origin-relative path; the URL is built from
-  // site.baseUrl (rule 7 — no hardcoded domain) so it also plays in local dev.
+  // The dignitary videos ship with the site, from static/video/. They used to
+  // stream from the museum origin's phase-1 /assets/video/ tree, which kept
+  // ~210 MB out of the repo — but that tree may not outlive this rebuild's
+  // launch, and a Messages grid whose every play button 404s is worse than a
+  // heavier deploy. `message.video` is basePath-relative (rule 7 — no
+  // hardcoded domain), so it plays the same in local dev and in prod.
   const dataVideo = message.video
-    ? ` data-video="${esc(site.baseUrl)}/${esc(message.video)}"`
+    ? ` data-video="${esc(site.basePath)}${esc(message.video)}"`
     : "";
   return `<li class="message-card">
   <div class="message-card__media">

@@ -44,6 +44,7 @@
   "model3d": {
     "src": "oyang-dapitana.glb",
     "poster": "oyang-dapitana/model-poster.webp",
+    "cardPoster": "oyang-dapitana/card-poster.webp",
     "altText": "Interactive 3D model of Oyang Dapitana, the crouching grass-cutter free to rotate and zoom",
     "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },

@@ -73,7 +73,13 @@ export async function build() {
   // the data matches SiteContent, so we assert that shape here for the render
   // step (the typedefs mirror the validators — see src/types.js).
   const content = /** @type {SiteContent} */ (
-    loadContent({ contentDir: path.join(root, "content"), assetsDir })
+    loadContent({
+      contentDir: path.join(root, "content"),
+      assetsDir,
+      // static/ holds the video encodes, copied verbatim below — passing it
+      // lets loadContent fail the build on a video path that points at nothing.
+      staticDir: path.join(root, "static"),
+    })
   );
   const site = content.site;
 

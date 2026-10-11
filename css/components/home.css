@@ -28,6 +28,15 @@
     border-color var(--duration-quick) var(--ease);
 }
 
+/* The play mark on the two video CTAs. Sized in `em` so it tracks the label
+   (CSS overrides the icon file's own width/height), and nudged down a hair
+   because a triangle's optical centre sits above its bounding box. */
+.hero-btn svg {
+  width: 1.35em;
+  height: 1.35em;
+  margin-block-start: 0.05em;
+}
+
 .hero-btn--primary {
   background: var(--accent-on-dark);
   color: var(--chinese-black);
@@ -114,6 +123,11 @@
 
 .models3d__link {
   display: grid;
+  /* Pin the rows to the top of the stretched card: with auto rows the grid
+     shares a taller card's spare height between media and caption, which drops
+     one card's title lower than its neighbours' whenever a name wraps. */
+  grid-template-rows: auto auto;
+  align-content: start;
   gap: var(--space-s);
   height: 100%;
   text-decoration: none;
@@ -178,7 +192,9 @@
   color: var(--heading-on-light);
 }
 
-.models3d__en {
+/* The object type, under every title — the caption line that makes a row of
+   cards scan as one list (Headgear / Sculpture / Headcloth / Sculpture). */
+.models3d__type {
   font-size: var(--step--1);
   color: var(--black-cow);
 }
@@ -246,6 +262,15 @@
   aspect-ratio: 16 / 10;
   object-fit: cover;
   transition: transform var(--duration-slow) var(--ease);
+}
+
+/* A top-anchored portrait is anchored for the section hero's wide band, where
+   flush-top frames the head. This card is far deeper in proportion, so flush
+   top would hold the head and lose everything the sitter is holding. Easing
+   the anchor down keeps the whole face and brings the book into frame — the
+   most of both that 16/10 can carry. */
+.persona-card__img.img-anchor-top {
+  object-position: 50% 18%;
 }
 
 .persona-card__body {
@@ -392,10 +417,9 @@
   object-fit: cover;
 }
 
-/* --- Pull-quote -------------------------------------------------------- */
-/* Grey (black cow) band between the personas and the teasers, gold quote text.
-   The large quote clears AA on black cow; the smaller attribution is kept light
-   (gold would be ~4.4:1, under the 4.5 needed for its size). */
+/* --- Signature band ---------------------------------------------------- */
+/* Grey (black cow) band between the personas and the teasers, carrying Rizal's
+   gold autograph at display size as the band's whole highlight. */
 .home-quote {
   background: var(--model-stage-gradient);
   color: var(--text-on-dark);
@@ -408,28 +432,12 @@
   align-items: center;
   margin: 0;
   margin-inline: auto;
-  max-width: 42ch;
+  max-width: 100%;
   text-align: center;
 }
 
-.pullquote__text {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: var(--step-3);
-  line-height: 1.3;
-  color: var(--accent-on-dark);
-}
-
-.pullquote__cite {
-  max-width: fit-content;
-  margin-block-start: var(--space-l);
-  font-family: var(--font-heading);
-  font-size: var(--step-1);
-  color: color-mix(in srgb, var(--text-on-dark) 88%, transparent);
-}
-
 .pullquote__signature svg {
-  width: 240px;
+  width: clamp(260px, 60vw, 560px);
   color: var(--accent-on-dark);
 }
 
@@ -437,11 +445,11 @@
   display: none;
 }
 
-/* js/main.js swaps this in for the static SVG once the quote is visible and
+/* js/main.js swaps this in for the static SVG once the band is visible and
    motion is welcome; the SVG stays the permanent version otherwise (JS-off /
    reduced-motion). Same displayed width as the SVG so the swap doesn't jump. */
 .pullquote__signature-anim {
-  width: 240px;
+  width: clamp(260px, 60vw, 560px);
   height: auto;
 }
 

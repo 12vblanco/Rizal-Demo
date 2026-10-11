@@ -182,19 +182,12 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-block-end: var(--space-s);
-}
-
-.footer-heading a {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  text-decoration: none;
   color: var(--accent-on-dark);
 }
 
-.footer-heading a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
+/* Orange heading — ID selector so nothing downstream can wash it out */
+#footer-about {
+  color: var(--accent-on-dark);
 }
 
 .footer-exhibition {

@@ -212,7 +212,7 @@ ${navItems}
       <hr class="footer-rule">
       <div class="footer-grid">
         <section class="footer-about" aria-labelledby="footer-about">
-          <h2 class="footer-heading" id="footer-about"><a href="${esc(localizeHref("/about/"))}">${esc(pick(footer.aboutHeading))} </a></h2>
+          <h2 class="footer-heading" id="footer-about">${esc(pick(footer.aboutHeading))}</h2>
           <p>${esc(pick(footer.aboutText))}</p>
           <p class="footer-exhibition">
             <span class="footer-exhibition__title">${esc(pick(site.exhibitionTitle))}</span>
@@ -294,7 +294,7 @@ ${altLinks}
   <header class="site-header band band--dark" data-pagefind-ignore>
     <div class="container site-header__inner">
       <a class="site-header__brand" href="${esc(localizeHref(site.basePath))}">
-        ${icons["museum-mark"]}
+        <img class="site-header__logo" src="${esc(site.basePath)}img/pamana-logo.webp" alt="PAMANA" width="480" height="299">
         <span class="site-header__brand-text">
           <span class="site-header__brand-title">${esc(pick(site.exhibitionTitle))}</span>
           <span class="site-header__brand-subtitle">${esc(pick(site.exhibitionSubtitle))}</span>

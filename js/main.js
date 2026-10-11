@@ -22,7 +22,9 @@ if (heroVideo instanceof HTMLVideoElement &&
 // authored to loop once, so after it draws itself it simply holds on the
 // finished signature — no JS-driven stop/freeze needed. Deferred via
 // data-anim-src (rather than a plain src) so reduced-motion visitors never
-// even fetch it.
+// even fetch it, and unhidden only on `load`: an <img> keeps painting its
+// previous image while a new src downloads, so revealing it any earlier
+// stretches the 1x1 placeholder across the whole 240px box.
 const signatureWrap = document.querySelector(".pullquote__signature");
 const signatureAnim = signatureWrap?.querySelector(".pullquote__signature-anim");
 if (
@@ -38,10 +40,19 @@ if (
       (entries, obs) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          signatureAnim.src = animSrc;
-          signatureAnim.hidden = false;
-          signatureSvg?.setAttribute("hidden", "");
           obs.disconnect();
+          // Swap only once the WebP has actually decoded; a failed fetch
+          // simply leaves the SVG in place.
+          signatureAnim.addEventListener(
+            "load",
+            () => {
+              signatureAnim.hidden = false;
+              signatureSvg?.setAttribute("hidden", "");
+            },
+            { once: true },
+          );
+          signatureAnim.src = animSrc; // stays display:none until then
+          break;
         }
       },
       { threshold: 0.4 },
@@ -176,10 +187,10 @@ for (const button of document.querySelectorAll(".message-card__play")) {
   });
 }
 
-// Hero "Watch the video" CTA (site.json heroCtas[].video): a real link to the
+// Hero video CTAs (site.json heroCtas[].video): each is a real link to the
 // video file — works with JS off, the browser plays it natively — that JS
 // intercepts and opens in a native <dialog> instead, so visitors stay on the
-// page. Same accessible shape as the zoom viewer (09): built-in focus trap,
+// page. One dialog serves them all; the source is set per click. Same accessible shape as the zoom viewer (09): built-in focus trap,
 // Esc via the `cancel` event, backdrop click, and a #watch history entry so
 // the back button closes it — but far simpler (no deep zoom), so it lives here
 // rather than as its own lazy-loaded module.
@@ -191,6 +202,7 @@ function buildVideoDialog() {
   if (videoDialog) return;
   videoDialog = document.createElement("dialog");
   videoDialog.className = "video-dialog";
+  // Fallback only — openVideoDialog relabels it with the CTA that opened it.
   videoDialog.setAttribute("aria-label", "Watch the video");
   videoDialog.innerHTML = `
     <button class="video-dialog__close" type="button">
@@ -211,10 +223,27 @@ function buildVideoDialog() {
   });
 }
 
-function openVideoDialog(src) {
+// Which encode to pull when a CTA ships two (data-video = 1080p,
+// data-video-small = 720p). Several <source> children would not do this: both
+// rungs are H.264/MP4, so the browser takes the first it can decode and the
+// 1080p always wins — bandwidth-aware selection needs HLS/DASH and a JS player
+// this site does not carry. So the choice is made on the one signal available
+// up front: how many real pixels the screen has. `screen` rather than the
+// dialog's own box (min(92vw, 60rem)) because fullscreen is one tap away, and
+// a video that turned soft on the way there would be the wrong trade.
+const FULL_RUNG_MIN_WIDTH = 1920;
+
+function pickVideoRung(src, small) {
+  if (!small) return src;
+  const physical = window.screen.width * (window.devicePixelRatio || 1);
+  return physical >= FULL_RUNG_MIN_WIDTH ? src : small;
+}
+
+function openVideoDialog(src, small, label) {
   if (!src) return;
   buildVideoDialog();
-  videoDialogEl.src = src;
+  if (label) videoDialog.setAttribute("aria-label", label);
+  videoDialogEl.src = pickVideoRung(src, small);
   videoDialog.showModal();
   videoDialogEl.play().catch(() => {
     /* Autoplay blocked — the visible native controls let the visitor start it. */
@@ -245,11 +274,21 @@ window.addEventListener("popstate", () => {
   }
 });
 
-const heroVideoCta = document.querySelector(".hero-btn[data-video]");
-heroVideoCta?.addEventListener("click", (event) => {
-  event.preventDefault();
-  openVideoDialog(heroVideoCta.getAttribute("data-video"));
-});
+// Every video CTA in the hero, not just the first — the hero now carries two
+// (the intro AVP and "Rizal as Artist") beside the "Read more" link, and they
+// share the one dialog, which takes its source per click.
+for (const cta of document.querySelectorAll(".hero-btn[data-video]")) {
+  cta.addEventListener("click", (event) => {
+    event.preventDefault();
+    openVideoDialog(
+      cta.getAttribute("data-video"),
+      cta.getAttribute("data-video-small"),
+      // The button's own label names the dialog, so a screen reader hears
+      // which of the two videos opened rather than a generic "Watch the video".
+      cta.textContent.trim(),
+    );
+  });
+}
 
 // Object gallery + zoom viewer (feature 09). Two behaviours, both enhancement:
 //   - Thumbnails swap which image the main gallery box shows (inline), and mark

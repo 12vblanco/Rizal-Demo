@@ -54,6 +54,7 @@
   "model3d": {
     "src": "sacred-heart-of-jesus.glb",
     "poster": "sacred-heart-of-jesus/model-poster.webp",
+    "cardPoster": "sacred-heart-of-jesus/card-poster.webp",
     "altText": "Interactive 3D model of Rizal's Sacred Heart of Jesus statuette, free to rotate and zoom",
     "credit": "3D model: photogrammetry by the National Museum of the Philippines"
   },

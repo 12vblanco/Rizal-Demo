@@ -69,10 +69,17 @@ const DZ_DIR = "media/dz"; // deep-zoom tile pyramids, relative to dist/
 const DZ_TILE_SIZE = 254;
 const DZ_OVERLAP = 1;
 const DZ_CODEC = { quality: 80, mozjpeg: true };
+// Tiles are JPEG, which has no alpha, so a cut-out source (an object keyed off
+// its studio backdrop — scripts/images/key-bg.mjs) would otherwise be flattened
+// onto sharp's default black and sit in the viewer as a visibly darker slab.
+// Flatten it onto the dialog's own background instead (--chinese-black, see
+// css/components/viewer.css) so the cut-out reads as one surface at every zoom
+// level. A no-op for the opaque sources, which is all the others.
+const DZ_BACKGROUND = "#151616";
 
 /** Cache key for the tiling pipeline — see CONFIG_KEY. */
 const DZ_CONFIG_KEY = createHash("md5")
-  .update(JSON.stringify({ DZ_TILE_SIZE, DZ_OVERLAP, DZ_CODEC }))
+  .update(JSON.stringify({ DZ_TILE_SIZE, DZ_OVERLAP, DZ_CODEC, DZ_BACKGROUND }))
   .digest("hex")
   .slice(0, 8);
 
@@ -441,6 +448,7 @@ export async function processDeepZoom({ assetsDir, dist, cacheDir, sources, log 
       mkdirSync(cacheEntryDir, { recursive: true });
       const meta = await sharp(srcPath).metadata();
       await sharp(srcPath, { failOn: "none" })
+        .flatten({ background: DZ_BACKGROUND })
         .jpeg(DZ_CODEC)
         .tile({ size: DZ_TILE_SIZE, overlap: DZ_OVERLAP, layout: "dz" })
         .toFile(path.join(cacheEntryDir, "tiles.dz"));

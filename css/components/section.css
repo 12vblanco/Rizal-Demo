@@ -38,6 +38,17 @@
   );
 }
 
+/* Half strength, for a hero image that is already mostly dark ground: the
+   full scrim on top of one of those reads as a black band with a ghost in it. */
+.section-hero__scrim--light {
+  background: linear-gradient(
+    95deg,
+    color-mix(in srgb, var(--bg-dark) 44%, transparent) 0%,
+    color-mix(in srgb, var(--bg-dark) 31%, transparent) 55%,
+    color-mix(in srgb, var(--bg-dark) 22%, transparent) 100%
+  );
+}
+
 .section-hero__inner {
   position: relative;
   z-index: 2;

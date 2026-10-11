@@ -14,6 +14,7 @@ import { loadContent } from "../src/content.js";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const realContent = path.join(root, "content");
 const realAssets = path.join(root, "assets-src");
+const realStatic = path.join(root, "static");
 
 let passed = 0;
 let failed = 0;
@@ -22,7 +23,7 @@ const bad = (name, detail) => (failed++, console.error(`  ✗ ${name}\n      ${d
 
 // The real, committed content must always validate.
 try {
-  loadContent({ contentDir: realContent, assetsDir: realAssets });
+  loadContent({ contentDir: realContent, assetsDir: realAssets, staticDir: realStatic });
   ok("valid sample content passes");
 } catch (err) {
   bad("valid sample content passes", err instanceof Error ? err.message : String(err));
@@ -42,7 +43,7 @@ function expectFailure(name, mutate, expect) {
     mutate(dir);
     let error = null;
     try {
-      loadContent({ contentDir: dir, assetsDir: realAssets });
+      loadContent({ contentDir: dir, assetsDir: realAssets, staticDir: realStatic });
     } catch (err) {
       error = err instanceof Error ? err : new Error(String(err));
     }
@@ -118,6 +119,21 @@ expectFailure(
 );
 
 expectFailure(
+  "missing referenced video file fails",
+  (dir) => editJson(dir, "about.json", (a) => (a.messages[0].video = "video/does-not-exist.mp4")),
+  "not found in static/",
+);
+
+expectFailure(
+  "hero CTA videoSmall without video fails",
+  (dir) =>
+    editJson(dir, "site.json", (s) => {
+      s.heroCtas[1] = { label: { en: "Rizal as Artist" }, videoSmall: "video/rizal-as-an-artist-720p.mp4" };
+    }),
+  "needs a `video`",
+);
+
+expectFailure(
   "duplicate id fails",
   (dir) => editJson(dir, "objects/tangkulu.json", (o) => (o.id = "salakot")),
   "duplicate",
@@ -177,7 +193,7 @@ function expectSuccess(name, mutate) {
     cpSync(realContent, dir, { recursive: true });
     mutate(dir);
     try {
-      loadContent({ contentDir: dir, assetsDir: realAssets });
+      loadContent({ contentDir: dir, assetsDir: realAssets, staticDir: realStatic });
       ok(name);
     } catch (err) {
       bad(name, err instanceof Error ? err.message : String(err));

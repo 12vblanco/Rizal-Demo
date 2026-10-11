@@ -14,6 +14,10 @@ const KEBAB = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const LOCALE_VARIANT_MD = /\.(?:fil|de)\.md$/;
 const IMAGE_FILE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:avif|jpe?g|png|webp)$/;
 const MODEL_FILE = /^[a-z0-9]+(?:-[a-z0-9]+)*\.glb$/;
+// Video paths are "video/<name>.mp4", relative to basePath: the encodes live in
+// static/, which build.js copies verbatim, rather than assets-src/ — nothing is
+// derived from them at build time, so the committed file is the shipped file.
+const VIDEO_PATH = /^video\/[a-z0-9]+(?:-[a-z0-9]+)*\.mp4$/;
 // Per-model download budget (feature 10): a GLB streams to every visitor who
 // opens the 3D view, so the build fails on anything heavier.
 const MODEL_MAX_MB = 8;
@@ -154,13 +158,39 @@ function checkImagePath(errors, file, field, src, assetsDir) {
   }
 }
 
-/** Shared image shape: { src, alt, credit?, deepZoom? }. */
-function validateImage(errors, file, field, img, assetsDir) {
-  if (typeof img !== "object" || img === null || Array.isArray(img)) {
-    errors.add(file, field, "must be an object { src, alt, credit?, deepZoom? }");
+/**
+ * Validate a video path like "video/rizal-intro-720p.mp4": the shape above, and
+ * the file must exist under static/.
+ *
+ * Worth checking now that these ship from the repo — while they streamed from
+ * the museum origin a typo here was unverifiable, and it still is not caught
+ * downstream: the About page's videos hang off `data-video` attributes, which
+ * linkinator does not follow, so a bad path would reach production as a play
+ * button that does nothing.
+ *
+ * `staticDir` is optional so a caller that only wants the content rules can
+ * skip the filesystem; the shape check always runs.
+ */
+function checkVideoPath(errors, file, field, src, staticDir) {
+  if (!VIDEO_PATH.test(src)) {
+    errors.add(file, field, `"${src}" is not a kebab-case video path ("video/<name>.mp4")`);
     return;
   }
-  checkKeys(errors, file, img, ["src", "alt", "credit", "deepZoom"], field);
+  if (staticDir && !existsSync(path.join(staticDir, src))) {
+    errors.add(file, field, `referenced video "${src}" not found in static/`);
+  }
+}
+
+// Crop anchors a content editor can set on an image; anything else is centred.
+const IMAGE_POSITIONS = ["top", "upper", "bottom"];
+
+/** Shared image shape: { src, alt, credit?, deepZoom?, position? }. */
+function validateImage(errors, file, field, img, assetsDir) {
+  if (typeof img !== "object" || img === null || Array.isArray(img)) {
+    errors.add(file, field, "must be an object { src, alt, credit?, deepZoom?, position? }");
+    return;
+  }
+  checkKeys(errors, file, img, ["src", "alt", "credit", "deepZoom", "position"], field);
   if (reqString(errors, file, img, "src") === false) {
     errors.add(file, `${field}.src`, "missing image source");
   } else {
@@ -174,6 +204,9 @@ function validateImage(errors, file, field, img, assetsDir) {
   }
   if (img.deepZoom !== undefined && typeof img.deepZoom !== "boolean") {
     errors.add(file, `${field}.deepZoom`, "must be a boolean");
+  }
+  if (img.position !== undefined && !IMAGE_POSITIONS.includes(img.position)) {
+    errors.add(file, `${field}.position`, `must be one of ${IMAGE_POSITIONS.join(", ")}`);
   }
 }
 
@@ -240,7 +273,7 @@ function validateObject(errors, file, obj, assetsDir) {
     if (typeof m !== "object" || m === null) {
       errors.add(file, "model3d", "must be an object { src, poster, altText }");
     } else {
-      checkKeys(errors, file, m, ["src", "poster", "altText", "credit"], "model3d");
+      checkKeys(errors, file, m, ["src", "poster", "cardPoster", "altText", "credit"], "model3d");
       if (reqString(errors, file, m, "src")) {
         const modelPath = path.join(assetsDir, "models", m.src);
         if (!MODEL_FILE.test(m.src)) {
@@ -262,6 +295,12 @@ function validateObject(errors, file, obj, assetsDir) {
       }
       if (reqString(errors, file, m, "poster")) {
         checkImagePath(errors, file, "model3d.poster", m.poster, assetsDir);
+      }
+      // The home 3D strip's still. Optional: without it the strip falls back to
+      // the camera-matched `poster`, which frames every object differently (see
+      // scripts/images/card-poster.mjs).
+      if (m.cardPoster !== undefined && optString(errors, file, m, "cardPoster")) {
+        checkImagePath(errors, file, "model3d.cardPoster", m.cardPoster, assetsDir);
       }
       reqString(errors, file, m, "altText");
       optString(errors, file, m, "credit");
@@ -328,14 +367,21 @@ function validatePerson(errors, file, person, assetsDir) {
   }
 }
 
-const SECTION_KEYS = ["id", "title", "intro", "heroImage", "categories", "status"];
+const SECTION_KEYS = ["id", "title", "heroTitle", "intro", "heroImage", "cardImage", "heroScrim", "categories", "status"];
 
 function validateSection(errors, file, section, assetsDir) {
   checkKeys(errors, file, section, SECTION_KEYS);
   reqString(errors, file, section, "id") && checkKebab(errors, file, "id", section.id);
   reqLocalized(errors, file, section, "title");
+  optLocalized(errors, file, section, "heroTitle");
   reqLocalized(errors, file, section, "intro");
   validateImage(errors, file, "heroImage", section.heroImage, assetsDir);
+  if (section.cardImage !== undefined) {
+    validateImage(errors, file, "cardImage", section.cardImage, assetsDir);
+  }
+  if (section.heroScrim !== undefined && section.heroScrim !== "full" && section.heroScrim !== "light") {
+    errors.add(file, "heroScrim", `must be "full" or "light", got ${JSON.stringify(section.heroScrim)}`);
+  }
   if (section.status !== "live" && section.status !== "upcoming") {
     errors.add(file, "status", `must be "live" or "upcoming", got ${JSON.stringify(section.status)}`);
   }
@@ -354,12 +400,12 @@ function validateSection(errors, file, section, assetsDir) {
 
 const SITE_KEYS = [
   "siteTitle", "siteSubtitle", "exhibitionTitle", "exhibitionSubtitle", "homeTitle",
-  "baseUrl", "basePath", "language", "description", "heroCtas", "homeQuote",
+  "baseUrl", "basePath", "language", "description", "heroCtas", "home3dObjects", "homeQuote",
   "homeTeasers", "nav", "footerNav", "footerCtas",
   "footer", "contact", "partners", "social", "analytics", "copyright",
 ];
 
-function validateSite(errors, file, site, assetsDir) {
+function validateSite(errors, file, site, assetsDir, staticDir) {
   checkKeys(errors, file, site, SITE_KEYS);
   reqString(errors, file, site, "language");
   for (const field of [
@@ -384,23 +430,39 @@ function validateSite(errors, file, site, assetsDir) {
   // only when its data is present, so nothing here is invented copy).
   if (site.heroCtas !== undefined && reqArray(errors, file, site, "heroCtas")) {
     site.heroCtas.forEach((item, i) => {
-      checkKeys(errors, file, item, ["label", "href", "video"], `heroCtas[${i}]`);
+      checkKeys(errors, file, item, ["label", "href", "video", "videoSmall"], `heroCtas[${i}]`);
       reqLocalized(errors, file, item, "label");
       optString(errors, file, item, "video");
-      // `video` CTAs derive their href from baseUrl + video (see home.js), so
+      optString(errors, file, item, "videoSmall");
+      for (const key of ["video", "videoSmall"]) {
+        if (isNonEmptyString(item[key])) {
+          checkVideoPath(errors, file, `heroCtas[${i}].${key}`, item[key], staticDir);
+        }
+      }
+      // `video` CTAs derive their href from basePath + video (see home.js), so
       // href is only required when there's no video to derive it from.
       if (item.video === undefined) reqString(errors, file, item, "href");
       else optString(errors, file, item, "href");
+      // The small rung is an alternative encode of `video`, never a CTA on its
+      // own — without `video` there is nothing for js/main.js to fall back to.
+      if (item.videoSmall !== undefined && item.video === undefined) {
+        errors.add(file, `heroCtas[${i}].videoSmall`, "needs a `video` (the full-size rung) beside it");
+      }
+    });
+  }
+  if (site.home3dObjects !== undefined && reqArray(errors, file, site, "home3dObjects")) {
+    site.home3dObjects.forEach((id, i) => {
+      if (!isNonEmptyString(id)) errors.add(file, `home3dObjects[${i}]`, "must be an object id string");
     });
   }
   if (site.homeQuote !== undefined) {
     const q = site.homeQuote;
     if (typeof q !== "object" || q === null || Array.isArray(q)) {
-      errors.add(file, "homeQuote", "must be an object { text, attribution, lang? }");
+      errors.add(file, "homeQuote", "must be an object { attribution, text?, lang? }");
     } else {
       checkKeys(errors, file, q, ["text", "attribution", "lang"], "homeQuote");
-      reqString(errors, file, q, "text");
       reqString(errors, file, q, "attribution");
+      optString(errors, file, q, "text");
       optString(errors, file, q, "lang");
     }
   }
@@ -538,14 +600,16 @@ function validatePage(errors, file, page, assetsDir) {
   }
 }
 
-// About page (content/about.json): two institution blurbs + the "Messages" video
-// grid. Each message is a poster (real image) + name/role; the player is loaded
-// on click from `video` — an origin-relative path to the dignitary MP4 already
-// hosted at the museum origin (about.js builds the URL from site.baseUrl), so the
-// ~155 MB of video is streamed from there rather than re-hosted in the repo.
+// About page (content/about.json): the project write-up and the institution
+// blurbs + the "Messages" video grid. Each message is a poster (real image) +
+// name/role; the player is loaded on click from `video` — a basePath-relative
+// path to the dignitary MP4 shipped from this repo's static/video/. These were
+// streamed from the museum origin's phase-1 asset tree until that tree stopped
+// being something we can rely on surviving this rebuild's launch, so the
+// encodes now travel with the site.
 const ABOUT_KEYS = ["intro", "blurbs", "messagesHeading", "messages"];
 
-function validateAbout(errors, file, about, assetsDir) {
+function validateAbout(errors, file, about, assetsDir, staticDir) {
   if (typeof about !== "object" || about === null || Array.isArray(about)) {
     errors.add(file, "(root)", "must be an object { intro, blurbs, messagesHeading, messages }");
     return;
@@ -574,8 +638,12 @@ function validateAbout(errors, file, about, assetsDir) {
       reqString(errors, file, m, "name");
       reqLocalized(errors, file, m, "role");
       validateImage(errors, file, `messages[${i}].poster`, m.poster, assetsDir);
-      if (m.video !== undefined && !isNonEmptyString(m.video)) {
-        errors.add(file, `messages[${i}].video`, "present but empty — omit the field or give the origin-relative path to the hosted MP4 (e.g. assets/video/sll.mp4)");
+      if (m.video !== undefined) {
+        if (!isNonEmptyString(m.video)) {
+          errors.add(file, `messages[${i}].video`, "present but empty — omit the field or give the path to the shipped MP4 (e.g. video/sll.mp4)");
+        } else {
+          checkVideoPath(errors, file, `messages[${i}].video`, m.video, staticDir);
+        }
       }
     });
   }
@@ -791,9 +859,9 @@ function checkIdentity(errors, entries, idField) {
  * Load and validate all content. Throws with the full error list if any
  * rule is broken; returns the parsed content when everything is valid.
  *
- * @param {{ contentDir: string, assetsDir: string }} dirs
+ * @param {{ contentDir: string, assetsDir: string, staticDir?: string }} dirs
  */
-export function loadContent({ contentDir, assetsDir }) {
+export function loadContent({ contentDir, assetsDir, staticDir }) {
   const errors = new ContentErrors();
 
   // site.json
@@ -805,7 +873,7 @@ export function loadContent({ contentDir, assetsDir }) {
   if (site === null) {
     if (siteRaw === null) errors.add(siteFile, "(file)", "missing — the site cannot build without it");
   } else {
-    validateSite(errors, siteFile, site, assetsDir);
+    validateSite(errors, siteFile, site, assetsDir, staticDir);
     scanPlaceholders(errors, siteFile, site, "");
   }
 
@@ -865,7 +933,7 @@ export function loadContent({ contentDir, assetsDir }) {
   } else {
     const parsed = parseJson(errors, aboutFile, readFileSync(path.join(contentDir, "about.json"), "utf8"));
     if (parsed !== null) {
-      validateAbout(errors, aboutFile, parsed, assetsDir);
+      validateAbout(errors, aboutFile, parsed, assetsDir, staticDir);
       scanPlaceholders(errors, aboutFile, parsed, "");
       about = parsed;
     }
@@ -919,6 +987,21 @@ export function loadContent({ contentDir, assetsDir }) {
       errors.add(file, "category", `section "${section.id}" declares no categories — remove the field`);
     }
   };
+
+  // The landing page's curated 3D strip (site.home3dObjects) names objects by
+  // id, in the order they appear. Each must exist and must actually carry a
+  // `model3d` block, or the strip would advertise a 3D view that is not there.
+  if (site && Array.isArray(site.home3dObjects)) {
+    const objectsById = new Map(objects.map((o) => [o.data.id, o.data]));
+    site.home3dObjects.forEach((id, i) => {
+      const obj = objectsById.get(id);
+      if (!obj) {
+        errors.add(siteFile, `home3dObjects[${i}]`, `"${id}" does not resolve to an object in content/objects/`);
+      } else if (!obj.model3d) {
+        errors.add(siteFile, `home3dObjects[${i}]`, `"${id}" has no model3d block — the 3D strip can only show objects with one`);
+      }
+    });
+  }
 
   for (const { file, data } of objects) {
     const section = checkSectionRef(file, data);

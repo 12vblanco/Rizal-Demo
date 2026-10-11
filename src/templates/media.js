@@ -133,7 +133,10 @@ export function renderImage({
   dataVt,
 }) {
   const entry = entryFor(image.src);
-  const cls = [className, entry.lqipClass].filter(Boolean).join(" ");
+  // `position` is the image's own crop anchor (data, not layout): the layout
+  // decides the box, the image says which edge survives the crop.
+  const posClass = image.position ? `img-anchor-${image.position}` : "";
+  const cls = [className, posClass, entry.lqipClass].filter(Boolean).join(" ");
   const imgAttrs = [
     `class="${esc(cls)}"`,
     `src="${esc(site.basePath + entry.imgUrl)}"`,

@@ -1,6 +1,6 @@
-/* About page: two institution blurbs (narrow, centred headings) over the
-   "Messages" video grid — poster cards whose player loads on click. All
-   colours/type/spacing from tokens.css. */
+/* About page: the write-up blurbs (narrow, centred headings) — the project,
+   then each partner institution — over the "Messages" video grid, poster cards
+   whose player loads on click. All colours/type/spacing from tokens.css. */
 
 .about-blurb {
   margin-block-end: var(--space-2xl);

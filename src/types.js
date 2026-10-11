@@ -15,6 +15,12 @@
  * @property {string} alt
  * @property {string} [credit]
  * @property {boolean} [deepZoom]
+ * @property {"top"|"upper"|"bottom"} [position] - which part of the source to
+ *   hold on to when a layout box crops it (object-fit: cover). Omitted means
+ *   centred, which suits a subject sitting mid-frame; "top" is for a portrait
+ *   whose head sits near the top edge and would otherwise be cropped away;
+ *   "upper" is the step between the two, for a wide scene whose figure sits
+ *   high but not flush, where "top" would show the empty wall above them.
  */
 
 /**
@@ -36,11 +42,13 @@
  * @typedef {object} Link
  * @property {LocalizedString} label
  * @property {string} href
- * @property {string} [video] - baseUrl-relative video file (self-hosted at
- *   the museum origin, like the About "Messages" videos — not committed to
- *   this repo); when present the CTA's href is derived from it and it opens
- *   in the video dialog on click (JS), the derived href being its no-JS
- *   fallback link (plays natively).
+ * @property {string} [video] - basePath-relative video file, shipped from this
+ *   repo's static/video/ (as are the About "Messages" videos); when present the
+ *   CTA's href is derived from it and it opens in the video dialog on click
+ *   (JS), the derived href being its no-JS fallback link (plays natively).
+ * @property {string} [videoSmall] - the 720p rung of the same video, for a
+ *   screen that cannot show the 1080p `video` anyway (js/main.js picks). Only
+ *   meaningful alongside `video`; omit it where only one encode exists.
  */
 
 /**
@@ -52,10 +60,11 @@
  */
 
 /**
- * Landing-page pull-quote (optional site.json slot).
+ * Landing-page signature band (optional site.json slot). The band renders
+ * Rizal's autograph; `attribution` is its accessible name.
  * @typedef {object} HomeQuote
- * @property {string} text
  * @property {string} attribution
+ * @property {string} [text]
  * @property {string} [lang]
  */
 
@@ -125,6 +134,7 @@
  * @property {LocalizedString} description
  * @property {LocalizedString} copyright
  * @property {Link[]} [heroCtas]
+ * @property {string[]} [home3dObjects] - object ids, in order, for the landing page's 3D strip
  * @property {HomeQuote} [homeQuote]
  * @property {HomeTeaser[]} [homeTeasers]
  * @property {NavItem[]} nav
@@ -150,6 +160,7 @@
  * @typedef {object} Model3d
  * @property {string} src
  * @property {string} poster
+ * @property {string} [cardPoster] - re-framed still for the home 3D strip, so a row of cards shares one scale; see scripts/images/card-poster.mjs
  * @property {string} altText
  * @property {string} [credit] - source/licence attribution shown by the 3D view
  */
@@ -218,8 +229,19 @@
  * @typedef {object} Section
  * @property {string} id
  * @property {LocalizedString} title
+ * @property {LocalizedString} [heroTitle] - what the hero band's <h1> says,
+ *   when the short `title` that labels the section everywhere else (nav, cards,
+ *   browser title) would be too terse as a page headline. Falls back to title.
  * @property {LocalizedString} intro
  * @property {Image} heroImage
+ * @property {Image} [cardImage] - what the persona card shows, when the hero
+ *   image cannot serve both. The hero is a very wide band and the card is
+ *   nearly landscape, so one file only covers both when the subject sits
+ *   mid-frame. Falls back to heroImage.
+ * @property {"full"|"light"} [heroScrim] - how hard the hero band's scrim has
+ *   to work. Default "full" suits a bright or busy image; "light" is for a
+ *   hero image that already carries its own dark ground, where the full scrim
+ *   would bury it.
  * @property {SectionCategory[]} categories
  * @property {"live"|"upcoming"} status
  */
@@ -272,7 +294,7 @@
  * @property {string} name
  * @property {LocalizedString} role
  * @property {Image} poster
- * @property {string} [video]
+ * @property {string} [video] - basePath-relative, shipped from static/video/
  */
 
 /**

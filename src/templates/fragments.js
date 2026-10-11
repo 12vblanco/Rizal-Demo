@@ -39,7 +39,9 @@ export function orderedPersonas(site, sections) {
 export function personaCard(site, section) {
   const media = renderImage({
     site,
-    image: section.heroImage,
+    // The hero band is far wider than this card, so a section whose hero is cut
+    // for that band supplies its own card crop; the rest reuse the hero image.
+    image: section.cardImage ?? section.heroImage,
     className: "persona-card__img",
     sizes: "(min-width: 69rem) 32rem, (min-width: 40rem) calc((100vw - 5rem) / 2), calc(100vw - 3rem)",
   });
