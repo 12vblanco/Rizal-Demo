@@ -15,6 +15,15 @@ if (heroVideo instanceof HTMLVideoElement &&
   });
 }
 
+// Expose the sticky header's height as --header-h so the mobile hero can fill
+// the rest of the screen exactly (css/components/home.css).
+const siteHeader = document.querySelector(".site-header");
+if (siteHeader) {
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty("--header-h", `${siteHeader.offsetHeight}px`);
+  }).observe(siteHeader);
+}
+
 // Pull-quote signature (home page): swap the static SVG for the live site's
 // hand-drawn autograph animation once the quote scrolls into view — but only
 // when motion is welcome, so reduced-motion and JS-off visitors keep the SVG

@@ -88,12 +88,13 @@
 .home-3d {
   background: var(--bg-light);
   color: var(--text-on-light);
-  padding-block: var(--space-xl);
+  padding-block: var(--space-xl) 0;
 }
 
 .models3d__heading {
   text-align: center;
-  margin-block: 2rem 0.75rem;
+  max-width: 80%;
+  margin: 2rem auto 1rem;
   font-size: var(--section-title);
 }
 
@@ -208,7 +209,7 @@
 .home-personas {
   background: var(--bg-light);
   color: var(--text-on-light);
-  padding-block: var(--space-xl);
+  padding-block: var(--space-l) var(--space-xl);
 }
 
 .persona-section__heading {
@@ -459,4 +460,26 @@
    [hidden] attribute would silently do nothing on an <img>/<video>. */
 .pullquote__signature-anim[hidden] {
   display: none;
+}
+
+/* Mobile: header + hero fill exactly one screen, tighter title tracking, and
+   the CTAs stack centred at 80vw. --header-h is measured by js/main.js (the
+   nav wraps to a second row on phones); the fallback is that measured height. */
+@media (max-width: 51.999rem) {
+  .hero {
+    padding-block: var(--space-l);
+    min-height: calc(100vh - var(--header-h, 150px));
+    min-height: calc(100svh - var(--header-h, 150px));
+  }
+  .hero__title {
+    letter-spacing: -0.3px;
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-btn {
+    width: 80vw;
+    justify-content: center;
+  }
 }
