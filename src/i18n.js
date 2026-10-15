@@ -21,8 +21,9 @@
  *  BCP-47 tag used for <html lang>, <link hreflang>, and the switcher links. */
 export const LOCALES = [
   { id: "en", label: "English", short: "EN", hreflang: "en", flag: "flag-en" },
-  { id: "fil", label: "Filipino", short: "FIL", hreflang: "fil", flag: "flag-fil" },
-  { id: "de", label: "Deutsch", short: "DE", hreflang: "de", flag: "flag-de" },
+  // Translations taken down at client request — uncomment to restore.
+  // { id: "fil", label: "Filipino", short: "FIL", hreflang: "fil", flag: "flag-fil" },
+  // { id: "de", label: "Deutsch", short: "DE", hreflang: "de", flag: "flag-de" },
 ];
 
 export const DEFAULT_LOCALE = "en";
