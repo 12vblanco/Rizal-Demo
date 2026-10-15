@@ -408,6 +408,18 @@
   max-width: var(--measure);
 }
 
+/* Small disclaimer about the 3D model (e.g. a digitally added base). */
+.object__model-note {
+  max-width: var(--measure);
+  margin-top: var(--space-m);
+  font-size: var(--step--1);
+  font-style: italic;
+  /* No italic face is loaded and base.css disables synthesis site-wide, so
+     italic would silently render upright; allow a slanted face just here. */
+  font-synthesis: style;
+  color: var(--black-cow);
+}
+
 /* Byline for a credited catalogue entry — same voice as the essay/person byline. */
 .object__author {
   margin-top: var(--space-m);
@@ -500,6 +512,38 @@
      a row, which is all `auto` rows give you. */
   grid-auto-rows: 1fr;
   gap: var(--space-l);
+}
+
+/* Object page "Explore the Collection": its grid runs the full container,
+   twice the width of the section page's, so auto-fill packed in 6–7 narrow
+   columns. Fixed tracks at the section page's card width (~203px) give the
+   same cards and fewer columns, centred. */
+@media (min-width: 30rem) {
+  .collection .collection-grid {
+    grid-template-columns: repeat(auto-fill, 12.7rem);
+    justify-content: center;
+  }
+}
+
+/* Phones: one full-width card per row instead of two cramped ones. With no
+   neighbours to line up with, each card hugs its own label: no equal-height
+   rows, and the label panel sized to one title line plus one gloss line. */
+@media (max-width: 29.99rem) {
+  .collection-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .collection-grid .collection-card__en {
+    min-height: 0;
+  }
+  /* A card with no second name gives that line to a two-line title instead
+     of growing taller; the min-height keeps one-line cards the same size. */
+  .collection-grid .collection-card__en:empty {
+    display: none;
+  }
+  .collection-grid .collection-card__body {
+    min-height: 6.125rem;
+  }
 }
 
 /* Let a card shrink to its share of the track: without this a long unbroken

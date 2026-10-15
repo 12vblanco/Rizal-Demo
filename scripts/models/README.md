@@ -45,6 +45,24 @@ Textures are downscaled to **2048 px** (from the delivered 8192²). The four
 delivered scans are 43k–73k triangles, already inside the 50k–150k budget, so
 nothing is decimated; the resulting GLBs are 0.5–0.6 MB each.
 
+### Capped re-delivery (current)
+
+The shipped GLBs now come from a second delivery, `NEW-ASSETS /3d_capped/`,
+which closes each scan's open underside with a flat "cap" primitive. Those
+files arrive as uncompressed GLB with 4096² JPEG textures, so
+`scripts/models/from-capped.mjs` orients, centres and scales them, downsizes
+textures to 2048 px and applies the same meshopt + WebP optimisation:
+
+```sh
+node scripts/models/from-capped.mjs all
+```
+
+It writes the same `assets-src/models/<id>.glb` paths, so **re-running
+`from-metashape.mjs` would overwrite the capped models with the old uncapped
+ones.** Orientation lives in its own `MODELS` table; `level: true` levels an
+object off its cap instead of a by-eye rotation. Re-render the posters
+afterwards (see *Poster* below, then `scripts/images/card-poster.mjs`).
+
 ### Orientation is manual, and has to be
 
 Metashape leaves an un-georeferenced chunk in arbitrary camera-local

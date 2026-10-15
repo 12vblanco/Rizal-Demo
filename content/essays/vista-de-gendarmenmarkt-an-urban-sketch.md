@@ -2,7 +2,6 @@
 title: Vista de Gendarmenmarkt en Berlin: An Urban Sketch through the Eyes of an Expat
 slug: vista-de-gendarmenmarkt-an-urban-sketch
 section: artist
-summary: A pencil view of Berlin's great square, drawn while Rizal was finishing Noli Me Tángere — an urban sketch through the eyes of a visitor from the colonies.
 heroImage: vista-de-gendarmenmarkt/front.webp
 order: 9
 author: Nicole Lasquety

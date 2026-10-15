@@ -194,3 +194,26 @@
 .search-ui .pagefind-ui__result {
   padding-block: var(--space-m);
 }
+
+/* Long unbroken queries ("No results for dddd…") and long words in results
+   wrap inside the panel instead of running off its right edge. The message
+   shows at most two lines, then an ellipsis — the full query is still what
+   gets searched. Pagefind gives it a fixed one-line height and its stylesheet
+   loads after ours, hence the extra .pagefind-ui in the selector. */
+.search-ui .pagefind-ui .pagefind-ui__message {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  height: auto;
+  /* Spacing as margin, not padding: overflow is only clipped at the padding
+     edge, so bottom padding would show the start of a hidden third line. */
+  padding: 0;
+  margin-block: calc(20px * var(--pagefind-ui-scale));
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.search-ui .pagefind-ui :is(.pagefind-ui__result-title, .pagefind-ui__result-excerpt) {
+  overflow-wrap: anywhere;
+}

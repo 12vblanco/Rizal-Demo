@@ -206,16 +206,41 @@
   .site-nav__toggle[aria-expanded="true"] + .site-nav__list {
     display: flex;
   }
-  .nav-item {
-    padding-block: var(--space-2xs);
+  /* Each link fills its whole row (tap anywhere on the line); on a dropdown
+     row the chevron button keeps its own square at the end. */
+  .site-nav__list a {
+    display: block;
+    padding-block: var(--space-xs);
   }
   .nav-item--dropdown {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
+    column-gap: var(--space-s);
+  }
+  /* Prominent chevron: a 44px gold-outlined square with a larger icon. */
+  .nav-dropdown__toggle {
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    color: var(--accent-on-dark);
+    border: 1px solid color-mix(in srgb, var(--accent-on-dark) 60%, transparent);
+    border-radius: 8px;
+  }
+  .nav-dropdown__toggle[aria-expanded="true"] {
+    background: color-mix(in srgb, var(--accent-on-dark) 15%, transparent);
+  }
+  .nav-dropdown__chevron svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke-width: 2.5;
   }
   .nav-dropdown {
     grid-column: 1 / -1;
+  }
+  .nav-dropdown a {
+    padding-inline: var(--space-m);
   }
 }
 

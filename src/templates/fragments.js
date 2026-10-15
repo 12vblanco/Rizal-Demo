@@ -245,6 +245,14 @@ ${cards.join("\n")}
 </section>`;
 }
 
+/** Objects with a `model3d` block lead the grid (stable sort, so curatorial
+ *  `order` still governs everything else) — the 3D badge on their card is
+ *  otherwise easy to miss below the fold.
+ * @param {ContentObject[]} objects */
+export function objects3dFirst(objects) {
+  return [...objects].sort((a, b) => Number(Boolean(b.model3d)) - Number(Boolean(a.model3d)));
+}
+
 /** An object card — used by the object page's "Explore Other Collection" grid
  *  and by the person page's "Related objects" row. Identical markup + morph on
  *  both so the section grid (feature 05) can transition into either.

@@ -26,7 +26,11 @@ export function essayTitle(essay, site) {
 
 /** @param {Essay} essay */
 export function essayDescription(essay) {
-  const plain = pick(essay.summary).replace(/\s+/g, " ").trim();
+  // No summary → the essay's own opening paragraph, so nothing is written for it.
+  const source = essay.summary
+    ? pick(essay.summary)
+    : (pick(essay.body).split(/\n\s*\n/).find((p) => /^\s*[^#!\s]/.test(p)) ?? "");
+  const plain = source.replace(/[*_`]|\[([^\]]*)\]\([^)]*\)/g, "$1").replace(/\s+/g, " ").trim();
   if (plain.length <= 155) return plain;
   return plain.slice(0, 152).replace(/\s+\S*$/, "") + "…";
 }

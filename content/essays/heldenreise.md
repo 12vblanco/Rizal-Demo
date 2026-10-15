@@ -2,7 +2,6 @@
 title: Heldenreise: Dr. Jose Rizal’s time in Germany
 slug: heldenreise
 section: artist
-summary: Germany shaped Rizal as much as he observed it. The Ullmer sketches trace a hero's journey through Heidelberg, Leipzig and Berlin.
 heroImage: sketch-of-fritz-ullmer/front.webp
 order: 11
 author: Eruel Olvina

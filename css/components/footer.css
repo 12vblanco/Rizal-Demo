@@ -44,6 +44,7 @@
 .footer-panel__logo {
   width: 100%;
   height: auto;
+  object-fit: contain;
   padding: 0 0.6rem;
 }
 
@@ -64,14 +65,21 @@
   height: 6rem;
 }
 
+/* `width: 100%` plus a `max-height` cap can squash the box out of the art's
+   proportions (some mobile Safari versions don't carry the cap across to the
+   width), so `object-fit: contain` keeps every seal at its true aspect ratio
+   whatever box it lands in. */
 .footer-panel__seals img {
   width: 100%;
+  height: auto;
   max-height: 7rem;
+  object-fit: contain;
 }
 
 /* German (Ethnologisches) lockup rendered as wide as the NMP logo above it. */
 .footer-panel__seals li:first-child img {
   width: 100%;
+  height: 100%;
 }
 
 /* Seals whose own artwork needs a light backing to read on the dark panel. */
@@ -127,6 +135,7 @@
 
 /* ── Body ────────────────────────────────────────────────────────────── */
 .footer-body {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   gap: var(--space-l);
@@ -168,9 +177,13 @@
   gap: var(--space-xl);
 }
 
-@media (min-width: 48rem) {
+/* Keyed to the body's own width, not the viewport: once the left panel
+   appears (52rem) the body is far narrower than the viewport. */
+@container (min-width: 38rem) {
   .footer-grid {
-    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+    /* The side track never drops below its widest unbreakable item (email,
+       pill labels), so it can't spill left over the About column. */
+    grid-template-columns: minmax(0, 1.7fr) minmax(min-content, 1fr);
     align-items: stretch;
   }
 }
@@ -209,7 +222,7 @@
 }
 
 /* Right column: pills on top, social icons pinned to the bottom-right.
-   Mobile-first — until the 48rem two-column .footer-grid kicks in this is the
+   Mobile-first — until the two-column .footer-grid kicks in this is the
    footer's last block, running full width under the About text, so the pills,
    the social row and the contact line all centre rather than hanging off the
    right edge against nothing. */
@@ -253,6 +266,26 @@
 
 .footer-pill .footer-arrow {
   flex: none;
+}
+
+/* Mobile, while the footer is stacked: pills 90% of the screen, label
+   centred. */
+@media (max-width: 47.99rem) {
+  @container (max-width: 37.99rem) {
+    /* Keep the column at its track width so the wider list overflows evenly
+       both sides (centred on screen) instead of stretching the track right. */
+    .footer-side {
+      min-width: 0;
+    }
+    .footer-ctas {
+      width: 90vw;
+      max-width: none;
+    }
+    .footer-pill {
+      justify-content: center;
+      text-align: center;
+    }
+  }
 }
 
 /* Gold social icons — 15% larger than the base circle */
@@ -302,9 +335,9 @@
   gap: var(--space-2xs) var(--space-m);
 }
 
-/* From the 48rem .footer-grid breakpoint the side column sits in its own
+/* Once .footer-grid goes two-column the side column sits in its own
    right-hand track, where the stack reads as a right-aligned group again. */
-@media (min-width: 48rem) {
+@container (min-width: 38rem) {
   .footer-side {
     align-items: flex-end;
   }

@@ -273,7 +273,7 @@ function validateObject(errors, file, obj, assetsDir) {
     if (typeof m !== "object" || m === null) {
       errors.add(file, "model3d", "must be an object { src, poster, altText }");
     } else {
-      checkKeys(errors, file, m, ["src", "poster", "cardPoster", "altText", "credit"], "model3d");
+      checkKeys(errors, file, m, ["src", "poster", "cardPoster", "altText", "credit", "note"], "model3d");
       if (reqString(errors, file, m, "src")) {
         const modelPath = path.join(assetsDir, "models", m.src);
         if (!MODEL_FILE.test(m.src)) {
@@ -304,6 +304,7 @@ function validateObject(errors, file, obj, assetsDir) {
       }
       reqString(errors, file, m, "altText");
       optString(errors, file, m, "credit");
+      optString(errors, file, m, "note");
     }
   }
 
@@ -339,10 +340,11 @@ function validatePerson(errors, file, person, assetsDir) {
     checkKebab(errors, file, "category", person.category);
   reqNumber(errors, file, person, "order");
   reqString(errors, file, person, "name");
-  // Both `role` and `bio` wait on the client's text, so a draft person needs only
-  // a name and a portrait — the template renders the "pending" note for the rest.
+  // `bio` waits on the client's text, so a draft person needs only a name and a
+  // portrait — the template renders the "pending" note for the rest.
   const reqUnlessDraft = person.draft === true ? optLocalized : reqLocalized;
-  reqUnlessDraft(errors, file, person, "role");
+  // Role is a one-line gloss only some sources supply (the Scholar doc has none).
+  optLocalized(errors, file, person, "role");
   // Not every figure has published dates (Pastor Ullmer has none), so the
   // lifeline is assembled from whichever of these two the source actually gives.
   optLocalized(errors, file, person, "lifespan");
@@ -563,7 +565,7 @@ function validateEssay(errors, file, essay, assetsDir) {
   reqString(errors, file, fm, "title");
   reqString(errors, file, fm, "slug") && checkKebab(errors, file, "slug", fm.slug);
   reqString(errors, file, fm, "section");
-  reqString(errors, file, fm, "summary");
+  optString(errors, file, fm, "summary");
   reqString(errors, file, fm, "author");
   reqNumber(errors, file, fm, "order");
   optString(errors, file, fm, "category");

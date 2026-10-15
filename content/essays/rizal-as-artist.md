@@ -2,7 +2,6 @@
 title: A Realist's Art: The Creative Life of the Hero
 slug: rizal-as-artist
 section: artist
-summary: Rizal's sculptures, portraits, and sketches — National Cultural Treasures that receive less attention than his writings — trace a quiet narrative of exile, faith, and the sentimiento nacional that ran through everything he made.
 heroImage: sections/artist.webp
 heroCaption: Self-portrait by José Rizal
 order: 2

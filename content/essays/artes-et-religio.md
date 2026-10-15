@@ -2,7 +2,6 @@
 title: Artes et Religio: Sculpting the Sacred Heart of Jesus in Ateneo Municipal
 slug: artes-et-religio
 section: artist
-summary: The batikuling statuette a schoolboy carved at the Ateneo, and what it reveals about faith, craft and instruction in Rizal's earliest artistic training.
 heroImage: sacred-heart-of-jesus/front.webp
 order: 6
 author: Jane Maren Dasal

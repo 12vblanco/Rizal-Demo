@@ -4,20 +4,8 @@
   "category": "friends-and-hosts",
   "order": 16,
   "name": "Juan Luna",
-  "role": {
-    "en": "Filipino painter of the Spoliarium; fellow Propagandista and friend of Rizal",
-    "fil": "Pilipinong pintor ng Spoliarium; kapwa Propagandista at kaibigan ni Rizal",
-    "de": "Philippinischer Maler des Spoliarium; Mitstreiter der Propaganda-Bewegung und Freund Rizals"
-  },
   "lifespan": {
-    "en": "25 October 1857 – 7 December 1899",
-    "fil": "25 Oktubre 1857 – 7 Disyembre 1899",
-    "de": "25. Oktober 1857 – 7. Dezember 1899"
-  },
-  "birthplace": {
-    "en": "Badoc, Ilocos Norte, Philippines",
-    "fil": "Badoc, Ilocos Norte, Pilipinas",
-    "de": "Badoc, Ilocos Norte, Philippinen"
+    "en": "October 25, 1857 - December 7, 1899"
   },
   "portrait": {
     "src": "people/juan-luna.webp",
@@ -31,9 +19,7 @@
     "de": "So finden wir bei Luna die Schatten, das Geheimnisvolle und das Schreckliche, wie ein Echo der dunklen Stürme der Tropen, ihrer Blitze und des zerstörerischen Ausbruchs ihrer Vulkane..."
   },
   "quoteSource": {
-    "en": "José Rizal, in a toast in honour of Juan Luna's win at the National Exposition in Madrid",
-    "fil": "José Rizal, sa isang handog-alay para sa pagwawagi ni Juan Luna sa Pambansang Eksposisyon sa Madrid",
-    "de": "José Rizal, in einem Trinkspruch zu Juan Lunas Sieg bei der Nationalen Ausstellung in Madrid"
+    "en": "Jose Rizal, in a toast in honor of Juan Luna’s win at the National Exposition in Madrid"
   },
   "bio": {
     "en": "In his imaginings, the Filipino's subjugation under the Spanish colonial government was captured by the brutal experience of the gladiators of Rome, despite being on opposite sides of the world. Known for painting this experience in the Spoliarium, Juan Luna may be recognized as one of the, if not the, most renowned among Filipino painters.\n\nLuna won first prize for this artwork at the Exposicion Nacional de Bellas Artes in Madrid in 1884, when he was 27 years old. Before this, he spent his formative years in his hometown, Badoc, Ilocos Norte. He was born Juan Luna de San Pedro y Novicio on 25 October 1857 to Don Joaquin Luna and Doña Laureana Novicio.\n\nLater on, he enrolled at the Academia de Dibujo y Pintura in Manila. After his dismissal from this school, Filipino painter Maestro Lorenzo Guerrero trained Luna to hone his artistic talents. Maestro Guerrero was also instrumental in convincing Luna's parents to send the young artist to Europe for further studies.\n\nUpon his arrival in Europe in 1877, he enrolled at the Escuela de Pintura at the Academia de Bellas Artes de San Fernando in Madrid. He was 20 years old then. He then sought the guidance of Don Alejo Vera, a known painter in Madrid, who brought Luna with him to Italy in 1878 when he was commissioned to paint. Vera's mentorship of Luna made the Filipino painter prolific, and during this time he produced Daphne and Cloe, The Death of Cleopatra, The Blind Slave, and the Spoliarium, among many others.\n\nThis also became the pathway for Luna's genius to become widely known. The Ayuntamiento de Manila granted him an annual pension of 1,000 pesos for four years, allowing him to continue painting in Italy. After spending several years in Rome, he moved his studio to Paris in 1884.\n\nNearly a decade later, Luna moved from Paris to Spain in 1893 after being embroiled in a crime of passion that resulted in the death of his wife, Paz Pardo de Tavera, and his mother-in-law, while wounding his brother-in-law, Felix Pardo de Tavera.\n\nHe moved back to Manila in 1894. He was then briefly imprisoned for being implicated in the Katipunan revolt in 1896. He spent his latter years, after so many life trials, before dying from a heart attack in Hong Kong on 7 December 1899.\n\nTo underscore the friendship of the two reformists, Rizal wrote a biographical profile of Luna, which was published in the La Ilustracion Revista Hispano-Americana. In several instances, Luna's life seems to mirror Rizal's. Both were products of Ateneo Municipal de Manila; young artists—Luna with his paintings and Rizal with his sketches—who sought studies in Europe; became notable Propagandistas; and made their marks in Philippine history through their important works—Luna's Spoliarium and Rizal's Noli Me Tangere and El Filibusterismo.",

@@ -4,8 +4,7 @@
   "category": "of-clay-and-resistance",
   "order": 2,
   "title": {
-    "en": "Saint Anthony of Padua",
-    "es": "San Antonio de Padua"
+    "en": "San Antonio de Padua"
   },
   "objectType": {
     "en": "Sculpture",
@@ -41,8 +40,8 @@
     },
     {
       "src": "san-antonio-de-padua/front-2.webp",
-      "alt": "Postcard from 1911 reproducing a photograph of the statuette when it was still intact, with both heads in place and \u201cRizal\u201d carved on the base",
-      "credit": "Postales Rizal No. 6, Librer\u00eda Manila Filat\u00e9lica, 1911 \u2014 the statuette photographed while still intact"
+      "alt": "Postcard from 1911 reproducing a photograph of the statuette when it was still intact, with both heads in place and “Rizal” carved on the base",
+      "credit": "Postales Rizal No. 6, Librería Manila Filatélica, 1911 — the statuette photographed while still intact"
     }
   ],
   "rights": "National Historical Commission of the Philippines / Bayanihan Collectors Club / National Museum of the Philippines",
@@ -52,7 +51,8 @@
     "poster": "san-antonio-de-padua/model-poster.webp",
     "cardPoster": "san-antonio-de-padua/card-poster.webp",
     "altText": "Interactive 3D model of Rizal's San Antonio de Padua on its stepped base, free to rotate and zoom",
-    "credit": "3D model: photogrammetry by the National Museum of the Philippines"
+    "credit": "3D model: photogrammetry by the National Museum of the Philippines",
+    "note": "The base shown in this 3D model was added digitally for display and is not part of the original object."
   },
   "related": [],
   "featured": false

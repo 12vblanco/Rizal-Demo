@@ -163,6 +163,7 @@
  * @property {string} [cardPoster] - re-framed still for the home 3D strip, so a row of cards shares one scale; see scripts/images/card-poster.mjs
  * @property {string} altText
  * @property {string} [credit] - source/licence attribution shown by the 3D view
+ * @property {string} [note] - small disclaimer after the description, e.g. a digitally added base
  */
 
 /**
@@ -203,7 +204,7 @@
  * @property {string} [category] - the section category tab this person sits under; required when their section declares categories
  * @property {number} order
  * @property {string} name
- * @property {LocalizedString} role
+ * @property {LocalizedString} [role]
  * @property {LocalizedString} [lifespan]
  * @property {LocalizedString} [birthplace]
  * @property {Image} portrait
@@ -256,7 +257,7 @@
  * @property {LocalizedString} title
  * @property {string} slug
  * @property {string} section
- * @property {LocalizedString} summary
+ * @property {LocalizedString} [summary]
  * @property {string} heroImage
  * @property {LocalizedString} [heroCaption]
  * @property {number} order

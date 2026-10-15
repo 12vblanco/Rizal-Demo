@@ -69,14 +69,25 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Fixed 16:9 frame whatever the source's own ratio (e.g. the 3:2 Legarda
+   poster): the poster/video is taken out of flow and fills the frame, so its
+   intrinsic height can never stretch one card taller than the rest. */
 .message-card__media {
   position: relative;
+  flex: none;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
   background: var(--black-cow);
+}
+
+.message-card__media picture {
+  display: contents;
 }
 
 .message-card__poster,
 .message-card__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;

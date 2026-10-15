@@ -54,20 +54,6 @@
   z-index: 2;
 }
 
-.section-hero__eyebrow {
-  display: inline-block;
-  font-size: var(--step--1);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: color-mix(in srgb, var(--text-on-dark) 80%, transparent);
-  margin-block-end: var(--space-s);
-}
-
-.section-hero__eyebrow:hover {
-  color: var(--accent-on-dark);
-}
-
 .section-hero__title {
   font-size: var(--step-5);
   text-transform: uppercase;

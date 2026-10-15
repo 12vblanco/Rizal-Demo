@@ -14,7 +14,7 @@
 import { esc, seoTitle } from "./layout.js";
 import { renderImage } from "./media.js";
 import { icons } from "../icons.js";
-import { objectCard, personCard, renderVtStyle, vtName } from "./fragments.js";
+import { objectCard, objects3dFirst, personCard, renderVtStyle, vtName } from "./fragments.js";
 import { localizeHref, pick, t } from "../i18n.js";
 
 /**
@@ -61,8 +61,7 @@ function renderHero(site, section) {
   ${bg}
   <div class="section-hero__scrim${scrim}"></div>
   <div class="container section-hero__inner">
-    ${badge}<a class="section-hero__eyebrow" href="${esc(localizeHref("/jose-rizal/"))}">${esc(t("joseRizal"))}</a>
-    <h1 class="section-hero__title">${esc(pick(section.heroTitle ?? section.title))}</h1>
+    ${badge}<h1 class="section-hero__title">${esc(pick(section.heroTitle ?? section.title))}</h1>
     <p class="section-hero__intro">${esc(pick(section.intro))}</p>
   </div>
 </section>`;
@@ -70,7 +69,7 @@ function renderHero(site, section) {
 
 // --- Essay teasers ---------------------------------------------------------
 
-/** One essay teaser: title, byline, summary, "Read more" → the real essay
+/** One essay teaser: title, byline, summary (when the client supplied one), "Read more" → the real essay
  *  page (never a modal). Text-only by design — no thumbnail — so it reads as
  *  an excerpt, distinct from the object grid beside it.
  * @param {Essay} essay */
@@ -78,8 +77,8 @@ function renderEssayTeaser(essay) {
   return `<li class="essay-card">
   <h3 class="essay-card__title">${esc(pick(essay.title))}</h3>
   <p class="essay-card__byline">${esc(t("by", { author: essay.author }))}</p>
-  <p class="essay-card__summary">${esc(pick(essay.summary))}</p>
-  <a class="essay-card__more" href="${esc(localizeHref(`/essays/${essay.slug}/`))}" aria-label="${esc(t("readMoreAria", { title: pick(essay.title) }))}">${esc(t("readMore"))} ${icons.arrow}</a>
+${essay.summary ? `  <p class="essay-card__summary">${esc(pick(essay.summary))}</p>
+` : ""}  <a class="essay-card__more" href="${esc(localizeHref(`/essays/${essay.slug}/`))}" aria-label="${esc(t("readMoreAria", { title: pick(essay.title) }))}">${esc(t("readMore"))} ${icons.arrow}</a>
 </li>`;
 }
 
@@ -88,16 +87,6 @@ function renderEssayList(essays) {
   return `<ul class="essay-list">
 ${essays.map((e) => renderEssayTeaser(e)).join("\n")}
     </ul>`;
-}
-
-// --- Object grid ordering ---------------------------------------------------
-
-/** Objects with a `model3d` block lead the grid (stable sort, so curatorial
- *  `order` still governs everything else) — the 3D badge on their card is
- *  otherwise easy to miss below the fold.
- * @param {ContentObject[]} objects */
-function objects3dFirst(objects) {
-  return [...objects].sort((a, b) => Number(Boolean(b.model3d)) - Number(Boolean(a.model3d)));
 }
 
 // --- Category view (Ethnographer) ------------------------------------------
@@ -214,11 +203,9 @@ ${tabs.map((tab) => `        <li><a class="section-tabs__link" href="#${tab.id}"
 
   // The overview panel pairs the overview essay with the whole collection,
   // unfiltered — matching the live site's behavior — rather than an empty grid.
-  // Its first tab is named after the section itself, so the panel heading would
-  // only repeat the page title above it; it renders for assistive tech only.
-  // The category panels keep theirs, which name which slice of the collection
-  // you are looking at.
-  const introPanel = renderCategoryPanel("section-intro", pick(section.title), uncategorised, collection, withEssays, true);
+  // Its heading shows like every category panel's, so each tab names the slice
+  // of the collection you are looking at.
+  const introPanel = renderCategoryPanel("section-intro", pick(section.title), uncategorised, collection, withEssays);
 
   const categoryPanels = section.categories
     .map((c) =>

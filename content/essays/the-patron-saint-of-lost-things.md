@@ -2,7 +2,6 @@
 title: The Patron Saint of Lost Things: The San Antonio de Padua Statuette of Jose Rizal
 slug: the-patron-saint-of-lost-things
 section: artist
-summary: How Franciscan missions reached Laguna, why Teodora Alonzo's devotion mattered, and what Rizal's headless statuette of the patron of lost things came to mean.
 heroImage: san-antonio-de-padua/front.webp
 order: 4
 author: Reann Clarisse A. Robes

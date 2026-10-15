@@ -2,7 +2,6 @@
 title: Love and Resistance: Rizal’s La Venganza de la Madre (The Mother’s Revenge)
 slug: love-and-resistance
 section: artist
-summary: The terracotta dog and crocodile read as an allegory of Inang Bayan — but Rizal never endorsed violent resistance, and the sculpture's afterlife as a nationalist symbol tells its own story.
 heroImage: la-venganza-de-la-madre/front.webp
 order: 3
 author: Nicole Lasquety

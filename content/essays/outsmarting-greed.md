@@ -2,7 +2,6 @@
 title: Outsmarting Greed: The Monkey and the Turtle
 slug: outsmarting-greed
 section: artist
-summary: The fable Rizal illustrated and sent to a London literary journal in 1889, and why a story about a monkey outwitted by a tortoise travelled so well.
 heroImage: the-monkey-and-the-tortoise/front.webp
 order: 10
 author: Mariah Camille Calanno

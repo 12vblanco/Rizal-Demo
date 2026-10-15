@@ -2,7 +2,6 @@
 title: An Ode to the Filipino Youth: A La Juventud Filipina
 slug: an-ode-to-the-filipino-youth
 section: artist
-summary: A La Juventud Filipina won an eighteen-year-old Rizal his Diploma de Honor — and its 'heavy chains' turn out not to mean what they are usually taken to mean.
 heroImage: diploma-de-honor/front.webp
 order: 7
 author: Mariah Camille Calanno

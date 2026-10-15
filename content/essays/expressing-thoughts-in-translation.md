@@ -2,7 +2,6 @@
 title: Expressing Thoughts in Translation: From Wilhelm Tell to Guillermo
 slug: expressing-thoughts-in-translation
 section: artist
-summary: Rizal turned Schiller's Wilhelm Tell into Tagalog from Leipzig. What survives, what shifts, and what a translation reveals about the translator's politics.
 heroImage: guillermo-tell/front.webp
 order: 8
 author: Danilo Ellamil, Jr.

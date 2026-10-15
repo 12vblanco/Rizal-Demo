@@ -115,8 +115,7 @@ function model3dCard(site, obj) {
   // metadata), and which name leads follows the collection cards: for an
   // ethnographic object `tl` is the thing's own name and English is the gloss,
   // so the vernacular leads; an artist's `tl` is a translation of the work's
-  // English title, so English leads there. The object type sits under it —
-  // every card is two lines, which is what makes the row line up.
+  // English title, so English leads there.
   const vernacular = obj.title.tl;
   const vernacularLeads = Boolean(vernacular) && obj.section !== "artist";
   const title = vernacularLeads
@@ -129,7 +128,6 @@ function model3dCard(site, obj) {
     </span>
     <span class="models3d__body">
       ${title}
-      <span class="models3d__type">${esc(pick(obj.objectType))}</span>
     </span>
   </a>
 </li>`;

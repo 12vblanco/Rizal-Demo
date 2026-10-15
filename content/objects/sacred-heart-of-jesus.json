@@ -11,20 +11,10 @@
     "fil": "Eskultura",
     "de": "Skulptur"
   },
-  "materials": {
-    "en": "Batikuling wood",
-    "fil": "Kahoy na batikuling",
-    "de": "Batikuling-Holz"
-  },
   "description": {
     "en": "While a student at Ateneo de Municipal, Rizal carved the statuette out of batikuling wood. The figure of Jesus Christ sits atop a globe-like structure mounted on an octagonal base, with His hand held close to His Sacred Heart.\n\nThe piece remains in good condition, with minor chipping and paint flaking.",
     "fil": "Habang mag-aaral sa Ateneo de Municipal, inukit ni Rizal ang estatwilya mula sa kahoy na batikuling. Ang pigura ni Hesukristo ay nakaupo sa ibabaw ng isang estrukturang tila globo na nakalagay sa walong-gilid na patungan, ang Kanyang kamay ay nakalapat malapit sa Kanyang Banal na Puso.\n\nNananatiling mabuti ang kalagayan ng piyesa, may kakaunting pagkatipak at pagtatalop ng pintura.",
     "de": "Als Schüler am Ateneo de Municipal schnitzte Rizal die Statuette aus Batikuling-Holz. Die Figur Jesu Christi sitzt auf einem kugelähnlichen Gebilde, das auf einem achteckigen Sockel ruht, die Hand nah an sein Heiligstes Herz gelegt.\n\nDas Stück ist in gutem Zustand, mit geringen Absplitterungen und abblätternder Farbe."
-  },
-  "condition": {
-    "en": "Good condition, with minor chipping and paint flaking.",
-    "fil": "Mabuti ang kalagayan, may kakaunting pagkatipak at pagtatalop ng pintura.",
-    "de": "Guter Zustand, mit geringen Absplitterungen und abblätternder Farbe."
   },
   "images": [
     {
@@ -56,7 +46,8 @@
     "poster": "sacred-heart-of-jesus/model-poster.webp",
     "cardPoster": "sacred-heart-of-jesus/card-poster.webp",
     "altText": "Interactive 3D model of Rizal's Sacred Heart of Jesus statuette, free to rotate and zoom",
-    "credit": "3D model: photogrammetry by the National Museum of the Philippines"
+    "credit": "3D model: photogrammetry by the National Museum of the Philippines",
+    "note": "The base shown in this 3D model was added digitally for display and is not part of the original object."
   },
   "related": [],
   "featured": false

@@ -4,15 +4,8 @@
   "category": "friends-and-hosts",
   "order": 14,
   "name": "Félix Resurrección Hidalgo",
-  "role": {
-    "en": "Filipino painter and lawyer; honoured beside Juan Luna in Rizal's 1884 brindis",
-    "fil": "Pilipinong pintor at abogado; pinarangalan katabi ni Juan Luna sa brindis ni Rizal noong 1884",
-    "de": "Philippinischer Maler und Jurist; neben Juan Luna in Rizals Trinkspruch von 1884 geehrt"
-  },
   "lifespan": {
-    "en": "21 February 1855 – 13 March 1913",
-    "fil": "21 Pebrero 1855 – 13 Marso 1913",
-    "de": "21. Februar 1855 – 13. März 1913"
+    "en": "February 21, 1855 – March 13, 1913"
   },
   "portrait": {
     "src": "people/felix-resurreccion-hidalgo.webp",

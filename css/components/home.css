@@ -389,9 +389,12 @@
   color: color-mix(in srgb, var(--text-on-dark) 92%, transparent);
 }
 
+/* Auto top margin pins the link to the bottom of the content area, so both
+   cards' links line up whatever the paragraph length. */
 .teaser__more {
   align-self: start;
-  margin-block-start: var(--space-xs);
+  margin-block-start: auto;
+  padding-block-start: var(--space-xs);
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);

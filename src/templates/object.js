@@ -10,6 +10,7 @@
 
 import {
   objectCard,
+  objects3dFirst,
   personCard,
   renderBreadcrumb,
   renderMarkdown,
@@ -208,34 +209,10 @@ ${thumbItems.join("\n")}
 </div>`;
 }
 
-/** @param {ContentObject} object */
-function renderMeta(object) {
-  // Labels are translated (t); values are localised content (pick), except the
-  // accession number which is a plain identifier. Object type is a strong search
-  // signal — boost it above the other rows for Pagefind (feature 11).
-  const rows = [
-    { key: "metaObjectType", value: pick(object.objectType), boost: true },
-    { key: "metaMaterials", value: pick(object.materials) },
-    { key: "metaDimensions", value: pick(object.dimensions) },
-    { key: "metaAccession", value: object.accession },
-    { key: "metaCondition", value: pick(object.condition) },
-  ].filter((r) => r.value);
-  if (!rows.length) return "";
-  const items = rows
-    .map(
-      (r) =>
-        `    <div><dt>${esc(t(r.key))}</dt><dd${r.boost ? ' data-pagefind-weight="4"' : ""}>${esc(r.value)}</dd></div>`,
-    )
-    .join("\n");
-  return `<dl class="object-meta">
-${items}
-  </dl>`;
-}
-
 /** @param {Site} site @param {ContentObject[]} explore */
 function renderExplore(site, explore) {
   if (!explore.length) return "";
-  const cards = explore.map((obj) => objectCard(site, obj)).join("\n");
+  const cards = objects3dFirst(explore).map((obj) => objectCard(site, obj)).join("\n");
   return `<section class="collection band band--light" aria-labelledby="explore-heading">
   <div class="container">
     <h2 class="collection__heading" id="explore-heading">${esc(t("exploreTheCollection"))}</h2>
@@ -284,14 +261,17 @@ export function renderObject({
         <h1 class="object__title" data-pagefind-weight="10">
           ${object.title.tl ? `<span class="object__title-native" lang="tl">${esc(object.title.tl)}</span>\n          ` : ""}<span class="object__title-en">${esc(object.title.en)}</span>
         </h1>${object.title.es ? `\n        <p class="object__title-es" lang="es">${esc(object.title.es)}</p>` : ""}
-        ${renderMeta(object)}
-        <div class="object__description">
 ${
   object.draft
-    ? `          <p class="text-pending">${esc(t("textPending"))}</p>`
-    : renderMarkdown(pick(object.description))
-}
-        </div>${
+    ? ""
+    : `        <div class="object__description">
+${renderMarkdown(pick(object.description))}
+        </div>`
+}${
+  object.model3d?.note
+    ? `\n        <p class="object__model-note">${esc(object.model3d.note)}</p>`
+    : ""
+}${
   object.author && !object.draft
     ? `\n        <p class="object__author">${esc(t("by", { author: object.author }))}</p>`
     : ""

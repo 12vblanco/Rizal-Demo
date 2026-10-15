@@ -2,7 +2,6 @@
 title: La Dulce Estranjera in Repose: Josephine Sleeping
 slug: la-dulce-estranjera-in-repose
 section: artist
-summary: Rizal's tender Dapitan sculpture of Josephine Bracken, the woman he called his dulce estranjera, and the long road that brought it to the National Museum.
 heroImage: josephine-sleeping/front.webp
 order: 5
 author: Nicole Lasquety
