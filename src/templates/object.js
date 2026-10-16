@@ -259,7 +259,13 @@ export function renderObject({
       </div>
       <div class="object__info-col">
         <h1 class="object__title" data-pagefind-weight="10">
-          ${object.title.tl ? `<span class="object__title-native" lang="tl">${esc(object.title.tl)}</span>\n          ` : ""}<span class="object__title-en">${esc(object.title.en)}</span>
+          ${
+            // The lead name always takes the main heading style; English drops
+            // to the smaller second line only when a vernacular title leads.
+            object.title.tl
+              ? `<span class="object__title-native" lang="tl">${esc(object.title.tl)}</span>\n          <span class="object__title-en">${esc(object.title.en)}</span>`
+              : `<span class="object__title-native">${esc(object.title.en)}</span>`
+          }
         </h1>${object.title.es ? `\n        <p class="object__title-es" lang="es">${esc(object.title.es)}</p>` : ""}
 ${
   object.draft

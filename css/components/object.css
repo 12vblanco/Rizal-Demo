@@ -93,8 +93,11 @@
   background-image: linear-gradient(var(--exhibit-frame-dark), var(--exhibit-frame-dark));
 }
 
+/* Sits inside the tinted gallery frame, so it carries its own inset rather
+   than a top margin — otherwise the text runs flush to the frame's edge. */
 .object-gallery__credit {
-  margin-top: var(--space-xs);
+  margin: 0;
+  padding: var(--space-xs) var(--space-s);
   font-size: var(--step--1);
   color: var(--black-cow);
 }
