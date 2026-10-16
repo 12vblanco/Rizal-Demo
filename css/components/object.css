@@ -52,6 +52,7 @@
 /* --- Two-column layout -------------------------------------------------- */
 .object__layout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-xl);
 }
 
@@ -485,6 +486,7 @@
   font-family: var(--font-heading);
   font-size: var(--step-1);
   color: var(--heading-on-light);
+  overflow-wrap: anywhere; /* long words like "Gendarmenmarkt" on narrow phones */
 }
 
 .object-pager__link:hover .object-pager__name {
@@ -616,15 +618,15 @@
 
 .collection-card__native {
   font-family: var(--font-heading);
-  font-size: var(--step-1);
+  font-size: 1.3125rem;
   color: var(--heading-on-light);
-  /* Two lines, then an ellipsis: the longest titles here run to four lines and
-     set the height of every other card in the grid. The full title is still
-     the link's accessible name and is on the detail page. */
+  /* Three lines, then an ellipsis: the longest titles here run far longer and
+     would set the height of every other card in the grid. The full title is
+     still the link's accessible name and is on the detail page. */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
   overflow: hidden;
   overflow-wrap: anywhere;
   min-width: 0;

@@ -58,6 +58,8 @@ body {
   line-height: 1.6;
   color: var(--text-on-light);
   background: var(--bg-light);
+  /* Long unbroken strings (URLs in references) wrap instead of running off screen. */
+  overflow-wrap: break-word;
   -webkit-font-smoothing: antialiased;
   font-synthesis: none; /* Alice has no bold/italic — never fake them */
 }

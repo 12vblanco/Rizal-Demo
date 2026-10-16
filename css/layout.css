@@ -190,6 +190,51 @@
   white-space: nowrap; /* keep multi-word items like "As Ethnographer" on one line */
 }
 
+/* Mobile: one compact row — brand left, hamburger + search right (same side as
+   tablet/desktop). Smaller logo and wordmark so the bar never wraps to two rows. */
+@media (max-width: 51.999rem) {
+  .site-header {
+    padding-block: var(--space-xs);
+  }
+  .site-header__inner {
+    flex-wrap: nowrap;
+    gap: var(--space-s);
+  }
+  .site-header__brand {
+    min-width: 0;
+  }
+  .site-header__logo {
+    height: 3.25rem;
+    margin-inline-start: calc(3.25rem * -376 / 1570);
+  }
+  .site-header__brand-title {
+    font-size: 0.95rem;
+    letter-spacing: -0.2px;
+    margin-top: 0.2rem;
+  }
+  .site-header__brand-subtitle {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+  .site-header .site-nav {
+    flex: none;
+    gap: var(--space-2xs);
+  }
+}
+
+/* Smallest phones (≤360px): trim side gutters and wordmark a touch more. */
+@media (max-width: 22.5rem) {
+  .site-header .container {
+    padding-inline: var(--space-m);
+  }
+  .site-header__brand-title {
+    font-size: 0.85rem;
+  }
+  .site-header__brand-subtitle {
+    font-size: 0.7rem;
+  }
+}
+
 /* Mobile: list is a panel below the header, revealed by the hamburger. */
 @media (max-width: 51.999rem) {
   .site-nav__list {

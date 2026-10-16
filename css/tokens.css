@@ -94,3 +94,10 @@
     var(--model-stage-start)
   );
 }
+
+/* Mobile: smaller section titles. */
+@media (max-width: 51.999rem) {
+  :root {
+    --section-title: 2.2rem;
+  }
+}

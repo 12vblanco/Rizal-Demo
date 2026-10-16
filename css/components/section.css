@@ -203,6 +203,7 @@
 
 .essay-card__title {
   color: var(--heading-on-light);
+  font-size: 1.3125rem;
   margin: 0;
 }
 
