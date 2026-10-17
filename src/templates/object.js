@@ -252,6 +252,7 @@ export function renderObject({
   return `${renderVtStyle(vtNames)}
 <article class="object band band--light">
   <div class="container">
+    <div class="object__stage">
     ${renderBreadcrumb({ site, section, leaf: objectName(object), leafLang: object.title.tl ? "tl" : undefined })}
     <div class="object__layout">
       <div class="object__gallery-col">
@@ -284,6 +285,7 @@ ${renderMarkdown(pick(object.description))}
 }
         <p class="object__rights">${esc(object.rights)}</p>
       </div>
+    </div>
     </div>
 
     ${renderPager({

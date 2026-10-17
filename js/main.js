@@ -24,6 +24,35 @@ if (siteHeader) {
   }).observe(siteHeader);
 }
 
+// Object page: pin the breadcrumb + gallery (css/components/object.css) only
+// when the text runs longer than the gallery, and only when breadcrumb +
+// gallery fit under the header — otherwise the thumbnails would be trapped
+// off-screen until the text ends.
+const objectStage = document.querySelector(".object__stage");
+if (objectStage) {
+  const crumb = objectStage.querySelector(".breadcrumb");
+  const gallery = objectStage.querySelector(".object__gallery-col");
+  const info = objectStage.querySelector(".object__info-col");
+  const pinStage = () => {
+    const headerH = siteHeader ? siteHeader.offsetHeight : 0;
+    // Height + margins: pinned, the margins become padding, so this stays the
+    // same either way (the CSS adds the pinned top padding back on).
+    const cs = crumb ? getComputedStyle(crumb) : null;
+    const crumbH = crumb
+      ? crumb.offsetHeight + parseFloat(cs.marginTop) + parseFloat(cs.marginBottom)
+      : 0;
+    objectStage.style.setProperty("--crumb-h", `${crumbH}px`);
+    objectStage.classList.toggle(
+      "is-pinned",
+      info.offsetHeight > gallery.offsetHeight &&
+        headerH + crumbH + 16 + gallery.offsetHeight <= window.innerHeight,
+    );
+  };
+  const ro = new ResizeObserver(pinStage);
+  [gallery, info].forEach((el) => ro.observe(el));
+  window.addEventListener("resize", pinStage);
+}
+
 // Pull-quote signature (home page): swap the static SVG for the live site's
 // hand-drawn autograph animation once the quote scrolls into view — but only
 // when motion is welcome, so reduced-motion and JS-off visitors keep the SVG

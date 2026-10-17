@@ -63,10 +63,56 @@
     align-items: start;
   }
 
-  /* Metadata column follows the gallery on scroll for tall galleries. */
-  .object__info-col {
+  /* Breadcrumb on one line, no wider than the gallery column below it:
+     (row − gap) × 1.1/2.1, the gallery's share of the 1.1fr / 1fr tracks above.
+     A long object name is cut with an ellipsis (it is in full in the h1).
+     Phones keep the wrapping breadcrumb: four crumbs on one line at 360px
+     would cut every one of them. */
+  .object__stage .breadcrumb__list {
+    max-width: calc((100% - var(--space-2xl)) * 1.1 / 2.1);
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+
+  .object__stage .breadcrumb__list li {
+    flex-shrink: 0;
+  }
+
+  .object__stage .breadcrumb__list li:last-child {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .object__stage .breadcrumb [aria-current="page"] {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Long-text pages: breadcrumb and gallery stay in view while the text
+     scrolls. js/main.js sets .is-pinned on .object__stage only when the text
+     column is taller than the gallery and the gallery fits the viewport (else
+     its thumbnails would be unreachable until the text ends). Offsets clear the
+     sticky site header (--header-h) and the breadcrumb (--crumb-h), both
+     measured in js/main.js. The breadcrumb carries the band colour so the text
+     scrolls under it; bottom padding replaces its bottom margin (same box
+     height either way) so that cover reaches the gallery's top edge. */
+  .object__stage.is-pinned .breadcrumb {
     position: sticky;
-    top: calc(var(--space-2xl));
+    top: var(--header-h, 0px);
+    z-index: 2;
+    margin-bottom: 0;
+    padding-bottom: var(--space-l);
+    /* 1rem of breathing room under the header once stuck; the negative margin
+       cancels it in flow so nothing shifts when pinning switches on. */
+    margin-top: -1rem;
+    padding-top: 1rem;
+    background: var(--bg-light);
+  }
+
+  .object__stage.is-pinned .object__gallery-col {
+    position: sticky;
+    top: calc(var(--header-h, 0px) + var(--crumb-h, 0px) + 1rem);
   }
 }
 
