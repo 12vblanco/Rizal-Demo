@@ -74,7 +74,7 @@ function renderHero(site) {
   </video>
   <div class="hero__scrim"></div>
   <div class="container hero__inner">
-    <h1 class="hero__title">${esc(pick(site.exhibitionTitle))}:<br>
+    <h1 class="hero__title">${esc(pick(site.exhibitionTitle).replace(/\band\b/, "&"))}:<br>
       <span class="hero__subtitle">${esc(pick(site.exhibitionSubtitle))}</span></h1>
     <p class="hero__intro">${esc(pick(site.description))}</p>${renderHeroCtas(site)}
   </div>

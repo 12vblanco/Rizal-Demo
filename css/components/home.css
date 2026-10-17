@@ -475,7 +475,7 @@
     min-height: calc(100svh - var(--header-h, 150px));
   }
   .hero__title {
-    letter-spacing: -0.3px;
+    letter-spacing: -1.2px;
   }
   .hero__actions {
     flex-direction: column;
